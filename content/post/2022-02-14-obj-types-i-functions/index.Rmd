@@ -269,7 +269,9 @@ several reasons for doing so:
 
 1. **Code becomes more concise and transparent** It is easier to document code
 that uses functions because of the documentation conventions introduced above.
-Morever the code becomes shorter and easier to read.
+Morever, the code becomes shorter and easier to read. As a rule of thumb, after
+pasting and slightly adjusting some of your code twice, consider turning it
+into a function.
 
 2. **Functions help to structure your code** Functions summarize, on a higher 
 level of abstraction, your idea of how to solve a certain problem. Because you
@@ -281,7 +283,7 @@ implementation of a routine in your code. If this routine is used ten times in
 your code and you did not use functions, you must correct your mistake ten times.
 If you used a function, you had to correct the mistake only once. Needless to
 say that functions reduce the likelihood for a mistake by providing you with the
-incentive to document the code, and because they avoid careless mistakes
+incentive to document the code, and because they avoid incidental mistakes
 that will always happen if you write the same code many times in different
 places.
 
