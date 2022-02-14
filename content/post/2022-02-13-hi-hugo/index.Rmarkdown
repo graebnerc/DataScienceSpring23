@@ -1,0 +1,35 @@
+---
+title: Hi Hugo
+author: ''
+date: '2022-02-13'
+slug: hi-hugo
+categories: []
+tags: []
+---
+
+This is an example post. Here I also add an image:
+
+```{r echo=FALSE}
+knitr::include_graphics("vector-classification.png", auto_pdf = TRUE)
+```
+
+Download this as [PDF](index.pdf)
+
+```{r, eval=FALSE}
+rmarkdown::render(
+  input = "content/post/2022-02-13-hi-hugo/index.Rmarkdown", 
+  "pdf_document")
+```
+
+
+```{r echo=FALSE}
+library(ggplot2)
+oplot <- ggplot(Orange, aes(x = age, 
+                   y = circumference, 
+                   colour = Tree)) +
+  geom_point() +
+  geom_line() +
+  guides(colour = "none") +
+  theme_bw()
+oplot
+```
