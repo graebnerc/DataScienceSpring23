@@ -12,7 +12,7 @@
 <meta name="author" content="Claudius Gräbner-Radkowitsch" />
 
 
-<title>Fundamental object types in R II: Vectors</title>
+<title>Fundamental object types in R I: Functions</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -435,7 +435,8 @@ pre code {
 
 
 
-<h1 class="title toc-ignore">Fundamental object types in R II: Vectors</h1>
+<h1 class="title toc-ignore">Fundamental object types in R I:
+Functions</h1>
 <h4 class="author">Claudius Gräbner-Radkowitsch</h4>
 <h4 class="date">2/12/2022</h4>
 
@@ -443,497 +444,261 @@ pre code {
 
 <div id="TOC">
 <ul>
-<li><a href="#overview"><span class="toc-section-number">1</span> Overview</a></li>
-<li><a href="#vectors"><span class="toc-section-number">2</span> Vectors</a></li>
+<li><a href="#overview"><span class="toc-section-number">1</span>
+Overview</a></li>
+<li><a href="#functions"><span class="toc-section-number">2</span>
+Functions</a></li>
 </ul>
 </div>
 
 <div id="overview" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Overview</h1>
-<p>We already learned (LINK) that everything in R that exists is an <em>object</em>. You most likely already noted that there are different types of objects: <code>2</code>, for instance, was a number, but <code>assign</code> was a function.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> As you might have guessed, there are many more types of objects. To understand the fundamental object types in R is a very essential prerequisite to master more complicated programming challenges than those we have encountered so far. Thus, this post is among those that will introduce you to the most important object types that you will encounter in R.</p>
+<p>We already learned (LINK) that everything in R that exists is an
+<em>object</em>. You most likely already noted that there are different
+types of objects: <code>2</code>, for instance, was a number, but
+<code>assign</code> was a function.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> As you might have guessed, there are many
+more types of objects. To understand the fundamental object types in R
+is a very essential prerequisite to master more complicated programming
+challenges than those we have encountered so far. Thus, this post is
+among those that will introduce you to the most important object types
+that you will encounter in R.</p>
 <p>These data types are summarized in the following figure:</p>
 <p><img src="data:image/png;base64,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" /><!-- --></p>
-<p>This post will be about the most common types of vectors. See the previous post for a treatment of functions, and the upcoming one for more advanced types of vectory, such as <code>factor</code>, <code>matrix</code>, and <code>data.frame</code>.</p>
+<p>This post will be about functions. Different types of vectors are
+covered in the upcoming posts.</p>
 </div>
-<div id="vectors" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> Vectors</h1>
-<p>Vektoren sind einer der wichtigsten Objektypen in R. Quasi alle Daten mit denen wir in R arbeiten werden als Vektoren behandelt.</p>
-<p>Was Vektoren angeht gibt es wiederum die wichtige <strong>Unterscheidung von atomaren Vektoren und Listen</strong>. Beide bestehen ihrerseits aus Objekten und sie unterscheiden sich dadurch, dass atomare Vektoren nur aus Objekten des gleichen Typs bestehen können, Listen dagegen auch Objekte unterschiedlichen Typs beinhalten können.</p>
-<p>Entsprechend kann jeder atomare Vektor einem Typ zugeordnet werden, je nachdem welchen Typ seine Bestandteile haben. Hier sind insbesondere vier Typen relevant:</p>
-<ul>
-<li><code>logical</code> (logische Werte): es gibt zwei logische Werte, <code>TRUE</code> und <code>FALSE</code>, welche auch mit <code>T</code> oder <code>F</code> abgekürzt werden können</li>
-<li><code>integer</code> (ganze Zahlen): das sollte im Prinzip selbsterklärend sein, allerding muss den ganzen Zahlen in R immer der Buchstabe <code>L</code> folgen, damit die Zahl tatsächlich als ganze Zahl interpretiert wird.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> Beispiele sind <code>1L</code>, <code>400L</code> oder <code>10L</code>.<br />
-</li>
-<li><code>double</code> (Dezimalzahlen): auch das sollte selbsterklärend sein; Beispiele wären <code>1.5</code>, <code>0.0</code>, oder <code>-500.32</code>.</li>
-<li>Ganze Zahlen und Dezimalzahlen werden häufig unter der Kategorie <code>numeric</code> zusammengefasst. Dies ist in der Praxis aber quasi nie hilfreich und man sollte diese Kategorie möglichst nie verwenden.</li>
-<li><code>character</code> (Wörter): sie sind dadurch gekennzeichnet, dass sie auch Buchstaben enthalten können und am Anfang und Ende ein <code>&quot;</code> haben. Beispiele hier wären <code>&quot;Hallo&quot;</code>, <code>&quot;500&quot;</code> oder <code>&quot;1_2_Drei&quot;</code>.</li>
-<li>Es gibt noch zwei weitere besondere ‘Typen’, die strikt gesehen keine atomaren Vektoren darstellen, allerdings in diesem Kontext schon häufig auftauchen: <code>NULL</code>, was strikt genommen ein eigener Datentyp ist und immer die Länge 0 hat, sowie <code>NA</code>, das einen fehlenden Wert darstellt.</li>
-</ul>
-<p>Hieraus ergibt sich die in Abbildung @ref(fig:vektoren) aufgezeigte Aufteilung von Vektoren.</p>
-<p>Wir werden nun die einzelnen Typen genauer betrachten. Vorher wollen wir jedoch noch die Funktion <code>typeof</code> einführen. Sie hilft uns in der Praxis den Typ eines Objekts herauszufinden. Dafür rufen wir einfach die Funktion <code>typeof</code> mit dem zu untersuchenden Objekt oder dessen Namen auf:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(2L)</span></code></pre></div>
-<pre><code>## [1] &quot;integer&quot;</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fl">22.0</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(x)</span></code></pre></div>
-<pre><code>## [1] &quot;double&quot;</code></pre>
-<p>Wir können auch explizit testen ob ein Objekt tatsächlich ein Objekt eines bestimmten Typs ist. Die generelle Syntax hierfür ist: <code>is.*()</code>, also z.B.:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fl">1.0</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.integer</span>(x)</span></code></pre></div>
-<pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.double</span>(x)</span></code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
-<p>Diese Funktion gibt als Output also immer einen logischen Wert aus, je nachdem ob die Inputs des entsprechenden Typs sind oder nicht.</p>
-<p>Bestimmte Objekte können auch in einen anderen Typ transformiert werden. Hier spricht man von <code>coercion</code> und die generelle Syntax hierfür ist: <code>as.*()</code>, also z.B.:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">&quot;2&quot;</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">typeof</span>(x)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<pre><code>## [1] &quot;character&quot;</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">as.double</span>(x)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">typeof</span>(x)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<pre><code>## [1] &quot;double&quot;</code></pre>
-<p>Allerdings ist eine Transformation nicht immer möglich:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.double</span>(<span class="st">&quot;Hallo&quot;</span>)</span></code></pre></div>
-<pre><code>## Warning: NAs introduced by coercion</code></pre>
-<pre><code>## [1] NA</code></pre>
-<p>Da R nicht weiß wie man aus dem Wort ‘Hallo’ eine Dezimalzahl machen soll, transformiert R das Wort in einen ‘Fehlenden Wert’, der in R als <code>NA</code> bekannt ist und unten noch genauer diskutiert wird.</p>
-<p>Für die Grundtypen ergibt sich folgende logische Hierachie an trivialen Transformationen: <code>logical</code> → <code>integer</code> → <code>double</code> → <code>character</code>, d.h. man kann eine Dezimalzahl ohne Probleme in ein Wort transformieren, aber nicht umgekehrt:</p>
-<blockquote>
-<p><strong>Exkurs: Warum überhaupt transformieren?</strong> Für eine Programmiersprache sind Datentypen extrem wichtig, weil sonst unklar bliebe wie mathematische Operationen auf unterschiedliche Objekte wie Zahlen oder Wörter anzuwenden wären. Selbst transformieren werden Sie Objekte vor allem wenn Sie eine bestimmte, nur für eine bestimmte Objektart definierte Operation verwenden wollen und das Objekt bislang als ein anderer Typ gespeichert ist. Das kann zum Beispiel passieren wenn Sie Daten einlesen oder Wörter selbst in Zahlenwerte übersetzen. Wenn in Ihrem Code unerwartete Fehler mit kryptischen Fehlermeldungen auftauchen ist es immer eine gute Idee, erst einmal die Typen der verwendeten Objekte zu checken und die Objekte ggf. zu transformieren.</p>
-</blockquote>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">as.character</span>(x)</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(y)</span></code></pre></div>
-<pre><code>## [1] &quot;2&quot;</code></pre>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">as.double</span>(y) <span class="co"># Das funktioniert</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(z)</span></code></pre></div>
-<pre><code>## [1] 2</code></pre>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="fu">as.double</span>(<span class="st">&quot;Hallo&quot;</span>) <span class="co"># Das nicht</span></span></code></pre></div>
-<pre><code>## Warning: NAs introduced by coercion</code></pre>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(k)</span></code></pre></div>
-<pre><code>## [1] NA</code></pre>
-<p>Bei der Transformation logischer Werte wird <code>TRUE</code> übrigens zu <code>1</code> und <code>FALSE</code> zu <code>0</code>, eine Tatsache, die wir uns später noch zunutze machen werden:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.integer</span>(x)</span></code></pre></div>
-<pre><code>## [1] 1</code></pre>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.integer</span>(y)</span></code></pre></div>
-<pre><code>## [1] 0</code></pre>
-<p>Da nicht immer ganz klar ist wann R bei Transformationen entgegen der gerade eingeführten Hierachie eine Warnung ausgibt und wann nicht sollte man hier immer besondere Vorsicht walten lassen!</p>
-<p>Zudem ist bei jeder Transformation Vorsicht geboten, da sie häufig Eigenschaften der Objekte implizit verändert. So führt eine Transformation von einer Dezimalzahl hin zu einer ganzen Zahl teils zu unerwartetem Rundungsverhalten:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fl">1.99</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.integer</span>(x)</span></code></pre></div>
-<pre><code>## [1] 1</code></pre>
-<p>Auch führen Transformationen, die der eben genannten Hierachie zuwiderlaufen, nicht zwangsweise zu Fehlern, sondern ‘lediglich’ zu unerwarteten Änderungen, die in jedem Fall vermieden werden sollten:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">as.logical</span>(<span class="dv">99</span>)</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(z)</span></code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
-<p>Häufig transformieren Funktionen ihre Argumente automatisch, was meistens hilfreich ist, manchmal aber auch gefährlich sein kann:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> 1L <span class="co"># Integer</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fl">2.0</span> <span class="co"># Double</span></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> x <span class="sc">+</span> y</span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(z)</span></code></pre></div>
-<pre><code>## [1] &quot;double&quot;</code></pre>
-<p>Bei einer Addition werden logische Werte ebenfalls automatisch transformiert:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> x <span class="sc">+</span> y <span class="co"># TRUE wird zu 1, FALSE zu 0</span></span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(z) </span></code></pre></div>
-<pre><code>## [1] 1</code></pre>
-<p>Daher sollte man immer den Überblick behalten, mit welchen Objekttypen man gerade arbeitet.</p>
-<p>Einen Überblick zu den Test- und Transformationsbefehlen finden Sie in Tabelle @ref(tab:artentests).</p>
-<table>
-<caption>(#tab:artentests) Ein Überblick zu Test- und Transformationsbefehlen in R.</caption>
-<thead>
-<tr class="header">
-<th>Typ</th>
-<th>Test</th>
-<th>Transformation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>logical</td>
-<td><code>is.logical</code></td>
-<td><code>as.logical</code></td>
-</tr>
-<tr class="even">
-<td>double</td>
-<td><code>is.double</code></td>
-<td><code>as.double</code></td>
-</tr>
-<tr class="odd">
-<td>integer</td>
-<td><code>is.integer</code></td>
-<td><code>as.integer</code></td>
-</tr>
-<tr class="even">
-<td>character</td>
-<td><code>is.character</code></td>
-<td><code>as.character</code></td>
-</tr>
-<tr class="odd">
-<td>function</td>
-<td><code>is.function</code></td>
-<td><code>as.function</code></td>
-</tr>
-<tr class="even">
-<td>NA</td>
-<td><code>is.na</code></td>
-<td>NA</td>
-</tr>
-<tr class="odd">
-<td>NULL</td>
-<td><code>is.null</code></td>
-<td><code>as.null</code></td>
-</tr>
-</tbody>
-</table>
-<p>Ein letzter Hinweis zu <strong>Skalaren</strong>. Unter Skalaren verstehen wir in der Regel ‘einzelne Zahlen’, z.B. <code>2</code>. Dieses Konzept gibt es in R nicht. <code>2</code> ist ein Vektor der Länge 1. Wir unterscheiden also vom Typ her nicht zwischen einem Vektor, der nur ein oder mehrere Elemente hat.</p>
-<p><strong>Hinweis:</strong> Um längere Vektoren zu erstellen, verwenden wir die Funktion <code>c()</code>:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
-<pre><code>## [1] 1 2 3</code></pre>
-<p>Dabei können Vektoren auch miteinander verbunden werden:</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span> <span class="co"># Shortcut für: x &lt;- c(1, 2, 3)</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">6</span></span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">c</span>(x, y)</span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>z</span></code></pre></div>
-<pre><code>## [1] 1 2 3 4 5 6</code></pre>
-<p>Da atomare Vektoren immer nur Objekte des gleichen Typs enthalten, könnte man erwarten, dass es zu einem Fehler kommt, wenn wir Objete unterschiedlichen Type kombinieren wollen:</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="st">&quot;Hallo&quot;</span>)</span></code></pre></div>
-<p>Tatsächlich transformiert R die Objekte allerdings nach der oben beschriebenen Hierachie <code>logical</code> → <code>integer</code> → <code>double</code> → <code>character</code>. Da hier keine Warnung oder kein Fehler ausgegeben wird, sind derlei Transformationen eine gefährliche Fehlerquelle!</p>
-<p><strong>Hinweis:</strong> Die Länge eines Vektors kann mit der Funktion <code>length</code> bestimmt werden:</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span>  <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>len_x <span class="ot">&lt;-</span> <span class="fu">length</span>(x)</span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>len_x</span></code></pre></div>
-<pre><code>## [1] 3</code></pre>
-<blockquote>
-<p><strong>Exkurs: Wie groß kann eine ganze Zahl sein?</strong> In R werden <code>integer</code> als 32-Bit Daten gespeichert. Das bedeutet, dass für einen einzelnen <code>integer</code> 32 Bit Speicherplatz zur Verfügung steht. Das bedeutet, dass sehr große ganze Zahlen nicht als <code>integer</code> gespeichert werden können, einfach weil die 32 Bit nicht ausreichen.</p>
-</blockquote>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> 2147483647L</span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(x)</span></code></pre></div>
-<pre><code>## [1] &quot;integer&quot;</code></pre>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> 2147483648L</span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(y)</span></code></pre></div>
-<pre><code>## [1] &quot;double&quot;</code></pre>
-<blockquote>
-<p>Mit 32-Bit Integern kann man also maximal die Zahl 2147483647 speichern. Größere Zahlen können nur als <code>double</code> gespeichert werden. Das geht allerdings möglicherweise mit einem Verlust an Präzision einher. Wenn man letzteres vermeiden möchte kann man auch 64-Bit Integer verwenden. Diese wurden nachträglich in R eingeführt um auch sehr große Zahlen als Integer speichern zu können. Das geht über das Paket <code>bit64</code> (mehr zu Paketen unten in Abschnit @ref(es:pakete)):</p>
-</blockquote>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> bit64<span class="sc">::</span><span class="fu">as.integer64</span>(<span class="dv">2147483648</span>)</span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>bit64<span class="sc">::</span><span class="fu">is.integer64</span>(z)</span></code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
-<blockquote>
-<p>Da aber dieser Datentyp später hinzugefügt wurde funktionieren einige Funktionen damit nicht, wenn das Paket <code>bit64</code> nicht installiert ist und einige Standard- Funktionen geben irreführende Ergebnisse, z.B.:</p>
-</blockquote>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(z)</span></code></pre></div>
-<pre><code>## [1] &quot;double&quot;</code></pre>
-<blockquote>
-<p>Deswegen, und weil <code>bit64</code> nicht Teil der Standard-Installation von R ist, sollten wir sehr große ganze Zahlen und die Verwendung vom Datentyp <code>integer64</code> dringend vermeiden, es sei denn wir haben gute Gründe dazu. Sehr große ganze Zahlen sollten also entweder als Dezimalzahlen gespeichert werden wenn kleine Verluste an Präzision keine Rolle spielen, oder aber sie sollten angemessen skaliert werden.</p>
-</blockquote>
-<div id="basics-logic" class="section level3" number="2.0.1">
-<h3><span class="header-section-number">2.0.1</span> Logische Werte (logical)</h3>
-<p>Die logischen Werte <code>TRUE</code> und <code>FALSE</code> sind häufig das Ergebnis von logischen Abfragen, z.B. ‘Ist 2 größer als 1?’. Solche Abfragen kommen in der Forschungspraxis häufig vor und es macht Sinn, sich mit den häufigsten logischen Operatoren vertraut zu machen. Einen Überblick finden Sie in Tabelle @ref(tab:logicaloperators).</p>
-<table>
-<caption>(#tab:logicaloperators) Zentrale logische Abfragen in R.</caption>
-<thead>
-<tr class="header">
-<th align="center">Operator</th>
-<th align="center">Funktion in R</th>
-<th align="left">Beispiel</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">größer</td>
-<td align="center"><code>&gt;</code></td>
-<td align="left"><code>2&gt;1</code></td>
-</tr>
-<tr class="even">
-<td align="center">kleiner</td>
-<td align="center"><code>&lt;</code></td>
-<td align="left"><code>2&lt;4</code></td>
-</tr>
-<tr class="odd">
-<td align="center">gleich</td>
-<td align="center"><code>==</code></td>
-<td align="left"><code>4==3</code></td>
-</tr>
-<tr class="even">
-<td align="center">größer gleich</td>
-<td align="center"><code>&gt;=</code></td>
-<td align="left"><code>8&gt;=8</code></td>
-</tr>
-<tr class="odd">
-<td align="center">kleiner gleich</td>
-<td align="center"><code>&lt;=</code></td>
-<td align="left"><code>5&lt;=9</code></td>
-</tr>
-<tr class="even">
-<td align="center">nicht gleich</td>
-<td align="center"><code>!=</code></td>
-<td align="left"><code>4!=5</code></td>
-</tr>
-<tr class="odd">
-<td align="center">und</td>
-<td align="center"><code>&amp;</code></td>
-<td align="left"><code>x&lt;90 &amp; x&gt;55</code></td>
-</tr>
-<tr class="even">
-<td align="center">oder</td>
-<td align="center"><code>|</code></td>
-<td align="left"><code>x&lt;90 | x&gt;55</code></td>
-</tr>
-<tr class="odd">
-<td align="center">entweder oder</td>
-<td align="center"><code>xor()</code></td>
-<td align="left"><code>xor(2&lt;1, 2&gt;1)</code></td>
-</tr>
-<tr class="even">
-<td align="center">nicht</td>
-<td align="center"><code>!</code></td>
-<td align="left"><code>!(x==2)</code></td>
-</tr>
-<tr class="odd">
-<td align="center">ist wahr</td>
-<td align="center"><code>isTRUE()</code></td>
-<td align="left"><code>isTRUE(1&gt;2)</code></td>
-</tr>
-</tbody>
-</table>
-<p>Das Ergebnis eines solches Tests ist immer ein logischer Wert:</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> x <span class="sc">==</span> <span class="dv">8</span></span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(y)</span></code></pre></div>
-<pre><code>## [1] &quot;logical&quot;</code></pre>
-<p>Es können auch längere Vektoren getestet werden:</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span></span>
-<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>x<span class="sc">&lt;</span><span class="dv">2</span></span></code></pre></div>
-<pre><code>## [1]  TRUE FALSE FALSE</code></pre>
-<p>Tests können beliebig miteinander verknüpft werden:</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> 1L</span>
-<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>x<span class="sc">&gt;</span><span class="dv">2</span> <span class="sc">|</span> x<span class="sc">&lt;</span><span class="dv">2</span> <span class="sc">&amp;</span> (<span class="fu">is.double</span>(x) <span class="sc">&amp;</span> x<span class="sc">!=</span><span class="dv">0</span>)</span></code></pre></div>
-<pre><code>## [1] FALSE</code></pre>
-<p>Da für viele mathematischen Operationen <code>TRUE</code> als die Zahl <code>1</code> interpretiert wird, ist es einfach zu testen wie häufig eine bestimmte Bedingung erfüllt ist:</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">50</span> </span>
-<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>smaller_20 <span class="ot">&lt;-</span> x<span class="sc">&lt;</span><span class="dv">20</span> </span>
-<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(</span>
-<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sum</span>(smaller_20) <span class="co"># Wie viele Elemente sind kleiner als 20?</span></span>
-<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
-<pre><code>## [1] 19</code></pre>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(</span>
-<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sum</span>(smaller_20<span class="sc">/</span><span class="fu">length</span>(x)) <span class="co"># Wie hoch ist der Anteil von diesen Elementen?</span></span>
-<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<pre><code>## [1] 0.38</code></pre>
-</div>
-<div id="wörter-character" class="section level3" number="2.0.2">
-<h3><span class="header-section-number">2.0.2</span> Wörter (character)</h3>
-<p>Wörter werden in R dadurch gebildet, dass an ihrem Anfang und Ende das Symbol <code>&#39;</code> oder <code>&quot;</code> steht:</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">&quot;Hallo&quot;</span></span>
-<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(x)</span></code></pre></div>
-<pre><code>## [1] &quot;character&quot;</code></pre>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="st">&#39;Auf Wiedersehen&#39;</span></span>
-<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(y)</span></code></pre></div>
-<pre><code>## [1] &quot;character&quot;</code></pre>
-<p>Wie andere Vektoren können sie mit der Funktion <code>c()</code> verbunden werden:</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">c</span>(x, <span class="st">&quot;und&quot;</span>, y)</span>
-<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>z</span></code></pre></div>
-<pre><code>## [1] &quot;Hallo&quot;           &quot;und&quot;             &quot;Auf Wiedersehen&quot;</code></pre>
-<p>Nützlich ist in diesem Zusammenhang die Funktion <code>paste()</code>, die Elemente von mehreren Vektoren in Wörter transformiert und verbindet:</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;Versuch Nr.&quot;</span>, x)</span>
-<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>y</span></code></pre></div>
-<pre><code>##  [1] &quot;Versuch Nr. 1&quot;  &quot;Versuch Nr. 2&quot;  &quot;Versuch Nr. 3&quot;  &quot;Versuch Nr. 4&quot; 
-##  [5] &quot;Versuch Nr. 5&quot;  &quot;Versuch Nr. 6&quot;  &quot;Versuch Nr. 7&quot;  &quot;Versuch Nr. 8&quot; 
-##  [9] &quot;Versuch Nr. 9&quot;  &quot;Versuch Nr. 10&quot;</code></pre>
-<p>Die Funktion <code>paste()</code> akzeptiert ein optionales Argument <code>sep</code>, mit dem wir den Wert angeben können, der zwischen die zu verbindenden Elemente gesetzt wird (der Default ist <code>sep=&quot; &quot;</code>):</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>tag_nr <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>x_axis <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;Tag&quot;</span>, tag_nr, <span class="at">sep =</span> <span class="st">&quot;: &quot;</span>)</span>
-<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>x_axis</span></code></pre></div>
-<pre><code>##  [1] &quot;Tag: 1&quot;  &quot;Tag: 2&quot;  &quot;Tag: 3&quot;  &quot;Tag: 4&quot;  &quot;Tag: 5&quot;  &quot;Tag: 6&quot;  &quot;Tag: 7&quot; 
-##  [8] &quot;Tag: 8&quot;  &quot;Tag: 9&quot;  &quot;Tag: 10&quot;</code></pre>
-<blockquote>
-<p>Hinweis: Hier haben wir ein Beispiel für das sogenannte ‘Recycling’ gesehen: da der Vektor <code>c(&quot;Tag&quot;)</code> kürzer war als der Vektor <code>tag_nr</code> wird <code>c(&quot;Tag&quot;)</code> einfach kopiert damit die Operation mit <code>paste()</code> Sinn ergibt. Recycling ist oft praktisch, aber manchmal auch schädlich, nämlich dann, wenn man eigentlich davon ausgeht eine Operation mit zwei gleich langen Vektoren durchzuführen, dies aber tatsächlich nicht tut. In einem solchen Fall führt Recycling dazu, dass keine Fehlermeldung ausgegeben wird. Ein Beispiel dafür gibt folgender Code, in dem die Intention klar die Verbindung aller Wochentage zu Zahlen ist und einfach ein Wochentag vergessen wurde:</p>
-</blockquote>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>tage <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;Tag &quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>, <span class="st">&quot;:&quot;</span>, <span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
-<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>tag_namen <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Montag&quot;</span>, <span class="st">&quot;Dienstag&quot;</span>, <span class="st">&quot;Mittwoch&quot;</span>, <span class="st">&quot;Donnerstag&quot;</span>, <span class="st">&quot;Freitag&quot;</span>, <span class="st">&quot;Samstag&quot;</span>)</span>
-<span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(tage, tag_namen) <span class="co"># default ist sep=&quot; &quot;</span></span></code></pre></div>
-<pre><code>## [1] &quot;Tag 1: Montag&quot;     &quot;Tag 2: Dienstag&quot;   &quot;Tag 3: Mittwoch&quot;  
-## [4] &quot;Tag 4: Donnerstag&quot; &quot;Tag 5: Freitag&quot;    &quot;Tag 6: Samstag&quot;   
-## [7] &quot;Tag 7: Montag&quot;</code></pre>
-</div>
-<div id="fehlende-werte-und-null" class="section level3" number="2.0.3">
-<h3><span class="header-section-number">2.0.3</span> Fehlende Werte und NULL</h3>
-<p>Fehlende Werte werden in R als <code>NA</code> kodiert. <code>NA</code> erfüllt gerade in statistischen Anwendungen eine wichtige Rolle, da ein bestimmter Platz in einem Vektor aktuell fehlend sein müsste, aber als Platz dennoch existieren muss.</p>
-<blockquote>
-<p><strong>Beispiel:</strong> Der Vektor <code>x</code> enthält einen logischen Wert, der zeigt ob eine Person die Fragen auf einem Fragebogen richtig beantwortet hat. Wenn die Person die dritte Frage auf dem Fragebogen nicht beantwortet hat, sollte dies durch <code>NA</code> kenntlich gemacht werden. Einfach den Wert komplett wegzulassen macht es im Nachhinein unmöglich festzustellen <em>welche</em> Frage die Person nicht beantwortet hat.</p>
-</blockquote>
-<p>Die meisten Operationen die <code>NA</code> als einen Input bekommen geben auch als Output <code>NA</code> aus, weil unklar ist wie die Operation mit unterschiedlichen Werten für den fehlenden Wert ausgehen würde:</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">+</span> <span class="cn">NA</span></span></code></pre></div>
-<pre><code>## [1] NA</code></pre>
-<p>Einzige Ausnahmen sind Operationen, die unabhängig vom fehlenden Wert einen bestimmten Wert annehmen:</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="cn">NA</span> <span class="sc">|</span> <span class="cn">TRUE</span> <span class="co"># Gibt immer TRUE, unabhängig vom Wert für NA</span></span></code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
-<p>Um zu testen ob ein Vektor <code>x</code> fehlende Werte enthält sollte die Funktion <code>is.na</code> verwendet werden, und nicht etwa der Ausdruck <code>x==NA</code>:</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="dv">5</span>, <span class="cn">NA</span>, <span class="dv">10</span>)</span>
-<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x <span class="sc">==</span> <span class="cn">NA</span>) <span class="co"># Unklar, da man nicht weiß, ob alle NA für den gleichen Wert stehen</span></span></code></pre></div>
-<pre><code>## [1] NA NA NA NA</code></pre>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(</span>
-<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">is.na</span>(x)</span>
-<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<pre><code>## [1]  TRUE FALSE  TRUE FALSE</code></pre>
-<p>Wenn eine Operation einen nicht zu definierenden Wert ausgibt, ist das Ergebnis nicht <code>NA</code> sondern <code>NaN</code> (<em>not a number</em>):</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span> <span class="sc">/</span> <span class="dv">0</span></span></code></pre></div>
-<pre><code>## [1] NaN</code></pre>
-<p>Eine weitere Besonderheit ist <code>NULL</code>, welches in der Regel als Vektor der Länge 0 gilt, aber häufig zu besonderen Zwecken verwendet wird:</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(x)</span></code></pre></div>
-<pre><code>## [1] 0</code></pre>
-<p><code>NULL</code> wird häufig verwendet um zu signalisieren, dass etwas nicht existiert. So ist ein leerer Vektor <code>NULL</code>:</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
-<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
-<pre><code>## NULL</code></pre>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(x)</span></code></pre></div>
-<pre><code>## [1] 0</code></pre>
-<p>Damit unterscheidet er sich von einem Vektor mit einem (oder mehreren) fehlenden Werten:</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(y)</span></code></pre></div>
-<pre><code>## [1] 1</code></pre>
-<p>Auch im Programmieren von Funktionen wird <code>NULL</code> häufig für optionale Argumente verwendet. Solche fortgeschrittene Konzepte werden aber erst an späterer Stelle behandelt. Für jetzt reicht die Idee, <code>NULL</code> als einen Vektor der Länge 0 zu verstehen.</p>
-</div>
-<div id="indizierung-und-ersetzung" class="section level3" number="2.0.4">
-<h3><span class="header-section-number">2.0.4</span> Indizierung und Ersetzung</h3>
-<p>Einzelne Elemente von atomaren Vektoren können mit eckigen Klammern extrahiert werden:</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>)</span>
-<span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">1</span>]</span></code></pre></div>
-<pre><code>## [1] 2</code></pre>
-<p>Auf diese Weise können auch bestimmte Elemente modifiziert werden:</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>)</span>
-<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="dv">99</span></span>
-<span id="cb93-3"><a href="#cb93-3" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
-<pre><code>## [1]  2 99  6</code></pre>
-<p>Es kann auch mehr als ein Element extrahiert werden:</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span></code></pre></div>
-<pre><code>## [1]  2 99</code></pre>
-<p>Negative Indizes sind auch möglich, diese eliminieren die entsprechenden Elemente:</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a>x[<span class="sc">-</span><span class="dv">1</span>]</span></code></pre></div>
-<pre><code>## [1] 99  6</code></pre>
-<p>Um das letzte Element eines Vektors zu bekommen verwendet man einen Umweg über die Funktion <code>length()</code>:</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a>x[<span class="fu">length</span>(x)]</span></code></pre></div>
-<pre><code>## [1] 6</code></pre>
-</div>
-<div id="nützliche-funktionen-für-atomare-vektoren" class="section level3" number="2.0.5">
-<h3><span class="header-section-number">2.0.5</span> Nützliche Funktionen für atomare Vektoren</h3>
-<p>Hier sollen nur einige Funktionen erwähnt werden, die im Kontext von atomaren Vektoren besonders praktisch sind,<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> inbesondere wenn es darum geht solche Vektoren herzustellen, bzw. Rechenoperationen mit ihnen durchzuführen.</p>
-<p><strong>Herstellung von atomaren Vektoren</strong>:</p>
-<p>Eine Sequenz ganzer Zahlen wird in der Regel sehr häufig gebraucht. Entsprechend gibt es den hilfreichen Shortcut<code>:</code>, den wir bei der Besprechung von Vektoren bereits kennengelernt haben:</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb101-2"><a href="#cb101-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
-<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">1</span></span>
-<span id="cb103-2"><a href="#cb103-2" aria-hidden="true" tabindex="-1"></a>y</span></code></pre></div>
-<pre><code>##  [1] 10  9  8  7  6  5  4  3  2  1</code></pre>
-<p>Häufig möchten wir jedoch eine kompliziertere Sequenz bauen. In dem Fall hilft uns die allgemeinere Funktion <code>seq()</code>:</p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">10</span>)</span>
-<span id="cb105-2"><a href="#cb105-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
-<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<p>In diesem Fall ist <code>seq()</code> äquivalent zu <code>:</code>. Die Funktion <code>seq</code> erlaubt aber mehrere optionale Argumente: so können wir mit <code>by</code> die Schrittlänge zwischen den einzelnen Zahlen definieren.</p>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="at">by =</span> <span class="fl">0.5</span>)</span>
-<span id="cb107-2"><a href="#cb107-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(y)</span></code></pre></div>
-<pre><code>##  [1]  1.0  1.5  2.0  2.5  3.0  3.5  4.0  4.5  5.0  5.5  6.0  6.5  7.0  7.5  8.0
-## [16]  8.5  9.0  9.5 10.0</code></pre>
-<p>Wenn wir die Länge des resultierenden Vektors festlegen wollen und die Schrittlänge von R automatisch festgelegt werden soll, können wir dies mit dem Argument <code>length.out</code> machen:</p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">2</span>, <span class="dv">8</span>, <span class="at">length.out =</span> <span class="dv">4</span>)</span>
-<span id="cb109-2"><a href="#cb109-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(z)</span></code></pre></div>
-<pre><code>## [1] 2 4 6 8</code></pre>
-<p>Und wenn wir einen Vektor in der Länge eines anderen Vektors erstellen wollen, bietet sich das Argument <code>along.with</code> an. Dies wird häufig für das Erstellen von Indexvektoren verwendet.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> In einem solchen Fall müssen wir die Indexzahlen nicht direkt angeben:</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a>z_index <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">along.with =</span> z)</span>
-<span id="cb111-2"><a href="#cb111-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(z_index)</span></code></pre></div>
-<pre><code>## [1] 1 2 3 4</code></pre>
-<p>Auch häufig möchten wir einen bestimmten Wert wiederholen. Das geht mit der Funktion <code>rep</code>:</p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">5</span>)</span>
-<span id="cb113-2"><a href="#cb113-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
-<pre><code>## [1] NA NA NA NA NA</code></pre>
-<p><strong>Rechenoperationen</strong></p>
-<p>Es gibt eine Reihe von Operationen, die wir sehr häufig gemeinsam mit Vektoren anwenden. Häufig interessiert und die <strong>Länge</strong> eines Vektors. Dafür können wir die Funktion <code>length()</code> verwenden:</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)</span>
-<span id="cb115-2"><a href="#cb115-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(x)</span></code></pre></div>
-<pre><code>## [1] 4</code></pre>
-<p>Wenn wir den <strong>größten</strong> oder <strong>kleinsten Wert</strong> eines Vektors erfahren möchten geht das mit den Funktionen <code>min()</code> und <code>max()</code>:</p>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(x)</span></code></pre></div>
-<pre><code>## [1] 1</code></pre>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(x)</span></code></pre></div>
-<pre><code>## [1] 4</code></pre>
-<p>Beide Funktionen besitzen ein optionales Argument <code>na.rm</code>, das entweder <code>TRUE</code> oder <code>FALSE</code> sein kann. Im Falle von <code>TRUE</code> werden alle <code>NA</code> Werte für die Rechenoperation entfernt:</p>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="cn">NA</span>)</span>
-<span id="cb121-2"><a href="#cb121-2" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(y)</span></code></pre></div>
-<pre><code>## [1] NA</code></pre>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(y, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<pre><code>## [1] 1</code></pre>
-<p>Den <strong>Mittelwert</strong> bzw die <strong>Varianz/Standardabweichung</strong> der Elemente bekommen wir mit <code>mean()</code>, <code>var()</code>, bzw. <code>sd()</code>, wobei alle Funktionen auch das optionale Argument <code>na.rm</code> akzeptieren:</p>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code></pre></div>
-<pre><code>## [1] 2.5</code></pre>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(y)</span></code></pre></div>
-<pre><code>## [1] NA</code></pre>
-<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(y, <span class="at">na.rm =</span> T)</span></code></pre></div>
-<pre><code>## [1] 1.666667</code></pre>
-<p>Ebenfalls häufig sind wir an der <strong>Summe</strong>, bzw, dem <strong>Produkt</strong> aller Elemente des Vektors interessiert. Die Funktionen <code>sum()</code> und <code>prod()</code> helfen weiter und auch sie kennen das optionale Argument <code>na.rm</code>:</p>
-<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(x)</span></code></pre></div>
+<div id="functions" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Functions</h1>
+<p>Functions are algorithms that apply a certain routine on an
+<em>input</em>, thereby producing (almost always) an <em>output.</em>
+The function <code>log()</code>, for instance, takes as input a number
+and returns as output another number, namely the logarithm of the
+input:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 0.6931472</code></pre>
+<p><strong>Calling a function</strong></p>
+<p>There are, in principle, four different ways to call a function in R.
+Only two of them, however, are practically relevant for our
+purposes.</p>
+<p>The by far most important variant is the so called <em>prefix
+form</em>. Here you first write down the name of the function. Then you
+open brackets, write down all the <em>arguments</em> of the function,
+which you separate by commas, then then you close the brackets. In the
+following example, the name of the function is <code>assign</code>, and
+its arguments are <code>&quot;test&quot;</code> and <code>2</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">assign</span>(<span class="st">&quot;test&quot;</span>, <span class="dv">2</span>)</span></code></pre></div>
+<p>The second relevant way to call a function is the so called <em>infix
+form</em>. Here, the name of the function is written <em>between</em>
+the arguments of the function. This form is less common than the
+<em>prefix form</em>, but frequently used for mathematical operations,
+such as <code>+</code>, <code>-</code> or <code>/</code>.</p>
+<p>Strictly speaking, it is only a shortcut, since very function call
+using the infix form can also be written as a function call in the
+prefix form:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span></span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="st">`</span><span class="at">+</span><span class="st">`</span>(<span class="dv">2</span>,<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<p>Both function calls are, in the end, equivalent, but in this context
+the infix form is clearly easier to read.</p>
+<p><strong>The arguments of a function</strong></p>
+<p>The arguments of a function usually provide the <em>input</em> of the
+function, and might also specify how the underlying routine should be
+executed exactly.</p>
+<p>The function <code>sum</code>, for instance, takes as arguments an
+arbitrary number of numbers (its ‘input’) and returns the sum of these
+numbers:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)</span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="#cb133-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prod</span>(y, <span class="at">na.rm =</span> T)</span></code></pre></div>
-<pre><code>## [1] 24</code></pre>
-</div>
-<div id="listen" class="section level3" number="2.0.6">
-<h3><span class="header-section-number">2.0.6</span> Listen</h3>
-<p>Im Gegensatz zu atomaren Vektoren können Listen Objekte verschiedenen Typs enthalten. Sie werden mit der Funktion <code>list()</code> erstellt:</p>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="#cb135-1" aria-hidden="true" tabindex="-1"></a>l_1 <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb135-2"><a href="#cb135-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;a&quot;</span>,</span>
-<span id="cb135-3"><a href="#cb135-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</span>
-<span id="cb135-4"><a href="#cb135-4" aria-hidden="true" tabindex="-1"></a>  <span class="cn">FALSE</span></span>
-<span id="cb135-5"><a href="#cb135-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb135-6"><a href="#cb135-6" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(l_1)</span></code></pre></div>
-<pre><code>## [1] &quot;list&quot;</code></pre>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="#cb137-1" aria-hidden="true" tabindex="-1"></a>l_1</span></code></pre></div>
-<pre><code>## [[1]]
-## [1] &quot;a&quot;
-## 
-## [[2]]
-## [1] 1 2 3
-## 
-## [[3]]
-## [1] FALSE</code></pre>
-<p>Wir können Listen mit der Funktion <code>str()</code> (kurz für “structure”) inspizieren. In diesem Fall erhalten wir unmittelbar Informationen über die Art der Elemente:</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(l_1)</span></code></pre></div>
-<pre><code>## List of 3
-##  $ : chr &quot;a&quot;
-##  $ : num [1:3] 1 2 3
-##  $ : logi FALSE</code></pre>
-<p>Die einzelnen Elemente einer Liste können auch benannt werden:</p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="#cb141-1" aria-hidden="true" tabindex="-1"></a>l_2 <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb141-2"><a href="#cb141-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;erstes_element&quot;</span> <span class="ot">=</span> <span class="st">&quot;a&quot;</span>,</span>
-<span id="cb141-3"><a href="#cb141-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;zweites_element&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</span>
-<span id="cb141-4"><a href="#cb141-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;drittes_element&quot;</span> <span class="ot">=</span> <span class="cn">FALSE</span></span>
-<span id="cb141-5"><a href="#cb141-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<p>Die Namen aller Elemente in der Liste erhalten wir mit der Funktion <code>names()</code>:</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(l_2)</span></code></pre></div>
-<pre><code>## [1] &quot;erstes_element&quot;  &quot;zweites_element&quot; &quot;drittes_element&quot;</code></pre>
-<p>Um einzelne Elemente einer Liste auszulesen müssen wir <code>[[</code> anstatt <code>[</code> verwenden. Wir können dann Elemente entweder nach ihrer Position oder nach ihren Namen auswählen:</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="#cb144-1" aria-hidden="true" tabindex="-1"></a>l_2[[<span class="dv">1</span>]]</span></code></pre></div>
-<pre><code>## [1] &quot;a&quot;</code></pre>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="#cb146-1" aria-hidden="true" tabindex="-1"></a>l_2[[<span class="st">&quot;erstes_element&quot;</span>]]</span></code></pre></div>
-<pre><code>## [1] &quot;a&quot;</code></pre>
-<p>Im Folgenden wollen wir uns noch mit drei speziellen Typen beschäftigen, die weniger fundamental als die bislang diskutierten Typen sind, jedoch häufig in der alltäglichen Arbeit vorkommen: Faktoren, Matrizen und Data Frames.</p>
-</div>
+<p>Moreover, <code>sum()</code> also acceptions an <em>optional
+argument</em>, which is called <code>na.rm</code>. This optional
+argument can take the value Darüber hinaus akzeptiert <code>sum()</code>
+noch ein <em>optionales Argument</em>, <code>na.rm</code>. It can be
+given either the value <code>TRUE</code> or <code>FALSE</code>. The
+letters <code>na</code> stand for “not available”, and refer to missing
+values. If we do not set the optional argument explicitly, it takes its
+default value. In this case, the defauls value is <code>FALSE</code>.
+You can get this information by calling the help-function:
+<code>help(sum)</code>.</p>
+<p>Optional arguments are no input in the classical sense, but they
+allow you to control the routine that the function applies. In the
+present case this means that if <code>na.rm</code> takes the value
+<code>TRUE</code>, all missing values in the input to <code>sum()</code>
+will be ignored:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="cn">NA</span>) </span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="cn">NA</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<p>If you want to know what arguments you can give to a function, you
+should call the function <code>help()</code> to have a look at the
+function documentation. In case of <code>sum()</code> we learn that in
+addition to its input, <code>sum()</code> accepts one additional
+argument, <code>na.rm</code>, which by default takes the value
+<code>FALSE</code></p>
+<p>To change optional arguments, we always need to (or better: should)
+specify the name of the optional argument. For the standard input this
+is not necessary, but sometimes still useful. Information about the
+names of the input, as well as the optional arguments, can always be
+obtained via the function <code>help()</code>.</p>
+<p><strong>Define your own functions</strong></p>
+<p>Defining functions our own is incredibly useful. We can do this by
+using the keyword <code>function</code>. To illustrate how to define our
+own functions, we will now define a function that we will call
+<code>pythagoras</code> and that takes as arguments the length of the
+two catheti or a right triangle, and calculate the length of the
+hypotenuse using the <a href="https://en.wikipedia.org/wiki/Pythagorean_theorem">Pythagorean
+theorem</a>.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>pythagoras <span class="ot">&lt;-</span> <span class="cf">function</span>(cathetus_1, cathetus_2){</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  hypo_squared <span class="ot">&lt;-</span> cathetus_1<span class="sc">**</span><span class="dv">2</span> <span class="sc">+</span> cathetus_2<span class="sc">**</span><span class="dv">2</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  hypotenuse <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(hypo_squared) <span class="co"># sqrt() takes square root</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(hypotenuse)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>We always define a new function by using the function
+<code>function()</code>. We start our definition by associating the new
+function with a name (here: ‘pythagoras’) so that we can use it
+later.</p>
+<p>The argumtents to <code>function()</code> are then arguments that our
+new function should accept. In the present case there are two such
+arguments: <code>cathetus_1</code> and <code>cathetus_2</code>. After
+that comes the so called ‘function body’. It contains all the routines
+that the function should execute when called. The function body is
+always enclosed by curly brackets. In the example above we first compute
+the sum of the squares of the two catheti, and save this intermediate
+result as <code>hypo_squared</code>. This is the part of the Pythagorean
+theorem that you might know as <span class="math inline">\(c^2=a^2 +
+b^2\)</span>. Since we are interested in the ‘normal’ length of the
+hypotenuse, we then use the function <code>sqrt()</code> to get the
+square root of <code>hypo_squared</code>. This is also the value that we
+wish our function would return to us. To make this explicit, we use the
+keyword <code>return</code> to specify the return value of the
+function.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
+<p>If we now call our function with the correct arguments, the routine
+above will be executed:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pythagoras</span>(<span class="dv">2</span>, <span class="dv">4</span>)</span></code></pre></div>
+<pre><code>## [1] 4.472136</code></pre>
+<blockquote>
+<p><strong>Note</strong>: we could also call the arguments of our new
+function explicitly, which can be useful for transparency reasons when
+you call more complex functions:</p>
+</blockquote>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pythagoras</span>(<span class="at">cathetus_1=</span><span class="dv">2</span>, <span class="at">cathetus_2=</span><span class="dv">4</span>) <span class="co"># Also works the other way around</span></span></code></pre></div>
+<pre><code>## [1] 4.472136</code></pre>
+<blockquote>
+<p><strong>Note</strong>: you can see the source code of a function
+(mostly) by typing the name of the function withough the brackets:</p>
+</blockquote>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>pythagoras</span></code></pre></div>
+<pre><code>## function(cathetus_1, cathetus_2){
+##   hypo_squared &lt;- cathetus_1**2 + cathetus_2**2
+##   hypotenuse &lt;- sqrt(hypo_squared) # sqrt() takes square root
+##   return(hypotenuse)
+## }
+## &lt;bytecode: 0x7fe50c2b4b18&gt;</code></pre>
+<p>Note that all object names used within the function body are lost
+after the function has been called. The deeper reason is that functions
+have their own <a href="https://adv-r.hadley.nz/environments.html">environment</a>.
+Because of this behavior, R produces an error in the following example,
+in which <code>hypo_squared</code> exists <em>only</em> within the
+function body.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>pythagoras <span class="ot">&lt;-</span> <span class="cf">function</span>(cathetus_1, cathetus_2){</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  hypo_squared <span class="ot">&lt;-</span> cathetus_1<span class="sc">**</span><span class="dv">2</span> <span class="sc">+</span> cathetus_2<span class="sc">**</span><span class="dv">2</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  hypotenuse <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(hypo_squared) <span class="co"># sqrt() takes square root</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(hypotenuse)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">pythagoras</span>(<span class="dv">2</span>, <span class="dv">4</span>)</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>hypo_squared</span></code></pre></div>
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;hypo_squared&#39; not found</code></pre>
+<p>Note that this behavior is intentional: otherwise, there would
+quickly be a lot of associations that are hard to keep track of. It is,
+however, of utmost importance to always remember this behavior,
+otherwise, very confusing errors might emerge, as in the following
+example in which you might have expected <code>hypo_squared</code> to
+take the value of the length of the hypothenuse squared within your
+right triangle:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>hypo_squared <span class="ot">&lt;-</span> <span class="dv">120</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">pythagoras</span>(<span class="dv">2</span>, <span class="dv">4</span>)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>hypo_squared</span></code></pre></div>
+<pre><code>## [1] 120</code></pre>
+<p>It is always a good idea to **document* your own functions. This is
+not only (but especially) the case if you want to share it with others:
+also, if you want to use your function after a while has past, you will
+be extremely grateful to your previous You for explaining to you how the
+function works and what arguments it takes. Or, in other words, nothing
+is more frustrating than getting back to your code after a few weeks and
+being forced to invest many hours to encypher the code you have written
+previously.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
+<p>While you might document functions using simple comments at the end
+of each line I strongly recommend to get used to follow <a href="https://r-pkgs.org/man.html#man-functions">these conventions</a>
+right from the start. Documenting our little function from above would
+look like this:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; Computes the length of the hypothenuse in a right triangle</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; </span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; This function takes the length of the two catheti of a right triangle as</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;  arguments and computes the length of the hypothenuse.</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @param cathetus_1 The length of the first cathetus</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @param cathetus_2 The length of the second cathetus</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @return The length of the hypothenuse of the right triangle as defined by </span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;  `cathetus_1` and `cathetus_2`.</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>pythagoras <span class="ot">&lt;-</span> <span class="cf">function</span>(cathetus_1, cathetus_2){</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>  hypo_squared <span class="ot">&lt;-</span> cathetus_1<span class="sc">**</span><span class="dv">2</span> <span class="sc">+</span> cathetus_2<span class="sc">**</span><span class="dv">2</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>  hypotenuse <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(hypo_squared) <span class="co"># sqrt() takes square root</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(hypotenuse)</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>The documentation of a function must come immediately before the
+function definition and each line of the documentation starts with
+<code>#&#39;</code>. In the first line you provide a title, which must not
+be longer than 80 characetrs.</p>
+<p>Then, after inserting a blank line you describe what the function
+does in a bit more detail. Then, you describe each argument by using the
+decorator <code>@param</code> at the beginning of the lines. Finally,
+after another blank line, you describe the output of the function after
+starting the line with the decorator <code>@return</code>.</p>
+<p>Thus, any documentation of a function should at least include the
+arguments and the kind of output.</p>
+<p><strong>Why you should use functions in the first place</strong></p>
+<p>Defining your own functions is extremely helpful in practice. It is
+recommended to enclose routines that you use several times into a
+function. There are several reasons for doing so:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Code becomes more concise and transparent</strong> It is
+easier to document code that uses functions because of the documentation
+conventions introduced above. Morever, the code becomes shorter and
+easier to read. As a rule of thumb, after pasting and slightly adjusting
+some of your code twice, consider turning it into a function.</p></li>
+<li><p><strong>Functions help to structure your code</strong> Functions
+summarize, on a higher level of abstraction, your idea of how to solve a
+certain problem. Because you do not want to think about how to do this
+every time you encounter the same problem, it is better to summarize
+your thoughts in one place - the function.</p></li>
+<li><p><strong>Functions facilitate debugging</strong> Imagine you
+encounter a mistake in your implementation of a routine in your code. If
+this routine is used ten times in your code and you did not use
+functions, you must correct your mistake ten times. If you used a
+function, you had to correct the mistake only once. Needless to say that
+functions reduce the likelihood for a mistake by providing you with the
+incentive to document the code, and because they avoid incidental
+mistakes that will always happen if you write the same code many times
+in different places.</p></li>
+</ol>
+<p>While these three reasons should already suffice to convince you of
+using functions whenever possible, there are even more reasons to use
+them. Many of them are related to the fundamental programming principle
+<a href="https://en.wikipedia.org/wiki/Don%E2%80%99t_repeat_yourself">DRY</a>
+(“Don’t Repeat Yourself”).</p>
 </div>
 <div class="footnotes footnotes-end-of-document">
 <hr />
 <ol>
-<li id="fn1"><p>In fact, we will learn below that <code>2</code> is not really a number, but a vector or length 1. Only in a next step, <code>2</code> counts as a ‘number’, or, more precisely as a ‘double’.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>Diese auf den ersten Blick merkwürdige Syntax hat historische Gründe: als der integer Typ in die R Programmiersprache eingeführt wurde war er sehr stark an den Typ <code>long integer</code> in der Programmiersprache ‘C’ angelehnt. In C wurde ein solcher ‘long integer’ mit dem Suffix ‘l’ oder ‘L’ definiert, diese Regel wurde aus Kompatibilitätsgründen auch für R übernommen, jedoch nur mit ‘L’, da man Angst hatte, dass ‘l’ mit ‘i’ verwechselt wird, was in R für die imaginäre Komponente komplexer Zahlen verwendet wird.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p>Für viele typische Aufgaben gibt es in R bereits eine vordefinierte Funktion. Am einfachsten findet man diese durch googlen.<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
-<li id="fn4"><p>Ein Indexvektor <code>x</code> zu einem beliebigen Vektor <code>y</code> mit <code>N</code> Elementen enthält die ganzen Zahlen von 1 bis <code>N</code>. Der n-te Wert von x korrespontiert also zum Index des n-ten Wert von <code>y</code>.<a href="#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn1"><p>In fact, we will learn below that <code>2</code> is not
+really a number, but a vector or length 1. Only in a next step,
+<code>2</code> counts as a ‘number’, or, more precisely as a ‘double’.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Using <code>return</code> is, strictly speaking, not
+necessary, but I always use it for the sake of readability and
+transparency. An interesting debate about whether you should use
+<code>return</code> or not can be found <a href="https://stackoverflow.com/questions/11738823/explicitly-calling-return-in-a-function-or-not">here</a>.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>Or, as the well-known R developer Hadley Wickham puts
+it: “You are always coorpering with at least one other persion:
+future-you.”<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 

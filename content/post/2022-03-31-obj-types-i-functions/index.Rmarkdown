@@ -1,11 +1,14 @@
 ---
-title: "Fundamental object types in R II: Vectors"
+title: "Fundamental object types in R I: Functions"
 author: Claudius Gräbner-Radkowitsch
-date: '2022-02-14'
-slug: object-types-vec
+date: '2022-03-31'
+slug: object-types-func
 categories: ["tutorial"]
-tags: []
-output: 
+tags: ["data types", "introduction"]
+toc: true
+output:
+  blogdown::html_page:
+    toc: true
   html_document:
     theme: readable
     highlight: tango
@@ -17,3 +20,4 @@ output:
 Download this post as [PDF](pdfcontent.pdf)
 
 Read this post as [HTML](onlinecontent.html)
+
