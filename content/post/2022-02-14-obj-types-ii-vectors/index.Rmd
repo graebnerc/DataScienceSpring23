@@ -14,7 +14,7 @@ output:
 
 # Overview
 
-We already learned (LINK) that everything in R that exists is an *object*.
+We already learned that everything in R that exists is an *object*.
 You most likely already noted that there are different types of objects:
 `2`, for instance, was a number, but `assign` was a function.^[In fact, 
 we will learn below that `2` is not really a number, but a vector
@@ -34,26 +34,28 @@ knitr::include_graphics("vector-classification.png", auto_pdf = TRUE)
 
 This post will be about the most common types of vectors.
 See the previous post for a treatment of functions, and the upcoming one 
-for more advanced types of vectory, such as `factor`, `matrix`, and `data.frame`.
+for more advanced types of vectors, such as `factor`, `matrix`, and `data.frame`.
 
 # Vectors
 
-Vektoren sind einer der wichtigsten Objektypen in R. 
-Quasi alle Daten mit denen wir in R arbeiten werden als Vektoren behandelt.
+Vectors are the most important object type in R - almost all data that we will
+work with in R are vectors of some sort. Within the class of vectors, the most
+important distinction is that between **atomic vectors** and **lists**, which
+are sometimes also called *generic vectors*.^[The only object type that is
+of relevance to use aside these two is `NULL`. We will learn about it during
+the end of this post.]
+Both atomic vectors and lists consist of one or more other objects. What 
+distinguishes the two is that while
+*atomic vectors are composed only of objects of the same type*, lists can 
+comprise objects of different types.
 
-Was Vektoren angeht gibt es wiederum die wichtige 
-**Unterscheidung von atomaren Vektoren und Listen**.
-Beide bestehen ihrerseits aus Objekten und sie unterscheiden sich dadurch, dass
-atomare Vektoren nur aus Objekten des gleichen Typs bestehen können, Listen 
-dagegen auch Objekte unterschiedlichen Typs beinhalten können.
+This makes it easy to classify atomic vectors in more detail: we usually say 
+that the type of atomic vector is the type of the object it encompasses.
+Four major types of atomic vectors in this sense exist:
 
-Entsprechend kann jeder atomare Vektor einem Typ zugeordnet werden, je nachdem
-welchen Typ seine Bestandteile haben. 
-Hier sind insbesondere vier Typen relevant: 
-
-* `logical` (logische Werte): es gibt zwei logische Werte, `TRUE` und `FALSE`, 
+* `logical` (logical values): es gibt zwei logische Werte, `TRUE` und `FALSE`, 
 welche auch mit `T` oder `F` abgekürzt werden können
-* `integer` (ganze Zahlen): das sollte im Prinzip selbsterklärend sein, 
+* `integer` (whole numbers): das sollte im Prinzip selbsterklärend sein, 
 allerding muss den ganzen Zahlen in R immer der Buchstabe `L` folgen, damit
 die Zahl tatsächlich als ganze Zahl interpretiert wird.^[Diese auf den ersten 
 Blick merkwürdige Syntax hat historische Gründe: 
@@ -64,14 +66,19 @@ diese Regel wurde aus Kompatibilitätsgründen auch für R übernommen, jedoch n
 mit 'L', da man Angst hatte, dass 'l' mit 'i' verwechselt wird, was in R für die
 imaginäre Komponente komplexer Zahlen verwendet wird.] Beispiele sind
 `1L`, `400L` oder `10L`.  
-* `double` (Dezimalzahlen): auch das sollte selbsterklärend sein; Beispiele wären
+* `double` (decimal numbers): auch das sollte selbsterklärend sein; Beispiele wären
 `1.5`, `0.0`, oder `-500.32`.
 * Ganze Zahlen und Dezimalzahlen werden häufig unter der Kategorie `numeric`
 zusammengefasst. Dies ist in der Praxis aber quasi nie hilfreich und man sollte
 diese Kategorie möglichst nie verwenden.
-* `character` (Wörter): sie sind dadurch gekennzeichnet, dass sie auch 
+* `character` (words): sie sind dadurch gekennzeichnet, dass sie auch 
 Buchstaben enthalten können und am Anfang und Ende ein `"` haben. Beispiele hier
 wären `"Hallo"`, `"500"` oder `"1_2_Drei"`.
+
+As indicated above, an atomic vector only comprises  
+ELEMENTS SAME TYPE BUT NA
+While it is not an atomic vector in the strict sense, another data type that
+we will encounter in the context of atomic vectors is `NA`.
 * Es gibt noch zwei weitere besondere 'Typen', die strikt gesehen keine 
 atomaren Vektoren darstellen, allerdings in diesem Kontext schon häufig 
 auftauchen: `NULL`, was strikt genommen ein eigener Datentyp ist und immer

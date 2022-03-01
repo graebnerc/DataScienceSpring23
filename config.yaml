@@ -1,6 +1,6 @@
 baseurl: "/"
 languageCode: "en-us"
-title: "A minimal Hugo website"
+title: "Data Science (SpSe22)"
 theme: "hugo-xmin"
 googleAnalytics: ""
 disqusShortname: ""
@@ -19,18 +19,19 @@ menu:
     - name: About
       url: "about/"
       weight: 2
+    - name: Material
+      url: "material/"
+      weight: 3
     - name: Categories
       url: "categories/"
-      weight: 3
+      weight: 4
     - name: Tags
       url: "tags/"
-      weight: 4
-    - name: Subscribe
-      url: "index.xml"
+      weight: 5
 
 params:
-  description: "A website built through Hugo and blogdown."
-  footer: "&copy; [Yihui Xie](https://yihui.org) 2017 -- {Year} | [Github](https://github.com/yihui) | [Twitter](https://twitter.com/xieyihui)"
+  description: "Course website for the course 'Data Science using R', Spring Semester 2022."
+  footer: "&copy; [Claudius Gräbner-Radkowitsch](https://claudius-graebner.com/) 2021 -- {Year} | [EUF](https://www.uni-flensburg.de/en/pluralist-economics) | [Github](https://github.com/graebnerc) | [Twitter](https://twitter.com/ClaudiusGrabner) | [OrcID](https://orcid.org/0000-0003-4065-4722)"
 
 markup:
   highlight:

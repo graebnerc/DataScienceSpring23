@@ -3,7 +3,7 @@ title: "Fundamental object types in R II: Vectors"
 author: Claudius Gräbner-Radkowitsch
 date: '2022-02-14'
 slug: object-types-vec
-categories: []
+categories: ["tutorial"]
 tags: []
 output: 
   html_document:

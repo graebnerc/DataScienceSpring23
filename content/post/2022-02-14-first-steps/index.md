@@ -14,14 +14,9 @@ output:
     number_sections: yes
 ---
 
-```{r include=FALSE}
-knitr::opts_chunk$set(comment = "#>", warning = F, message = F)
-```
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-library(tufte)
-library(bit64)
-```
+
+
 
 In this post we will learn about the basic *syntax* of R.
 The syntax basically refers to the grammatical rules you must adhere to when communicating with your computer in the language `R`: if you you do not follow the right syntax, i.e. you 'speak' gramatically incorrect, your computer will not understand you and communicate this to you by throwing up an error message.
@@ -43,8 +38,13 @@ To this end, simply type `2 + 5` into the console and press `Enter`.
 Since the expression `2 + 5` is syntactically correct R code, the 
 computer 'understands' what we want from it and returns the result:
 
-```{r}
+
+```r
 2 + 5
+```
+
+```
+#> [1] 7
 ```
 
 The `#>` at the beginning of the line indicates that what is written on this line is the output of an R command (but the concrete sign might be different on your computer). 
@@ -60,20 +60,40 @@ because for all simple mathematical operations we can use certain symbols as ope
 At this point it should be pointed out that the symbol `#` in R introduces a *comment*, that means everything in a line after `#` will be ignored by the computer and
 you can make notes in the code that only help *you* (or other humans) to understand what you have written.
 
-```{r}
+
+```r
 2 + 5 # Addition
 ```
 
-```{r}
+```
+#> [1] 7
+```
+
+
+```r
 2/2 # Division
 ```
 
-```{r}
+```
+#> [1] 1
+```
+
+
+```r
 4*2 # Multiplication
 ```
 
-```{r}
+```
+#> [1] 8
+```
+
+
+```r
 3**2 # Exponentiation
+```
+
+```
+#> [1] 9
 ```
 
 As an alternative to typing the commands into the console and then press `Enter`
@@ -93,7 +113,7 @@ understand the ideas of `objects`, `functions`, and `assignments`.
 > To understand computations in R, two slogans are helpful:
 >   Everything that exists is an object.
 >   Everything that happens is a function call.
-> `r tufte::quote_footer('John Chambers')`
+> <footer>John Chambers</footer>
 
 The statement 'Everything that exists is an object.' means that every number,
 function, letter, or whatever there is, is an object that is stored somewhere
@@ -117,8 +137,13 @@ as well as the addition function.
 A 'problem' is that in the present case R prints the output of the calculation 
 but we have no access to it afterwards:
 
-```{r}
+
+```r
 2 + 3
+```
+
+```
+#> [1] 5
 ```
 
 It is stored, for some time, on the physical memory of our computer, but we
@@ -130,7 +155,8 @@ This way, we can access, and reuse it whenever we call the name. The process of
 giving a name to an object is called *assignment*, and it is effectuated via the
 function `assign`:
 
-```{r}
+
+```r
 assign("intermediate_result", 2 + 3)
 ```
 
@@ -140,15 +166,21 @@ following: it assigns the name `intermediate_result` to the result of the
 operation `2 + 3`. We can now call this result by writing its name into the 
 console and press `Enter`:
 
-```{r}
+
+```r
 intermediate_result
+```
+
+```
+#> [1] 5
 ```
 
 Since making assignments happens so frequently in practice, there is a shortcut
 to the use of the function `assign`, namely the operator `<-`.
 Thus, the following two commands to effectively the same thing:
 
-```{r}
+
+```r
 assign("intermediate_result", 2 + 3)
 intermediate_result <- 2 + 3
 ```
@@ -191,8 +223,13 @@ There is, however, nothing to remember since whenever you try to give an object
 a name that conflicts with the rules just described, R immediately throws an
 error message:
 
-```{r run, error=TRUE}
+
+```r
 TRUE <- 5
+```
+
+```
+#> Error in TRUE <- 5: invalid (do_set) left-hand side to assignment
 ```
 
 There are, however, some rules that determine what is a *good* name and that
@@ -212,32 +249,62 @@ pane in R-Studio, or list them by calling `ls()`
 > **Note**: One object can have more than one name, but no name can ever point
 to two object. If you re-assign a name, the old assignment will be overwritten:
 
-```{r}
+
+```r
 x <- 2 
 y <- 2 # The object 2 now has two names
 print(x)
+```
+
+```
+#> [1] 2
+```
+
+```r
 print(y)
+```
+
+```
+#> [1] 2
+```
+
+```r
 x <- 4 # The name 'x' now points to '4', not to '2'
 print(x)
+```
+
+```
+#> [1] 4
 ```
 
 > **Note**: As you might have experienced, R does not return results after 
 making an assignment:
 
-```{r}
+
+```r
 2 + 2 # No assignment, R returns the result in the console
 ```
 
-```{r}
+```
+#> [1] 4
+```
+
+
+```r
 x <- 2 + 2 # Assignment, R does not return the results in the console
 ```
 
 If you want to remove an assignment you can use the function `rm()`:
 
-```{r, error=TRUE}
+
+```r
 x <- 2
 rm(x)
 x
+```
+
+```
+#> Error in eval(expr, envir, enclos): object 'x' not found
 ```
 
 
@@ -245,7 +312,8 @@ You can remove all assignment by clicking
 on the broom in the upper right environment panel in R-Studio or
 by calling the following command:
 
-```{r, eval=FALSE}
+
+```r
 rm(list=ls())
 ```
 
@@ -272,6 +340,7 @@ can provide you with additional information about the object a name points to.
 For instance, if you want to get more information about the function with the
 name `assign`, then just type the following: 
 
-```{r, eval=FALSE}
+
+```r
 help(assign)
 ```
