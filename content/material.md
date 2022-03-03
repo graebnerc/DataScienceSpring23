@@ -34,9 +34,9 @@ title: "Course material"
 
 ### Mandatory readings
 
-- [Tutorial: Commands, objects, and assignments](/post/2022/03/24/first-steps/)
+- [Tutorial: Commands, objects, and assignments](/post/first-steps/)
 
-- [Tutorial: Functions](/post/2022/03/31/object-types-func/)
+- [Tutorial: Functions](/post/object-types-func/)
 
 ### Exercises
 
@@ -53,9 +53,9 @@ learnr::run_tutorial("Basics", package = "DataScienceExercises")
 
 ### Mandatory readings
 
-- [Tutorial: Vectors](/post/2022/03/31/object-types-vec/)
+- [Tutorial: Vectors](/post/object-types-vec/)
 
-- [Tutorial: Factors and data frames](/post/2022/03/31/object-types-adv/)
+- [Tutorial: Factors and data frames](/post/object-types-adv/)
 
 ### Exercises
 

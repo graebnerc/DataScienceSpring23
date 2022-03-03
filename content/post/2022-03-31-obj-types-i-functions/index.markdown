@@ -1,7 +1,7 @@
 ---
 title: "Fundamental object types in R I: Functions"
 author: Claudius Gräbner-Radkowitsch
-date: '2022-03-31'
+date: '2022-03-02'
 slug: object-types-func
 categories: ["tutorial"]
 tags: ["data types", "introduction"]
@@ -17,7 +17,7 @@ output:
     number_sections: true
 ---
 
-Download this post as [PDF](pdfcontent.pdf)
+Download this post as [PDF](pubdir/pdfcontent.pdf)
 
-Read this post as [HTML](onlinecontent.html)
+Read this post as [HTML](pubdir/onlinecontent.html)
 
