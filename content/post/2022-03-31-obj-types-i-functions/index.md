@@ -13,7 +13,7 @@ output:
 
 # Overview
 
-We already learned (LINK) that everything in R that exists is an *object*.
+We already learned that everything in R that exists is an *object*.
 You most likely already noted that there are different types of objects:
 `2`, for instance, was a number, but `assign` was a function.^[In fact, 
 we will learn below that `2` is not really a number, but a vector
@@ -110,13 +110,11 @@ sum(1,2,3,4)
 ## [1] 10
 ```
 
-Moreover, `sum()` also acceptions an *optional argument*, which is called
+Moreover, `sum()` also acceps an *optional argument*, which is called
 `na.rm`. This optional argument can take the value 
-Darüber hinaus akzeptiert `sum()` noch ein *optionales Argument*, `na.rm`.
-It can be given either the value 
 `TRUE` or `FALSE`. The letters `na` stand for "not available", and refer to
 missing values. If we do not set the optional argument explicitly, it takes its
-default value. In this case, the defauls value is `FALSE`. You can get this 
+default value. In this case, the defaults value is `FALSE`. You can get this 
 information by calling the help-function: `help(sum)`.
 
 Optional arguments are no input in the classical sense, but they allow you to
@@ -232,7 +230,7 @@ pythagoras
 ##   hypotenuse <- sqrt(hypo_squared) # sqrt() takes square root
 ##   return(hypotenuse)
 ## }
-## <bytecode: 0x7ff48183bab0>
+## <bytecode: 0x7f9045893678>
 ```
 
 Note that all object names used within the function body are lost after the 
@@ -275,7 +273,7 @@ hypo_squared
 ## [1] 120
 ```
 
-It is always a good idea to **document* your own functions. This is not only
+It is always a good idea to **document** your own functions. This is not only
 (but especially) the case if you want to share it with others: also, if you
 want to use your function after a while has past, you will be extremely grateful
 to your previous You for explaining to you how the function works and what 
@@ -330,7 +328,7 @@ several reasons for doing so:
 
 1. **Code becomes more concise and transparent** It is easier to document code
 that uses functions because of the documentation conventions introduced above.
-Morever, the code becomes shorter and easier to read. As a rule of thumb, after
+Moreover, the code becomes shorter and easier to read. As a rule of thumb, after
 pasting and slightly adjusting some of your code twice, consider turning it
 into a function.
 
