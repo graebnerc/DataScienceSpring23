@@ -1,4 +1,4 @@
-baseurl: "/"
+baseurl: "https://dataanalytics-euf-spring21.netlify.app/"
 languageCode: "en-us"
 title: "Data Science (SpSe22)"
 theme: "hugo-xmin"
