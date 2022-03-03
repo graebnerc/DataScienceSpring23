@@ -9,49 +9,39 @@
     <lastBuildDate>Thu, 03 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://dataanalytics-euf-spring21.netlify.app/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Test</title>
-      <link>https://dataanalytics-euf-spring21.netlify.app/post/2022/03/03/test/</link>
+      <link>https://dataanalytics-euf-spring21.netlify.app/post/test/</link>
       <pubDate>Thu, 03 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://dataanalytics-euf-spring21.netlify.app/post/2022/03/03/test/</guid>
+      <guid>https://dataanalytics-euf-spring21.netlify.app/post/test/</guid>
       <description>Bla</description>
     </item>
     
     <item>
-      <title>First steps in R</title>
-      <link>https://dataanalytics-euf-spring21.netlify.app/post/2022/03/02/first-steps/</link>
-      <pubDate>Wed, 02 Mar 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://dataanalytics-euf-spring21.netlify.app/post/2022/03/02/first-steps/</guid>
-      <description>Download this post as PDF
-Read this post as HTML</description>
-    </item>
-    
-    <item>
       <title>Fundamental object types in R I: Functions</title>
-      <link>https://dataanalytics-euf-spring21.netlify.app/post/2022/03/02/object-types-func/</link>
+      <link>https://dataanalytics-euf-spring21.netlify.app/post/object-types-func/</link>
       <pubDate>Wed, 02 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://dataanalytics-euf-spring21.netlify.app/post/2022/03/02/object-types-func/</guid>
+      <guid>https://dataanalytics-euf-spring21.netlify.app/post/object-types-func/</guid>
       <description>Download this post as PDF
 Read this post as HTML</description>
     </item>
     
     <item>
       <title>Fundamental object types in R II: Vectors</title>
-      <link>https://dataanalytics-euf-spring21.netlify.app/post/2022/03/02/object-types-vec/</link>
+      <link>https://dataanalytics-euf-spring21.netlify.app/post/object-types-vec/</link>
       <pubDate>Wed, 02 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://dataanalytics-euf-spring21.netlify.app/post/2022/03/02/object-types-vec/</guid>
+      <guid>https://dataanalytics-euf-spring21.netlify.app/post/object-types-vec/</guid>
       <description>Download this post as PDF
 Read this post as HTML</description>
     </item>
     
     <item>
       <title>Fundamental object types in R III: Factors, matrices, and data frames</title>
-      <link>https://dataanalytics-euf-spring21.netlify.app/post/2022/03/02/object-types-adv/</link>
+      <link>https://dataanalytics-euf-spring21.netlify.app/post/object-types-adv/</link>
       <pubDate>Wed, 02 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://dataanalytics-euf-spring21.netlify.app/post/2022/03/02/object-types-adv/</guid>
+      <guid>https://dataanalytics-euf-spring21.netlify.app/post/object-types-adv/</guid>
       <description>Download this post as PDF
  TOC Picture with overview  Faktoren Faktoren werden verwendet um ordinale oder kategoriale Daten darzustellen. Ein Faktor kann nur einen von mehreren vorher definierten Werten annehmen, so genannten Levels. Faktoren werden über die Funktion factor() erstellt. Sie nimmt als erstes Argument die Werte für den Faktor:
 x &amp;lt;- c(&amp;quot;Frau&amp;quot;, &amp;quot;Mann&amp;quot;, &amp;quot;Frau&amp;quot;) x &amp;lt;- factor(c(&amp;quot;Frau&amp;quot;, &amp;quot;Mann&amp;quot;, &amp;quot;Frau&amp;quot;)) x  ## [1] Frau Mann Frau ## Levels: Frau Mann  Wenn wir Levels definieren wollen, die aber aktuell noch keine Ausprägung haben können wir dies mit dem Argument levels bewerkstelligen:</description>
@@ -73,6 +63,16 @@ x &amp;lt;- c(&amp;quot;Frau&amp;quot;, &amp;quot;Mann&amp;quot;, &amp;quot;Frau
       
       <guid>https://dataanalytics-euf-spring21.netlify.app/material/</guid>
       <description>The complete course material    Session Date Topic Slides     1 March 12, 2022 General introduction Slides Orga, Slides Philo   2 March 23, 2022 Installation Slides   3 March 24, 2022 First steps in R I Slides   4 March 31, 2022 First steps in R II Slides   5 April 6, 2022 Visualization I TBD   6 April 7, 2022 Data wrangling I TBD   7 April 20, 2022 R Markdown TBD   8 April 21, 2022 Projects and workflow TBD   9 April 28, 2022 Taking stock TBD    Session 1: Introduction  Slides for the organizational part Slides for the philosophical part  Session 2: Installation  Slides Tutorial: installing and accessing the exercises  Session 3: First steps in R I - Basics and functions  Slides  Mandatory readings   Tutorial: Commands, objects, and assignments</description>
+    </item>
+    
+    <item>
+      <title>First steps in R</title>
+      <link>https://dataanalytics-euf-spring21.netlify.app/post/first-steps-in-r/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dataanalytics-euf-spring21.netlify.app/post/first-steps-in-r/</guid>
+      <description>In this post we will learn about the basic syntax of R. The syntax basically refers to the grammatical rules you must adhere to when communicating with your computer in the language R: if you you do not follow the right syntax, i.e. you &amp;lsquo;speak&amp;rsquo; gramatically incorrect, your computer will not understand you and communicate this to you by throwing up an error message.
+To learn about these important basics, the post follows the following structure:</description>
     </item>
     
   </channel>

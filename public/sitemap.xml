@@ -8,7 +8,7 @@
     <loc>https://dataanalytics-euf-spring21.netlify.app/post/</loc>
     <lastmod>2022-03-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://dataanalytics-euf-spring21.netlify.app/post/2022/03/03/test/</loc>
+    <loc>https://dataanalytics-euf-spring21.netlify.app/post/test/</loc>
     <lastmod>2022-03-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dataanalytics-euf-spring21.netlify.app/categories/</loc>
@@ -17,16 +17,13 @@
     <loc>https://dataanalytics-euf-spring21.netlify.app/tags/data-types/</loc>
     <lastmod>2022-03-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://dataanalytics-euf-spring21.netlify.app/post/2022/03/02/first-steps/</loc>
+    <loc>https://dataanalytics-euf-spring21.netlify.app/post/object-types-func/</loc>
     <lastmod>2022-03-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://dataanalytics-euf-spring21.netlify.app/post/2022/03/02/object-types-func/</loc>
+    <loc>https://dataanalytics-euf-spring21.netlify.app/post/object-types-vec/</loc>
     <lastmod>2022-03-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://dataanalytics-euf-spring21.netlify.app/post/2022/03/02/object-types-vec/</loc>
-    <lastmod>2022-03-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://dataanalytics-euf-spring21.netlify.app/post/2022/03/02/object-types-adv/</loc>
+    <loc>https://dataanalytics-euf-spring21.netlify.app/post/object-types-adv/</loc>
     <lastmod>2022-03-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dataanalytics-euf-spring21.netlify.app/tags/introduction/</loc>
@@ -41,5 +38,7 @@
     <loc>https://dataanalytics-euf-spring21.netlify.app/about/</loc>
   </url><url>
     <loc>https://dataanalytics-euf-spring21.netlify.app/material/</loc>
+  </url><url>
+    <loc>https://dataanalytics-euf-spring21.netlify.app/post/first-steps-in-r/</loc>
   </url>
 </urlset>

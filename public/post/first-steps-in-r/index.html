@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>First steps in R | Data Science (SpSe22)</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/material/">Material</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">First steps in R</span></h1>
+<h2 class="author">Claudius Gräbner-Radkowitsch</h2>
+
+</div>
+
+<main>
+<p>In this post we will learn about the basic <em>syntax</em> of R.
+The syntax basically refers to the grammatical rules you must adhere to when communicating with your computer in the language <code>R</code>: if you you do not follow the right syntax, i.e. you &lsquo;speak&rsquo; gramatically incorrect, your computer will not understand you and communicate this to you by throwing up an error message.</p>
+<p>To learn about these important basics, the post follows the following structure:</p>
+<ul>
+<li>Commands</li>
+<li>Objects, functions, and assignments</li>
+<li>Kind of objects</li>
+</ul>
+<h1 id="issue-commands-to-your-computer">Issue commands to your computer</h1>
+<p>There are two ways we can communicate with our computer in
+R Studio: either issuing commands directly via the <em>console</em>, or by executing a script.</p>
+<p>Lets start by using the console and use R as a simple calculator first: we first want to add the numbers <code>2</code>and <code>5</code>.
+To this end, simply type <code>2 + 5</code> into the console and press <code>Enter</code>.
+Since the expression <code>2 + 5</code> is syntactically correct R code, the
+computer &lsquo;understands&rsquo; what we want from it and returns the result:</p>
+<pre><code class="language-r">2 + 5
+</code></pre>
+<pre><code>#&gt; [1] 7
+</code></pre>
+<p>The <code>#&gt;</code> at the beginning of the line indicates that what is written on this line is the output of an R command (but the concrete sign might be different on your computer).</p>
+<p>The result of <code>2+5</code> is a number (more precisely: a &lsquo;scalar&rsquo;).
+In R, scalars are always represented as a <em>vector</em> of length 1.
+The <code>[1]</code> here indicates that the first element on this line is the first element of the vector.
+If the result of our calculation was a very long vector that
+needs to span several lines, at the beginning of the next line R would show us the index of the first number displayed on this line.^[You may try this out by typing <code>1:100</code> into your console and see what happens: this returns a vector of length 100, which certainly will contain some line breaks.]</p>
+<p>In this way we can use R as a simple calculator,
+because for all simple mathematical operations we can use certain symbols as operators.
+At this point it should be pointed out that the symbol <code>#</code> in R introduces a <em>comment</em>, that means everything in a line after <code>#</code> will be ignored by the computer and
+you can make notes in the code that only help <em>you</em> (or other humans) to understand what you have written.</p>
+<pre><code class="language-r">2 + 5 # Addition
+</code></pre>
+<pre><code>#&gt; [1] 7
+</code></pre>
+<pre><code class="language-r">2/2 # Division
+</code></pre>
+<pre><code>#&gt; [1] 1
+</code></pre>
+<pre><code class="language-r">4*2 # Multiplication
+</code></pre>
+<pre><code>#&gt; [1] 8
+</code></pre>
+<pre><code class="language-r">3**2 # Exponentiation
+</code></pre>
+<pre><code>#&gt; [1] 9
+</code></pre>
+<p>As an alternative to typing the commands into the console and then press <code>Enter</code>
+to execute them, we can write down the commands in a script, and then execute
+this script.
+While the interaction via the console is useful to test the effects of certain
+commands, scripts are useful if we want to develop more complex operations, and
+save what you have written for later, or to make them accessible to other people:
+we can save scripts as a file on our computer, and then use them later.</p>
+<p>The operations that we have conducted so far and not particularly exciting, to
+be honest. Before we proceed with more complex operations, however, we need to
+understand the ideas of <code>objects</code>, <code>functions</code>, and <code>assignments</code>.</p>
+<h1 id="objects-functions-and-assignments">Objects, functions, and assignments</h1>
+<blockquote>
+<p>To understand computations in R, two slogans are helpful:
+Everything that exists is an object.
+Everything that happens is a function call.</p>
+<footer>John Chambers</footer>
+</blockquote>
+<p>The statement &lsquo;Everything that exists is an object.&rsquo; means that every number,
+function, letter, or whatever there is, is an object that is stored somewhere
+in the physical memory of your computer.
+For instance, in the computation
+<code>2 + 3</code>, the number <code>2</code> is as much an object as the number <code>3</code>
+and the addition-function, which we call via the operator <code>+</code>.</p>
+<p>The statement &lsquo;Everything that happens is a function call.&rsquo; means that whenever
+we tell our computer to do something via R, we are effectively calling a
+<em>function</em>.</p>
+<p><strong>Functions</strong> are algorithms that apply certain routines to an <em>input</em> and
+produce an <em>output</em>.
+The addition function we called in the calculation <code>2 + 3</code> took as input the
+two numbers <code>2</code> and <code>3</code>, applied to them the addition routine and produced the
+number <code>5</code> as output.
+The output <code>5</code> is an object in R just like the inputs <code>2</code> and <code>3</code>,
+as well as the addition function.</p>
+<p>A &lsquo;problem&rsquo; is that in the present case R prints the output of the calculation
+but we have no access to it afterwards:</p>
+<pre><code class="language-r">2 + 3
+</code></pre>
+<pre><code>#&gt; [1] 5
+</code></pre>
+<p>It is stored, for some time, on the physical memory of our computer, but we
+basically have no way to find it. To address this problem we can issue an
+<em>assignment</em>: whenever we want to keep using the output of an operation, we may
+give the output a <em>name</em>. This name works effectively as a kind of pointer,
+which points to the place on the computer memory where the output is saved.
+This way, we can access, and reuse it whenever we call the name. The process of
+giving a name to an object is called <em>assignment</em>, and it is effectuated via the
+function <code>assign</code>:</p>
+<pre><code class="language-r">assign(&quot;intermediate_result&quot;, 2 + 3)
+</code></pre>
+<p>We explain the process of calling a function in more detail below. Here we focus
+on the process of assignment instead. What the function <code>assign</code> does is the
+following: it assigns the name <code>intermediate_result</code> to the result of the
+operation <code>2 + 3</code>. We can now call this result by writing its name into the
+console and press <code>Enter</code>:</p>
+<pre><code class="language-r">intermediate_result
+</code></pre>
+<pre><code>#&gt; [1] 5
+</code></pre>
+<p>Since making assignments happens so frequently in practice, there is a shortcut
+to the use of the function <code>assign</code>, namely the operator <code>&lt;-</code>.
+Thus, the following two commands to effectively the same thing:</p>
+<pre><code class="language-r">assign(&quot;intermediate_result&quot;, 2 + 3)
+intermediate_result &lt;- 2 + 3
+</code></pre>
+<p>From now on, we will only use the <code>&lt;-</code> operator, which also represents
+quite nicely the idea of assignments as pointers to certain objects.^[In theory
+we can use <code>&lt;-</code> also the other way around: <code>2 + 3 -&gt; intermediate_result</code>.
+At first sight this is more intuitive and respects the sequence of events:
+first, the result of <code>2 + 3</code> gets created, i.e. a new object gets defined.
+Then, this object gets the name <code>intermediate_result</code>.
+However, the code that results from such practice is usually much more difficult
+to read, so it is common practice to use <code>&lt;-</code> rather than <code>-&gt;</code>.]</p>
+<blockquote>
+<p><strong>Digression: why <code>&lt;-</code>?</strong>
+The use of the string <code>&lt;-</code> as an assignment operator is at first sight
+unintuitive, uncomfortable, and rather unique in the world of programming languages.
+Much more common is the use of <code>=</code>. Where does this particularity of R come from?
+Besides practical reasons &ndash; in contrast to <code>=</code>, the use of <code>&lt;-</code> makes explicit
+the unidirectionality of an assignment &ndash; the main reason is historical:
+<code>R</code> originated from the programming language <code>S</code>. This in turn has taken over
+the <code>&lt;-</code> from the language <code>APL</code>. And APL, in turn, was developed on a keyboard
+layout, where <code>&lt;-</code> had its own key. Moreoever, since the operator <code>==</code> was not
+commonly used at that time, <code>=</code> was already assigned as test for equality
+(which, today, is basically always done by using <code>==</code>).
+And so one has decided to use <code>&lt;-</code> as an assignment operator and while since
+2001 you can also make assignments in R using <code>=</code>, <code>&lt;-</code> remains strictly
+recommended for the sake of readability as well as some technicalities.</p>
+</blockquote>
+<p>You are not allowed to give names to objects as you wish. All syntactically
+correct names in R&hellip;</p>
+<ul>
+<li>only contain letters, numbers, or the symbols <code>.</code> and <code>_</code></li>
+<li>do not start with <code>.</code> or a number</li>
+</ul>
+<p>Moreover, there are some reserved words that you must not (and cannot) use as
+names, e.g. <code>function</code>, <code>TRUE</code>, of <code>if</code>. You can have a look at the complete
+list of forbidden words by calling <code>?Reserved</code>.</p>
+<p>There is, however, nothing to remember since whenever you try to give an object
+a name that conflicts with the rules just described, R immediately throws an
+error message:</p>
+<pre><code class="language-r">TRUE &lt;- 5
+</code></pre>
+<pre><code>#&gt; Error in TRUE &lt;- 5: invalid (do_set) left-hand side to assignment
+</code></pre>
+<p>There are, however, some rules that determine what is a <em>good</em> name and that
+you should adhere to whenever possible:</p>
+<ul>
+<li>Names should be short and informative; <code>sample_mean</code> is a good name, <code>vector_2</code> not so much</li>
+<li>You should <strong>never use special characters</strong>, especially <em>Umlaute</em></li>
+<li>R is <em>case sensitive</em>, meaning that <code>mean_value</code> is a different name than <code>Mean_Value</code></li>
+<li>Even if this is possible you should never use names that are already used for
+function provided by R. For instance, an assignment such as <code>assign &lt;- 2</code>
+is possible, but it effectively prevents you from using the function <code>assign</code>
+without further complications.</li>
+</ul>
+<blockquote>
+<p><strong>Note</strong>: You can have a look at all current assignments in the <code>Environment</code>
+pane in R-Studio, or list them by calling <code>ls()</code></p>
+</blockquote>
+<blockquote>
+<p><strong>Note</strong>: One object can have more than one name, but no name can ever point
+to two object. If you re-assign a name, the old assignment will be overwritten:</p>
+</blockquote>
+<pre><code class="language-r">x &lt;- 2 
+y &lt;- 2 # The object 2 now has two names
+print(x)
+</code></pre>
+<pre><code>#&gt; [1] 2
+</code></pre>
+<pre><code class="language-r">print(y)
+</code></pre>
+<pre><code>#&gt; [1] 2
+</code></pre>
+<pre><code class="language-r">x &lt;- 4 # The name 'x' now points to '4', not to '2'
+print(x)
+</code></pre>
+<pre><code>#&gt; [1] 4
+</code></pre>
+<blockquote>
+<p><strong>Note</strong>: As you might have experienced, R does not return results after
+making an assignment:</p>
+</blockquote>
+<pre><code class="language-r">2 + 2 # No assignment, R returns the result in the console
+</code></pre>
+<pre><code>#&gt; [1] 4
+</code></pre>
+<pre><code class="language-r">x &lt;- 2 + 2 # Assignment, R does not return the results in the console
+</code></pre>
+<p>If you want to remove an assignment you can use the function <code>rm()</code>:</p>
+<pre><code class="language-r">x &lt;- 2
+rm(x)
+x
+</code></pre>
+<pre><code>#&gt; Error in eval(expr, envir, enclos): object 'x' not found
+</code></pre>
+<p>You can remove all assignment by clicking
+on the broom in the upper right environment panel in R-Studio or
+by calling the following command:</p>
+<pre><code class="language-r">rm(list=ls())
+</code></pre>
+<h1 id="taking-stock">Taking stock</h1>
+<p>Lets recap what we have learned so far about issuing commands, names and
+assignments:</p>
+<ul>
+<li>We can issue commands to the computer in R by (a) typing R code into the
+console and press <code>Enter</code>, or (b) write the code into a script and then execute
+it</li>
+<li>Everything that <em>exists</em> in R is an <em>object</em>, everything that <em>happens</em> is a
+function call</li>
+<li>A function is an object, that takes an input, applies a certain routine, and
+returns an output</li>
+<li>We can assign an object a name by using <code>&lt;-</code>. Then we can call this object by
+typing its name. The process of giving a name to an object is called <em>assignment</em>,
+and we can have a look at all names currently given to objects by calling <code>ls()</code>
+anzeigen lassen</li>
+</ul>
+<p>Finally, I want to point your attention to the function <code>help()</code>, which
+can provide you with additional information about the object a name points to.
+For instance, if you want to get more information about the function with the
+name <code>assign</code>, then just type the following:</p>
+<pre><code class="language-r">help(assign)
+</code></pre>
+
+</main>
+
+  <footer>
+  <script defer src="//yihui.org/js/math-code.js"></script>
+<script defer src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script defer src="//yihui.org/js/center-img.js"></script>
+
+  
+  <hr/>
+  © <a href="https://claudius-graebner.com/">Claudius Gräbner-Radkowitsch</a> 2021 &ndash; 2022 | <a href="https://www.uni-flensburg.de/en/pluralist-economics">EUF</a> | <a href="https://github.com/graebnerc">Github</a> | <a href="https://twitter.com/ClaudiusGrabner">Twitter</a> | <a href="https://orcid.org/0000-0003-4065-4722">OrcID</a>
+  
+  </footer>
+  </body>
+</html>
+

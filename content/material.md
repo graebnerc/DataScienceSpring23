@@ -34,7 +34,7 @@ title: "Course material"
 
 ### Mandatory readings
 
-- [Tutorial: Commands, objects, and assignments](/post/2022/03/24/first-steps/)
+- [Tutorial: Commands, objects, and assignments](/post/first-steps/)
 
 - [Tutorial: Functions](/post/2022/03/31/object-types-func/)
 
