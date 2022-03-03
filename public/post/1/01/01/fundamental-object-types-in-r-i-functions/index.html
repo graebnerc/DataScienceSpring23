@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fundamental object types in R I: Functions | Data Science (SpSe22)</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/material/">Material</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Fundamental object types in R I: Functions</span></h1>
+<h2 class="author">Claudius Gräbner-Radkowitsch</h2>
+
+</div>
+
+<main>
+<h1 id="overview">Overview</h1>
+<p>We already learned (LINK) that everything in R that exists is an <em>object</em>.
+You most likely already noted that there are different types of objects:
+<code>2</code>, for instance, was a number, but <code>assign</code> was a function.^[In fact,
+we will learn below that <code>2</code> is not really a number, but a vector
+or length 1. Only in a next step, <code>2</code> counts as a &lsquo;number&rsquo;, or, more precisely
+as a &lsquo;double&rsquo;.]
+As you might have guessed, there are many more types of objects.
+To understand the fundamental object types in R is a very essential prerequisite
+to master more complicated programming challenges than those we have encountered
+so far. Thus, this post is among those that will introduce you to the most
+important object types that you will encounter in R.</p>
+<p>These data types are summarized in the following figure:</p>
+<p><img src="vector-classification.png" alt=""><!-- --></p>
+<p>This post will be about functions. Different types of vectors are covered in
+the upcoming posts.</p>
+<h1 id="functions">Functions</h1>
+<p>Functions are algorithms that apply a certain routine on an <em>input</em>, thereby
+producing (almost always) an <em>output.</em>
+The function <code>log()</code>, for instance, takes as input a number and returns as output
+another number, namely the logarithm of the input:</p>
+<pre><code class="language-r">log(2)
+</code></pre>
+<pre><code>## [1] 0.6931472
+</code></pre>
+<p><strong>Calling a function</strong></p>
+<p>There are, in principle, four different ways to call a function in R.
+Only two of them, however, are practically relevant for our purposes.</p>
+<p>The by far most important variant is the so called <em>prefix form</em>.
+Here you first write down the name of the function.
+Then you open brackets, write down all the <em>arguments</em> of the function, which
+you separate by commas, then then you close the brackets.
+In the following example, the name of the function is <code>assign</code>, and its
+arguments are <code>&quot;test&quot;</code> and <code>2</code>:</p>
+<pre><code class="language-r">assign(&quot;test&quot;, 2)
+</code></pre>
+<p>The second relevant way to call a function is the so called <em>infix form</em>.
+Here, the name of the function is written <em>between</em> the arguments of the
+function. This form is less common than the <em>prefix form</em>, but frequently used
+for mathematical operations, such as <code>+</code>, <code>-</code> or <code>/</code>.</p>
+<p>Strictly speaking, it is only a shortcut, since very function call using the
+infix form can also be written as a function call in the prefix form:</p>
+<pre><code class="language-r">2 + 3
+</code></pre>
+<pre><code>## [1] 5
+</code></pre>
+<pre><code class="language-r">`+`(2,3)
+</code></pre>
+<pre><code>## [1] 5
+</code></pre>
+<p>Both function calls are, in the end, equivalent, but in this context the
+infix form is clearly easier to read.</p>
+<p><strong>The arguments of a function</strong></p>
+<p>The arguments of a function usually provide the <em>input</em> of the function, and
+might also specify how the underlying routine should be executed exactly.</p>
+<p>The function <code>sum</code>, for instance, takes as arguments an arbitrary number of
+numbers (its &lsquo;input&rsquo;) and returns the sum of these numbers:</p>
+<pre><code class="language-r">sum(1,2,3,4)
+</code></pre>
+<pre><code>## [1] 10
+</code></pre>
+<p>Moreover, <code>sum()</code> also acceptions an <em>optional argument</em>, which is called
+<code>na.rm</code>. This optional argument can take the value
+Darüber hinaus akzeptiert <code>sum()</code> noch ein <em>optionales Argument</em>, <code>na.rm</code>.
+It can be given either the value
+<code>TRUE</code> or <code>FALSE</code>. The letters <code>na</code> stand for &ldquo;not available&rdquo;, and refer to
+missing values. If we do not set the optional argument explicitly, it takes its
+default value. In this case, the defauls value is <code>FALSE</code>. You can get this
+information by calling the help-function: <code>help(sum)</code>.</p>
+<p>Optional arguments are no input in the classical sense, but they allow you to
+control the routine that the function applies. In the present case this means
+that if <code>na.rm</code> takes the value <code>TRUE</code>, all missing values in the input to
+<code>sum()</code> will be ignored:</p>
+<pre><code class="language-r">sum(1,2,3,4,NA) 
+</code></pre>
+<pre><code>## [1] NA
+</code></pre>
+<pre><code class="language-r">sum(1,2,3,4,NA, na.rm = TRUE) 
+</code></pre>
+<pre><code>## [1] 10
+</code></pre>
+<p>If you want to know what arguments you can give to a function, you should
+call the function <code>help()</code> to have a look at the function documentation. In
+case of <code>sum()</code> we learn that in addition to its input, <code>sum()</code> accepts one
+additional argument, <code>na.rm</code>, which by default takes the value <code>FALSE</code></p>
+<p>To change optional arguments, we always need to (or better: should) specify the
+name of the optional argument. For the standard input this is not necessary, but
+sometimes still useful. Information about the names of the input, as well as the
+optional arguments, can always be obtained via the function <code>help()</code>.</p>
+<p><strong>Define your own functions</strong></p>
+<p>Defining functions our own is incredibly useful. We can do this by using the
+keyword <code>function</code>. To illustrate how to define our own functions, we will now
+define a function that we will call <code>pythagoras</code> and that takes as arguments the
+length of the two catheti or a right triangle, and calculate the length
+of the hypotenuse using
+the <a href="https://en.wikipedia.org/wiki/Pythagorean_theorem">Pythagorean theorem</a>.</p>
+<pre><code class="language-r">pythagoras &lt;- function(cathetus_1, cathetus_2){
+  hypo_squared &lt;- cathetus_1**2 + cathetus_2**2
+  hypotenuse &lt;- sqrt(hypo_squared) # sqrt() takes square root
+  return(hypotenuse)
+}
+</code></pre>
+<p>We always define a new function by using the function <code>function()</code>.
+We start our definition by associating the new function with a name
+(here: &lsquo;pythagoras&rsquo;) so that we can use it later.</p>
+<p>The argumtents to <code>function()</code> are then arguments that our new function should
+accept. In the present case there are two such arguments: <code>cathetus_1</code> and
+<code>cathetus_2</code>.
+After that comes the so called &lsquo;function body&rsquo;. It contains all the routines
+that the function should execute when called. The function body is always
+enclosed by curly brackets.
+In the example above we first compute the sum of the squares of the two
+catheti, and save this intermediate result as <code>hypo_squared</code>.
+This is the part of the Pythagorean theorem that you might know as
+<code>\(c^2=a^2 + b^2\)</code>.
+Since we are interested in the &lsquo;normal&rsquo; length of the hypotenuse,
+we then use the function <code>sqrt()</code> to get the square root of <code>hypo_squared</code>.
+This is also the value that we wish our function would return to us. To make
+this explicit, we use the keyword <code>return</code> to specify the return value of the
+function.^[Using <code>return</code> is, strictly speaking, not necessary, but I always
+use it for the sake of readability and transparency. An interesting debate
+about whether you should use <code>return</code> or not can be found
+<a href="https://stackoverflow.com/questions/11738823/explicitly-calling-return-in-a-function-or-not">here</a>.]</p>
+<p>If we now call our function with the correct arguments, the routine above will
+be executed:</p>
+<pre><code class="language-r">pythagoras(2, 4)
+</code></pre>
+<pre><code>## [1] 4.472136
+</code></pre>
+<blockquote>
+<p><strong>Note</strong>: we could also call the arguments of our new function explicitly,
+which can be useful for transparency reasons when you call more complex functions:</p>
+</blockquote>
+<pre><code class="language-r">pythagoras(cathetus_1=2, cathetus_2=4) # Also works the other way around
+</code></pre>
+<pre><code>## [1] 4.472136
+</code></pre>
+<blockquote>
+<p><strong>Note</strong>: you can see the source code of a function (mostly) by typing the
+name of the function withough the brackets:</p>
+</blockquote>
+<pre><code class="language-r">pythagoras
+</code></pre>
+<pre><code>## function(cathetus_1, cathetus_2){
+##   hypo_squared &lt;- cathetus_1**2 + cathetus_2**2
+##   hypotenuse &lt;- sqrt(hypo_squared) # sqrt() takes square root
+##   return(hypotenuse)
+## }
+## &lt;bytecode: 0x7ff48183bab0&gt;
+</code></pre>
+<p>Note that all object names used within the function body are lost after the
+function has been called. The deeper reason is that functions have their own
+<a href="https://adv-r.hadley.nz/environments.html">environment</a>.
+Because of this behavior, R produces an error in the following example, in which
+<code>hypo_squared</code> exists <em>only</em> within the function body.</p>
+<pre><code class="language-r">pythagoras &lt;- function(cathetus_1, cathetus_2){
+  hypo_squared &lt;- cathetus_1**2 + cathetus_2**2
+  hypotenuse &lt;- sqrt(hypo_squared) # sqrt() takes square root
+  return(hypotenuse)
+}
+x &lt;- pythagoras(2, 4)
+hypo_squared
+</code></pre>
+<pre><code>## Error in eval(expr, envir, enclos): object 'hypo_squared' not found
+</code></pre>
+<p>Note that this behavior is intentional: otherwise, there would quickly be a lot
+of associations that are hard to keep track of. It is, however, of utmost
+importance to always remember this behavior, otherwise, very confusing errors
+might emerge, as in the following example in which you might have expected
+<code>hypo_squared</code> to take the value of the length of the hypothenuse squared
+within your right triangle:</p>
+<pre><code class="language-r">hypo_squared &lt;- 120
+x &lt;- pythagoras(2, 4)
+hypo_squared
+</code></pre>
+<pre><code>## [1] 120
+</code></pre>
+<p>It is always a good idea to *<em>document</em> your own functions. This is not only
+(but especially) the case if you want to share it with others: also, if you
+want to use your function after a while has past, you will be extremely grateful
+to your previous You for explaining to you how the function works and what
+arguments it takes. Or, in other words, nothing is more frustrating than getting
+back to your code after a few weeks and being forced to invest many
+hours to encypher the code you have written previously.^[Or, as the well-known
+R developer Hadley Wickham puts it: &ldquo;You are always coorpering with at least
+one other persion: future-you.&quot;]</p>
+<p>While you might document functions using simple comments at the end of each line
+I strongly recommend to get used to follow
+<a href="https://r-pkgs.org/man.html#man-functions">these conventions</a>
+right from the start.
+Documenting our little function from above would look like this:</p>
+<pre><code class="language-r">#' Computes the length of the hypothenuse in a right triangle
+#' 
+#' This function takes the length of the two catheti of a right triangle as
+#'  arguments and computes the length of the hypothenuse.
+#' @param cathetus_1 The length of the first cathetus
+#' @param cathetus_2 The length of the second cathetus
+#' @return The length of the hypothenuse of the right triangle as defined by 
+#'  `cathetus_1` and `cathetus_2`.
+pythagoras &lt;- function(cathetus_1, cathetus_2){
+  hypo_squared &lt;- cathetus_1**2 + cathetus_2**2
+  hypotenuse &lt;- sqrt(hypo_squared) # sqrt() takes square root
+  return(hypotenuse)
+}
+</code></pre>
+<p>The documentation of a function must come immediately before the function
+definition and each line of the documentation starts with <code>#'</code>.
+In the first line you provide a title, which must not be longer
+than 80 characetrs.</p>
+<p>Then, after inserting a blank line you describe what the function does in a
+bit more detail. Then, you describe each argument by using the decorator
+<code>@param</code> at the beginning of the lines.
+Finally, after another blank line, you describe the output of the function
+after starting the line with the decorator <code>@return</code>.</p>
+<p>Thus, any documentation of a function should at least include the arguments and
+the kind of output.</p>
+<p><strong>Why you should use functions in the first place</strong></p>
+<p>Defining your own functions is extremely helpful in practice. It is recommended
+to enclose routines that you use several times into a function. There are
+several reasons for doing so:</p>
+<ol>
+<li>
+<p><strong>Code becomes more concise and transparent</strong> It is easier to document code
+that uses functions because of the documentation conventions introduced above.
+Morever, the code becomes shorter and easier to read. As a rule of thumb, after
+pasting and slightly adjusting some of your code twice, consider turning it
+into a function.</p>
+</li>
+<li>
+<p><strong>Functions help to structure your code</strong> Functions summarize, on a higher
+level of abstraction, your idea of how to solve a certain problem. Because you
+do not want to think about how to do this every time you encounter the same
+problem, it is better to summarize your thoughts in one place - the function.</p>
+</li>
+<li>
+<p><strong>Functions facilitate debugging</strong> Imagine you encounter a mistake in your
+implementation of a routine in your code. If this routine is used ten times in
+your code and you did not use functions, you must correct your mistake ten times.
+If you used a function, you had to correct the mistake only once. Needless to
+say that functions reduce the likelihood for a mistake by providing you with the
+incentive to document the code, and because they avoid incidental mistakes
+that will always happen if you write the same code many times in different
+places.</p>
+</li>
+</ol>
+<p>While these three reasons should already suffice to convince you of using
+functions whenever possible, there are even more reasons to use them.
+Many of them are related to the fundamental programming principle
+<a href="https://en.wikipedia.org/wiki/Don%E2%80%99t_repeat_yourself">DRY</a>
+(&ldquo;Don&rsquo;t Repeat Yourself&rdquo;).</p>
+
+</main>
+
+  <footer>
+  <script defer src="//yihui.org/js/math-code.js"></script>
+<script defer src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script defer src="//yihui.org/js/center-img.js"></script>
+
+  
+  <hr/>
+  © <a href="https://claudius-graebner.com/">Claudius Gräbner-Radkowitsch</a> 2021 &ndash; 2022 | <a href="https://www.uni-flensburg.de/en/pluralist-economics">EUF</a> | <a href="https://github.com/graebnerc">Github</a> | <a href="https://twitter.com/ClaudiusGrabner">Twitter</a> | <a href="https://orcid.org/0000-0003-4065-4722">OrcID</a>
+  
+  </footer>
+  </body>
+</html>
+
