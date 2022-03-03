@@ -453,7 +453,7 @@ Functions</a></li>
 
 <div id="overview" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Overview</h1>
-<p>We already learned (LINK) that everything in R that exists is an
+<p>We already learned that everything in R that exists is an
 <em>object</em>. You most likely already noted that there are different
 types of objects: <code>2</code>, for instance, was a number, but
 <code>assign</code> was a function.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> As you might have guessed, there are many
@@ -510,14 +510,12 @@ arbitrary number of numbers (its ‘input’) and returns the sum of these
 numbers:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)</span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
-<p>Moreover, <code>sum()</code> also acceptions an <em>optional
+<p>Moreover, <code>sum()</code> also acceps an <em>optional
 argument</em>, which is called <code>na.rm</code>. This optional
-argument can take the value Darüber hinaus akzeptiert <code>sum()</code>
-noch ein <em>optionales Argument</em>, <code>na.rm</code>. It can be
-given either the value <code>TRUE</code> or <code>FALSE</code>. The
+argument can take the value <code>TRUE</code> or <code>FALSE</code>. The
 letters <code>na</code> stand for “not available”, and refer to missing
 values. If we do not set the optional argument explicitly, it takes its
-default value. In this case, the defauls value is <code>FALSE</code>.
+default value. In this case, the defaults value is <code>FALSE</code>.
 You can get this information by calling the help-function:
 <code>help(sum)</code>.</p>
 <p>Optional arguments are no input in the classical sense, but they
@@ -593,7 +591,7 @@ you call more complex functions:</p>
 ##   hypotenuse &lt;- sqrt(hypo_squared) # sqrt() takes square root
 ##   return(hypotenuse)
 ## }
-## &lt;bytecode: 0x7fe50c2b4b18&gt;</code></pre>
+## &lt;bytecode: 0x7ff4b35b60b0&gt;</code></pre>
 <p>Note that all object names used within the function body are lost
 after the function has been called. The deeper reason is that functions
 have their own <a href="https://adv-r.hadley.nz/environments.html">environment</a>.
@@ -619,14 +617,14 @@ right triangle:</p>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">pythagoras</span>(<span class="dv">2</span>, <span class="dv">4</span>)</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>hypo_squared</span></code></pre></div>
 <pre><code>## [1] 120</code></pre>
-<p>It is always a good idea to **document* your own functions. This is
-not only (but especially) the case if you want to share it with others:
-also, if you want to use your function after a while has past, you will
-be extremely grateful to your previous You for explaining to you how the
-function works and what arguments it takes. Or, in other words, nothing
-is more frustrating than getting back to your code after a few weeks and
-being forced to invest many hours to encypher the code you have written
-previously.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
+<p>It is always a good idea to <strong>document</strong> your own
+functions. This is not only (but especially) the case if you want to
+share it with others: also, if you want to use your function after a
+while has past, you will be extremely grateful to your previous You for
+explaining to you how the function works and what arguments it takes.
+Or, in other words, nothing is more frustrating than getting back to
+your code after a few weeks and being forced to invest many hours to
+encypher the code you have written previously.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
 <p>While you might document functions using simple comments at the end
 of each line I strongly recommend to get used to follow <a href="https://r-pkgs.org/man.html#man-functions">these conventions</a>
 right from the start. Documenting our little function from above would
@@ -662,7 +660,7 @@ function. There are several reasons for doing so:</p>
 <ol style="list-style-type: decimal">
 <li><p><strong>Code becomes more concise and transparent</strong> It is
 easier to document code that uses functions because of the documentation
-conventions introduced above. Morever, the code becomes shorter and
+conventions introduced above. Moreover, the code becomes shorter and
 easier to read. As a rule of thumb, after pasting and slightly adjusting
 some of your code twice, consider turning it into a function.</p></li>
 <li><p><strong>Functions help to structure your code</strong> Functions
