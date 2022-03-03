@@ -5,56 +5,23 @@
     <link>https://dataanalytics-euf-spring21.netlify.app/post/</link>
     <description>Recent content in Posts on Data Science (SpSe22)</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 03 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://dataanalytics-euf-spring21.netlify.app/post/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Test</title>
-      <link>https://dataanalytics-euf-spring21.netlify.app/post/test/</link>
-      <pubDate>Thu, 03 Mar 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://dataanalytics-euf-spring21.netlify.app/post/test/</guid>
-      <description>Bla</description>
-    </item>
-    
+    <language>en-us</language><atom:link href="https://dataanalytics-euf-spring21.netlify.app/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Fundamental object types in R I: Functions</title>
-      <link>https://dataanalytics-euf-spring21.netlify.app/post/object-types-func/</link>
-      <pubDate>Wed, 02 Mar 2022 00:00:00 +0000</pubDate>
+      <link>https://dataanalytics-euf-spring21.netlify.app/post/fundamental-object-types-in-r-i-functions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://dataanalytics-euf-spring21.netlify.app/post/object-types-func/</guid>
-      <description>Download this post as PDF
-Read this post as HTML</description>
+      <guid>https://dataanalytics-euf-spring21.netlify.app/post/fundamental-object-types-in-r-i-functions/</guid>
+      <description>Overview We already learned that everything in R that exists is an object. You most likely already noted that there are different types of objects: 2, for instance, was a number, but assign was a function.^[In fact, we will learn below that 2 is not really a number, but a vector or length 1. Only in a next step, 2 counts as a &amp;lsquo;number&amp;rsquo;, or, more precisely as a &amp;lsquo;double&amp;rsquo;.] As you might have guessed, there are many more types of objects.</description>
     </item>
     
     <item>
       <title>Fundamental object types in R II: Vectors</title>
-      <link>https://dataanalytics-euf-spring21.netlify.app/post/object-types-vec/</link>
-      <pubDate>Wed, 02 Mar 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://dataanalytics-euf-spring21.netlify.app/post/object-types-vec/</guid>
-      <description>Download this post as PDF
-Read this post as HTML</description>
-    </item>
-    
-    <item>
-      <title>Fundamental object types in R III: Factors, matrices, and data frames</title>
-      <link>https://dataanalytics-euf-spring21.netlify.app/post/object-types-adv/</link>
-      <pubDate>Wed, 02 Mar 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://dataanalytics-euf-spring21.netlify.app/post/object-types-adv/</guid>
-      <description>Download this post as PDF
- TOC Picture with overview  Faktoren Faktoren werden verwendet um ordinale oder kategoriale Daten darzustellen. Ein Faktor kann nur einen von mehreren vorher definierten Werten annehmen, so genannten Levels. Faktoren werden über die Funktion factor() erstellt. Sie nimmt als erstes Argument die Werte für den Faktor:
-x &amp;lt;- c(&amp;quot;Frau&amp;quot;, &amp;quot;Mann&amp;quot;, &amp;quot;Frau&amp;quot;) x &amp;lt;- factor(c(&amp;quot;Frau&amp;quot;, &amp;quot;Mann&amp;quot;, &amp;quot;Frau&amp;quot;)) x  ## [1] Frau Mann Frau ## Levels: Frau Mann  Wenn wir Levels definieren wollen, die aber aktuell noch keine Ausprägung haben können wir dies mit dem Argument levels bewerkstelligen:</description>
-    </item>
-    
-    <item>
-      <title>First steps in R</title>
-      <link>https://dataanalytics-euf-spring21.netlify.app/post/first-steps-in-r/</link>
+      <link>https://dataanalytics-euf-spring21.netlify.app/post/fundamental-object-types-in-r-ii-vectors/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://dataanalytics-euf-spring21.netlify.app/post/first-steps-in-r/</guid>
-      <description>In this post we will learn about the basic syntax of R. The syntax basically refers to the grammatical rules you must adhere to when communicating with your computer in the language R: if you you do not follow the right syntax, i.e. you &amp;lsquo;speak&amp;rsquo; gramatically incorrect, your computer will not understand you and communicate this to you by throwing up an error message.
-To learn about these important basics, the post follows the following structure:</description>
+      <guid>https://dataanalytics-euf-spring21.netlify.app/post/fundamental-object-types-in-r-ii-vectors/</guid>
+      <description>Overview We already learned that everything in R that exists is an object. You most likely already noted that there are different types of objects: 2, for instance, was a number, but assign was a function.^[In fact, we will learn below that 2 is not really a number, but a vector or length 1. Only in a next step, 2 counts as a &amp;lsquo;number&amp;rsquo;, or, more precisely as a &amp;lsquo;double&amp;rsquo;.] As you might have guessed, there are many more types of objects.</description>
     </item>
     
   </channel>

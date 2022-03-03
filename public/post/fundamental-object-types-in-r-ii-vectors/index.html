@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fundamental object types in R II: Vectors | Data Science (SpSe22)</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/material/">Material</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Fundamental object types in R II: Vectors</span></h1>
+<h2 class="author">Claudius Gräbner-Radkowitsch</h2>
+
+</div>
+
+<main>
+<h1 id="overview">Overview</h1>
+<p>We already learned that everything in R that exists is an <em>object</em>.
+You most likely already noted that there are different types of objects:
+<code>2</code>, for instance, was a number, but <code>assign</code> was a function.^[In fact,
+we will learn below that <code>2</code> is not really a number, but a vector
+or length 1. Only in a next step, <code>2</code> counts as a &lsquo;number&rsquo;, or, more precisely
+as a &lsquo;double&rsquo;.]
+As you might have guessed, there are many more types of objects.
+To understand the fundamental object types in R is a very essential prerequisite
+to master more complicated programming challenges than those we have encountered
+so far. Thus, this post is among those that will introduce you to the most
+important object types that you will encounter in R.</p>
+<p>These data types are summarized in the following figure:</p>
+<p><img src="vector-classification.png" alt=""><!-- --></p>
+<p>This post will be about the most common types of vectors.
+See the previous post for a treatment of functions, and the upcoming one
+for more advanced types of vectors, such as <code>factor</code>, <code>matrix</code>, and <code>data.frame</code>.</p>
+<h1 id="vectors">Vectors</h1>
+<p>Vectors are the most important object type in R - almost all data that we will
+work with in R are vectors of some sort. Within the class of vectors, the most
+important distinction is that between <strong>atomic vectors</strong> and <strong>lists</strong>, which
+are sometimes also called <em>generic vectors</em>.^[The only object type that is
+of relevance to use aside these two is <code>NULL</code>. We will learn about it during
+the end of this post.]
+Both atomic vectors and lists consist of one or more other objects. What
+distinguishes the two is that while
+<em>atomic vectors are composed only of objects of the same type</em>, lists can
+comprise objects of different types.</p>
+<p>This makes it easy to classify atomic vectors in more detail: we usually say
+that the type of atomic vector is the type of the object it encompasses.
+Four major types of atomic vectors in this sense exist:</p>
+<ul>
+<li><code>logical</code> (logical values): es gibt zwei logische Werte, <code>TRUE</code> und <code>FALSE</code>,
+welche auch mit <code>T</code> oder <code>F</code> abgekürzt werden können</li>
+<li><code>integer</code> (whole numbers): das sollte im Prinzip selbsterklärend sein,
+allerding muss den ganzen Zahlen in R immer der Buchstabe <code>L</code> folgen, damit
+die Zahl tatsächlich als ganze Zahl interpretiert wird.^[Diese auf den ersten
+Blick merkwürdige Syntax hat historische Gründe:
+als der integer Typ in die R Programmiersprache eingeführt wurde war er sehr
+stark an den Typ <code>long integer</code> in der Programmiersprache &lsquo;C&rsquo; angelehnt.
+In C wurde ein solcher &lsquo;long integer&rsquo; mit dem Suffix &lsquo;l&rsquo; oder &lsquo;L&rsquo; definiert,
+diese Regel wurde aus Kompatibilitätsgründen auch für R übernommen, jedoch nur
+mit &lsquo;L&rsquo;, da man Angst hatte, dass &lsquo;l&rsquo; mit &lsquo;i&rsquo; verwechselt wird, was in R für die
+imaginäre Komponente komplexer Zahlen verwendet wird.] Beispiele sind
+<code>1L</code>, <code>400L</code> oder <code>10L</code>.</li>
+<li><code>double</code> (decimal numbers): auch das sollte selbsterklärend sein; Beispiele wären
+<code>1.5</code>, <code>0.0</code>, oder <code>-500.32</code>.</li>
+<li>Ganze Zahlen und Dezimalzahlen werden häufig unter der Kategorie <code>numeric</code>
+zusammengefasst. Dies ist in der Praxis aber quasi nie hilfreich und man sollte
+diese Kategorie möglichst nie verwenden.</li>
+<li><code>character</code> (words): sie sind dadurch gekennzeichnet, dass sie auch
+Buchstaben enthalten können und am Anfang und Ende ein <code>&quot;</code> haben. Beispiele hier
+wären <code>&quot;Hallo&quot;</code>, <code>&quot;500&quot;</code> oder <code>&quot;1_2_Drei&quot;</code>.</li>
+</ul>
+<p>As indicated above, an atomic vector only comprises<br>
+ELEMENTS SAME TYPE BUT NA
+While it is not an atomic vector in the strict sense, another data type that
+we will encounter in the context of atomic vectors is <code>NA</code>.</p>
+<ul>
+<li>Es gibt noch zwei weitere besondere &lsquo;Typen&rsquo;, die strikt gesehen keine
+atomaren Vektoren darstellen, allerdings in diesem Kontext schon häufig
+auftauchen: <code>NULL</code>, was strikt genommen ein eigener Datentyp ist und immer
+die Länge 0 hat, sowie <code>NA</code>, das einen fehlenden Wert darstellt.</li>
+</ul>
+<p>Hieraus ergibt sich die in Abbildung <a href="#fig:vektoren"><strong>??</strong></a> aufgezeigte Aufteilung
+von Vektoren.</p>
+<p>Wir werden nun die einzelnen Typen genauer betrachten.
+Vorher wollen wir jedoch noch die Funktion <code>typeof</code> einführen.
+Sie hilft uns in der Praxis den Typ eines Objekts herauszufinden.
+Dafür rufen wir einfach die Funktion <code>typeof</code> mit dem zu untersuchenden Objekt
+oder dessen Namen auf:</p>
+<pre><code class="language-r">typeof(2L)
+</code></pre>
+<pre><code>## [1] &quot;integer&quot;
+</code></pre>
+<pre><code class="language-r">x &lt;- 22.0
+typeof(x)
+</code></pre>
+<pre><code>## [1] &quot;double&quot;
+</code></pre>
+<p>Wir können auch explizit testen ob ein Objekt tatsächlich ein Objekt eines bestimmten Typs ist.
+Die generelle Syntax hierfür ist: <code>is.*()</code>, also z.B.:</p>
+<pre><code class="language-r">x &lt;- 1.0
+is.integer(x)
+</code></pre>
+<pre><code>## [1] FALSE
+</code></pre>
+<pre><code class="language-r">is.double(x)
+</code></pre>
+<pre><code>## [1] TRUE
+</code></pre>
+<p>Diese Funktion gibt als Output also immer einen logischen Wert aus, je nachdem
+ob die Inputs des entsprechenden Typs sind oder nicht.</p>
+<p>Bestimmte Objekte können auch in einen anderen Typ transformiert werden.
+Hier spricht man von <code>coercion</code> und die generelle Syntax hierfür ist:
+<code>as.*()</code>, also z.B.:</p>
+<pre><code class="language-r">x &lt;- &quot;2&quot;
+print(
+  typeof(x)
+)
+</code></pre>
+<pre><code>## [1] &quot;character&quot;
+</code></pre>
+<pre><code class="language-r">x &lt;- as.double(x)
+print(
+  typeof(x)
+)
+</code></pre>
+<pre><code>## [1] &quot;double&quot;
+</code></pre>
+<p>Allerdings ist eine Transformation nicht immer möglich:</p>
+<pre><code class="language-r">as.double(&quot;Hallo&quot;)
+</code></pre>
+<pre><code>## Warning: NAs introduced by coercion
+</code></pre>
+<pre><code>## [1] NA
+</code></pre>
+<p>Da R nicht weiß wie man aus dem Wort &lsquo;Hallo&rsquo; eine Dezimalzahl machen soll,
+transformiert R das Wort in einen &lsquo;Fehlenden Wert&rsquo;, der in R als <code>NA</code>
+bekannt ist und unten noch genauer diskutiert wird.</p>
+<p>Für die Grundtypen ergibt sich folgende logische Hierachie an trivialen
+Transformationen: <code>logical</code> → <code>integer</code> → <code>double</code> → <code>character</code>,
+d.h. man kann eine Dezimalzahl ohne Probleme in ein Wort transformieren,
+aber nicht umgekehrt:</p>
+<blockquote>
+<p><strong>Exkurs: Warum überhaupt transformieren?</strong>
+Für eine Programmiersprache sind Datentypen extrem wichtig, weil sonst unklar
+bliebe wie mathematische Operationen auf unterschiedliche Objekte wie Zahlen
+oder Wörter anzuwenden wären.
+Selbst transformieren werden Sie Objekte vor allem wenn Sie eine bestimmte, nur
+für eine bestimmte Objektart definierte Operation verwenden wollen und das
+Objekt bislang als ein anderer Typ gespeichert ist.
+Das kann zum Beispiel passieren wenn Sie Daten einlesen oder Wörter selbst in
+Zahlenwerte übersetzen. Wenn in Ihrem Code unerwartete Fehler mit kryptischen
+Fehlermeldungen auftauchen ist es immer eine gute Idee, erst einmal die Typen
+der verwendeten Objekte zu checken und die Objekte ggf. zu transformieren.</p>
+</blockquote>
+<pre><code class="language-r">x &lt;- 2
+y &lt;- as.character(x)
+print(y)
+</code></pre>
+<pre><code>## [1] &quot;2&quot;
+</code></pre>
+<pre><code class="language-r">z &lt;- as.double(y) # Das funktioniert
+print(z)
+</code></pre>
+<pre><code>## [1] 2
+</code></pre>
+<pre><code class="language-r">k &lt;- as.double(&quot;Hallo&quot;) # Das nicht
+</code></pre>
+<pre><code>## Warning: NAs introduced by coercion
+</code></pre>
+<pre><code class="language-r">print(k)
+</code></pre>
+<pre><code>## [1] NA
+</code></pre>
+<p>Bei der Transformation logischer Werte wird <code>TRUE</code> übrigens zu <code>1</code> und <code>FALSE</code>
+zu <code>0</code>, eine Tatsache, die wir uns später noch zunutze machen werden:</p>
+<pre><code class="language-r">x &lt;- TRUE
+as.integer(x)
+</code></pre>
+<pre><code>## [1] 1
+</code></pre>
+<pre><code class="language-r">y &lt;- FALSE
+as.integer(y)
+</code></pre>
+<pre><code>## [1] 0
+</code></pre>
+<p>Da nicht immer ganz klar ist wann R bei Transformationen entgegen der gerade
+eingeführten Hierachie eine Warnung ausgibt und wann nicht sollte man hier immer
+besondere Vorsicht walten lassen!</p>
+<p>Zudem ist bei jeder Transformation Vorsicht geboten, da sie häufig Eigenschaften
+der Objekte implizit verändert.
+So führt eine Transformation von einer Dezimalzahl hin zu einer ganzen Zahl
+teils zu unerwartetem Rundungsverhalten:</p>
+<pre><code class="language-r">x &lt;- 1.99
+as.integer(x)
+</code></pre>
+<pre><code>## [1] 1
+</code></pre>
+<p>Auch führen Transformationen, die der eben genannten Hierachie zuwiderlaufen,
+nicht zwangsweise zu Fehlern, sondern &lsquo;lediglich&rsquo; zu unerwarteten Änderungen,
+die in jedem Fall vermieden werden sollten:</p>
+<pre><code class="language-r">z &lt;- as.logical(99)
+print(z)
+</code></pre>
+<pre><code>## [1] TRUE
+</code></pre>
+<p>Häufig transformieren Funktionen ihre Argumente automatisch, was meistens
+hilfreich ist, manchmal aber auch gefährlich sein kann:</p>
+<pre><code class="language-r">x &lt;- 1L # Integer
+y &lt;- 2.0 # Double
+z &lt;- x + y
+typeof(z)
+</code></pre>
+<pre><code>## [1] &quot;double&quot;
+</code></pre>
+<p>Bei einer Addition werden logische Werte ebenfalls automatisch transformiert:</p>
+<pre><code class="language-r">x &lt;- TRUE
+y &lt;- FALSE
+z &lt;- x + y # TRUE wird zu 1, FALSE zu 0
+print(z) 
+</code></pre>
+<pre><code>## [1] 1
+</code></pre>
+<p>Daher sollte man immer den Überblick behalten, mit welchen Objekttypen man
+gerade arbeitet.</p>
+<p>Einen Überblick zu den Test- und Transformationsbefehlen finden Sie in
+Tabelle <a href="#tab:artentests">1</a>.</p>
+<p>Table: Table 1:  Ein Überblick zu Test- und Transformationsbefehlen in R.</p>
+<p>Typ       | Test           | Transformation |
+&mdash;&mdash;&mdash;-+&mdash;&mdash;&mdash;&mdash;&mdash;-+&mdash;&mdash;&mdash;&mdash;&mdash;-|
+logical   | <code>is.logical</code>   | <code>as.logical</code>   |
+double    | <code>is.double</code>    | <code>as.double</code>    |
+integer   | <code>is.integer</code>   | <code>as.integer</code>   |
+character | <code>is.character</code> | <code>as.character</code> |
+function  | <code>is.function</code>  | <code>as.function</code>  |
+NA        | <code>is.na</code>        | NA             |
+NULL      | <code>is.null</code>      | <code>as.null</code>      |</p>
+<p>Ein letzter Hinweis zu <strong>Skalaren</strong>.
+Unter Skalaren verstehen wir in der Regel &lsquo;einzelne Zahlen&rsquo;, z.B. <code>2</code>.
+Dieses Konzept gibt es in R nicht.
+<code>2</code> ist ein Vektor der Länge 1.
+Wir unterscheiden also vom Typ her nicht zwischen einem Vektor, der nur ein oder
+mehrere Elemente hat.</p>
+<p><strong>Hinweis:</strong> Um längere Vektoren zu erstellen, verwenden wir die Funktion <code>c()</code>:</p>
+<pre><code class="language-r">x &lt;- c(1, 2, 3)
+x
+</code></pre>
+<pre><code>## [1] 1 2 3
+</code></pre>
+<p>Dabei können Vektoren auch miteinander verbunden werden:</p>
+<pre><code class="language-r">x &lt;- 1:3 # Shortcut für: x &lt;- c(1, 2, 3)
+y &lt;- 4:6
+z &lt;- c(x, y)
+z
+</code></pre>
+<pre><code>## [1] 1 2 3 4 5 6
+</code></pre>
+<p>Da atomare Vektoren immer nur Objekte des gleichen Typs enthalten,
+könnte man erwarten, dass es zu einem Fehler kommt, wenn wir Objete
+unterschiedlichen Type kombinieren wollen:</p>
+<pre><code class="language-r">x &lt;- c(1, &quot;Hallo&quot;)
+</code></pre>
+<p>Tatsächlich transformiert R die Objekte allerdings nach der oben beschriebenen
+Hierachie  <code>logical</code> → <code>integer</code> → <code>double</code> → <code>character</code>.
+Da hier keine Warnung oder kein Fehler ausgegeben wird, sind
+derlei Transformationen eine gefährliche Fehlerquelle!</p>
+<p><strong>Hinweis:</strong> Die Länge eines Vektors kann mit der Funktion <code>length</code> bestimmt
+werden:</p>
+<pre><code class="language-r">x =  c(1, 2, 3)
+len_x &lt;- length(x)
+len_x
+</code></pre>
+<pre><code>## [1] 3
+</code></pre>
+<blockquote>
+<p><strong>Exkurs: Wie groß kann eine ganze Zahl sein?</strong>
+In R werden <code>integer</code> als 32-Bit Daten gespeichert.
+Das bedeutet, dass für einen einzelnen <code>integer</code> 32 Bit Speicherplatz zur
+Verfügung steht. Das bedeutet, dass sehr große ganze Zahlen nicht als <code>integer</code>
+gespeichert werden können, einfach weil die 32 Bit nicht ausreichen.</p>
+</blockquote>
+<pre><code class="language-r">x &lt;- 2147483647L
+typeof(x)
+</code></pre>
+<pre><code>## [1] &quot;integer&quot;
+</code></pre>
+<pre><code class="language-r">y &lt;- 2147483648L
+typeof(y)
+</code></pre>
+<pre><code>## [1] &quot;double&quot;
+</code></pre>
+<blockquote>
+<p>Mit 32-Bit Integern kann man also maximal die Zahl 2147483647 speichern.
+Größere Zahlen können nur als <code>double</code> gespeichert werden. Das geht allerdings
+möglicherweise mit einem Verlust an Präzision einher.
+Wenn man letzteres vermeiden möchte kann man auch 64-Bit Integer verwenden.
+Diese wurden nachträglich in R eingeführt um auch sehr große Zahlen als Integer speichern zu können. Das geht über das Paket <code>bit64</code> (mehr zu Paketen unten
+in Abschnit <a href="#es:pakete"><strong>??</strong></a>):</p>
+</blockquote>
+<pre><code class="language-r">z &lt;- bit64::as.integer64(2147483648)
+bit64::is.integer64(z)
+</code></pre>
+<pre><code>## [1] TRUE
+</code></pre>
+<blockquote>
+<p>Da aber dieser Datentyp später hinzugefügt wurde funktionieren einige Funktionen damit nicht, wenn das Paket <code>bit64</code> nicht installiert ist und einige Standard-
+Funktionen geben irreführende Ergebnisse, z.B.:</p>
+</blockquote>
+<pre><code class="language-r">typeof(z)
+</code></pre>
+<pre><code>## [1] &quot;double&quot;
+</code></pre>
+<blockquote>
+<p>Deswegen, und weil <code>bit64</code> nicht
+Teil der Standard-Installation von R ist, sollten wir sehr große ganze Zahlen
+und die Verwendung vom Datentyp <code>integer64</code> dringend vermeiden, es sei
+denn wir haben gute Gründe dazu. Sehr große ganze Zahlen sollten also entweder
+als Dezimalzahlen gespeichert werden wenn kleine Verluste an Präzision keine
+Rolle spielen, oder aber sie sollten angemessen skaliert werden.</p>
+</blockquote>
+<h3 id="basics-logic">Logische Werte (logical)</h3>
+<p>Die logischen Werte <code>TRUE</code> und <code>FALSE</code> sind häufig das Ergebnis von logischen
+Abfragen, z.B. &lsquo;Ist 2 größer als 1?&rsquo;.
+Solche Abfragen kommen in der Forschungspraxis häufig vor und es macht Sinn,
+sich mit den häufigsten logischen Operatoren vertraut zu machen.
+Einen Überblick finden Sie in Tabelle <a href="#tab:logicaloperators">2</a>.</p>
+<p>Table: Table 2:  Zentrale logische Abfragen in R.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Operator</th>
+<th style="text-align:center">Funktion in R</th>
+<th style="text-align:left">Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">größer</td>
+<td style="text-align:center"><code>&gt;</code></td>
+<td style="text-align:left"><code>2&gt;1</code></td>
+</tr>
+<tr>
+<td style="text-align:center">kleiner</td>
+<td style="text-align:center"><code>&lt;</code></td>
+<td style="text-align:left"><code>2&lt;4</code></td>
+</tr>
+<tr>
+<td style="text-align:center">gleich</td>
+<td style="text-align:center"><code>==</code></td>
+<td style="text-align:left"><code>4==3</code></td>
+</tr>
+<tr>
+<td style="text-align:center">größer gleich</td>
+<td style="text-align:center"><code>&gt;=</code></td>
+<td style="text-align:left"><code>8&gt;=8</code></td>
+</tr>
+<tr>
+<td style="text-align:center">kleiner gleich</td>
+<td style="text-align:center"><code>&lt;=</code></td>
+<td style="text-align:left"><code>5&lt;=9</code></td>
+</tr>
+<tr>
+<td style="text-align:center">nicht gleich</td>
+<td style="text-align:center"><code>!=</code></td>
+<td style="text-align:left"><code>4!=5</code></td>
+</tr>
+<tr>
+<td style="text-align:center">und</td>
+<td style="text-align:center"><code>&amp;</code></td>
+<td style="text-align:left"><code>x&lt;90 &amp; x&gt;55</code></td>
+</tr>
+<tr>
+<td style="text-align:center">oder</td>
+<td style="text-align:center">`</td>
+<td style="text-align:left">`</td>
+</tr>
+<tr>
+<td style="text-align:center">entweder oder</td>
+<td style="text-align:center"><code>xor()</code></td>
+<td style="text-align:left"><code>xor(2&lt;1, 2&gt;1)</code></td>
+</tr>
+<tr>
+<td style="text-align:center">nicht</td>
+<td style="text-align:center"><code>!</code></td>
+<td style="text-align:left"><code>!(x==2)</code></td>
+</tr>
+<tr>
+<td style="text-align:center">ist wahr</td>
+<td style="text-align:center"><code>isTRUE()</code></td>
+<td style="text-align:left"><code>isTRUE(1&gt;2)</code></td>
+</tr>
+</tbody>
+</table>
+<p>Das Ergebnis eines solches Tests ist immer ein logischer Wert:</p>
+<pre><code class="language-r">x &lt;- 4
+y &lt;- x == 8
+typeof(y)
+</code></pre>
+<pre><code>## [1] &quot;logical&quot;
+</code></pre>
+<p>Es können auch längere Vektoren getestet werden:</p>
+<pre><code class="language-r">x &lt;- 1:3
+x&lt;2
+</code></pre>
+<pre><code>## [1]  TRUE FALSE FALSE
+</code></pre>
+<p>Tests können beliebig miteinander verknüpft werden:</p>
+<pre><code class="language-r">x &lt;- 1L
+x&gt;2 | x&lt;2 &amp; (is.double(x) &amp; x!=0)
+</code></pre>
+<pre><code>## [1] FALSE
+</code></pre>
+<p>Da für viele mathematischen Operationen <code>TRUE</code> als die Zahl <code>1</code> interpretiert
+wird, ist es einfach zu testen wie häufig eine bestimmte Bedingung erfüllt ist:</p>
+<pre><code class="language-r">x &lt;- 1:50 
+smaller_20 &lt;- x&lt;20 
+print(
+  sum(smaller_20) # Wie viele Elemente sind kleiner als 20?
+  )
+</code></pre>
+<pre><code>## [1] 19
+</code></pre>
+<pre><code class="language-r">print(
+  sum(smaller_20/length(x)) # Wie hoch ist der Anteil von diesen Elementen?
+)
+</code></pre>
+<pre><code>## [1] 0.38
+</code></pre>
+<h3 id="wörter-character">Wörter (character)</h3>
+<p>Wörter werden in R dadurch gebildet, dass an ihrem Anfang und Ende das Symbol
+<code>'</code> oder <code>&quot;</code> steht:</p>
+<pre><code class="language-r">x &lt;- &quot;Hallo&quot;
+typeof(x)
+</code></pre>
+<pre><code>## [1] &quot;character&quot;
+</code></pre>
+<pre><code class="language-r">y &lt;- 'Auf Wiedersehen'
+typeof(y)
+</code></pre>
+<pre><code>## [1] &quot;character&quot;
+</code></pre>
+<p>Wie andere Vektoren können sie mit der Funktion <code>c()</code> verbunden werden:</p>
+<pre><code class="language-r">z &lt;- c(x, &quot;und&quot;, y)
+z
+</code></pre>
+<pre><code>## [1] &quot;Hallo&quot;           &quot;und&quot;             &quot;Auf Wiedersehen&quot;
+</code></pre>
+<p>Nützlich ist in diesem Zusammenhang die Funktion <code>paste()</code>, die Elemente von
+mehreren Vektoren in Wörter transformiert und verbindet:</p>
+<pre><code class="language-r">x &lt;- 1:10
+y &lt;- paste(&quot;Versuch Nr.&quot;, x)
+y
+</code></pre>
+<pre><code>##  [1] &quot;Versuch Nr. 1&quot;  &quot;Versuch Nr. 2&quot;  &quot;Versuch Nr. 3&quot;  &quot;Versuch Nr. 4&quot; 
+##  [5] &quot;Versuch Nr. 5&quot;  &quot;Versuch Nr. 6&quot;  &quot;Versuch Nr. 7&quot;  &quot;Versuch Nr. 8&quot; 
+##  [9] &quot;Versuch Nr. 9&quot;  &quot;Versuch Nr. 10&quot;
+</code></pre>
+<p>Die Funktion <code>paste()</code> akzeptiert ein optionales Argument <code>sep</code>, mit dem wir
+den Wert angeben können, der zwischen die zu verbindenden Elemente gesetzt wird
+(der Default ist <code>sep=&quot; &quot;</code>):</p>
+<pre><code class="language-r">tag_nr &lt;- 1:10
+x_axis &lt;- paste(&quot;Tag&quot;, tag_nr, sep = &quot;: &quot;)
+x_axis
+</code></pre>
+<pre><code>##  [1] &quot;Tag: 1&quot;  &quot;Tag: 2&quot;  &quot;Tag: 3&quot;  &quot;Tag: 4&quot;  &quot;Tag: 5&quot;  &quot;Tag: 6&quot;  &quot;Tag: 7&quot; 
+##  [8] &quot;Tag: 8&quot;  &quot;Tag: 9&quot;  &quot;Tag: 10&quot;
+</code></pre>
+<blockquote>
+<p>Hinweis: Hier haben wir ein Beispiel für das sogenannte &lsquo;Recycling&rsquo;
+gesehen: da der Vektor <code>c(&quot;Tag&quot;)</code> kürzer war als der Vektor <code>tag_nr</code> wird <code>c(&quot;Tag&quot;)</code>
+einfach kopiert damit die Operation mit <code>paste()</code> Sinn ergibt. Recycling ist
+oft praktisch, aber manchmal auch schädlich, nämlich dann, wenn man eigentlich
+davon ausgeht eine Operation mit zwei gleich langen Vektoren durchzuführen, dies
+aber tatsächlich nicht tut. In einem solchen Fall führt Recycling dazu, dass
+keine Fehlermeldung ausgegeben wird. Ein Beispiel dafür gibt folgender Code, in
+dem die Intention klar die Verbindung aller Wochentage zu Zahlen ist und einfach
+ein Wochentag vergessen wurde:</p>
+</blockquote>
+<pre><code class="language-r">tage &lt;- paste(&quot;Tag &quot;, 1:7, &quot;:&quot;, sep=&quot;&quot;)
+tag_namen &lt;- c(&quot;Montag&quot;, &quot;Dienstag&quot;, &quot;Mittwoch&quot;, &quot;Donnerstag&quot;, &quot;Freitag&quot;, &quot;Samstag&quot;)
+paste(tage, tag_namen) # default ist sep=&quot; &quot;
+</code></pre>
+<pre><code>## [1] &quot;Tag 1: Montag&quot;     &quot;Tag 2: Dienstag&quot;   &quot;Tag 3: Mittwoch&quot;  
+## [4] &quot;Tag 4: Donnerstag&quot; &quot;Tag 5: Freitag&quot;    &quot;Tag 6: Samstag&quot;   
+## [7] &quot;Tag 7: Montag&quot;
+</code></pre>
+<h3 id="fehlende-werte-und-null">Fehlende Werte und NULL</h3>
+<p>Fehlende Werte werden in R als <code>NA</code> kodiert.
+<code>NA</code> erfüllt gerade in statistischen Anwendungen eine wichtige Rolle, da ein
+bestimmter Platz in einem Vektor aktuell fehlend sein müsste, aber als Platz
+dennoch existieren muss.</p>
+<blockquote>
+<p><strong>Beispiel:</strong> Der Vektor <code>x</code> enthält einen logischen Wert, der zeigt ob eine
+Person die Fragen auf einem Fragebogen richtig beantwortet hat. Wenn die Person
+die dritte Frage auf dem Fragebogen nicht beantwortet hat, sollte dies durch <code>NA</code>
+kenntlich gemacht werden. Einfach den Wert komplett wegzulassen macht es im
+Nachhinein unmöglich festzustellen <em>welche</em> Frage die Person nicht beantwortet
+hat.</p>
+</blockquote>
+<p>Die meisten Operationen die <code>NA</code> als einen Input bekommen geben auch als
+Output <code>NA</code> aus, weil unklar ist wie die Operation mit unterschiedlichen Werten
+für den fehlenden Wert ausgehen würde:</p>
+<pre><code class="language-r">5 + NA
+</code></pre>
+<pre><code>## [1] NA
+</code></pre>
+<p>Einzige Ausnahmen sind Operationen, die unabhängig vom fehlenden Wert einen
+bestimmten Wert annehmen:</p>
+<pre><code class="language-r">NA | TRUE # Gibt immer TRUE, unabhängig vom Wert für NA
+</code></pre>
+<pre><code>## [1] TRUE
+</code></pre>
+<p>Um zu testen ob ein Vektor <code>x</code> fehlende Werte enthält sollte die Funktion <code>is.na</code>
+verwendet werden, und nicht etwa der Ausdruck <code>x==NA</code>:</p>
+<pre><code class="language-r">x &lt;- c(NA, 5, NA, 10)
+print(x == NA) # Unklar, da man nicht weiß, ob alle NA für den gleichen Wert stehen
+</code></pre>
+<pre><code>## [1] NA NA NA NA
+</code></pre>
+<pre><code class="language-r">print(
+  is.na(x)
+)
+</code></pre>
+<pre><code>## [1]  TRUE FALSE  TRUE FALSE
+</code></pre>
+<p>Wenn eine Operation einen nicht zu definierenden Wert ausgibt, ist das Ergebnis
+nicht <code>NA</code> sondern <code>NaN</code> (<em>not a number</em>):</p>
+<pre><code class="language-r">0 / 0
+</code></pre>
+<pre><code>## [1] NaN
+</code></pre>
+<p>Eine weitere Besonderheit ist <code>NULL</code>, welches in der Regel als Vektor der
+Länge 0 gilt, aber häufig zu besonderen Zwecken verwendet wird:</p>
+<pre><code class="language-r">x &lt;- NULL
+length(x)
+</code></pre>
+<pre><code>## [1] 0
+</code></pre>
+<p><code>NULL</code> wird häufig verwendet um zu signalisieren, dass etwas nicht existiert.
+So ist ein leerer Vektor <code>NULL</code>:</p>
+<pre><code class="language-r">x &lt;- c()
+x
+</code></pre>
+<pre><code>## NULL
+</code></pre>
+<pre><code class="language-r">length(x)
+</code></pre>
+<pre><code>## [1] 0
+</code></pre>
+<p>Damit unterscheidet er sich von einem Vektor mit einem (oder mehreren)
+fehlenden Werten:</p>
+<pre><code class="language-r">y &lt;- NA
+length(y)
+</code></pre>
+<pre><code>## [1] 1
+</code></pre>
+<p>Auch im Programmieren von Funktionen wird <code>NULL</code> häufig für optionale Argumente
+verwendet.
+Solche fortgeschrittene Konzepte werden aber erst an späterer Stelle behandelt.
+Für jetzt reicht die Idee, <code>NULL</code> als einen Vektor der Länge 0 zu verstehen.</p>
+<h3 id="indizierung-und-ersetzung">Indizierung und Ersetzung</h3>
+<p>Einzelne Elemente von atomaren Vektoren können mit eckigen Klammern extrahiert
+werden:</p>
+<pre><code class="language-r">x &lt;- c(2,4,6)
+x[1]
+</code></pre>
+<pre><code>## [1] 2
+</code></pre>
+<p>Auf diese Weise können auch bestimmte Elemente modifiziert werden:</p>
+<pre><code class="language-r">x &lt;- c(2,4,6)
+x[2] &lt;- 99
+x
+</code></pre>
+<pre><code>## [1]  2 99  6
+</code></pre>
+<p>Es kann auch mehr als ein Element extrahiert werden:</p>
+<pre><code class="language-r">x[1:2]
+</code></pre>
+<pre><code>## [1]  2 99
+</code></pre>
+<p>Negative Indizes sind auch möglich, diese eliminieren die entsprechenden
+Elemente:</p>
+<pre><code class="language-r">x[-1]
+</code></pre>
+<pre><code>## [1] 99  6
+</code></pre>
+<p>Um das letzte Element eines Vektors zu bekommen verwendet man einen Umweg über
+die Funktion <code>length()</code>:</p>
+<pre><code class="language-r">x[length(x)]
+</code></pre>
+<pre><code>## [1] 6
+</code></pre>
+<h3 id="nützliche-funktionen-für-atomare-vektoren">Nützliche Funktionen für atomare Vektoren</h3>
+<p>Hier sollen nur einige Funktionen erwähnt werden, die im Kontext von
+atomaren Vektoren besonders praktisch sind,^[Für viele typische Aufgaben gibt
+es in R bereits eine vordefinierte Funktion. Am einfachsten findet man diese
+durch googlen.] inbesondere wenn es darum geht solche Vektoren
+herzustellen, bzw. Rechenoperationen mit ihnen durchzuführen.</p>
+<p><strong>Herstellung von atomaren Vektoren</strong>:</p>
+<p>Eine Sequenz ganzer Zahlen wird in der Regel sehr häufig gebraucht.
+Entsprechend gibt es den hilfreichen Shortcut<code>:</code>, den wir bei der Besprechung
+von Vektoren bereits kennengelernt haben:</p>
+<pre><code class="language-r">x &lt;- 1:10
+x
+</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10
+</code></pre>
+<pre><code class="language-r">y &lt;- 10:1
+y
+</code></pre>
+<pre><code>##  [1] 10  9  8  7  6  5  4  3  2  1
+</code></pre>
+<p>Häufig möchten wir jedoch eine kompliziertere Sequenz bauen.
+In dem Fall hilft uns die allgemeinere Funktion <code>seq()</code>:</p>
+<pre><code class="language-r">x &lt;- seq(1, 10)
+print(x)
+</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10
+</code></pre>
+<p>In diesem Fall ist <code>seq()</code> äquivalent zu <code>:</code>.
+Die Funktion <code>seq</code> erlaubt aber mehrere optionale Argumente: so können wir
+mit <code>by</code> die Schrittlänge zwischen den einzelnen Zahlen definieren.</p>
+<pre><code class="language-r">y &lt;- seq(1, 10, by = 0.5)
+print(y)
+</code></pre>
+<pre><code>##  [1]  1.0  1.5  2.0  2.5  3.0  3.5  4.0  4.5  5.0  5.5  6.0  6.5  7.0  7.5  8.0
+## [16]  8.5  9.0  9.5 10.0
+</code></pre>
+<p>Wenn wir die Länge des resultierenden Vektors festlegen wollen und die
+Schrittlänge von R automatisch festgelegt werden soll, können wir dies mit
+dem Argument <code>length.out</code> machen:</p>
+<pre><code class="language-r">z &lt;- seq(2, 8, length.out = 4)
+print(z)
+</code></pre>
+<pre><code>## [1] 2 4 6 8
+</code></pre>
+<p>Und wenn wir einen Vektor in der Länge eines anderen Vektors erstellen wollen,
+bietet sich das Argument <code>along.with</code> an. Dies wird häufig für das Erstellen
+von Indexvektoren verwendet.^[Ein Indexvektor <code>x</code> zu einem beliebigen Vektor
+<code>y</code> mit <code>N</code> Elementen enthält die ganzen Zahlen von 1 bis <code>N</code>. Der n-te Wert
+von x korrespontiert also zum Index des n-ten Wert von <code>y</code>.]
+In einem solchen Fall müssen wir die Indexzahlen
+nicht direkt angeben:</p>
+<pre><code class="language-r">z_index &lt;- seq(along.with = z)
+print(z_index)
+</code></pre>
+<pre><code>## [1] 1 2 3 4
+</code></pre>
+<p>Auch häufig möchten wir einen bestimmten Wert wiederholen.
+Das geht mit der Funktion <code>rep</code>:</p>
+<pre><code class="language-r">x &lt;- rep(NA, 5)
+print(x)
+</code></pre>
+<pre><code>## [1] NA NA NA NA NA
+</code></pre>
+<p><strong>Rechenoperationen</strong></p>
+<p>Es gibt eine Reihe von Operationen, die wir sehr häufig gemeinsam mit Vektoren
+anwenden.
+Häufig interessiert und die <strong>Länge</strong> eines Vektors.
+Dafür können wir die Funktion <code>length()</code> verwenden:</p>
+<pre><code class="language-r">x &lt;- c(1,2,3,4)
+length(x)
+</code></pre>
+<pre><code>## [1] 4
+</code></pre>
+<p>Wenn wir den <strong>größten</strong> oder <strong>kleinsten Wert</strong> eines Vektors erfahren möchten
+geht das mit den Funktionen <code>min()</code> und <code>max()</code>:</p>
+<pre><code class="language-r">min(x)
+</code></pre>
+<pre><code>## [1] 1
+</code></pre>
+<pre><code class="language-r">max(x)
+</code></pre>
+<pre><code>## [1] 4
+</code></pre>
+<p>Beide Funktionen besitzen ein optionales Argument <code>na.rm</code>, das entweder <code>TRUE</code>
+oder <code>FALSE</code> sein kann. Im Falle von <code>TRUE</code> werden alle <code>NA</code> Werte für die
+Rechenoperation entfernt:</p>
+<pre><code class="language-r">y &lt;- c(1,2,3,4,NA)
+min(y)
+</code></pre>
+<pre><code>## [1] NA
+</code></pre>
+<pre><code class="language-r">min(y, na.rm = TRUE)
+</code></pre>
+<pre><code>## [1] 1
+</code></pre>
+<p>Den <strong>Mittelwert</strong> bzw die <strong>Varianz/Standardabweichung</strong> der Elemente bekommen
+wir mit <code>mean()</code>, <code>var()</code>, bzw. <code>sd()</code>, wobei alle Funktionen auch das optionale
+Argument <code>na.rm</code> akzeptieren:</p>
+<pre><code class="language-r">mean(x)
+</code></pre>
+<pre><code>## [1] 2.5
+</code></pre>
+<pre><code class="language-r">var(y)
+</code></pre>
+<pre><code>## [1] NA
+</code></pre>
+<pre><code class="language-r">var(y, na.rm = T)
+</code></pre>
+<pre><code>## [1] 1.666667
+</code></pre>
+<p>Ebenfalls häufig sind wir an der <strong>Summe</strong>, bzw, dem <strong>Produkt</strong> aller Elemente
+des Vektors interessiert. Die Funktionen <code>sum()</code> und <code>prod()</code> helfen weiter und
+auch sie kennen das optionale Argument <code>na.rm</code>:</p>
+<pre><code class="language-r">sum(x)
+</code></pre>
+<pre><code>## [1] 10
+</code></pre>
+<pre><code class="language-r">prod(y, na.rm = T)
+</code></pre>
+<pre><code>## [1] 24
+</code></pre>
+<h3 id="listen">Listen</h3>
+<p>Im Gegensatz zu atomaren Vektoren können Listen Objekte verschiedenen Typs
+enthalten.
+Sie werden mit der Funktion <code>list()</code> erstellt:</p>
+<pre><code class="language-r">l_1 &lt;- list(
+  &quot;a&quot;,
+  c(1,2,3),
+  FALSE
+)
+typeof(l_1)
+</code></pre>
+<pre><code>## [1] &quot;list&quot;
+</code></pre>
+<pre><code class="language-r">l_1
+</code></pre>
+<pre><code>## [[1]]
+## [1] &quot;a&quot;
+## 
+## [[2]]
+## [1] 1 2 3
+## 
+## [[3]]
+## [1] FALSE
+</code></pre>
+<p>Wir können Listen mit der Funktion <code>str()</code> (kurz für &ldquo;structure&rdquo;) inspizieren.
+In diesem Fall erhalten wir unmittelbar Informationen über die Art der Elemente:</p>
+<pre><code class="language-r">str(l_1)
+</code></pre>
+<pre><code>## List of 3
+##  $ : chr &quot;a&quot;
+##  $ : num [1:3] 1 2 3
+##  $ : logi FALSE
+</code></pre>
+<p>Die einzelnen Elemente einer Liste können auch benannt werden:</p>
+<pre><code class="language-r">l_2 &lt;- list(
+  &quot;erstes_element&quot; = &quot;a&quot;,
+  &quot;zweites_element&quot; = c(1,2,3),
+  &quot;drittes_element&quot; = FALSE
+)
+</code></pre>
+<p>Die Namen aller Elemente in der Liste erhalten wir mit der Funktion <code>names()</code>:</p>
+<pre><code class="language-r">names(l_2)
+</code></pre>
+<pre><code>## [1] &quot;erstes_element&quot;  &quot;zweites_element&quot; &quot;drittes_element&quot;
+</code></pre>
+<p>Um einzelne Elemente einer Liste auszulesen müssen wir <code>[[</code> anstatt <code>[</code> verwenden.
+Wir können dann Elemente entweder nach ihrer Position oder nach ihren Namen auswählen:</p>
+<pre><code class="language-r">l_2[[1]]
+</code></pre>
+<pre><code>## [1] &quot;a&quot;
+</code></pre>
+<pre><code class="language-r">l_2[[&quot;erstes_element&quot;]]
+</code></pre>
+<pre><code>## [1] &quot;a&quot;
+</code></pre>
+<p>Im Folgenden wollen wir uns noch mit drei speziellen Typen beschäftigen, die
+weniger fundamental als die bislang diskutierten Typen sind, jedoch häufig in
+der alltäglichen Arbeit vorkommen: Faktoren, Matrizen und Data Frames.</p>
+
+</main>
+
+  <footer>
+  <script defer src="//yihui.org/js/math-code.js"></script>
+<script defer src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script defer src="//yihui.org/js/center-img.js"></script>
+
+  
+  <hr/>
+  © <a href="https://claudius-graebner.com/">Claudius Gräbner-Radkowitsch</a> 2021 &ndash; 2022 | <a href="https://www.uni-flensburg.de/en/pluralist-economics">EUF</a> | <a href="https://github.com/graebnerc">Github</a> | <a href="https://twitter.com/ClaudiusGrabner">Twitter</a> | <a href="https://orcid.org/0000-0003-4065-4722">OrcID</a>
+  
+  </footer>
+  </body>
+</html>
+
