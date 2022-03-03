@@ -5,7 +5,7 @@ title: "Course material"
 
 # The complete course material
 
-| **Session** | **Date**      | **Topic**           | **Quicklinks**|
+| **Session** | **Date**      | **Topic**           | **Slides**|
 |:-----------:|:--------------|:--------------------|:-------------:|
 |   [1](#s1)  | March 12, 2022| General introduction| [Slides Orga](slides/T1-1-Introduction.pdf), [Slides Philo](slides/T1-1-Introduction.pdf)   |
 |   [2](#s2)  | March 23, 2022| Installation        | [Slides](slides/T2-Installation.pdf)           |
@@ -25,14 +25,27 @@ title: "Course material"
 ## Session 2: Installation {#s2}
 
 - [Slides](slides/T2-Installation.pdf)
+- [Tutorial: installing and accessing the exercises]()
 
 ## Session 3: First steps in R I - Basics and functions {#s3}
 
 - [Slides](slides/T3-Basics-Functions.pdf)
 
+
 ### Mandatory readings
 
-- [Tutorial: First steps in R](/post/2022/03/24/first-steps/)
+- [Tutorial: Commands, objects, and assignments](/post/2022/03/24/first-steps/)
+
+- [Tutorial: Functions](/post/2022/03/31/object-types-func/)
+
+### Exercises
+
+After installing (and updating) the `DataScienceExercises`-package 
+(as described here), run the following command from within your R session:
+
+```
+learnr::run_tutorial("Basics", package = "DataScienceExercises")
+```
 
 ## Session 4: First steps in R II - Objects {#s4}
 
@@ -40,17 +53,32 @@ title: "Course material"
 
 ### Mandatory readings
 
-- [Tutorial: Functions](/post/2022/03/31/object-types-func/)
-
 - [Tutorial: Vectors](/post/2022/03/31/object-types-vec/)
 
 - [Tutorial: Factors and data frames](/post/2022/03/31/object-types-adv/)
 
+### Exercises
+
+After installing (and updating) the `DataScienceExercises`-package 
+(as described here), run the following command from within your R session:
+
+```
+learnr::run_tutorial("ObjectTypes", package = "DataScienceExercises")
+```
 
 ## Session 5: Visualization I {#s5}
 
 ### Mandatory readings
 TBD
+
+### Exercises
+
+After installing (and updating) the `DataScienceExercises`-package 
+(as described here), run the following command from within your R session:
+
+```
+learnr::run_tutorial("Visualization1", package = "DataScienceExercises")
+```
 
 ## Session 6: Data wrangling I {#s6}
 
