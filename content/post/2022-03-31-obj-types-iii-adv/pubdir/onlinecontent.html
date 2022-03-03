@@ -11,8 +11,9 @@
 
 <meta name="author" content="Claudius Gräbner-Radkowitsch" />
 
+<meta name="date" content="2022-03-02" />
 
-<title>Fundamental object types in R I: Functions</title>
+<title>Fundamental object types in R III: Factors, matrices, and data frames</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -435,268 +436,276 @@ pre code {
 
 
 
-<h1 class="title toc-ignore">Fundamental object types in R I:
-Functions</h1>
+<h1 class="title toc-ignore">Fundamental object types in R III: Factors,
+matrices, and data frames</h1>
 <h4 class="author">Claudius Gräbner-Radkowitsch</h4>
-<h4 class="date">2/12/2022</h4>
+<h4 class="date">2022-03-02</h4>
 
 </div>
 
 <div id="TOC">
 <ul>
-<li><a href="#overview"><span class="toc-section-number">1</span>
-Overview</a></li>
-<li><a href="#functions"><span class="toc-section-number">2</span>
-Functions</a></li>
+<li><a href="#introfactors"><span class="toc-section-number">1</span>
+Faktoren</a></li>
+<li><a href="#intro-matrix"><span class="toc-section-number">2</span>
+Matrizen</a></li>
+<li><a href="#data-frames"><span class="toc-section-number">3</span>
+Data Frames</a></li>
 </ul>
 </div>
 
-<div id="overview" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Overview</h1>
-<p>We already learned that everything in R that exists is an
-<em>object</em>. You most likely already noted that there are different
-types of objects: <code>2</code>, for instance, was a number, but
-<code>assign</code> was a function.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> As you might have guessed, there are many
-more types of objects. To understand the fundamental object types in R
-is a very essential prerequisite to master more complicated programming
-challenges than those we have encountered so far. Thus, this post is
-among those that will introduce you to the most important object types
-that you will encounter in R.</p>
-<p>These data types are summarized in the following figure:</p>
-<p><img src="data:image/png;base64,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" /><!-- --></p>
-<p>This post will be about functions. Different types of vectors are
-covered in the upcoming posts.</p>
-</div>
-<div id="functions" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> Functions</h1>
-<p>Functions are algorithms that apply a certain routine on an
-<em>input</em>, thereby producing (almost always) an <em>output.</em>
-The function <code>log()</code>, for instance, takes as input a number
-and returns as output another number, namely the logarithm of the
-input:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">2</span>)</span></code></pre></div>
-<pre><code>## [1] 0.6931472</code></pre>
-<p><strong>Calling a function</strong></p>
-<p>There are, in principle, four different ways to call a function in R.
-Only two of them, however, are practically relevant for our
-purposes.</p>
-<p>The by far most important variant is the so called <em>prefix
-form</em>. Here you first write down the name of the function. Then you
-open brackets, write down all the <em>arguments</em> of the function,
-which you separate by commas, then then you close the brackets. In the
-following example, the name of the function is <code>assign</code>, and
-its arguments are <code>&quot;test&quot;</code> and <code>2</code>:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">assign</span>(<span class="st">&quot;test&quot;</span>, <span class="dv">2</span>)</span></code></pre></div>
-<p>The second relevant way to call a function is the so called <em>infix
-form</em>. Here, the name of the function is written <em>between</em>
-the arguments of the function. This form is less common than the
-<em>prefix form</em>, but frequently used for mathematical operations,
-such as <code>+</code>, <code>-</code> or <code>/</code>.</p>
-<p>Strictly speaking, it is only a shortcut, since very function call
-using the infix form can also be written as a function call in the
-prefix form:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span></span></code></pre></div>
-<pre><code>## [1] 5</code></pre>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="st">`</span><span class="at">+</span><span class="st">`</span>(<span class="dv">2</span>,<span class="dv">3</span>)</span></code></pre></div>
-<pre><code>## [1] 5</code></pre>
-<p>Both function calls are, in the end, equivalent, but in this context
-the infix form is clearly easier to read.</p>
-<p><strong>The arguments of a function</strong></p>
-<p>The arguments of a function usually provide the <em>input</em> of the
-function, and might also specify how the underlying routine should be
-executed exactly.</p>
-<p>The function <code>sum</code>, for instance, takes as arguments an
-arbitrary number of numbers (its ‘input’) and returns the sum of these
-numbers:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)</span></code></pre></div>
-<pre><code>## [1] 10</code></pre>
-<p>Moreover, <code>sum()</code> also acceps an <em>optional
-argument</em>, which is called <code>na.rm</code>. This optional
-argument can take the value <code>TRUE</code> or <code>FALSE</code>. The
-letters <code>na</code> stand for “not available”, and refer to missing
-values. If we do not set the optional argument explicitly, it takes its
-default value. In this case, the defaults value is <code>FALSE</code>.
-You can get this information by calling the help-function:
-<code>help(sum)</code>.</p>
-<p>Optional arguments are no input in the classical sense, but they
-allow you to control the routine that the function applies. In the
-present case this means that if <code>na.rm</code> takes the value
-<code>TRUE</code>, all missing values in the input to <code>sum()</code>
-will be ignored:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="cn">NA</span>) </span></code></pre></div>
+<ul>
+<li>TOC</li>
+<li>Picture with overview</li>
+</ul>
+<div id="introfactors" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Faktoren</h1>
+<p>Faktoren werden verwendet um ordinale oder kategoriale Daten
+darzustellen. Ein Faktor kann nur einen von mehreren vorher definierten
+Werten annehmen, so genannten <em>Levels</em>. Faktoren werden über die
+Funktion <code>factor()</code> erstellt. Sie nimmt als erstes Argument
+die Werte für den Faktor:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Frau&quot;</span>, <span class="st">&quot;Mann&quot;</span>, <span class="st">&quot;Frau&quot;</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;Frau&quot;</span>, <span class="st">&quot;Mann&quot;</span>, <span class="st">&quot;Frau&quot;</span>))</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## [1] Frau Mann Frau
+## Levels: Frau Mann</code></pre>
+<p>Wenn wir Levels definieren wollen, die aber aktuell noch keine
+Ausprägung haben können wir dies mit dem Argument <code>levels</code>
+bewerkstelligen:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Frau&quot;</span>, <span class="st">&quot;Mann&quot;</span>, <span class="st">&quot;Frau&quot;</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;Frau&quot;</span>, <span class="st">&quot;Mann&quot;</span>, <span class="st">&quot;Frau&quot;</span>), </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;Divers&quot;</span>,<span class="st">&quot;Frau&quot;</span>, <span class="st">&quot;Mann&quot;</span>))</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## [1] Frau Mann Frau
+## Levels: Divers Frau Mann</code></pre>
+<p>Wenn wir das Argument <code>levels</code> verwenden werden dort nicht
+genannte Ausprägungen den Wert <code>NA</code> erhalten:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Frau&quot;</span>, <span class="st">&quot;Mann&quot;</span>, <span class="st">&quot;Frau&quot;</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;Frau&quot;</span>, <span class="st">&quot;Mann&quot;</span>, <span class="st">&quot;Frau&quot;</span>, <span class="st">&quot;Divers&quot;</span>), </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;Frau&quot;</span>, <span class="st">&quot;Mann&quot;</span>))</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## [1] Frau Mann Frau &lt;NA&gt;
+## Levels: Frau Mann</code></pre>
+<p>Die Reihenfolge der einzelnen Levels spielt meist keine Rolle. Bei
+ordinalen Daten möchten wir aber eine sinnvolle Wertigkeit der
+Ausprägungen sicherstellen. Das geht mit der Funktion
+<code>factor()</code> und dem Argument <code>ordered</code>:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Hoch&quot;</span>, <span class="st">&quot;Hoch&quot;</span>, <span class="st">&quot;Gering&quot;</span>, <span class="st">&quot;Hoch&quot;</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">factor</span>(x, </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;Gering&quot;</span>, <span class="st">&quot;Mittel&quot;</span>, <span class="st">&quot;Hoch&quot;</span>), </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## [1] Hoch   Hoch   Gering Hoch  
+## Levels: Gering &lt; Mittel &lt; Hoch</code></pre>
+<p>Häufig handelt es sich bei den Ausprägungen von Faktoren um Wörter,
+also Objekte vom Type <code>character</code>. Technisch gesehen werden
+Faktoren aber als <code>integer</code> gespeichert: um Speicherplatz zu
+sparen wird jedem Level auf dem Computer eine ganze Zahl zugewiesen, die
+dann auf den eigentlichen Wert gemapt wird. Gerade wenn die Ausprägungen
+als solche große Zahlen oder lange Wörter sind spart das Speicher, weil
+diese Ausprägungen nur einmal gespeichert werden müssen, und jedes
+Element des Fakors nur noch eine einfache Zahl ist. Daher gibt
+<code>typeof()</code> für Faktoren auch <code>integer</code> aus:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;Frau&quot;</span>, <span class="st">&quot;Mann&quot;</span>, <span class="st">&quot;Frau&quot;</span>), </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;Mann&quot;</span>, <span class="st">&quot;Frau&quot;</span>, <span class="st">&quot;Divers&quot;</span>))</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(x)</span></code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<p>Um zu überprüfen ob es sich bei einem Objekt um einen Faktor handelt
+verwenden wir die Funktion <code>is.factor()</code>:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.factor</span>(x)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Manche Operationen, die für <code>integer</code> definiert sind,
+funktionieren bei Faktoren aber nicht, z.B. Addition:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">1</span>] <span class="sc">+</span> x[<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## Warning in Ops.factor(x[1], x[2]): &#39;+&#39; not meaningful for factors</code></pre>
 <pre><code>## [1] NA</code></pre>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="cn">NA</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
-<pre><code>## [1] 10</code></pre>
-<p>If you want to know what arguments you can give to a function, you
-should call the function <code>help()</code> to have a look at the
-function documentation. In case of <code>sum()</code> we learn that in
-addition to its input, <code>sum()</code> accepts one additional
-argument, <code>na.rm</code>, which by default takes the value
-<code>FALSE</code></p>
-<p>To change optional arguments, we always need to (or better: should)
-specify the name of the optional argument. For the standard input this
-is not necessary, but sometimes still useful. Information about the
-names of the input, as well as the optional arguments, can always be
-obtained via the function <code>help()</code>.</p>
-<p><strong>Define your own functions</strong></p>
-<p>Defining functions our own is incredibly useful. We can do this by
-using the keyword <code>function</code>. To illustrate how to define our
-own functions, we will now define a function that we will call
-<code>pythagoras</code> and that takes as arguments the length of the
-two catheti or a right triangle, and calculate the length of the
-hypotenuse using the <a href="https://en.wikipedia.org/wiki/Pythagorean_theorem">Pythagorean
-theorem</a>.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>pythagoras <span class="ot">&lt;-</span> <span class="cf">function</span>(cathetus_1, cathetus_2){</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  hypo_squared <span class="ot">&lt;-</span> cathetus_1<span class="sc">**</span><span class="dv">2</span> <span class="sc">+</span> cathetus_2<span class="sc">**</span><span class="dv">2</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  hypotenuse <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(hypo_squared) <span class="co"># sqrt() takes square root</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(hypotenuse)</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<p>We always define a new function by using the function
-<code>function()</code>. We start our definition by associating the new
-function with a name (here: ‘pythagoras’) so that we can use it
-later.</p>
-<p>The argumtents to <code>function()</code> are then arguments that our
-new function should accept. In the present case there are two such
-arguments: <code>cathetus_1</code> and <code>cathetus_2</code>. After
-that comes the so called ‘function body’. It contains all the routines
-that the function should execute when called. The function body is
-always enclosed by curly brackets. In the example above we first compute
-the sum of the squares of the two catheti, and save this intermediate
-result as <code>hypo_squared</code>. This is the part of the Pythagorean
-theorem that you might know as <span class="math inline">\(c^2=a^2 +
-b^2\)</span>. Since we are interested in the ‘normal’ length of the
-hypotenuse, we then use the function <code>sqrt()</code> to get the
-square root of <code>hypo_squared</code>. This is also the value that we
-wish our function would return to us. To make this explicit, we use the
-keyword <code>return</code> to specify the return value of the
-function.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
-<p>If we now call our function with the correct arguments, the routine
-above will be executed:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pythagoras</span>(<span class="dv">2</span>, <span class="dv">4</span>)</span></code></pre></div>
-<pre><code>## [1] 4.472136</code></pre>
+<p>Dafür können wir andere nützliche Dinge mit Faktoren anstellen, z.B.
+die absoluten Häufigkeiten über die Funktion <code>table()</code>
+anzeigen:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(x)</span></code></pre></div>
+<pre><code>## x
+##   Mann   Frau Divers 
+##      1      2      0</code></pre>
+<p>Faktoren werden vor allem in der Arbeit mit ordinalen und
+kategorialen Daten verwendet (siehe Kapitel @ref(data)).</p>
+</div>
+<div id="intro-matrix" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Matrizen</h1>
+<p>Bei Matrizen handelt es sich um zweidimensionale Objekte mit Zeilen
+und Spalten, bei denen es sich jeweils um atomare Vektoren handelt.</p>
+<p><strong>Erstellen von Matrizen</strong></p>
+<p>Matrizen werden mit der Funktion <code>matrix()</code> erstellt.
+Diese Funktion nimmt als erstes Argument die Elemente der Matrix und
+dann die Spezifikation der Anzahl von Zeilen (<code>nrow</code>)
+und/oder der Anzahl von Spalten (<code>ncol</code>):</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>m_1 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">11</span><span class="sc">:</span><span class="dv">20</span>, <span class="at">nrow =</span> <span class="dv">5</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>m_1</span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]   11   16
+## [2,]   12   17
+## [3,]   13   18
+## [4,]   14   19
+## [5,]   15   20</code></pre>
+<p>Wir können die Zeilen und Spalten sowie einzelne Werte folgendermaßen
+extrahieren und gegebenenfalls Ersetzungen vornehmen:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>m_1[,<span class="dv">1</span>] <span class="co"># Erste Spalte</span></span></code></pre></div>
+<pre><code>## [1] 11 12 13 14 15</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>m_1[<span class="dv">1</span>,] <span class="co"># Erste Zeile</span></span></code></pre></div>
+<pre><code>## [1] 11 16</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>m_1[<span class="dv">2</span>,<span class="dv">2</span>] <span class="co"># Element [2,2]</span></span></code></pre></div>
+<pre><code>## [1] 17</code></pre>
 <blockquote>
-<p><strong>Note</strong>: we could also call the arguments of our new
-function explicitly, which can be useful for transparency reasons when
-you call more complex functions:</p>
+<p><strong>Optionaler Hinweis:</strong> Matrizen sind weniger
+‘fundamental’ als atomare Vektoren. Entsprechend gibt uns
+<code>typeof()</code> für eine Matrix auch den Typ der enthaltenen
+atomaren Vektoren an:</p>
 </blockquote>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pythagoras</span>(<span class="at">cathetus_1=</span><span class="dv">2</span>, <span class="at">cathetus_2=</span><span class="dv">4</span>) <span class="co"># Also works the other way around</span></span></code></pre></div>
-<pre><code>## [1] 4.472136</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(m_1)</span></code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
 <blockquote>
-<p><strong>Note</strong>: you can see the source code of a function
-(mostly) by typing the name of the function withough the brackets:</p>
+<p>Um zu testen ob es sich bei einem Objekt um eine Matrix handelt
+verwenden wir entsprechend <code>is.matrix()</code>:</p>
 </blockquote>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>pythagoras</span></code></pre></div>
-<pre><code>## function(cathetus_1, cathetus_2){
-##   hypo_squared &lt;- cathetus_1**2 + cathetus_2**2
-##   hypotenuse &lt;- sqrt(hypo_squared) # sqrt() takes square root
-##   return(hypotenuse)
-## }
-## &lt;bytecode: 0x7ff4b35b60b0&gt;</code></pre>
-<p>Note that all object names used within the function body are lost
-after the function has been called. The deeper reason is that functions
-have their own <a href="https://adv-r.hadley.nz/environments.html">environment</a>.
-Because of this behavior, R produces an error in the following example,
-in which <code>hypo_squared</code> exists <em>only</em> within the
-function body.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>pythagoras <span class="ot">&lt;-</span> <span class="cf">function</span>(cathetus_1, cathetus_2){</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  hypo_squared <span class="ot">&lt;-</span> cathetus_1<span class="sc">**</span><span class="dv">2</span> <span class="sc">+</span> cathetus_2<span class="sc">**</span><span class="dv">2</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  hypotenuse <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(hypo_squared) <span class="co"># sqrt() takes square root</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(hypotenuse)</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">pythagoras</span>(<span class="dv">2</span>, <span class="dv">4</span>)</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>hypo_squared</span></code></pre></div>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;hypo_squared&#39; not found</code></pre>
-<p>Note that this behavior is intentional: otherwise, there would
-quickly be a lot of associations that are hard to keep track of. It is,
-however, of utmost importance to always remember this behavior,
-otherwise, very confusing errors might emerge, as in the following
-example in which you might have expected <code>hypo_squared</code> to
-take the value of the length of the hypothenuse squared within your
-right triangle:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>hypo_squared <span class="ot">&lt;-</span> <span class="dv">120</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">pythagoras</span>(<span class="dv">2</span>, <span class="dv">4</span>)</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>hypo_squared</span></code></pre></div>
-<pre><code>## [1] 120</code></pre>
-<p>It is always a good idea to <strong>document</strong> your own
-functions. This is not only (but especially) the case if you want to
-share it with others: also, if you want to use your function after a
-while has past, you will be extremely grateful to your previous You for
-explaining to you how the function works and what arguments it takes.
-Or, in other words, nothing is more frustrating than getting back to
-your code after a few weeks and being forced to invest many hours to
-encypher the code you have written previously.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
-<p>While you might document functions using simple comments at the end
-of each line I strongly recommend to get used to follow <a href="https://r-pkgs.org/man.html#man-functions">these conventions</a>
-right from the start. Documenting our little function from above would
-look like this:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; Computes the length of the hypothenuse in a right triangle</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; </span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; This function takes the length of the two catheti of a right triangle as</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;  arguments and computes the length of the hypothenuse.</span></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @param cathetus_1 The length of the first cathetus</span></span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @param cathetus_2 The length of the second cathetus</span></span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @return The length of the hypothenuse of the right triangle as defined by </span></span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;  `cathetus_1` and `cathetus_2`.</span></span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>pythagoras <span class="ot">&lt;-</span> <span class="cf">function</span>(cathetus_1, cathetus_2){</span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>  hypo_squared <span class="ot">&lt;-</span> cathetus_1<span class="sc">**</span><span class="dv">2</span> <span class="sc">+</span> cathetus_2<span class="sc">**</span><span class="dv">2</span></span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>  hypotenuse <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(hypo_squared) <span class="co"># sqrt() takes square root</span></span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(hypotenuse)</span>
-<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<p>The documentation of a function must come immediately before the
-function definition and each line of the documentation starts with
-<code>#&#39;</code>. In the first line you provide a title, which must not
-be longer than 80 characetrs.</p>
-<p>Then, after inserting a blank line you describe what the function
-does in a bit more detail. Then, you describe each argument by using the
-decorator <code>@param</code> at the beginning of the lines. Finally,
-after another blank line, you describe the output of the function after
-starting the line with the decorator <code>@return</code>.</p>
-<p>Thus, any documentation of a function should at least include the
-arguments and the kind of output.</p>
-<p><strong>Why you should use functions in the first place</strong></p>
-<p>Defining your own functions is extremely helpful in practice. It is
-recommended to enclose routines that you use several times into a
-function. There are several reasons for doing so:</p>
-<ol style="list-style-type: decimal">
-<li><p><strong>Code becomes more concise and transparent</strong> It is
-easier to document code that uses functions because of the documentation
-conventions introduced above. Moreover, the code becomes shorter and
-easier to read. As a rule of thumb, after pasting and slightly adjusting
-some of your code twice, consider turning it into a function.</p></li>
-<li><p><strong>Functions help to structure your code</strong> Functions
-summarize, on a higher level of abstraction, your idea of how to solve a
-certain problem. Because you do not want to think about how to do this
-every time you encounter the same problem, it is better to summarize
-your thoughts in one place - the function.</p></li>
-<li><p><strong>Functions facilitate debugging</strong> Imagine you
-encounter a mistake in your implementation of a routine in your code. If
-this routine is used ten times in your code and you did not use
-functions, you must correct your mistake ten times. If you used a
-function, you had to correct the mistake only once. Needless to say that
-functions reduce the likelihood for a mistake by providing you with the
-incentive to document the code, and because they avoid incidental
-mistakes that will always happen if you write the same code many times
-in different places.</p></li>
-</ol>
-<p>While these three reasons should already suffice to convince you of
-using functions whenever possible, there are even more reasons to use
-them. Many of them are related to the fundamental programming principle
-<a href="https://en.wikipedia.org/wiki/Don%E2%80%99t_repeat_yourself">DRY</a>
-(“Don’t Repeat Yourself”).</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.matrix</span>(m_1)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.matrix</span>(<span class="fl">2.0</span>)</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>Die Grundlagen der Matrizenalgebra und ihre Implementierung in R wird
+später in Kapitel @ref(formalia) erläutert. Zudem gibt es im Internet
+zahlreiche gute Überblicksartikel zum Thema Matrizenalgebra in R, z.B.
+<a href="https://www.statmethods.net/advstats/matrix.html">hier</a> oder
+in größerem Umfang <a href="https://www.math.uh.edu/~jmorgan/Math6397/day13/LinearAlgebraR-Handout.pdf">hier</a>.</p>
+</div>
+<div id="data-frames" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Data Frames</h1>
+<p>Der <code>data.frame</code> ist eine besondere Art von Liste und ist
+ein in der Datenanalyse regelmäßig auftretender Datentyp. Im Gegensatz
+zu einer normalen Liste müssen bei einem <code>data.frame</code> alle
+Elemente die gleiche Länge aufweisen. Das heißt man kann sich einen
+<code>data.frame</code> als eine rechteckig angeordnete Liste
+vorstellen.</p>
+<p>Wegen der engen Verwandschaft können wir einen
+<code>data.frame</code> direkt aus einer Liste erstellen indem wir die
+Funktion <code>as.data.frame()</code> verwenden:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>l_3 <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;a&quot;</span> <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;b&quot;</span> <span class="ot">=</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>,</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;c&quot;</span> <span class="ot">=</span> <span class="dv">7</span><span class="sc">:</span><span class="dv">9</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>df_3 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(l_3)</span></code></pre></div>
+<p>Wenn wir R nach dem Typ von <code>df_3</code> fragen, sehen wir, dass
+es sich weiterhin um eine Liste handelt:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(df_3)</span></code></pre></div>
+<pre><code>## [1] &quot;list&quot;</code></pre>
+<p>Allerdings können wir testen ob <code>df_3</code> ein
+<code>data.frame</code> ist indem wir <code>is.data.frame</code>
+benutzen:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.data.frame</span>(df_3)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.data.frame</span>(l_3)</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>Wenn wir <code>df_3</code> ausgeben sehen wir unmittelbar den
+Unterschied zur klassischen Liste:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>l_3</span></code></pre></div>
+<pre><code>## $a
+## [1] 1 2 3
+## 
+## $b
+## [1] 4 5 6
+## 
+## $c
+## [1] 7 8 9</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>df_3</span></code></pre></div>
+<pre><code>##   a b c
+## 1 1 4 7
+## 2 2 5 8
+## 3 3 6 9</code></pre>
+<p>Die andere Möglichkeit einen <code>data.frame</code> zu erstellen ist
+direkt über die Funktion <code>data.frame()</code>, wobei es hier in der
+Regel ratsam ist das optionale Argument <code>stringsAsFactors</code>
+auf <code>FALSE</code> zu setzen, da sonst Wörter in so genannte
+Faktoren umgewandelt werden:<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>df_4 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;gender&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;male&quot;</span>, <span class="dv">3</span>), <span class="fu">rep</span>(<span class="st">&quot;female&quot;</span>, <span class="dv">2</span>)),</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;height&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">189</span>, <span class="dv">175</span>, <span class="dv">180</span>, <span class="dv">166</span>, <span class="dv">150</span>),</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>df_4</span></code></pre></div>
+<pre><code>##   gender height
+## 1   male    189
+## 2   male    175
+## 3   male    180
+## 4 female    166
+## 5 female    150</code></pre>
+<p>Data Frames sind das klassische Objekt um eingelesene Daten zu
+repräsentieren. Wenn Sie sich z.B. Daten zum BIP in Deutschland aus dem
+Internet runterladen und diese Daten dann in R einlesen, werden diese
+Daten zunächst einmal als <code>data.frame</code> repräsentiert.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> Diese
+Repräsentation erlaubt dann eine einfache Analyse und Manipulation der
+Daten.</p>
+<p>Zwar gibt es ein eigenes Kapitel zur Bearbeitung von Daten (siehe
+Kapitel @ref(data)), wir wollen aber schon hier einige zentrale Befehle
+im Zusammenhang von Data Frames einführen.</p>
+<p>An dieser Stelle sei schon angemerkt, dass um Zeilen, Spalten oder
+einzelne Elemente auszuwählen die gleichen Befehle wie bei Matrizen
+verwendet werden können:</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>df_4[, <span class="dv">1</span>] <span class="co"># Werte der ersten Spalte</span></span></code></pre></div>
+<pre><code>## [1] &quot;male&quot;   &quot;male&quot;   &quot;male&quot;   &quot;female&quot; &quot;female&quot;</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>df_4[, <span class="dv">2</span>] <span class="co"># Werte der zweiten Spalte</span></span></code></pre></div>
+<pre><code>## [1] 189 175 180 166 150</code></pre>
+<p>Die Abfrage funktioniert nicht nur mit Indices, sondern auch mit
+Spaltennamen:<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>df_4[[<span class="st">&quot;gender&quot;</span>]] </span></code></pre></div>
+<pre><code>## [1] &quot;male&quot;   &quot;male&quot;   &quot;male&quot;   &quot;female&quot; &quot;female&quot;</code></pre>
+<p>Wenn wir <code>[</code> anstatt von <code>[[</code> verwenden
+erhalten wir als Output einen (reduzierten) Data Frame:</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>df_4[<span class="st">&quot;gender&quot;</span>] </span></code></pre></div>
+<pre><code>##   gender
+## 1   male
+## 2   male
+## 3   male
+## 4 female
+## 5 female</code></pre>
+<p>Es können auch mehrere Zeilen ausgewählt werden:</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>df_4[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, ] <span class="co"># Die ersten beiden Zeilen</span></span></code></pre></div>
+<pre><code>##   gender height
+## 1   male    189
+## 2   male    175</code></pre>
+<p>Oder einzelne Werte:</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>df_4[<span class="dv">2</span>, <span class="dv">2</span>] <span class="co"># Zweiter Wert der zweiten Spalte</span></span></code></pre></div>
+<pre><code>## [1] 175</code></pre>
+<p>Dies können wir uns zu Nutze machen um den Typ der einzelnen Spalten
+herauszufinden:</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(df_4[[<span class="st">&quot;gender&quot;</span>]])</span></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<p>Gerade bei sehr großen Data Frames möchte man oft nur die ersten paar
+Zeilen inspizieren. Das ist mit der Funktion <code>head()</code>
+möglich. Das erste Argument ist immer der Name des Data Frames. Das
+zweite (optionale) Argument ist ein <code>integer</code>, der die Anzahl
+der anzuzeigenden Zeilen angibt (Standardwert: <code>5</code>):</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_4, <span class="dv">2</span>) <span class="co"># gibt die ersten zwei Zeilen aus</span></span></code></pre></div>
+<pre><code>##   gender height
+## 1   male    189
+## 2   male    175</code></pre>
 </div>
 <div class="footnotes footnotes-end-of-document">
 <hr />
 <ol>
-<li id="fn1"><p>In fact, we will learn below that <code>2</code> is not
-really a number, but a vector or length 1. Only in a next step,
-<code>2</code> counts as a ‘number’, or, more precisely as a ‘double’.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>Using <code>return</code> is, strictly speaking, not
-necessary, but I always use it for the sake of readability and
-transparency. An interesting debate about whether you should use
-<code>return</code> or not can be found <a href="https://stackoverflow.com/questions/11738823/explicitly-calling-return-in-a-function-or-not">here</a>.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p>Or, as the well-known R developer Hadley Wickham puts
-it: “You are always coorpering with at least one other persion:
-future-you.”<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn1"><p>Zur Geschichte dieses wirklich ärgerlichen Verhaltens
+siehe <a href="https://simplystatistics.org/2015/07/24/stringsasfactors-an-unauthorized-biography/">diesen
+Blog</a>. Zwar wurde das Standardverhalten mit R 4.0 umgestellt,
+allerdings empfiehlt sich die explizite Setzung von
+<code>stringsAsFactors=F</code> trotzdem, damit der Code auch mit
+älteren Versionen gut funktioniert.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Das ist nicht ganz korrekt, weil es mittlerweilse
+Erweiterungen gibt, welche den <code>data.frame</code> mit effizienteren
+Objekten ersetzen, z.B. dem <code>tibble</code> oder dem
+<code>data.table</code>. Der Umgang mit diesen Objekten ist jedoch sehr
+ähnlich zum <code>data.frame</code>.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p> Anstelle von <code>[[</code> kann auch der Shortcut
+<code>$</code> verwendet werden. Das werden wir aufgrund der größeren
+Transparenz von <code>[[</code> hier jedoch nicht verwenden.<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 
