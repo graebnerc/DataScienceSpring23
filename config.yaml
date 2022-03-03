@@ -1,0 +1,41 @@
+baseurl: "/"
+languageCode: "en-us"
+title: "Data Science (SpSe22)"
+theme: "hugo-xmin"
+googleAnalytics: ""
+disqusShortname: ""
+ignoreFiles: ["\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\\.md$"]
+footnotereturnlinkcontents: "↩"
+
+permalinks:
+  note: "/note/:year/:month/:day/:slug/"
+  post: "/post/:year/:month/:day/:slug/"
+
+menu:
+  main:
+    - name: Home
+      url: ""
+      weight: 1
+    - name: About
+      url: "about/"
+      weight: 2
+    - name: Material
+      url: "material/"
+      weight: 3
+    - name: Categories
+      url: "categories/"
+      weight: 4
+    - name: Tags
+      url: "tags/"
+      weight: 5
+
+params:
+  description: "Course website for the course 'Data Science using R', Spring Semester 2022."
+  footer: "&copy; [Claudius Gräbner-Radkowitsch](https://claudius-graebner.com/) 2021 -- {Year} | [EUF](https://www.uni-flensburg.de/en/pluralist-economics) | [Github](https://github.com/graebnerc) | [Twitter](https://twitter.com/ClaudiusGrabner) | [OrcID](https://orcid.org/0000-0003-4065-4722)"
+
+markup:
+  highlight:
+    codeFences: false
+  goldmark:
+    renderer:
+      unsafe: true

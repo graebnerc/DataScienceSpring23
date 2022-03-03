@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home on Data Science (SpSe22)</title>
+    <link>/</link>
+    <description>Recent content in Home on Data Science (SpSe22)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>An introduction to data science using R</title>
+      <link>/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/about/</guid>
+      <description>Here some information about the course will be added soon.</description>
+    </item>
+    
+    <item>
+      <title>Course material</title>
+      <link>/material/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/material/</guid>
+      <description>The complete course material    Session Date Topic Slides     1 March 12, 2022 General introduction Slides Orga, Slides Philo   2 March 23, 2022 Installation Slides   3 March 24, 2022 First steps in R I Slides   4 March 31, 2022 First steps in R II Slides   5 April 6, 2022 Visualization I TBD   6 April 7, 2022 Data wrangling I TBD   7 April 20, 2022 R Markdown TBD   8 April 21, 2022 Projects and workflow TBD   9 April 28, 2022 Taking stock TBD    Session 1: Introduction  Slides for the organizational part Slides for the philosophical part  Session 2: Installation  Slides Tutorial: installing and accessing the exercises  Session 3: First steps in R I - Basics and functions  Slides  Mandatory readings   Tutorial: Commands, objects, and assignments</description>
+    </item>
+    
+  </channel>
+</rss>
