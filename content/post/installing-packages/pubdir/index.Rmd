@@ -131,8 +131,8 @@ tinytex::install_tinytex()
 
 Please note that this make take a while and that about 65MB will be downloaded.
 
-To make sure everything runs smoothly you should download the docuument 
-`test.Rmd` - it is actually in the ZIP-archive you have downloaded above.
+To make sure everything runs smoothly you should download the document 
+[test_pdf.Rmd](test_pdf.Rmd).
 To test whether everything works, please open `test.Rmd` in R-Studio and then
 click on the button `Knit to PDF`:
 
