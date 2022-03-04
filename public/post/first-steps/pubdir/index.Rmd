@@ -12,6 +12,11 @@ output:
     toc: yes
     toc_depth: 2
     number_sections: yes
+  pdf_document:
+    highlight: tango
+    toc: true
+    toc_depth: 2
+    number_sections: true
 ---
 
 ```{r include=FALSE}

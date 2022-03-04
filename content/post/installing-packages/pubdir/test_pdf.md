@@ -1,0 +1,15 @@
+---
+title: "Test markdown file"
+output: pdf_document
+---
+
+
+
+# File used to test your R Markdown installation
+
+Please compile this document into PDF to test whether you have installed
+R Markdown correctly. 
+
+If no PDF file is created, please make a screenshot of the error message and
+post it into Moodle. If a file `test.log` has been created, please also post
+this file alongside the screenshot.

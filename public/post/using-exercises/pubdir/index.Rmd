@@ -16,6 +16,11 @@ output:
     toc: true
     toc_depth: 2
     number_sections: true
+  pdf_document:
+    highlight: tango
+    toc: true
+    toc_depth: 2
+    number_sections: true
 ---
 
 ```{r setup, include=FALSE}
