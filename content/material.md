@@ -20,31 +20,37 @@ title: "Course material"
 ## Session 1: Introduction {#s1}
 
 - [Slides for the organizational part](slides/T1-1-Introduction.pdf)
-- [Slides for the philosophical part](slides/T1-1-Introduction.pdf)
+- [Slides for the philosophical part](slides/T1-2-PhiloFoundation.pdf)
 
 ## Session 2: Installation {#s2}
 
 - [Slides](slides/T2-Installation.pdf)
-- [Tutorial: installing and accessing the exercises]()
+
+### Mandatory readings
+- [Tutorial: installing basic software](/post/installation/)
+- [Tutorial: installing the required R packages](/post/installing-packages/)
+- [Tutorial: doing exercises](/post/using-exercises/)
 
 ## Session 3: First steps in R I - Basics and functions {#s3}
 
 - [Slides](slides/T3-Basics-Functions.pdf)
 
-
 ### Mandatory readings
 
 - [Tutorial: Commands, objects, and assignments](/post/first-steps/)
-
 - [Tutorial: Functions](/post/object-types-func/)
 
 ### Exercises
 
 After installing (and updating) the `DataScienceExercises`-package 
-(as described here), run the following command from within your R session:
+(as described [here](/post/using-exercises/)), run the following command 
+from within your R session:
 
 ```
-learnr::run_tutorial("Basics", package = "DataScienceExercises")
+learnr::run_tutorial(
+  name = "Basics", 
+  package = "DataScienceExercises", 
+  shiny_args=list("launch.browser"=TRUE))
 ```
 
 ## Session 4: First steps in R II - Objects {#s4}
@@ -63,7 +69,10 @@ After installing (and updating) the `DataScienceExercises`-package
 (as described here), run the following command from within your R session:
 
 ```
-learnr::run_tutorial("ObjectTypes", package = "DataScienceExercises")
+learnr::run_tutorial(
+  name = "ObjectTypes", 
+  package = "DataScienceExercises", 
+  shiny_args=list("launch.browser"=TRUE))
 ```
 
 ## Session 5: Visualization I {#s5}
@@ -77,7 +86,10 @@ After installing (and updating) the `DataScienceExercises`-package
 (as described here), run the following command from within your R session:
 
 ```
-learnr::run_tutorial("Visualization1", package = "DataScienceExercises")
+learnr::run_tutorial(
+  name = "Visualization1", 
+  package = "DataScienceExercises", 
+  shiny_args=list("launch.browser"=TRUE))
 ```
 
 ## Session 6: Data wrangling I {#s6}
