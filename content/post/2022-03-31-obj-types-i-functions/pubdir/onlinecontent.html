@@ -231,6 +231,7 @@ window.buildTabsets = function(tocID) {
     </style>
 
 
+
 <style type="text/css">
   code {
     white-space: pre;
@@ -352,6 +353,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -591,7 +595,7 @@ you call more complex functions:</p>
 ##   hypotenuse &lt;- sqrt(hypo_squared) # sqrt() takes square root
 ##   return(hypotenuse)
 ## }
-## &lt;bytecode: 0x7fb53f4e7cc8&gt;</code></pre>
+## &lt;bytecode: 0x7fef0692dc58&gt;</code></pre>
 <p>Note that all object names used within the function body are lost
 after the function has been called. The deeper reason is that functions
 have their own <a href="https://adv-r.hadley.nz/environments.html">environment</a>.
