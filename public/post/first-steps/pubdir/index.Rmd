@@ -3,9 +3,6 @@ title: "First steps in R"
 author: "Claudius Gräbner-Radkowitsch"
 date: "2/12/2022"
 output:
-  pdf_document:
-    toc: yes
-    toc_depth: '2'
   html_document:
     theme: readable
     highlight: tango
@@ -29,14 +26,16 @@ library(bit64)
 ```
 
 In this post we will learn about the basic *syntax* of R.
-The syntax basically refers to the grammatical rules you must adhere to when communicating with your computer in the language `R`: if you you do not follow the right syntax, i.e. you 'speak' gramatically incorrect, your computer will not understand you and communicate this to you by throwing up an error message.
+The syntax basically refers to the grammatical rules you must adhere to when 
+communicating with your computer in the language `R`: if you you do not follow 
+the right syntax, i.e. you 'speak' gramatically incorrect, your computer will 
+not understand you and communicate this to you by throwing up an error message.
 
 To learn about these important basics, the post follows the following structure:
 
 * Commands
 * Objects, functions, and assignments
-* Kind of objects
-
+* R packages
 
 # Issue commands to your computer
 
@@ -245,7 +244,6 @@ rm(x)
 x
 ```
 
-
 You can remove all assignment by clicking
 on the broom in the upper right environment panel in R-Studio or
 by calling the following command:
@@ -254,6 +252,159 @@ by calling the following command:
 rm(list=ls())
 ```
 
+# R packages
+
+Packages are a combination of R code, data, documentation and tests.
+They are the best way to create reproducible code and make it available
+to others.The fact that many people solve problems by developing 
+routines, then generalizing them and making them freely available to the whole
+R community is one of the main reasons for success and wide applicability of R.
+
+While packages are often made available to the public, e.g. via GitHub
+or CRAN, it is equally useful to write packages for private use, 
+e.g. to write functions implementing certain routines that you use frequently
+across different projects, document them, and make them available too use 
+in different projects.^ [[Wickham and Bryan (2022)](https://r-pkgs.org/)
+provide an excellent introduction to the development of R packages].
+
+When one starts R on our computer we have access to a certain number of functions,
+predefined variables and data sets. The totality of these objects is
+usually called `base R`, because we can use all the functionalities easily
+immediately after installing R on our computer.
+
+The function `assign`, for example, is part of `base R`: we start R and 
+can use it without further ado.
+Other functions, such as `Gini()` are not part of `base R`: they were written
+by someone else, and before using them we need to install the package
+that contains the function definition on our computer.
+
+To use a package in R, it must first be installed.
+For packages that are available on the central R package platform CRAN,
+this is done with the function `install.packages()`.^[PAckages not released
+on this platform can also be installed directly from repository they were
+published, e.g. Github. To this end, the package `remotes` must be installed
+first, then you can use functions such as `install_github()`. 
+A short manual is provided [here](https://github.com/r-lib/remotes).] 
+For example, if we want to install the package `ineq` this is done with the
+following command: 
+
+```{r, eval=FALSE}
+install.packages("ineq")
+```
+
+The package collects a number of functions that allow us to compute common 
+inequality indicators, such as the Gini index.
+
+After having installed the package, we have to options to access the objects
+that are defined within this project. The first option is to use the operator
+`::`:
+
+
+```{r}
+x <- c(1,4,5,6,12.9)
+y <- ineq::Gini(x)
+y
+```
+
+Here we write the name of the package, directly followed by `::` and then 
+the name of the object that we want to use. In this example we want to use
+the function `Gini()`, which computes the Gini index.
+
+If we ommited the `::`, R would not look into the package `ineq` and, therefore,
+was not able to find the function, returning an error:
+
+```{r, error=TRUE}
+y <- Gini(x)
+```
+
+Using `::` is the most transparent and safest way to access objects defined in 
+a package: you immediately see where the object is coming from. At the same 
+time it can be tedious to write the package name so many times, especially if
+you use many objects from the same package. In this case we can make available
+all objects from the package by calling the function `library()`:
+
+```{r}
+library(ineq)
+y <- Gini(x)
+```
+
+This process is called *attaching a package*.
+For the sake of clarity, you should always add a call of `library()` for 
+all packages used within a script *at the very top of the script*. 
+This way you can see immediately which packages have to be installed for the
+script to work.
+
+In principle, only the packages that are actually used should be read into 
+each script with `library()`. 
+Otherwise you will unnecessarily load a lot of
+objects and lose track of where a certain function actually comes from. 
+In addition, it is more difficult for others to use the script because 
+many packages have to be installed unnecessarily.
+
+Since packages are produced decentrally by a wide variety of people, there is a
+danger that objects in different packages get the same name.
+Since in R a name can only belong to one object, names may be overwritten or 
+'masked' when loading many packages. 
+While R informs you about this happening when you attach a package, it is easily 
+forgotten and can result in very cryptic error messages. 
+
+We will illustrate this briefly using the two packages `dplyr` and `plm`:
+
+
+```{r, message=FALSE}
+library(dplyr)
+```
+```{r}
+library(plm)
+```
+
+Both packages define objects with the names `between`, `lag` and `lead`.
+When attaching packages using `library()`, the later package masks the objects
+of the earlier package. You see this by calling the objects by name:
+
+```{r}
+lead
+```
+
+The last line informs is about the fact that the function was defined in the
+package `plm`. If we now want to call the function `lead` from the package
+`dplyr`, we must use `::`:
+
+```{r}
+dplyr::lead
+```
+
+This can be very confusing. Thus, I *strongly recommend* to *always* use `::` 
+when it comes to masking, no matter whether it is stricly necessary or not.
+In this case, always use `plm::lead` and `dplyr::lead`, even it it is not 
+required in the first case. Otherwise, your code becomes very difficult to 
+understand and breaks completely once you change the sequence of the library 
+calls in the beginning.
+
+> **Hint**: You can show all object that are affeceted by conflicting names via
+the function `conflicts()`.
+
+For the sake of transparency I will always use the notation with `::` whenever
+I refer to an object that is not defined in `base R`. Only in the case of 
+objects that are part of base I will stick to only writing the object name.
+
+> **Digression**:  In order to check the order in which R searches for objects, 
+the function `search()` can be used. When an object is called by its name
+R first looks in the first element of the vector, the global environment.
+If the object is not found there, it looks in the second, and so on. 
+As you can also see here, some packages are read in by default.
+If an object is not found anywhere, R gives an error. 
+In the present case, the function shows us that R only looks in the package 
+`plm` for the function `lead()`, and not in the package `dplyr`:
+
+```{r}
+search()
+```
+
+> **Further information**: To better understand masking you might want to learn
+about the concepts of *namespaces* and *environments*. 
+[Wickham and Bryan (2022)](https://r-pkgs.org/) is an excellent 
+source to do so.
 
 # Taking stock
 
@@ -270,7 +421,10 @@ returns an output
 * We can assign an object a name by using `<-`. Then we can call this object by
 typing its name. The process of giving a name to an object is called *assignment*,
 and we can have a look at all names currently given to objects by calling `ls()` 
-anzeigen lassen
+* R packages are bundles of objects and functions created by others and made
+available to the R community. After installing packages, we can access their
+objects via `PackageName::ObjectName`, or by attaching the package via
+`library(PackageName)`
 
 Finally, I want to point your attention to the function `help()`, which 
 can provide you with additional information about the object a name points to.

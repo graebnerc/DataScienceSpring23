@@ -52,6 +52,7 @@ required_packages_cran <- c(
   "MASS",
   "moments",
   "optimx",
+  "plm",
   "remotes",
   "rmarkdown",
   "rmutil",

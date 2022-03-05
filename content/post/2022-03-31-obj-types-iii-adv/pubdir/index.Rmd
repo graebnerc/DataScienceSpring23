@@ -14,6 +14,7 @@ output:
     number_sections: true
   pdf_document:
     highlight: tango
+    latex_engine: "lualatex"
     toc: true
     toc_depth: 2
     number_sections: true
@@ -300,7 +301,7 @@ head(df_4, n = 2)
 The package `dplyr` proves the useful function `dplyr::glimpse()`, which 
 gives a general overview about all columns and their types:
 
-```{r}
+```{r, eval=FALSE}
 dplyr::glimpse(df_4)
 ```
 
