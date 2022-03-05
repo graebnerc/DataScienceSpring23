@@ -3,7 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://dataanalytics-euf-spring21.netlify.app/categories/</loc>
-    <lastmod>2022-03-02T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dataanalytics-euf-spring21.netlify.app/</loc>
+    <lastmod>2022-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dataanalytics-euf-spring21.netlify.app/notes/</loc>
+    <lastmod>2022-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dataanalytics-euf-spring21.netlify.app/categories/notes/</loc>
+    <lastmod>2022-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dataanalytics-euf-spring21.netlify.app/tags/</loc>
+    <lastmod>2022-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dataanalytics-euf-spring21.netlify.app/tags/visualization/</loc>
+    <lastmod>2022-03-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dataanalytics-euf-spring21.netlify.app/notes/t5-visualization-lecture-notes/</loc>
+    <lastmod>2022-03-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dataanalytics-euf-spring21.netlify.app/tags/data-types/</loc>
     <lastmod>2022-03-02T00:00:00+00:00</lastmod>
@@ -20,16 +38,10 @@
     <loc>https://dataanalytics-euf-spring21.netlify.app/post/object-types-adv/</loc>
     <lastmod>2022-03-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://dataanalytics-euf-spring21.netlify.app/</loc>
-    <lastmod>2022-03-02T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://dataanalytics-euf-spring21.netlify.app/tags/introduction/</loc>
     <lastmod>2022-03-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dataanalytics-euf-spring21.netlify.app/post/</loc>
-    <lastmod>2022-03-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://dataanalytics-euf-spring21.netlify.app/tags/</loc>
     <lastmod>2022-03-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dataanalytics-euf-spring21.netlify.app/categories/tutorial/</loc>

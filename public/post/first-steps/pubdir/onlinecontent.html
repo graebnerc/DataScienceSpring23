@@ -754,7 +754,7 @@ earlier package. You see this by calling the objects by name:</p>
 #&gt; {
 #&gt;     UseMethod(&quot;lead&quot;)
 #&gt; }
-#&gt; &lt;bytecode: 0x7f8d58d4d7c8&gt;
+#&gt; &lt;bytecode: 0x7f7b50edd690&gt;
 #&gt; &lt;environment: namespace:plm&gt;</code></pre>
 <p>The last line informs is about the fact that the function was defined
 in the package <code>plm</code>. If we now want to call the function
@@ -782,7 +782,7 @@ in the package <code>plm</code>. If we now want to call the function
 #&gt;     vec_c(vec_slice(inputs$x, -seq_len(n)), vec_rep(inputs$default, 
 #&gt;         n))
 #&gt; }
-#&gt; &lt;bytecode: 0x7f8d1aeaa710&gt;
+#&gt; &lt;bytecode: 0x7f7b89ec8f60&gt;
 #&gt; &lt;environment: namespace:dplyr&gt;</code></pre>
 <p>This can be very confusing. Thus, I <em>strongly recommend</em> to
 <em>always</em> use <code>::</code> when it comes to masking, no matter
@@ -811,21 +811,11 @@ looks in the package <code>plm</code> for the function
 <code>lead()</code>, and not in the package <code>dplyr</code>:</p>
 </blockquote>
 <div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">search</span>()</span></code></pre></div>
-<pre><code>#&gt;  [1] &quot;.GlobalEnv&quot;                   &quot;package:ineq&quot;                 &quot;package:bit64&quot;               
-#&gt;  [4] &quot;package:bit&quot;                  &quot;package:plm&quot;                  &quot;package:here&quot;                
-#&gt;  [7] &quot;package:icaeDesign&quot;           &quot;package:DataScienceExercises&quot; &quot;package:gradethis&quot;           
-#&gt; [10] &quot;package:tufte&quot;                &quot;package:tinytex&quot;              &quot;package:forcats&quot;             
-#&gt; [13] &quot;package:stringr&quot;              &quot;package:dplyr&quot;                &quot;package:purrr&quot;               
-#&gt; [16] &quot;package:readr&quot;                &quot;package:tidyr&quot;                &quot;package:tibble&quot;              
-#&gt; [19] &quot;package:tidyverse&quot;            &quot;package:scales&quot;               &quot;package:sandwich&quot;            
-#&gt; [22] &quot;package:rmarkdown&quot;            &quot;package:remotes&quot;              &quot;package:MASS&quot;                
-#&gt; [25] &quot;package:lmtest&quot;               &quot;package:zoo&quot;                  &quot;package:learnr&quot;              
-#&gt; [28] &quot;package:haven&quot;                &quot;package:ggrepel&quot;              &quot;package:ggpubr&quot;              
-#&gt; [31] &quot;package:ggplot2&quot;              &quot;package:data.table&quot;           &quot;package:countrycode&quot;         
-#&gt; [34] &quot;package:shiny&quot;                &quot;package:blogdown&quot;             &quot;tools:rstudio&quot;               
-#&gt; [37] &quot;package:stats&quot;                &quot;package:graphics&quot;             &quot;package:grDevices&quot;           
-#&gt; [40] &quot;package:utils&quot;                &quot;package:datasets&quot;             &quot;package:methods&quot;             
-#&gt; [43] &quot;Autoloads&quot;                    &quot;org:r-lib&quot;                    &quot;package:base&quot;</code></pre>
+<pre><code>#&gt;  [1] &quot;.GlobalEnv&quot;        &quot;package:plm&quot;       &quot;package:dplyr&quot;    
+#&gt;  [4] &quot;package:ineq&quot;      &quot;package:bit64&quot;     &quot;package:bit&quot;      
+#&gt;  [7] &quot;package:tufte&quot;     &quot;package:stats&quot;     &quot;package:graphics&quot; 
+#&gt; [10] &quot;package:grDevices&quot; &quot;package:utils&quot;     &quot;package:datasets&quot; 
+#&gt; [13] &quot;package:methods&quot;   &quot;Autoloads&quot;         &quot;package:base&quot;</code></pre>
 <blockquote>
 <p><strong>Further information</strong>: To better understand masking
 you might want to learn about the concepts of <em>namespaces</em> and

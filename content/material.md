@@ -37,6 +37,7 @@ title: "Course material"
 
 ### Mandatory readings
 
+- [R for Data Science, Chapter 4: Workflow - basics](https://r4ds.had.co.nz/workflow-basics.html)
 - [Tutorial: Commands, objects, and assignments](/post/first-steps/)
 - [Tutorial: Functions](/post/object-types-func/)
 
@@ -61,7 +62,7 @@ learnr::run_tutorial(
 
 - [Tutorial: Vectors](/post/object-types-vec/)
 - [Tutorial: Factors and data frames](/post/object-types-adv/)
-- [Chapter 10 of Wickham & Grolemund](https://r4ds.had.co.nz/tibbles.html)
+- [R for Data Science, Chapter 10: Tibbles](https://r4ds.had.co.nz/tibbles.html)
 
 ### Exercises
 
@@ -77,8 +78,12 @@ learnr::run_tutorial(
 
 ## Session 5: Visualization I {#s5}
 
+- [Slides](slides/T5-Visualization.pdf)
+- [Lecture notes](/notes/t5-visualization-lecture-notes/)
+
 ### Mandatory readings
-TBD
+- [R for Data Science, Chapter 3: Data visualization](https://r4ds.had.co.nz/data-visualisation.html)
+
 
 ### Exercises
 
@@ -95,16 +100,23 @@ learnr::run_tutorial(
 ## Session 6: Data wrangling I {#s6}
 
 ### Mandatory readings
-TBD
+- [R for Data Science, Chapter 5: Data transformation](https://r4ds.had.co.nz/transform.html)
+- [Tutorial: Read and write data with fread and fwrite]()
+- [R for Data Science, Chapter 12: Tidy data](https://r4ds.had.co.nz/tidy-data.html)
 
 ## Session 7: R Markdown {#s7}
 
 ### Mandatory readings
 
+- [R for Data Science, Chapter 27: R Markdown](https://r4ds.had.co.nz/tidy-data.html)
 - [The CommonMark markdown tutorial](https://commonmark.org/help/tutorial/)
 
 ## Session 8: Projects and workflow {#s8}
 
 ### Mandatory readings
+
+- [Tutorial: how to organize your R project]()
+
+
 
 
