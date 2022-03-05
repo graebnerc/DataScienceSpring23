@@ -231,6 +231,7 @@ window.buildTabsets = function(tocID) {
     </style>
 
 
+
 <style type="text/css">
   code {
     white-space: pre;
@@ -353,6 +354,9 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+details > summary > p:only-child {
+  display: inline;
+}
 pre code {
   padding: 0;
 }
@@ -447,7 +451,9 @@ pre code {
 computer</a></li>
 <li><a href="#objects-functions-and-assignments"><span class="toc-section-number">2</span> Objects, functions, and
 assignments</a></li>
-<li><a href="#taking-stock"><span class="toc-section-number">3</span>
+<li><a href="#r-packages"><span class="toc-section-number">3</span> R
+packages</a></li>
+<li><a href="#taking-stock"><span class="toc-section-number">4</span>
 Taking stock</a></li>
 </ul>
 </div>
@@ -463,7 +469,7 @@ structure:</p>
 <ul>
 <li>Commands</li>
 <li>Objects, functions, and assignments</li>
-<li>Kind of objects</li>
+<li>R packages</li>
 </ul>
 <div id="issue-commands-to-your-computer" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Issue commands to your
@@ -661,8 +667,174 @@ right environment panel in R-Studio or by calling the following
 command:</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>())</span></code></pre></div>
 </div>
-<div id="taking-stock" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Taking stock</h1>
+<div id="r-packages" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> R packages</h1>
+<p>Packages are a combination of R code, data, documentation and tests.
+They are the best way to create reproducible code and make it available
+to others.The fact that many people solve problems by developing
+routines, then generalizing them and making them freely available to the
+whole R community is one of the main reasons for success and wide
+applicability of R.</p>
+<p>While packages are often made available to the public, e.g. via
+GitHub or CRAN, it is equally useful to write packages for private use,
+e.g. to write functions implementing certain routines that you use
+frequently across different projects, document them, and make them
+available too use in different projects.^ [<a href="https://r-pkgs.org/">Wickham and Bryan (2022)</a> provide an
+excellent introduction to the development of R packages].</p>
+<p>When one starts R on our computer we have access to a certain number
+of functions, predefined variables and data sets. The totality of these
+objects is usually called <code>base R</code>, because we can use all
+the functionalities easily immediately after installing R on our
+computer.</p>
+<p>The function <code>assign</code>, for example, is part of
+<code>base R</code>: we start R and can use it without further ado.
+Other functions, such as <code>Gini()</code> are not part of
+<code>base R</code>: they were written by someone else, and before using
+them we need to install the package that contains the function
+definition on our computer.</p>
+<p>To use a package in R, it must first be installed. For packages that
+are available on the central R package platform CRAN, this is done with
+the function <code>install.packages()</code>.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> For example, if we
+want to install the package <code>ineq</code> this is done with the
+following command:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ineq&quot;</span>)</span></code></pre></div>
+<p>The package collects a number of functions that allow us to compute
+common inequality indicators, such as the Gini index.</p>
+<p>After having installed the package, we have to options to access the
+objects that are defined within this project. The first option is to use
+the operator <code>::</code>:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="fl">12.9</span>)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> ineq<span class="sc">::</span><span class="fu">Gini</span>(x)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>y</span></code></pre></div>
+<pre><code>#&gt; [1] 0.3570934</code></pre>
+<p>Here we write the name of the package, directly followed by
+<code>::</code> and then the name of the object that we want to use. In
+this example we want to use the function <code>Gini()</code>, which
+computes the Gini index.</p>
+<p>If we ommited the <code>::</code>, R would not look into the package
+<code>ineq</code> and, therefore, was not able to find the function,
+returning an error:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">Gini</span>(x)</span></code></pre></div>
+<pre><code>#&gt; Error in Gini(x): could not find function &quot;Gini&quot;</code></pre>
+<p>Using <code>::</code> is the most transparent and safest way to
+access objects defined in a package: you immediately see where the
+object is coming from. At the same time it can be tedious to write the
+package name so many times, especially if you use many objects from the
+same package. In this case we can make available all objects from the
+package by calling the function <code>library()</code>:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ineq)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">Gini</span>(x)</span></code></pre></div>
+<p>This process is called <em>attaching a package</em>. For the sake of
+clarity, you should always add a call of <code>library()</code> for all
+packages used within a script <em>at the very top of the script</em>.
+This way you can see immediately which packages have to be installed for
+the script to work.</p>
+<p>In principle, only the packages that are actually used should be read
+into each script with <code>library()</code>. Otherwise you will
+unnecessarily load a lot of objects and lose track of where a certain
+function actually comes from. In addition, it is more difficult for
+others to use the script because many packages have to be installed
+unnecessarily.</p>
+<p>Since packages are produced decentrally by a wide variety of people,
+there is a danger that objects in different packages get the same name.
+Since in R a name can only belong to one object, names may be
+overwritten or ‘masked’ when loading many packages. While R informs you
+about this happening when you attach a package, it is easily forgotten
+and can result in very cryptic error messages.</p>
+<p>We will illustrate this briefly using the two packages
+<code>dplyr</code> and <code>plm</code>:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plm)</span></code></pre></div>
+<p>Both packages define objects with the names <code>between</code>,
+<code>lag</code> and <code>lead</code>. When attaching packages using
+<code>library()</code>, the later package masks the objects of the
+earlier package. You see this by calling the objects by name:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>lead</span></code></pre></div>
+<pre><code>#&gt; function (x, k = 1L, ...) 
+#&gt; {
+#&gt;     UseMethod(&quot;lead&quot;)
+#&gt; }
+#&gt; &lt;bytecode: 0x7f8d58d4d7c8&gt;
+#&gt; &lt;environment: namespace:plm&gt;</code></pre>
+<p>The last line informs is about the fact that the function was defined
+in the package <code>plm</code>. If we now want to call the function
+<code>lead</code> from the package <code>dplyr</code>, we must use
+<code>::</code>:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span>lead</span></code></pre></div>
+<pre><code>#&gt; function (x, n = 1L, default = NA, order_by = NULL, ...) 
+#&gt; {
+#&gt;     if (!is.null(order_by)) {
+#&gt;         return(with_order(order_by, lead, x, n = n, default = default))
+#&gt;     }
+#&gt;     if (length(n) != 1 || !is.numeric(n) || n &lt; 0) {
+#&gt;         msg &lt;- glue(&quot;`n` must be a positive integer, not {friendly_type_of(n)} of length {length(n)}.&quot;)
+#&gt;         abort(msg)
+#&gt;     }
+#&gt;     if (n == 0) 
+#&gt;         return(x)
+#&gt;     if (vec_size(default) != 1L) {
+#&gt;         msg &lt;- glue(&quot;`default` must be size 1, not size {vec_size(default)}&quot;)
+#&gt;         abort(msg)
+#&gt;     }
+#&gt;     xlen &lt;- vec_size(x)
+#&gt;     n &lt;- pmin(n, xlen)
+#&gt;     inputs &lt;- fix_call(vec_cast_common(default = default, x = x))
+#&gt;     vec_c(vec_slice(inputs$x, -seq_len(n)), vec_rep(inputs$default, 
+#&gt;         n))
+#&gt; }
+#&gt; &lt;bytecode: 0x7f8d1aeaa710&gt;
+#&gt; &lt;environment: namespace:dplyr&gt;</code></pre>
+<p>This can be very confusing. Thus, I <em>strongly recommend</em> to
+<em>always</em> use <code>::</code> when it comes to masking, no matter
+whether it is stricly necessary or not. In this case, always use
+<code>plm::lead</code> and <code>dplyr::lead</code>, even it it is not
+required in the first case. Otherwise, your code becomes very difficult
+to understand and breaks completely once you change the sequence of the
+library calls in the beginning.</p>
+<blockquote>
+<p><strong>Hint</strong>: You can show all object that are affeceted by
+conflicting names via the function <code>conflicts()</code>.</p>
+</blockquote>
+<p>For the sake of transparency I will always use the notation with
+<code>::</code> whenever I refer to an object that is not defined in
+<code>base R</code>. Only in the case of objects that are part of base I
+will stick to only writing the object name.</p>
+<blockquote>
+<p><strong>Digression</strong>: In order to check the order in which R
+searches for objects, the function <code>search()</code> can be used.
+When an object is called by its name R first looks in the first element
+of the vector, the global environment. If the object is not found there,
+it looks in the second, and so on. As you can also see here, some
+packages are read in by default. If an object is not found anywhere, R
+gives an error. In the present case, the function shows us that R only
+looks in the package <code>plm</code> for the function
+<code>lead()</code>, and not in the package <code>dplyr</code>:</p>
+</blockquote>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">search</span>()</span></code></pre></div>
+<pre><code>#&gt;  [1] &quot;.GlobalEnv&quot;                   &quot;package:ineq&quot;                 &quot;package:bit64&quot;               
+#&gt;  [4] &quot;package:bit&quot;                  &quot;package:plm&quot;                  &quot;package:here&quot;                
+#&gt;  [7] &quot;package:icaeDesign&quot;           &quot;package:DataScienceExercises&quot; &quot;package:gradethis&quot;           
+#&gt; [10] &quot;package:tufte&quot;                &quot;package:tinytex&quot;              &quot;package:forcats&quot;             
+#&gt; [13] &quot;package:stringr&quot;              &quot;package:dplyr&quot;                &quot;package:purrr&quot;               
+#&gt; [16] &quot;package:readr&quot;                &quot;package:tidyr&quot;                &quot;package:tibble&quot;              
+#&gt; [19] &quot;package:tidyverse&quot;            &quot;package:scales&quot;               &quot;package:sandwich&quot;            
+#&gt; [22] &quot;package:rmarkdown&quot;            &quot;package:remotes&quot;              &quot;package:MASS&quot;                
+#&gt; [25] &quot;package:lmtest&quot;               &quot;package:zoo&quot;                  &quot;package:learnr&quot;              
+#&gt; [28] &quot;package:haven&quot;                &quot;package:ggrepel&quot;              &quot;package:ggpubr&quot;              
+#&gt; [31] &quot;package:ggplot2&quot;              &quot;package:data.table&quot;           &quot;package:countrycode&quot;         
+#&gt; [34] &quot;package:shiny&quot;                &quot;package:blogdown&quot;             &quot;tools:rstudio&quot;               
+#&gt; [37] &quot;package:stats&quot;                &quot;package:graphics&quot;             &quot;package:grDevices&quot;           
+#&gt; [40] &quot;package:utils&quot;                &quot;package:datasets&quot;             &quot;package:methods&quot;             
+#&gt; [43] &quot;Autoloads&quot;                    &quot;org:r-lib&quot;                    &quot;package:base&quot;</code></pre>
+<blockquote>
+<p><strong>Further information</strong>: To better understand masking
+you might want to learn about the concepts of <em>namespaces</em> and
+<em>environments</em>. <a href="https://r-pkgs.org/">Wickham and Bryan
+(2022)</a> is an excellent source to do so.</p>
+</blockquote>
+</div>
+<div id="taking-stock" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Taking stock</h1>
 <p>Lets recap what we have learned so far about issuing commands, names
 and assignments:</p>
 <ul>
@@ -676,15 +848,18 @@ routine, and returns an output</li>
 <li>We can assign an object a name by using <code>&lt;-</code>. Then we
 can call this object by typing its name. The process of giving a name to
 an object is called <em>assignment</em>, and we can have a look at all
-names currently given to objects by calling <code>ls()</code> anzeigen
-lassen</li>
+names currently given to objects by calling <code>ls()</code></li>
+<li>R packages are bundles of objects and functions created by others
+and made available to the R community. After installing packages, we can
+access their objects via <code>PackageName::ObjectName</code>, or by
+attaching the package via <code>library(PackageName)</code></li>
 </ul>
 <p>Finally, I want to point your attention to the function
 <code>help()</code>, which can provide you with additional information
 about the object a name points to. For instance, if you want to get more
 information about the function with the name <code>assign</code>, then
 just type the following:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(assign)</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(assign)</span></code></pre></div>
 </div>
 <div class="footnotes footnotes-end-of-document">
 <hr />
@@ -700,6 +875,11 @@ defined. Then, this object gets the name
 <code>intermediate_result</code>. However, the code that results from
 such practice is usually much more difficult to read, so it is common
 practice to use <code>&lt;-</code> rather than <code>-&gt;</code>.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>PAckages not released on this platform can also be
+installed directly from repository they were published, e.g. Github. To
+this end, the package <code>remotes</code> must be installed first, then
+you can use functions such as <code>install_github()</code>. A short
+manual is provided <a href="https://github.com/r-lib/remotes">here</a>.<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 

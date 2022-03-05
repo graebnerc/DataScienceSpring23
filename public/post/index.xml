@@ -38,11 +38,41 @@ Read this post as HTML</description>
     </item>
     
     <item>
-      <title>Fundamental object types in R II: Vectors</title>
-      <link>https://dataanalytics-euf-spring21.netlify.app/post/object-types-vec/</link>
+      <title>Fundamental object types in R III:Factors, matrices, and data frames</title>
+      <link>https://dataanalytics-euf-spring21.netlify.app/post/object-types-adv/</link>
       <pubDate>Wed, 02 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://dataanalytics-euf-spring21.netlify.app/post/object-types-vec/</guid>
+      <guid>https://dataanalytics-euf-spring21.netlify.app/post/object-types-adv/</guid>
+      <description>Download this post as PDF
+Read this post as HTML</description>
+    </item>
+    
+    <item>
+      <title>Installation of the necessary software</title>
+      <link>https://dataanalytics-euf-spring21.netlify.app/post/installation/</link>
+      <pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dataanalytics-euf-spring21.netlify.app/post/installation/</guid>
+      <description>Download this post as PDF
+Read this post as HTML</description>
+    </item>
+    
+    <item>
+      <title>Installing R packages</title>
+      <link>https://dataanalytics-euf-spring21.netlify.app/post/installing-packages/</link>
+      <pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dataanalytics-euf-spring21.netlify.app/post/installing-packages/</guid>
+      <description>Download this post as PDF
+Read this post as HTML</description>
+    </item>
+    
+    <item>
+      <title>Using exercises</title>
+      <link>https://dataanalytics-euf-spring21.netlify.app/post/using-exercises/</link>
+      <pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dataanalytics-euf-spring21.netlify.app/post/using-exercises/</guid>
       <description>Download this post as PDF
 Read this post as HTML</description>
     </item>

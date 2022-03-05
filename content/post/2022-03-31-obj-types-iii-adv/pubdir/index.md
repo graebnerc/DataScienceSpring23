@@ -1,5 +1,5 @@
 ---
-title: "Fundamental object types in R III: Factors, matrices, and data frames"
+title: "Fundamental object types in R III: Factors and data frames"
 author: Claudius Gräbner-Radkowitsch
 date: '2022-03-02'
 slug: object-types-adv
@@ -12,95 +12,219 @@ output:
     toc: true
     toc_depth: 2
     number_sections: true
+  pdf_document:
+    highlight: tango
+    toc: true
+    toc_depth: 2
+    number_sections: true
 ---
 
 * TOC
 * Picture with overview
+* Remove matrices
+* Align closer with slides (tibbles vs data frames, etc.)
 
-# Faktoren {#introfactors}
+# Optional background info: attributes and classes
 
-Faktoren werden verwendet um ordinale oder kategoriale Daten darzustellen.
-Ein Faktor kann nur einen von mehreren vorher definierten Werten annehmen, so
-genannten *Levels*. 
-Faktoren werden über die Funktion `factor()` erstellt. 
-Sie nimmt als erstes Argument die Werte für den Faktor:
+In the previous post you learned about the most important fundamental data types in R.
+The types we will learn about below and not less important, but less fundamental.
+This means they are built by taking one of the base types we encountered before,
+and 'adding some features'. These features change the behavior of the type, 
+e.g. how it is printed or how it is affected by certain function calls, but
+also what kind of operations it allows.^[In fact, some new types allow you to
+do *less* than the original type, i.e. here the new features are restrictions. 
+The `tibble` we will encounter below is such an example.]
+
+This process of 'adding features' is usually done by adding 'attributes' to
+an object. In principle, you can add attributes to any objects without
+much effect by using the `attr()` function:
 
 
 ```r
-x <- c("Frau", "Mann", "Frau")
-x <- factor(c("Frau", "Mann", "Frau"))
+x <- 2.0
+attr(x, "Mood") <- "Haha!"
+```
+
+To retrieve attributes use `attributes()`:
+
+
+```r
+attributes(x)
+```
+
+```
+## $Mood
+## [1] "Haha!"
+```
+Sometimes, adding attributes of a particular name have more relevant 
+implications. 
+One useful way to use attributes, for instance, is to name the single elements of vectors,
+something that changes the way the objects are printed and something that we already discussed in the context of lists:
+
+
+```r
+y <- c(1, 2, 3)
+attr(y, "names") <- c("First", "Second", "Third")
+y
+```
+
+```
+##  First Second  Third 
+##      1      2      3
+```
+
+
+```r
+attributes(y)
+```
+
+```
+## $names
+## [1] "First"  "Second" "Third"
+```
+
+But things become really interesting if you add an attribute called `class` since
+this really transforms the data types into a new, less fundamental type. In 
+fact, this is how the types we discuss below, are created: smart people added,
+among other things, a class attribute to a more fundamental data type 
+(`integer` in the case of `factor`s and `list` in the case of `data.frame`s). 
+The art of writing new classes is part of
+[object oriented programming](https://adv-r.hadley.nz/oo.html), an advanced concept 
+that we do not cover in this course (and, to be honest, one of the areas 
+where R is not particularly well designed).
+
+One implication of this 'less fundamental' nature of the objects we encounter
+below is that `typeof()` usually returns the base type. For instance, below
+we will learn about the `factor`, a type that is built upon `integer`.
+If we call `typeof()` on a `factor`, it will return the fundamental type,
+i.e. `factor`:
+
+
+```r
+xx <- factor(c(1,2))
+typeof(xx)
+```
+
+```
+## [1] "integer"
+```
+
+Fortunately, the standard test functions (`is.*()`) usually work, so you can
+use `is.factor()`:
+
+
+```r
+is.factor(xx)
+```
+
+```
+## [1] TRUE
+```
+
+Alternatively, you can always inspect that attributes of the object to find 
+out about its class:
+
+
+```r
+attributes(xx)
+```
+
+```
+## $levels
+## [1] "1" "2"
+## 
+## $class
+## [1] "factor"
+```
+
+All this can be confusing at first, so it is important to keep this in mind. Once 
+you wrapped your head upon this, many confusing behaviors suddenly start to make
+sense, e.g. that mutating factors within a `data.frame` can result in whole 
+numbers, a phenomenon we will discuss in the context of data wrangling later.
+
+# Factors {#introfactors}
+
+We usually use factors to represent ordinal or categorical data.
+At first sight a factor is an atomic vector that can only take a pre-specified
+number of values, so called *levels*. 
+To create a factor we use the function - surprise - `factor()`:
+
+
+```r
+x <- c("Female", "Male", "Female")
+x <- factor(c("Female", "Male", "Female"))
 x
 ```
 
 ```
-## [1] Frau Mann Frau
-## Levels: Frau Mann
+## [1] Female Male   Female
+## Levels: Female Male
 ```
 
-Wenn wir Levels definieren wollen, die aber aktuell noch keine Ausprägung
-haben können wir dies mit dem Argument `levels` bewerkstelligen:
+If we want to define levels that do not yet have any instances, we can do this 
+with the optional argument `levels`:
 
 
 ```r
-x <- c("Frau", "Mann", "Frau")
-x <- factor(c("Frau", "Mann", "Frau"), 
-            levels=c("Divers","Frau", "Mann"))
+x <- c("Female", "Male", "Female")
+x <- factor(c("Female", "Male", "Female"), 
+            levels=c("Diverse","Female", "Male"))
 x
 ```
 
 ```
-## [1] Frau Mann Frau
-## Levels: Divers Frau Mann
+## [1] Female Male   Female
+## Levels: Diverse Female Male
 ```
-Wenn wir das Argument `levels` verwenden werden dort nicht genannte 
-Ausprägungen den Wert `NA` erhalten:
+
+If we use the argument levels and also try to add values that are not included
+in the levels, these are set to `NA`:
 
 
 ```r
-x <- c("Frau", "Mann", "Frau")
-x <- factor(c("Frau", "Mann", "Frau", "Divers"), 
-            levels=c("Frau", "Mann"))
+x <- c("Female", "Male", "Female")
+x <- factor(c("Female", "Male", "Female", "Diverse"), 
+            levels=c("Female", "Male"))
 x
 ```
 
 ```
-## [1] Frau Mann Frau <NA>
-## Levels: Frau Mann
+## [1] Female Male   Female <NA>  
+## Levels: Female Male
 ```
 
-Die Reihenfolge der einzelnen Levels spielt meist keine Rolle.
-Bei ordinalen Daten möchten wir aber eine sinnvolle Wertigkeit der 
-Ausprägungen sicherstellen. 
-Das geht mit der Funktion `factor()` und dem Argument `ordered`:
+Usually, the sequence in which we mention levels does not matter.
+In the case of ordinal data, however, the sequence becomes important.
+To consider it, we must use the argument `ordered`:
 
 
 ```r
-x <- c("Hoch", "Hoch", "Gering", "Hoch")
+x <- c("High", "High", "Low", "High")
 x <- factor(x, 
-            levels = c("Gering", "Mittel", "Hoch"), 
+            levels = c("Low", "Mid", "High"), 
             ordered = TRUE)
 x
 ```
 
 ```
-## [1] Hoch   Hoch   Gering Hoch  
-## Levels: Gering < Mittel < Hoch
+## [1] High High Low  High
+## Levels: Low < Mid < High
 ```
 
-Häufig handelt es sich bei den Ausprägungen von Faktoren um Wörter, also 
-Objekte vom Type `character`.
-Technisch gesehen werden Faktoren aber als `integer` gespeichert: um 
-Speicherplatz zu sparen wird jedem Level auf dem Computer eine ganze Zahl 
-zugewiesen, die dann auf den eigentlichen Wert gemapt wird. Gerade wenn die 
-Ausprägungen als solche große Zahlen oder lange Wörter sind spart das Speicher,
-weil diese Ausprägungen nur einmal gespeichert werden müssen, und jedes Element
-des Fakors nur noch eine einfache Zahl ist.
-Daher gibt `typeof()` für Faktoren auch `integer` aus:
+Frequently, the elements of factors are words, i.e. objects of the type 
+`character`.
+From a technical point of view, however, factors are stored as `integers`: 
+in order to save memory space, each level is assigned a whole number in the 
+computer memory, which is then mapped to the actual value. 
+Especially when the elements consist of large numbers or long words, this helps 
+saving memory space since these expressions only have to be stored once, and 
+each element of the factor is only a simple number.
+Therefore, `typeof()` also returns `integer` for factors:
 
 
 ```r
-x <- factor(c("Frau", "Mann", "Frau"), 
-            levels=c("Mann", "Frau", "Divers"))
+x <- factor(c("Female", "Male", "Female"), 
+            levels=c("Male", "Female", "Diverse"))
 typeof(x)
 ```
 
@@ -108,8 +232,7 @@ typeof(x)
 ## [1] "integer"
 ```
 
-Um zu überprüfen ob es sich bei einem Objekt um einen Faktor handelt verwenden
-wir die Funktion `is.factor()`:
+To check whether an object is a factor we use the function `is.factor()`:
 
 
 ```r
@@ -120,8 +243,8 @@ is.factor(x)
 ## [1] TRUE
 ```
 
-Manche Operationen, die für `integer` definiert sind, funktionieren bei Faktoren
-aber nicht, z.B. Addition:
+Not all operations that are defined for `integer`s, however, also work for 
+`factor`s:
 
 
 ```r
@@ -136,8 +259,9 @@ x[1] + x[2]
 ## [1] NA
 ```
 
-Dafür können wir andere nützliche Dinge mit Faktoren anstellen, z.B. die 
-absoluten Häufigkeiten über die Funktion `table()` anzeigen:
+At the same time, there are some useful things we can do with factors.
+For instance, the function table gives us the absolute frequencies of the 
+factor elements, a task that is very common for categorical data:
 
 
 ```r
@@ -146,122 +270,22 @@ table(x)
 
 ```
 ## x
-##   Mann   Frau Divers 
-##      1      2      0
+##    Male  Female Diverse 
+##       1       2       0
 ```
-
-Faktoren werden vor allem in der Arbeit mit ordinalen und kategorialen Daten
-verwendet (siehe Kapitel <a href="#data"><strong>??</strong></a>).
-
-# Matrizen {#intro-matrix}
-
-Bei Matrizen handelt es sich um zweidimensionale Objekte mit Zeilen und Spalten,
-bei denen es sich jeweils um atomare Vektoren handelt.
-
-**Erstellen von Matrizen**
-
-Matrizen werden mit der Funktion `matrix()` erstellt.
-Diese Funktion nimmt als erstes Argument die Elemente der Matrix und dann
-die Spezifikation der Anzahl von Zeilen (`nrow`) und/oder der Anzahl von
-Spalten (`ncol`):
-
-
-```r
-m_1 <- matrix(11:20, nrow = 5)
-m_1
-```
-
-```
-##      [,1] [,2]
-## [1,]   11   16
-## [2,]   12   17
-## [3,]   13   18
-## [4,]   14   19
-## [5,]   15   20
-```
-Wir können die Zeilen und Spalten sowie einzelne Werte folgendermaßen extrahieren
-und gegebenenfalls Ersetzungen vornehmen:
-
-
-```r
-m_1[,1] # Erste Spalte
-```
-
-```
-## [1] 11 12 13 14 15
-```
-
-
-```r
-m_1[1,] # Erste Zeile
-```
-
-```
-## [1] 11 16
-```
-
-
-```r
-m_1[2,2] # Element [2,2]
-```
-
-```
-## [1] 17
-```
-
-> **Optionaler Hinweis:** Matrizen sind weniger 'fundamental' als atomare Vektoren. 
-Entsprechend gibt uns `typeof()` für eine Matrix auch den Typ der enthaltenen 
-atomaren Vektoren an:
-
-
-```r
-typeof(m_1)
-```
-
-```
-## [1] "integer"
-```
-
-> Um zu testen ob es sich bei einem Objekt um eine Matrix handelt verwenden wir
-entsprechend `is.matrix()`:
-
-
-```r
-is.matrix(m_1)
-```
-
-```
-## [1] TRUE
-```
-
-
-```r
-is.matrix(2.0)
-```
-
-```
-## [1] FALSE
-```
-
-Die Grundlagen der Matrizenalgebra und ihre Implementierung in R wird später
-in Kapitel <a href="#formalia"><strong>??</strong></a> erläutert.
-Zudem gibt es im Internet zahlreiche gute Überblicksartikel zum Thema Matrizenalgebra
-in R, z.B. [hier](https://www.statmethods.net/advstats/matrix.html)
-oder in größerem Umfang 
-[hier](https://www.math.uh.edu/~jmorgan/Math6397/day13/LinearAlgebraR-Handout.pdf).
-
 
 # Data Frames
 
-Der `data.frame` ist eine besondere Art von Liste und ist ein in der 
-Datenanalyse regelmäßig auftretender Datentyp.
-Im Gegensatz zu einer normalen Liste müssen bei einem `data.frame` alle Elemente
-die gleiche Länge aufweisen. 
-Das heißt man kann sich einen `data.frame` als eine rechteckig angeordnete Liste 
-vorstellen.
+The `data.frame` is a special type of list. It is among the most widespread
+data types used in data analysis.
+In contrast to a normal list, all elements of a `data.frame` must have the same 
+length.
+This means that you can think of a `data.frame` as a list arranged as a 
+rectangle and represented as a table. The headings of the tables then 
+correspond to the names of the vector elements of the list.
 
-Wegen der engen Verwandschaft können wir einen `data.frame` direkt aus einer Liste
-erstellen indem wir die Funktion `as.data.frame()` verwenden:
+Because of the close relationship, we can create a `data.frame` directly 
+from a list by using the function `as.data.frame()`:
 
 
 ```r
@@ -272,8 +296,25 @@ l_3 <- list(
 )
 df_3 <- as.data.frame(l_3)
 ```
-Wenn wir R nach dem Typ von `df_3` fragen, sehen wir, dass es sich weiterhin um 
-eine Liste handelt:
+
+Here we might think of the names of the three vectors, `a`, `b` and `c` as the
+headings of a table (representing, often, variable names), and the content of 
+the vectors as the cell entries of the table:
+
+
+```r
+df_3
+```
+
+```
+##   a b c
+## 1 1 4 7
+## 2 2 5 8
+## 3 3 6 9
+```
+
+The relation to `list`s becomes obvious if we call `typeof()`, which returns 
+the underlying data type:
 
 
 ```r
@@ -284,8 +325,7 @@ typeof(df_3)
 ## [1] "list"
 ```
 
-Allerdings können wir testen ob `df_3` ein `data.frame` ist indem wir 
-`is.data.frame` benutzen:
+To test whether an object is a `data.frame` we use `is.data.frame`:
 
 
 ```r
@@ -304,8 +344,8 @@ is.data.frame(l_3)
 ## [1] FALSE
 ```
 
-Wenn wir `df_3` ausgeben sehen wir unmittelbar den Unterschied zur klassischen 
-Liste:
+The difference to a list becomes particularly obvious in the different 
+printing behavior of the two:
 
 
 ```r
@@ -335,21 +375,14 @@ df_3
 ## 3 3 6 9
 ```
 
-Die andere Möglichkeit einen `data.frame` zu erstellen ist direkt über die 
-Funktion `data.frame()`, wobei es hier in der Regel ratsam ist das optionale
-Argument `stringsAsFactors` auf `FALSE` zu setzen, da sonst Wörter in so 
-genannte Faktoren umgewandelt werden:^[Zur Geschichte dieses wirklich
-ärgerlichen Verhaltens siehe 
-[diesen Blog](https://simplystatistics.org/2015/07/24/stringsasfactors-an-unauthorized-biography/). Zwar wurde das Standardverhalten mit R 4.0 umgestellt, allerdings empfiehlt
-sich die explizite Setzung von `stringsAsFactors=F` trotzdem, damit der Code 
-auch mit älteren Versionen gut funktioniert.]
+A more direct way to create a `data.frame` is to use the function 
+`data.frame()`:
 
 
 ```r
 df_4 <- data.frame(
   "gender" = c(rep("male", 3), rep("female", 2)),
-  "height" = c(189, 175, 180, 166, 150),
-  stringsAsFactors = FALSE
+  "height" = c(189, 175, 180, 166, 150)
 )
 df_4
 ```
@@ -363,55 +396,12 @@ df_4
 ## 5 female    150
 ```
 
-Data Frames sind das klassische Objekt um eingelesene Daten zu repräsentieren.
-Wenn Sie sich z.B. Daten zum BIP in Deutschland aus dem Internet runterladen und
-diese Daten dann in R einlesen, werden diese Daten zunächst einmal als `data.frame`
-repräsentiert.^[Das ist nicht ganz korrekt, weil es mittlerweilse Erweiterungen
-gibt, welche den `data.frame` mit effizienteren Objekten ersetzen, z.B. dem 
-`tibble` oder dem `data.table`. Der Umgang mit diesen Objekten ist jedoch 
-sehr ähnlich zum `data.frame`.]
-Diese Repräsentation erlaubt dann eine einfache Analyse und Manipulation der Daten.
+To extract single elements, columns or rows of a `data.frame` we can use 
+`[` and `[[` in a similar way we used it for lists, just keeping in mind that 
+we now have two dimensions to deal with, instead of only one in the case of lists.
 
-Zwar gibt es ein eigenes Kapitel zur Bearbeitung von Daten 
-(siehe Kapitel <a href="#data"><strong>??</strong></a>), wir wollen aber schon hier einige zentrale Befehle 
-im Zusammenhang von Data Frames einführen.
+To subset columns we can call them by name:
 
-An dieser Stelle sei schon angemerkt, dass um Zeilen, Spalten oder 
-einzelne Elemente auszuwählen die gleichen Befehle wie bei Matrizen 
-verwendet werden können:
-
-
-```r
-df_4[, 1] # Werte der ersten Spalte
-```
-
-```
-## [1] "male"   "male"   "male"   "female" "female"
-```
-
-
-```r
-df_4[, 2] # Werte der zweiten Spalte
-```
-
-```
-## [1] 189 175 180 166 150
-```
-Die Abfrage funktioniert nicht nur mit Indices, sondern auch mit 
-Spaltennamen:^[
-Anstelle von `[[` kann auch der Shortcut `$` verwendet werden. Das werden wir
-aufgrund der größeren Transparenz von `[[` hier jedoch nicht verwenden.]
-
-
-```r
-df_4[["gender"]] 
-```
-
-```
-## [1] "male"   "male"   "male"   "female" "female"
-```
-Wenn wir `[` anstatt von `[[` verwenden erhalten wir als Output einen (reduzierten)
-Data Frame:
 
 ```r
 df_4["gender"] 
@@ -426,30 +416,29 @@ df_4["gender"]
 ## 5 female
 ```
 
-Es können auch mehrere Zeilen ausgewählt werden:
+The result is another `data.frame`:
+
 
 ```r
-df_4[1:2, ] # Die ersten beiden Zeilen
+is.data.frame(df_4["gender"]) 
 ```
 
 ```
-##   gender height
-## 1   male    189
-## 2   male    175
+## [1] TRUE
 ```
 
-Oder einzelne Werte:
+If we want to extract the underlying atomic vector we must use `[[`:
+
 
 ```r
-df_4[2, 2] # Zweiter Wert der zweiten Spalte
+df_4[["gender"]] 
 ```
 
 ```
-## [1] 175
+## [1] "male"   "male"   "male"   "female" "female"
 ```
 
-Dies können wir uns zu Nutze machen um den Typ der einzelnen Spalten 
-herauszufinden:
+This is also helpful to inspect the underlying data type:
 
 
 ```r
@@ -460,16 +449,30 @@ typeof(df_4[["gender"]])
 ## [1] "character"
 ```
 
-Gerade bei sehr großen Data Frames möchte man oft nur die ersten paar Zeilen
-inspizieren.
-Das ist mit der Funktion `head()` möglich.
-Das erste Argument ist immer der Name des Data Frames. 
-Das zweite (optionale) Argument ist ein `integer`, der die Anzahl der 
-anzuzeigenden Zeilen angibt (Standardwert: `5`):
+Data frames can become very large, so its often useful to get a first overview
+about what the `data.frame` contains. The functions `names()`, `dplyr::glimpse()`, 
+`head()`, and `View()` are useful in this context.
+
+The function `names()` returns a vector with all the column names:
 
 
 ```r
-head(df_4, 2) # gibt die ersten zwei Zeilen aus
+names(df_4)
+```
+
+```
+## [1] "gender" "height"
+```
+
+> **Hint:** For large `data.frame`s it can be useful to wrap `names()` into `sort()`, which
+sorts the resulting vector in alphabetical order.
+
+Head only prints the first `n` rows of a `data.frame`. By default `n=5`, but
+you can set it explicitly:
+
+
+```r
+head(df_4, n = 2)
 ```
 
 ```
@@ -477,3 +480,203 @@ head(df_4, 2) # gibt die ersten zwei Zeilen aus
 ## 1   male    189
 ## 2   male    175
 ```
+
+The package `dplyr` proves the useful function `dplyr::glimpse()`, which 
+gives a general overview about all columns and their types:
+
+
+```r
+dplyr::glimpse(df_4)
+```
+
+```
+## Rows: 5
+## Columns: 2
+## $ gender <chr> "male", "male", "male", "female", "female"
+## $ height <dbl> 189, 175, 180, 166, 150
+```
+
+Finally, if you work within R Studio, you can use `View()` to get a Excel-like
+representation of your data.
+
+As you might have guessed by now, `data.frame`s are the classic object to 
+represent read-in data.
+If, for instance, you download data on GDP in Germany from the Internet and then
+import this data into R, it usually gets represented as a `data.frame`.
+This representation then allows direct analysis and manipulation of the data.
+
+At the same time, `data.frame`s are a very old object type, the behavior of
+which sometimes feels a bit outdated. Because of this, some authors created 
+a new data type, which is built upon the `data.frame`, but behaves slightly
+different: the `tibble`. The tibble is made available via the package `tibble`,
+so to use tibbles, this packages has to be loaded first.
+
+You can read more about tibbles in chapter 10 of 
+[R for Data Science](https://r4ds.had.co.nz/index.html), i.e. [here](https://r4ds.had.co.nz/tibbles.html) (to avoid confusion: in his book
+Hadley always attaches the package `tidyverse` at the beginning of the chapter.
+This includes attaching the package `tibble`.)
+
+> **Digression: Dialects of R** As with natural language, programming languages
+feature different dialects, i.e. different ways of doing the same actions. In
+R this becomes particularly obvious in the context of dealing with data. Here,
+the different dialects show themselfes in different object types used for the
+data you are working with. To the best of my knowedge, there are three main
+dialects, each associated with a different focus on data representation.
+The *base* dialect represents data as `data.frame`s and it is the original 
+approach envisioned by the R developers. The *tidyverse* dialect
+represents data as `tibble`s and is built around a number of different packages
+summarized under the name [tidyverse](https://www.tidyverse.org/). It is aimed
+to develop an set of packages that allow you to do all tasks commonly associated
+with data science within a consistent syntax and design philosophy.
+The *data.table* dialect represents data as `data.table`s, which are provided by
+the package [data.table](https://github.com/Rdatatable/data.table). It is
+designed to work with large data sets and is by far the fastest and computationally
+most efficient approach to data processing. 
+In this course we will follow the `tidyverse` dialect because it is particularly 
+easy to learn, widespread, and usually a good default option. Once you mastered
+it and you want to work in the field of big data, you should then consider 
+learning the data table dialect as well. Right now, the most important thing 
+is consistency: all the dialects help you to achieve almost any aim you will 
+ever have in the context of data science. But things get very confusing if you
+mix different dialects in practive. Their functions are designed to work well 
+with the other elements of the respective dialect environment, but things can
+become confusing if you mix data types and functions from, e.g., the tidyverse 
+and data.table dialect. If you want to read more about the controversies associated
+with the different dialects you might start, e.g.,
+[here](https://github.com/matloff/TidyverseSkeptic) (altough I do not share
+the opinion of the author regarding teachability).
+
+Transforming `data.frame`s and `tibble`s is one of the central tasks when 
+doing data science, and there are different approaches to it in R. Usually,
+taking your raw data and turinging it into a well formatted `data.frame` is
+not straightforward and usually takes at least as much time as the final analysis
+of the data. Thus, it is one of the central course objectives to equip you with
+the tools to facilitate this often underrated and underestimated task. 
+But this will be the main subject of the sessions on data wrangling.
+
+# Digression: Matrices in R {#intro-matrix}
+
+Another data type that is used frequently in many 
+circumstances, especially statistics and engineering, are 
+matrices. These are two-dimensional objects with rows and columns,
+each of which are atomic vectors.^[If you read the section on attributes above:
+matrices are objects that were given a new attribute `dim`.]
+We do not deal with matrices
+explicitly to a large degree, but knowing about how they work
+often turns out useful. Therefore, I provide a quick overview 
+below, but since matrices are not a central subject of this 
+course, I leave you with some links to further information.
+
+Matrices are created with the function `matrix()`.
+This function takes as its first argument the elements of the matrix and then
+the specification of the number of rows (`nrow`) and/or the number of
+columns (`ncol`):
+
+
+```r
+m_1 <- matrix(11:20, nrow = 5)
+m_1
+```
+
+```
+##      [,1] [,2]
+## [1,]   11   16
+## [2,]   12   17
+## [3,]   13   18
+## [4,]   14   19
+## [5,]   15   20
+```
+
+We can extract and/or substitute the rows and columns as well as 
+individual values as follows:
+
+
+```r
+m_1[,1] # First column
+```
+
+```
+## [1] 11 12 13 14 15
+```
+
+
+```r
+m_1[1,] # First row
+```
+
+```
+## [1] 11 16
+```
+
+
+```r
+m_1[2,2] # Element [2,2]
+```
+
+```
+## [1] 17
+```
+
+> **Hint:** Matrices are built upon atomic vector, which is why `typeof()` 
+always returns the type of the atomic vectors making up the elements:
+
+
+```r
+typeof(m_1)
+```
+
+```
+## [1] "integer"
+```
+> As with factors and data frames this has to do with the particular class 
+attributes of matrices, which, however is *implicit*:^[This is another piece
+of evidence for the very confusing class concept and object-orientated style
+of R. See [this chapter](https://adv-r.hadley.nz/oo.html) for more details, 
+in case you are interested.]
+
+
+```r
+class(m_1) 
+```
+
+```
+## [1] "matrix" "array"
+```
+
+
+```r
+attributes(m_1)
+```
+
+```
+## $dim
+## [1] 5 2
+```
+
+> To test whether an object is a matrix use `is.matrix()`:
+
+
+```r
+is.matrix(m_1)
+```
+
+```
+## [1] TRUE
+```
+
+
+```r
+is.matrix(2.0)
+```
+
+```
+## [1] FALSE
+```
+
+The most important thing to learn about matrices is matrix algebra. You can
+find many good introductions in the web, e.g. 
+[here](https://www.statmethods.net/advstats/matrix.html)
+or 
+[here](https://www.math.uh.edu/~jmorgan/Math6397/day13/LinearAlgebraR-Handout.pdf)
+and, in German, 
+[here](https://graebnerc.github.io/RforSocioEcon/formalia.html#formalia-linalg).
