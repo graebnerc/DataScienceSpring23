@@ -11,7 +11,7 @@ title: "Course material"
 |   [2](#s2)  | March 23, 2022| Installation        | [Slides](slides/T2-Installation.pdf)           |
 |   [3](#s3)  | March 24, 2022| First steps in R I  | [Slides](slides/T3-Basics-Functions.pdf)           |
 |   [4](#s4)  | March 31, 2022| First steps in R II | [Slides](slides/T4-Objects.pdf)           |
-|   [5](#s5)  | April 6, 2022 | Visualization I     | TBD           |
+|   [5](#s5)  | April 6, 2022 | Visualization I     | [Slides](slides/T5-Visualization.pdf)           |
 |   [6](#s6)  | April 7, 2022 | Data wrangling I    | TBD           |
 |   [7](#s7)  | April 20, 2022 | R Markdown          | TBD           |
 |   [8](#s8)  | April 21, 2022 | Projects and workflow | TBD           |
