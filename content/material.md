@@ -60,8 +60,8 @@ learnr::run_tutorial(
 ### Mandatory readings
 
 - [Tutorial: Vectors](/post/object-types-vec/)
-
 - [Tutorial: Factors and data frames](/post/object-types-adv/)
+- [Chapter 10 of Wickham & Grolemund](https://r4ds.had.co.nz/tibbles.html)
 
 ### Exercises
 
