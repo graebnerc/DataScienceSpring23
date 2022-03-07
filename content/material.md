@@ -7,7 +7,7 @@ title: "Course material"
 
 | **Session** | **Date**      | **Topic**           | **Slides**|
 |:-----------:|:--------------|:--------------------|:-------------:|
-|   [1](#s1)  | March 12, 2022| General introduction| [Slides Orga](slides/T1-1-Introduction.pdf), [Slides Philo](slides/T1-1-Introduction.pdf)   |
+|   [1](#s1)  | March 17, 2022| General introduction| [Slides Orga](slides/T1-1-Introduction.pdf), [Slides Philo](slides/T1-2-PhiloFoundation.pdf)   |
 |   [2](#s2)  | March 23, 2022| Installation        | [Slides](slides/T2-Installation.pdf)           |
 |   [3](#s3)  | March 24, 2022| First steps in R I  | [Slides](slides/T3-Basics-Functions.pdf)           |
 |   [4](#s4)  | March 31, 2022| First steps in R II | [Slides](slides/T4-Objects.pdf)           |
@@ -67,11 +67,21 @@ learnr::run_tutorial(
 ### Exercises
 
 After installing (and updating) the `DataScienceExercises`-package 
-(as described here), run the following command from within your R session:
+(as described here), run the following command from within your R session
+for the exercises on atomic vectors and lists:
 
 ```
 learnr::run_tutorial(
-  name = "ObjectTypes", 
+  name = "ObjectTypes1", 
+  package = "DataScienceExercises", 
+  shiny_args=list("launch.browser"=TRUE))
+```
+
+And the following code for the exercises on factors and data frames:
+
+```
+learnr::run_tutorial(
+  name = "ObjectTypes2", 
   package = "DataScienceExercises", 
   shiny_args=list("launch.browser"=TRUE))
 ```
