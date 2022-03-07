@@ -1,7 +1,7 @@
 ---
 title: 'Visualization: Lecture notes'
 author: Claudius Gräbner-Radkowitsch
-date: '2022-03-04'
+date: '2022-04-06'
 slug: T5-visualization-lecture-notes
 categories:
   - notes
@@ -31,7 +31,7 @@ library(ggplot2)
 
 # Developing a ggplot - the general workflow
 
-Make a shortcut to the data and instepct it:
+Make a shortcut to the data and inspect it:
 
 ```{r}
 gdp_data <- DataScienceExercises::gdplifexp2007
