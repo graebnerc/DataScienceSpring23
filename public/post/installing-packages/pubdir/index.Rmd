@@ -2,11 +2,7 @@
 title: "Installing R packages"
 author: "Claudius Gräbner-Radkowitsch"
 date: '2022-03-01'
-slug: installing-packages
-categories:
-- setup
-- tutorial
-tags: installation
+documentclass: scrartcl
 output: 
   html_document:
     theme: readable
@@ -19,6 +15,8 @@ output:
     toc: true
     toc_depth: 2
     number_sections: true
+    includes:
+      in_header: "preamble.tex"
 ---
 
 ```{r, echo=FALSE, message=FALSE}

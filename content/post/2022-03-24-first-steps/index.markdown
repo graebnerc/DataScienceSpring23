@@ -3,7 +3,8 @@ title: "First steps in R"
 author: Claudius Gräbner-Radkowitsch
 date: '2022-03-02'
 slug: first-steps
-categories: []
+categories:
+  - tutorial
 tags: []
 ---
 

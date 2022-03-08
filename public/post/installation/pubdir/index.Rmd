@@ -3,19 +3,22 @@ title: 'Installation of the necessary software'
 author: 'Claudius Gräbner-Radkowitsch'
 date: '2022-03-01'
 slug: installation
+documentclass: scrartcl
 categories:
   - tutorial
   - setup
 tags:
   - installation
 output: 
-  html_document:
-    theme: readable
+  pdf_document:
     highlight: tango
     toc: true
     toc_depth: 2
     number_sections: true
-  pdf_document:
+    includes:
+      in_header: "preamble.tex"
+  html_document:
+    theme: readable
     highlight: tango
     toc: true
     toc_depth: 2

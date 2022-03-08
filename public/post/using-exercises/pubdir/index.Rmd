@@ -2,13 +2,7 @@
 title: Using exercises
 author: Claudius Gräbner-Radkowitsch
 date: '2022-03-01'
-slug: using-exercises
-categories:
-  - setup
-  - tutorial
-  - exercises
-tags:
-  - introduction
+documentclass: scrartcl
 output: 
   html_document:
     theme: readable
@@ -21,6 +15,8 @@ output:
     toc: true
     toc_depth: 2
     number_sections: true
+    includes:
+      in_header: "preamble.tex"
 ---
 
 ```{r setup, include=FALSE}

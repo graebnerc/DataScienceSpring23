@@ -2,9 +2,7 @@
 title: "Fundamental object types in R III: Factors and data frames"
 author: Claudius Gräbner-Radkowitsch
 date: '2022-03-02'
-slug: object-types-adv
-categories: ["tutorial"]
-tags: []
+documentclass: scrartcl
 output: 
   html_document:
     theme: readable
@@ -18,6 +16,8 @@ output:
     toc: true
     toc_depth: 2
     number_sections: true
+    includes:
+      in_header: "preamble.tex"
 ---
 
 # Optional background info: attributes and classes

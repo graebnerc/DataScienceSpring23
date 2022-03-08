@@ -9,6 +9,14 @@ categories:
 tags:
   - installation
 output: 
+  bookdown::pdf_document2::
+    highlight: tango
+    toc: true
+    toc_depth: 2
+    number_sections: true
+    includes:
+      in_header: "preamble.tex"
+      before_body: "prefix.tex"
   html_document:
     theme: readable
     highlight: tango
@@ -75,7 +83,7 @@ features for R. For instance, if a new prediction algorithm get developed,
 some people will soon write a so called [R-package](https://r-pkgs.org/) 
 that implements this 
 algorithm in R. Then you as an R user can download this package and use the new
-algorithm. This way, R is unlikely to ever VERALTEN. Sine most developers use
+algorithm. This way, R is unlikely to ever become outdated. Sine most developers use
 Git when developing the packages, they often distribute the programs in a way
 that aligns well with the use of Git. And the most prominent way is Github.
 Thus, you can see the source code for almost all R packages you will be using
@@ -265,3 +273,10 @@ You can now either create a Netlify account by clicking on `Email` and
 register a new email address, or you can link Netlify to one of the other
 accounts you might already have. I personally, for instance, linked 
 Netlify to my Github account.
+
+# Next steps
+
+Once you finished with installing all the relevant software described in this 
+post I recommend you continue directly with the second (and last) 
+[installation tutorial]() that assists you in installing the R packages required
+over the course of the semester.
