@@ -8,6 +8,16 @@
     <language>en-us</language>
     <lastBuildDate>Wed, 02 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://dataanalytics-euf-spring21.netlify.app/categories/tutorial/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>First steps in R</title>
+      <link>https://dataanalytics-euf-spring21.netlify.app/post/first-steps/</link>
+      <pubDate>Wed, 02 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dataanalytics-euf-spring21.netlify.app/post/first-steps/</guid>
+      <description>Download this post as PDF
+Read this post as HTML</description>
+    </item>
+    
+    <item>
       <title>Fundamental object types in R I: Functions</title>
       <link>https://dataanalytics-euf-spring21.netlify.app/post/object-types-func/</link>
       <pubDate>Wed, 02 Mar 2022 00:00:00 +0000</pubDate>
