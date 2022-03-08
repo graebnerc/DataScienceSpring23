@@ -2,6 +2,7 @@
 title: "First steps in R"
 author: "Claudius Gräbner-Radkowitsch"
 date: "2/12/2022"
+documentclass: scrartcl
 output:
   html_document:
     theme: readable
@@ -14,6 +15,8 @@ output:
     toc: true
     toc_depth: 2
     number_sections: true
+    includes:
+      in_header: "preamble.tex"
 ---
 
 ```{r include=FALSE}

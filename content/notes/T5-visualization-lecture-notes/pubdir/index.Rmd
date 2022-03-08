@@ -3,10 +3,7 @@ title: 'Visualization: Lecture notes'
 author: Claudius Gräbner-Radkowitsch
 date: '2022-04-06'
 slug: T5-visualization-lecture-notes
-categories:
-  - notes
-tags:
-  - visualization
+documentclass: scrartcl
 output: 
   html_document:
     theme: readable
@@ -19,6 +16,8 @@ output:
     toc: true
     toc_depth: 2
     number_sections: true
+    includes:
+      in_header: "preamble.tex"
 ---
 
 # Packages used
