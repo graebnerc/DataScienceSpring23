@@ -12,10 +12,10 @@ title: "Course material"
 |   [3](#s3)  | March 24, 2022| First steps in R I  | [Slides](slides/T3-Basics-Functions.pdf)           |
 |   [4](#s4)  | March 31, 2022| First steps in R II | [Slides](slides/T4-Objects.pdf)           |
 |   [5](#s5)  | April 6, 2022 | Visualization I     | [Slides](slides/T5-Visualization.pdf)           |
-|   [6](#s6)  | April 7, 2022 | Data wrangling I    | TBD           |
-|   [7](#s7)  | April 20, 2022 | R Markdown          | TBD           |
-|   [8](#s8)  | April 21, 2022 | Projects and workflow | TBD           |
-|   [9](#s9)  | April 28, 2022 | Taking stock       | TBD           |
+|   [6](#s6)  | April 7, 2022 | Projects and data import  | [Slides](slides/T6-ProjectSetup.pdf)           |
+|   [7](#s7)  | April 20, 2022 | Data wrangling I         | TBD           |
+|   [8](#s8)  | April 21, 2022 | R Markdown | TBD         |
+|   [9](#s9)  | April 28, 2022 | Taking stock  | TBD           |
 
 ## Session 1: Introduction {#s1}
 
@@ -107,25 +107,29 @@ learnr::run_tutorial(
   shiny_args=list("launch.browser"=TRUE))
 ```
 
-## Session 6: Data wrangling I {#s6}
+## Session 6: Project organization and data import {#s6}
+
+- [Slides](slides/T6-ProjectSetup.pdf)
 
 ### Mandatory readings
+
+- [Tutorial: How to organize your R project](/post/setting-up-an-r-project/)
+- [Tutorial: Read and write data](/post/importing-exporting-data/)
+
+
+## Session 7: Data wrangling I {#s7}
+
+### Mandatory readings
+
 - [R for Data Science, Chapter 5: Data transformation](https://r4ds.had.co.nz/transform.html)
-- [Tutorial: Read and write data with fread and fwrite]()
 - [R for Data Science, Chapter 12: Tidy data](https://r4ds.had.co.nz/tidy-data.html)
 
-## Session 7: R Markdown {#s7}
+## Session 8: R Markdown {#s8} 
 
 ### Mandatory readings
 
 - [R for Data Science, Chapter 27: R Markdown](https://r4ds.had.co.nz/tidy-data.html)
 - [The CommonMark markdown tutorial](https://commonmark.org/help/tutorial/)
-
-## Session 8: Projects and workflow {#s8}
-
-### Mandatory readings
-
-- [Tutorial: how to organize your R project]()
 
 
 

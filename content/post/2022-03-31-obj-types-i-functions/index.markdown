@@ -7,8 +7,6 @@ categories: ["tutorial"]
 tags: ["data types", "introduction"]
 toc: true
 output:
-  blogdown::html_page:
-    toc: true
   html_document:
     theme: readable
     highlight: tango
