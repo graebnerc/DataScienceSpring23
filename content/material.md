@@ -7,30 +7,33 @@ title: "Course material"
 
 | **Session** | **Date**      | **Topic**           | **Slides**|
 |:-----------:|:--------------|:--------------------|:-------------:|
-|   [1](#s1)  | March 17, 2022| General introduction| [Slides Orga](slides/T1-1-Introduction.pdf), [Slides Philo](slides/T1-2-PhiloFoundation.pdf)   |
-|   [2](#s2)  | March 23, 2022| Installation        | [Slides](slides/T2-Installation.pdf)           |
+|   [1](#s1)  | March 17, 2022| General introduction| [Slides Orga](slides/T1-1-Introduction.pdf), [Slides Install](slides/T1-2-Installation.pdf)   |
+|   [2](#s2)  | March 23, 2022| Philosophy of Data Science | [Slides Philo](slides/T2-PhiloFoundation.pdf)           |
 |   [3](#s3)  | March 24, 2022| First steps in R I  | [Slides](slides/T3-Basics-Functions.pdf)           |
 |   [4](#s4)  | March 31, 2022| First steps in R II | [Slides](slides/T4-Objects.pdf)           |
 |   [5](#s5)  | April 6, 2022 | Visualization I     | [Slides](slides/T5-Visualization.pdf)           |
 |   [6](#s6)  | April 7, 2022 | Projects and data import  | [Slides](slides/T6-ProjectSetup.pdf)           |
 |   [7](#s7)  | April 20, 2022 | Data wrangling I         | TBD           |
-|   [8](#s8)  | April 21, 2022 | R Markdown | TBD         |
-|   [9](#s9)  | April 28, 2022 | Taking stock  | TBD           |
+|   [8](#s8)  | April 28, 2022 | R Markdown | TBD         |
 
-## Session 1: Introduction {#s1}
+## Session 1: Introduction and installation {#s1}
 
 - [Slides for the organizational part](slides/T1-1-Introduction.pdf)
-- [Slides for the philosophical part](slides/T1-2-PhiloFoundation.pdf)
-
-## Session 2: Installation {#s2}
-
-- [Slides](slides/T2-Installation.pdf)
+- [Slides on installing R](slides/T1-2-Installation.pdf)
 
 ### Mandatory readings
+
 - [Tutorial: installing basic software](/post/installation/)
 - [Tutorial: installing the required R packages](/post/installing-packages/)
-- [Tutorial: doing exercises](/post/using-exercises/)
 
+
+## Session 2: Philosophy of Data Science {#s2}
+
+- [Slides](slides/T2-PhiloFoundation.pdf)
+
+### Mandatory readings
+
+- [Tutorial: doing exercises](/post/using-exercises/)
 ## Session 3: First steps in R I - Basics and functions {#s3}
 
 - [Slides](slides/T3-Basics-Functions.pdf)

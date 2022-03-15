@@ -75,6 +75,7 @@ for (i in 1:length(required_packages_cran)){
 
 required_packages_github <- c(
   "rstudio/learnr",
+  "rstudio/ggcheck",
   "rstudio/gradethis",
   "graebnerc/DataScienceExercises",
   "graebnerc/icaeDesign"
