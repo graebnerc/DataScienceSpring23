@@ -113,6 +113,7 @@ learnr::run_tutorial(
 ## Session 6: Project organization and data import {#s6}
 
 - [Slides](slides/T6-ProjectSetup.pdf)
+- [Example data](files/fread_expls.zip)
 
 ### Mandatory readings
 
