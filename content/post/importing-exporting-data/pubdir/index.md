@@ -1,7 +1,7 @@
 ---
 title: "Importing and exporting data"
 author: Claudius Gräbner-Radkowitsch
-date: '2022-03-09'
+date: '2022-03-19'
 documentclass: scrartcl
 output: 
   html_document:
@@ -26,9 +26,61 @@ knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
 ```
 
 
-## Daten einlesen und schreiben {#data-read-write}
+# Importing and exporting data
 
-### Einlesen von Datensätzen
+Functions that are used to import data take as an argument a path to a file
+containing data, parse this file, and return an R object (usually a kind of
+`data.frame`) that contains the data from the file.
+
+In general, there are different file formats for storing data, but the most widely
+used one is the `.csv`-format -- an abbreviation for 'comma separated values',
+indicating that (usually) data points are separated from each other via 
+commas. The big advantage of such files is that they are platform-independent
+and do not require any external software. Their downside is that you they are
+relatively large for a given amount of data, and that they are inferior to more
+modern file formats when it comes to reading and writing speed. But these 
+disadvantages become relevant only for larger data sets, which is why `csv` 
+files are a good default option to use, and this tutorial focuses on reading
+and writing `csv`-files (with a short overview over most common alternatives
+below).
+
+While writing (or 'exporting') data is usually straightforward, reading 
+(or 'importing') data can be very frustrating and complicated. The reason is
+that there are many different ways of how exactly data is stored within a 
+`csv`-file. But don't worry: first, the package
+[data.table](https://github.com/Rdatatable/data.table) provides for the 
+amazing function `data.table::freat()` that allows you to account for basically
+every specifity of the `csv`-files you will encounter. Second, with only a 
+handful of arguments passed to `data.table::freat()` you can already cover the
+vast majority of practically relevant cases.
+
+The main focus of this tutorial, thus, is to introduce you to the most important 
+arguments of `data.table::fread()`. After this, we also make a few remarks on 
+how to save data and how to import/export data using different file formats.
+Note that while the arguments of `data.table::fread()` that will be covered are
+the most important ones that allow you to deal with most practically relevant
+cases, the function allows for an even greater level of customization. You can
+find more information via `help(fread)`, but it will be much easier to understand
+the function manual after going through the base cases described below.
+
+A final remark: if you read about data import in, e.g., textbooks that usually
+rely on the [tidyverse](https://www.tidyverse.org/)
+packages, you will not find any mentioning of `data.table::fread()`. 
+Rather, the functions provided by the package [readr](https://readr.tidyverse.org/)
+will be used. This is one of the very few exceptions where I recommend you to
+break the rule of writing code in a consistent dialect: while the `readr`-functions
+would be more consistent with our commitment to the tidyverse, the function
+`data.table::fread()` is just too much better than these alternatives to be
+ignored: not only is it *much, much* faster, it also allows for more customization.
+The only 'drawback' is that after reading in data it returns this data as a
+`data.table` (or a `data.frame`, see below). But this is only a small cost 
+compared to the many benefits. We just should not forget to transform the
+object returned by `data.table::fread()` into a `tibble`.
+
+
+
+
+## Importing csv data
 
 Wenige Arbeitsschritte können so frustrierend sein wie das Einlesen von Daten.
 Sie können sich gar nicht vorstellen was hier alles schiefgehen kann! 
