@@ -70,8 +70,8 @@ learnr::run_tutorial(
 ### Exercises
 
 After installing (and updating) the `DataScienceExercises`-package 
-(as described here), run the following command from within your R session
-for the exercises on atomic vectors and lists:
+(as described [here](/post/using-exercises/)), run the following command 
+from within your R session for the exercises on atomic vectors and lists:
 
 ```
 learnr::run_tutorial(
@@ -101,7 +101,8 @@ learnr::run_tutorial(
 ### Exercises
 
 After installing (and updating) the `DataScienceExercises`-package 
-(as described here), run the following command from within your R session:
+(as described [here](/post/using-exercises/)), run the following command 
+from within your R session:
 
 ```
 learnr::run_tutorial(
@@ -134,7 +135,3 @@ learnr::run_tutorial(
 
 - [R for Data Science, Chapter 27: R Markdown](https://r4ds.had.co.nz/tidy-data.html)
 - [The CommonMark markdown tutorial](https://commonmark.org/help/tutorial/)
-
-
-
-
