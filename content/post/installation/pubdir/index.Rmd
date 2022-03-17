@@ -153,6 +153,10 @@ version is more of less up to date. For our seminar you should use at least R
 version `R 4.0.4`. The version you are currently using is shown as soon as you
 start `R`. 
 
+Please note: if you installed R anew in the previous step, you do *not* need 
+to update it. The information on updating R is mainly relevant for people 
+who have installed R already some time ago.
+
 ### MacOS users
 
 For **MacOS users**, the easiest route to update `R` is to just re-install the

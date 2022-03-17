@@ -325,7 +325,7 @@ pre code {
 ##   hypotenuse &lt;- sqrt(hypo_squared) # sqrt() takes square root
 ##   return(hypotenuse)
 ## }
-## &lt;bytecode: 0x7fd9a62b91f8&gt;</code></pre>
+## &lt;bytecode: 0x7fd6d4ee2ff8&gt;</code></pre>
 <p>Note that all object names used within the function body are lost after the function has been called. The deeper reason is that functions have their own <a href="https://adv-r.hadley.nz/environments.html">environment</a>. Because of this behavior, R produces an error in the following example, in which <code>hypo_squared</code> exists <em>only</em> within the function body.</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>pythagoras <span class="ot">&lt;-</span> <span class="cf">function</span>(cathetus_1, cathetus_2){</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  hypo_squared <span class="ot">&lt;-</span> cathetus_1<span class="sc">**</span><span class="dv">2</span> <span class="sc">+</span> cathetus_2<span class="sc">**</span><span class="dv">2</span></span>
