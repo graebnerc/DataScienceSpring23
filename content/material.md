@@ -121,6 +121,18 @@ learnr::run_tutorial(
 - [Tutorial: How to organize your R project](/post/setting-up-an-r-project/)
 - [Tutorial: Read and write data](/post/importing-exporting-data/)
 
+### Exercises
+
+After installing (and updating) the `DataScienceExercises`-package 
+(as described [here](/post/using-exercises/)), run the following command 
+from within your R session:
+
+```
+learnr::run_tutorial(
+  name = "ProjectOrga", 
+  package = "DataScienceExercises", 
+  shiny_args=list("launch.browser"=TRUE))
+```
 
 ## Session 7: Data wrangling I {#s7}
 
