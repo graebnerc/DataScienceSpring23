@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.12.0 (TeX Live 2020)  (format=lualatex 2020.9.1)  16 MAR 2022 18:34
+This is LuaHBTeX, Version 1.12.0 (TeX Live 2020)  (format=lualatex 2020.9.1)  17 MAR 2022 13:29
  restricted system commands enabled.
 **pdfcontent.tex
 (./pdfcontent.tex
@@ -1011,7 +1011,7 @@ Here is how much of LuaTeX's memory you used:
 , 10 attribute_list, 1 write, 1 user_defined nodes
    avail lists: 1:2,2:560,3:125,4:108,5:300,6:53,7:4059,8:17,9:243,10:11,11:225
  43071 multiletter control sequences out of 65536+600000
- 83 fonts using 9466723 bytes
+ 83 fonts using 9466699 bytes
  59i,20n,116p,10132b,570s stack positions out of 5000i,500n,10000p,200000b,100000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/te
 xlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/texlive/2020/texm
