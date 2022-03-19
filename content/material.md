@@ -145,5 +145,5 @@ learnr::run_tutorial(
 
 ### Mandatory readings
 
-- [R for Data Science, Chapter 27: R Markdown](https://r4ds.had.co.nz/tidy-data.html)
+- [R for Data Science, Chapter 27: R Markdown](https://r4ds.had.co.nz/r-markdown.html)
 - [The CommonMark markdown tutorial](https://commonmark.org/help/tutorial/)
