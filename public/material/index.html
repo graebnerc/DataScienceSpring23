@@ -185,6 +185,15 @@ from within your R session:</p>
 <li><a href="/post/setting-up-an-r-project/">Tutorial: How to organize your R project</a></li>
 <li><a href="/post/importing-exporting-data/">Tutorial: Read and write data</a></li>
 </ul>
+<h3 id="exercises-3">Exercises</h3>
+<p>After installing (and updating) the <code>DataScienceExercises</code>-package
+(as described <a href="/post/using-exercises/">here</a>), run the following command
+from within your R session:</p>
+<pre><code>learnr::run_tutorial(
+  name = &quot;ProjectOrga&quot;, 
+  package = &quot;DataScienceExercises&quot;, 
+  shiny_args=list(&quot;launch.browser&quot;=TRUE))
+</code></pre>
 <h2 id="s7">Session 7: Data wrangling I</h2>
 <h3 id="mandatory-readings-6">Mandatory readings</h3>
 <ul>
@@ -194,7 +203,7 @@ from within your R session:</p>
 <h2 id="s8">Session 8: R Markdown</h2>
 <h3 id="mandatory-readings-7">Mandatory readings</h3>
 <ul>
-<li><a href="https://r4ds.had.co.nz/tidy-data.html">R for Data Science, Chapter 27: R Markdown</a></li>
+<li><a href="https://r4ds.had.co.nz/r-markdown.html">R for Data Science, Chapter 27: R Markdown</a></li>
 <li><a href="https://commonmark.org/help/tutorial/">The CommonMark markdown tutorial</a></li>
 </ul>
 
