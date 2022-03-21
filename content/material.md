@@ -115,7 +115,6 @@ learnr::run_tutorial(
 
 - [Slides](slides/T6-ProjectSetup.pdf)
 - [Example data](files/fread_expls.zip)
-- [Lecture notes](/notes/data-wrangling-lecture-notes/)
 
 ### Mandatory readings
 
@@ -139,6 +138,8 @@ learnr::run_tutorial(
 
 - [Slides](slides/T7-DataWrangling.pdf)
 - [Exercise data](files/wrangling_exercises_data.zip)
+- [Lecture notes](/notes/data-wrangling-lecture-notes/)
+- [Data for lecture notes](files/wrangling-notes-data.zip)
 
 ### Mandatory readings
 
