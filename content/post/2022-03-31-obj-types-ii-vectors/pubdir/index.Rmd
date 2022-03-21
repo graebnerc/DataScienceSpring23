@@ -358,7 +358,7 @@ of R you should avoid storing large numbers as `integer64` whenever possible.
 Very large numbers should be stored as `double` or, when precision is a serious
 issue, you should scale them down and then save them as `integer`.
 
-### Logical operations {#basics-logic}
+### Logical operations
 
 The logical values `TRUE` and `FALSE` are often the result of logical 
 operations, such as 'Is 2 larger than 1?'.
