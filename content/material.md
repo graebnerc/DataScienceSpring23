@@ -136,6 +136,11 @@ learnr::run_tutorial(
 
 ## Session 7: Data wrangling I {#s7}
 
+- [Slides](slides/T7-DataWrangling.pdf)
+- [Exercise data](files/wrangling_exercises_data.zip)
+- [Lecture notes](/notes/data-wrangling-lecture-notes/)
+- [Data for lecture notes](files/wrangling-notes-data.zip)
+
 ### Mandatory readings
 
 - [R for Data Science, Chapter 5: Data transformation](https://r4ds.had.co.nz/transform.html)

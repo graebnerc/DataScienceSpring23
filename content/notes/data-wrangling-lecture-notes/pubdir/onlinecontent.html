@@ -11,8 +11,9 @@
 
 <meta name="author" content="Claudius Gräbner-Radkowitsch" />
 
+<meta name="date" content="2022-04-20" />
 
-<title>First steps in R</title>
+<title>Data wrangling: Lecture notes</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -439,437 +440,709 @@ pre code {
 
 
 
-<h1 class="title toc-ignore">First steps in R</h1>
+<h1 class="title toc-ignore">Data wrangling: Lecture notes</h1>
 <h4 class="author">Claudius Gräbner-Radkowitsch</h4>
-<h4 class="date">2/12/2022</h4>
+<h4 class="date">2022-04-20</h4>
 
 </div>
 
 <div id="TOC">
 <ul>
-<li><a href="#issue-commands-to-your-computer"><span class="toc-section-number">1</span> Issue commands to your
-computer</a></li>
-<li><a href="#objects-functions-and-assignments"><span class="toc-section-number">2</span> Objects, functions, and
-assignments</a></li>
-<li><a href="#r-packages"><span class="toc-section-number">3</span> R
-packages</a></li>
-<li><a href="#taking-stock"><span class="toc-section-number">4</span>
-Taking stock</a></li>
+<li><a href="#packages-and-data-used"><span class="toc-section-number">1</span> Packages and data used</a></li>
+<li><a href="#general-remarks"><span class="toc-section-number">2</span>
+General remarks</a></li>
+<li><a href="#reshaping-data-from-long-to-wide-format"><span class="toc-section-number">3</span> Reshaping data from long to wide
+format</a>
+<ul>
+<li><a href="#wide-and-long-format-definition"><span class="toc-section-number">3.1</span> Wide and long format:
+definition</a></li>
+<li><a href="#transforming-long-data-into-wide-data"><span class="toc-section-number">3.2</span> Transforming long data into wide
+data</a></li>
+<li><a href="#transforming-wide-data-into-long-data"><span class="toc-section-number">3.3</span> Transforming wide data into long
+data</a></li>
+</ul></li>
+<li><a href="#chaining-wrangling-tasks-using-pipes"><span class="toc-section-number">4</span> Chaining wrangling tasks using
+pipes</a></li>
+<li><a href="#creating-of-manipulating-variables"><span class="toc-section-number">5</span> Creating of manipulating
+variables</a></li>
+<li><a href="#filtering-rows"><span class="toc-section-number">6</span>
+Filtering rows</a></li>
+<li><a href="#selecting-columns"><span class="toc-section-number">7</span> Selecting columns</a></li>
+<li><a href="#merging-data-sets"><span class="toc-section-number">8</span> Merging data sets</a></li>
+<li><a href="#grouping-and-summarising-data"><span class="toc-section-number">9</span> Grouping and summarising
+data</a></li>
+<li><a href="#a-final-example"><span class="toc-section-number">10</span> A final example</a></li>
 </ul>
 </div>
 
-<p>In this post we will learn about the basic <em>syntax</em> of R. The
-syntax basically refers to the grammatical rules you must adhere to when
-communicating with your computer in the language <code>R</code>: if you
-you do not follow the right syntax, i.e. you ‘speak’ gramatically
-incorrect, your computer will not understand you and communicate this to
-you by throwing up an error message.</p>
-<p>To learn about these important basics, the post follows the following
-structure:</p>
+<div id="packages-and-data-used" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Packages and data
+used</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code></pre></div>
+<p>The data sets used in these notes are available from the course
+webpage:</p>
 <ul>
-<li>Commands</li>
-<li>Objects, functions, and assignments</li>
-<li>R packages</li>
+<li><code>wrangling_slides.csv</code> (<code>data_raw</code>)</li>
+<li><code>wrangling_slides_gini.csv</code> (<code>gini_red</code>)</li>
+<li><code>wrangling_slides_final_expl.csv</code>
+(<code>data_final_expl</code>)</li>
+<li><code>wrangling_slides_gini_grc.csv</code>
+(<code>swiid_join</code>)</li>
 </ul>
-<div id="issue-commands-to-your-computer" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Issue commands to your
-computer</h1>
-<p>There are two ways we can communicate with our computer in R Studio:
-either issuing commands directly via the <em>console</em>, or by
-executing a script.</p>
-<p>Lets start by using the console and use R as a simple calculator
-first: we first want to add the numbers <code>2</code>and
-<code>5</code>. To this end, simply type <code>2 + 5</code> into the
-console and press <code>Enter</code>. Since the expression
-<code>2 + 5</code> is syntactically correct R code, the computer
-‘understands’ what we want from it and returns the result:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">5</span></span></code></pre></div>
-<pre><code>#&gt; [1] 7</code></pre>
-<p>The <code>#&gt;</code> at the beginning of the line indicates that
-what is written on this line is the output of an R command (but the
-concrete sign might be different on your computer).</p>
-<p>The result of <code>2+5</code> is a number (more precisely: a
-‘scalar’). In R, scalars are always represented as a <em>vector</em> of
-length 1. The <code>[1]</code> here indicates that the first element on
-this line is the first element of the vector. If the result of our
-calculation was a very long vector that needs to span several lines, at
-the beginning of the next line R would show us the index of the first
-number displayed on this line.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
-<p>In this way we can use R as a simple calculator, because for all
-simple mathematical operations we can use certain symbols as operators.
-At this point it should be pointed out that the symbol <code>#</code> in
-R introduces a <em>comment</em>, that means everything in a line after
-<code>#</code> will be ignored by the computer and you can make notes in
-the code that only help <em>you</em> (or other humans) to understand
-what you have written.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">5</span> <span class="co"># Addition</span></span></code></pre></div>
-<pre><code>#&gt; [1] 7</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">/</span><span class="dv">2</span> <span class="co"># Division</span></span></code></pre></div>
-<pre><code>#&gt; [1] 1</code></pre>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span><span class="sc">*</span><span class="dv">2</span> <span class="co"># Multiplication</span></span></code></pre></div>
-<pre><code>#&gt; [1] 8</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="sc">**</span><span class="dv">2</span> <span class="co"># Exponentiation</span></span></code></pre></div>
-<pre><code>#&gt; [1] 9</code></pre>
-<p>As an alternative to typing the commands into the console and then
-press <code>Enter</code> to execute them, we can write down the commands
-in a script, and then execute this script. While the interaction via the
-console is useful to test the effects of certain commands, scripts are
-useful if we want to develop more complex operations, and save what you
-have written for later, or to make them accessible to other people: we
-can save scripts as a file on our computer, and then use them later.</p>
-<p>The operations that we have conducted so far and not particularly
-exciting, to be honest. Before we proceed with more complex operations,
-however, we need to understand the ideas of <code>objects</code>,
-<code>functions</code>, and <code>assignments</code>.</p>
+<p>The brackets show the names of the data sets used below</p>
 </div>
-<div id="objects-functions-and-assignments" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> Objects, functions, and
-assignments</h1>
-<blockquote>
-To understand computations in R, two slogans are helpful: Everything
-that exists is an object. Everything that happens is a function call.
-<footer>
-John Chambers
-</footer>
-</blockquote>
-<p>The statement ‘Everything that exists is an object.’ means that every
-number, function, letter, or whatever there is, is an object that is
-stored somewhere in the physical memory of your computer. For instance,
-in the computation <code>2 + 3</code>, the number <code>2</code> is as
-much an object as the number <code>3</code> and the addition-function,
-which we call via the operator <code>+</code>.</p>
-<p>The statement ‘Everything that happens is a function call.’ means
-that whenever we tell our computer to do something via R, we are
-effectively calling a <em>function</em>.</p>
-<p><strong>Functions</strong> are algorithms that apply certain routines
-to an <em>input</em> and produce an <em>output</em>. The addition
-function we called in the calculation <code>2 + 3</code> took as input
-the two numbers <code>2</code> and <code>3</code>, applied to them the
-addition routine and produced the number <code>5</code> as output. The
-output <code>5</code> is an object in R just like the inputs
-<code>2</code> and <code>3</code>, as well as the addition function.</p>
-<p>A ‘problem’ is that in the present case R prints the output of the
-calculation but we have no access to it afterwards:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span></span></code></pre></div>
-<pre><code>#&gt; [1] 5</code></pre>
-<p>It is stored, for some time, on the physical memory of our computer,
-but we basically have no way to find it. To address this problem we can
-issue an <em>assignment</em>: whenever we want to keep using the output
-of an operation, we may give the output a <em>name</em>. This name works
-effectively as a kind of pointer, which points to the place on the
-computer memory where the output is saved. This way, we can access, and
-reuse it whenever we call the name. The process of giving a name to an
-object is called <em>assignment</em>, and it is effectuated via the
-function <code>assign</code>:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">assign</span>(<span class="st">&quot;intermediate_result&quot;</span>, <span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span>)</span></code></pre></div>
-<p>We explain the process of calling a function in more detail below.
-Here we focus on the process of assignment instead. What the function
-<code>assign</code> does is the following: it assigns the name
-<code>intermediate_result</code> to the result of the operation
-<code>2 + 3</code>. We can now call this result by writing its name into
-the console and press <code>Enter</code>:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>intermediate_result</span></code></pre></div>
-<pre><code>#&gt; [1] 5</code></pre>
-<p>Since making assignments happens so frequently in practice, there is
-a shortcut to the use of the function <code>assign</code>, namely the
-operator <code>&lt;-</code>. Thus, the following two commands to
-effectively the same thing:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">assign</span>(<span class="st">&quot;intermediate_result&quot;</span>, <span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span>)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>intermediate_result <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span></span></code></pre></div>
-<p>From now on, we will only use the <code>&lt;-</code> operator, which
-also represents quite nicely the idea of assignments as pointers to
-certain objects.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
-<blockquote>
-<p><strong>Digression: why <code>&lt;-</code>?</strong> The use of the
-string <code>&lt;-</code> as an assignment operator is at first sight
-unintuitive, uncomfortable, and rather unique in the world of
-programming languages. Much more common is the use of <code>=</code>.
-Where does this particularity of R come from? Besides practical reasons
-– in contrast to <code>=</code>, the use of <code>&lt;-</code> makes
-explicit the unidirectionality of an assignment – the main reason is
-historical: <code>R</code> originated from the programming language
-<code>S</code>. This in turn has taken over the <code>&lt;-</code> from
-the language <code>APL</code>. And APL, in turn, was developed on a
-keyboard layout, where <code>&lt;-</code> had its own key. Moreoever,
-since the operator <code>==</code> was not commonly used at that time,
-<code>=</code> was already assigned as test for equality (which, today,
-is basically always done by using <code>==</code>). And so one has
-decided to use <code>&lt;-</code> as an assignment operator and while
-since 2001 you can also make assignments in R using <code>=</code>,
-<code>&lt;-</code> remains strictly recommended for the sake of
-readability as well as some technicalities.</p>
-</blockquote>
-<p>You are not allowed to give names to objects as you wish. All
-syntactically correct names in R…</p>
+<div id="general-remarks" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> General remarks</h1>
 <ul>
-<li>only contain letters, numbers, or the symbols <code>.</code> and
-<code>_</code></li>
-<li>do not start with <code>.</code> or a number</li>
-</ul>
-<p>Moreover, there are some reserved words that you must not (and
-cannot) use as names, e.g. <code>function</code>, <code>TRUE</code>, of
-<code>if</code>. You can have a look at the complete list of forbidden
-words by calling <code>?Reserved</code>.</p>
-<p>There is, however, nothing to remember since whenever you try to give
-an object a name that conflicts with the rules just described, R
-immediately throws an error message:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="cn">TRUE</span> <span class="ot">&lt;-</span> <span class="dv">5</span></span></code></pre></div>
-<pre><code>#&gt; Error in TRUE &lt;- 5: invalid (do_set) left-hand side to assignment</code></pre>
-<p>There are, however, some rules that determine what is a <em>good</em>
-name and that you should adhere to whenever possible:</p>
+<li>If you imported the data from a file, make sure that the import went
+as expected</li>
+<li>Start with a data set that is of the type <code>tibble</code> (use
+<code>tibble::as_tibble()</code> if necessary)</li>
+<li>Before starting to wrangle, make a note to yourself of how the final
+data set should look like;
 <ul>
-<li>Names should be short and informative; <code>sample_mean</code> is a
-good name, <code>vector_2</code> not so much</li>
-<li>You should <strong>never use special characters</strong>, especially
-<em>Umlaute</em></li>
-<li>R is <em>case sensitive</em>, meaning that <code>mean_value</code>
-is a different name than <code>Mean_Value</code></li>
-<li>Even if this is possible you should never use names that are already
-used for function provided by R. For instance, an assignment such as
-<code>assign &lt;- 2</code> is possible, but it effectively prevents you
-from using the function <code>assign</code> without further
-complications.</li>
+<li>Then think about the different steps you need to take to reach this
+goal;</li>
+<li>Each step should only address one single wrangling challenge</li>
+</ul></li>
+<li>It is often useful to save the wrangling code in one script in which
+you import raw data in the beginning and save tidy data in the end</li>
+<li>Then you keep data wrangling, visualization, and modlling in
+separate files</li>
 </ul>
-<blockquote>
-<p><strong>Note</strong>: You can have a look at all current assignments
-in the <code>Environment</code> pane in R-Studio, or list them by
-calling <code>ls()</code></p>
-</blockquote>
-<blockquote>
-<p><strong>Note</strong>: One object can have more than one name, but no
-name can ever point to two object. If you re-assign a name, the old
-assignment will be overwritten:</p>
-</blockquote>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">2</span> </span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="co"># The object 2 now has two names</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
-<pre><code>#&gt; [1] 2</code></pre>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(y)</span></code></pre></div>
-<pre><code>#&gt; [1] 2</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">4</span> <span class="co"># The name &#39;x&#39; now points to &#39;4&#39;, not to &#39;2&#39;</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
-<pre><code>#&gt; [1] 4</code></pre>
-<blockquote>
-<p><strong>Note</strong>: As you might have experienced, R does not
-return results after making an assignment:</p>
-</blockquote>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span> <span class="co"># No assignment, R returns the result in the console</span></span></code></pre></div>
-<pre><code>#&gt; [1] 4</code></pre>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span> <span class="co"># Assignment, R does not return the results in the console</span></span></code></pre></div>
-<p>If you want to remove an assignment you can use the function
-<code>rm()</code>:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(x)</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
-<pre><code>#&gt; Error in eval(expr, envir, enclos): object &#39;x&#39; not found</code></pre>
-<p>You can remove all assignment by clicking on the broom in the upper
-right environment panel in R-Studio or by calling the following
-command:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>())</span></code></pre></div>
 </div>
-<div id="r-packages" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> R packages</h1>
-<p>Packages are a combination of R code, data, documentation and tests.
-They are the best way to create reproducible code and make it available
-to others.The fact that many people solve problems by developing
-routines, then generalizing them and making them freely available to the
-whole R community is one of the main reasons for success and wide
-applicability of R.</p>
-<p>While packages are often made available to the public, e.g. via
-GitHub or CRAN, it is equally useful to write packages for private use,
-e.g. to write functions implementing certain routines that you use
-frequently across different projects, document them, and make them
-available too use in different projects.^ [<a href="https://r-pkgs.org/">Wickham and Bryan (2022)</a> provide an
-excellent introduction to the development of R packages].</p>
-<p>When one starts R on our computer we have access to a certain number
-of functions, predefined variables and data sets. The totality of these
-objects is usually called <code>base R</code>, because we can use all
-the functionalities easily immediately after installing R on our
-computer.</p>
-<p>The function <code>assign</code>, for example, is part of
-<code>base R</code>: we start R and can use it without further ado.
-Other functions, such as <code>Gini()</code> are not part of
-<code>base R</code>: they were written by someone else, and before using
-them we need to install the package that contains the function
-definition on our computer.</p>
-<p>To use a package in R, it must first be installed. For packages that
-are available on the central R package platform CRAN, this is done with
-the function <code>install.packages()</code>.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> For example, if we
-want to install the package <code>ineq</code> this is done with the
-following command:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ineq&quot;</span>)</span></code></pre></div>
-<p>The package collects a number of functions that allow us to compute
-common inequality indicators, such as the Gini index.</p>
-<p>After having installed the package, we have to options to access the
-objects that are defined within this project. The first option is to use
-the operator <code>::</code>:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="fl">12.9</span>)</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> ineq<span class="sc">::</span><span class="fu">Gini</span>(x)</span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>y</span></code></pre></div>
-<pre><code>#&gt; [1] 0.3570934</code></pre>
-<p>Here we write the name of the package, directly followed by
-<code>::</code> and then the name of the object that we want to use. In
-this example we want to use the function <code>Gini()</code>, which
-computes the Gini index.</p>
-<p>If we ommited the <code>::</code>, R would not look into the package
-<code>ineq</code> and, therefore, was not able to find the function,
-returning an error:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">Gini</span>(x)</span></code></pre></div>
-<pre><code>#&gt; Error in Gini(x): could not find function &quot;Gini&quot;</code></pre>
-<p>Using <code>::</code> is the most transparent and safest way to
-access objects defined in a package: you immediately see where the
-object is coming from. At the same time it can be tedious to write the
-package name so many times, especially if you use many objects from the
-same package. In this case we can make available all objects from the
-package by calling the function <code>library()</code>:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ineq)</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">Gini</span>(x)</span></code></pre></div>
-<p>This process is called <em>attaching a package</em>. For the sake of
-clarity, you should always add a call of <code>library()</code> for all
-packages used within a script <em>at the very top of the script</em>.
-This way you can see immediately which packages have to be installed for
-the script to work.</p>
-<p>In principle, only the packages that are actually used should be read
-into each script with <code>library()</code>. Otherwise you will
-unnecessarily load a lot of objects and lose track of where a certain
-function actually comes from. In addition, it is more difficult for
-others to use the script because many packages have to be installed
-unnecessarily.</p>
-<p>Since packages are produced decentrally by a wide variety of people,
-there is a danger that objects in different packages get the same name.
-Since in R a name can only belong to one object, names may be
-overwritten or ‘masked’ when loading many packages. While R informs you
-about this happening when you attach a package, it is easily forgotten
-and can result in very cryptic error messages.</p>
-<p>We will illustrate this briefly using the two packages
-<code>dplyr</code> and <code>plm</code>:</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plm)</span></code></pre></div>
-<p>Both packages define objects with the names <code>between</code>,
-<code>lag</code> and <code>lead</code>. When attaching packages using
-<code>library()</code>, the later package masks the objects of the
-earlier package. You see this by calling the objects by name:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>lead</span></code></pre></div>
-<pre><code>#&gt; function (x, k = 1L, ...) 
-#&gt; {
-#&gt;     UseMethod(&quot;lead&quot;)
-#&gt; }
-#&gt; &lt;bytecode: 0x7ff417bd1ca0&gt;
-#&gt; &lt;environment: namespace:plm&gt;</code></pre>
-<p>The last line informs is about the fact that the function was defined
-in the package <code>plm</code>. If we now want to call the function
-<code>lead</code> from the package <code>dplyr</code>, we must use
-<code>::</code>:</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span>lead</span></code></pre></div>
-<pre><code>#&gt; function (x, n = 1L, default = NA, order_by = NULL, ...) 
-#&gt; {
-#&gt;     if (!is.null(order_by)) {
-#&gt;         return(with_order(order_by, lead, x, n = n, default = default))
-#&gt;     }
-#&gt;     if (length(n) != 1 || !is.numeric(n) || n &lt; 0) {
-#&gt;         msg &lt;- glue(&quot;`n` must be a positive integer, not {friendly_type_of(n)} of length {length(n)}.&quot;)
-#&gt;         abort(msg)
-#&gt;     }
-#&gt;     if (n == 0) 
-#&gt;         return(x)
-#&gt;     if (vec_size(default) != 1L) {
-#&gt;         msg &lt;- glue(&quot;`default` must be size 1, not size {vec_size(default)}&quot;)
-#&gt;         abort(msg)
-#&gt;     }
-#&gt;     xlen &lt;- vec_size(x)
-#&gt;     n &lt;- pmin(n, xlen)
-#&gt;     inputs &lt;- fix_call(vec_cast_common(default = default, x = x))
-#&gt;     vec_c(vec_slice(inputs$x, -seq_len(n)), vec_rep(inputs$default, 
-#&gt;         n))
-#&gt; }
-#&gt; &lt;bytecode: 0x7ff407f7ffa8&gt;
-#&gt; &lt;environment: namespace:dplyr&gt;</code></pre>
-<p>This can be very confusing. Thus, I <em>strongly recommend</em> to
-<em>always</em> use <code>::</code> when it comes to masking, no matter
-whether it is stricly necessary or not. In this case, always use
-<code>plm::lead</code> and <code>dplyr::lead</code>, even it it is not
-required in the first case. Otherwise, your code becomes very difficult
-to understand and breaks completely once you change the sequence of the
-library calls in the beginning.</p>
-<blockquote>
-<p><strong>Hint</strong>: You can show all object that are affeceted by
-conflicting names via the function <code>conflicts()</code>.</p>
-</blockquote>
-<p>For the sake of transparency I will always use the notation with
-<code>::</code> whenever I refer to an object that is not defined in
-<code>base R</code>. Only in the case of objects that are part of base I
-will stick to only writing the object name.</p>
-<blockquote>
-<p><strong>Digression</strong>: In order to check the order in which R
-searches for objects, the function <code>search()</code> can be used.
-When an object is called by its name R first looks in the first element
-of the vector, the global environment. If the object is not found there,
-it looks in the second, and so on. As you can also see here, some
-packages are read in by default. If an object is not found anywhere, R
-gives an error. In the present case, the function shows us that R only
-looks in the package <code>plm</code> for the function
-<code>lead()</code>, and not in the package <code>dplyr</code>:</p>
-</blockquote>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">search</span>()</span></code></pre></div>
-<pre><code>#&gt;  [1] &quot;.GlobalEnv&quot;        &quot;package:plm&quot;       &quot;package:dplyr&quot;    
-#&gt;  [4] &quot;package:ineq&quot;      &quot;package:bit64&quot;     &quot;package:bit&quot;      
-#&gt;  [7] &quot;package:tufte&quot;     &quot;package:stats&quot;     &quot;package:graphics&quot; 
-#&gt; [10] &quot;package:grDevices&quot; &quot;package:utils&quot;     &quot;package:datasets&quot; 
-#&gt; [13] &quot;package:methods&quot;   &quot;Autoloads&quot;         &quot;package:base&quot;</code></pre>
-<blockquote>
-<p><strong>Further information</strong>: To better understand masking
-you might want to learn about the concepts of <em>namespaces</em> and
-<em>environments</em>. <a href="https://r-pkgs.org/">Wickham and Bryan
-(2022)</a> is an excellent source to do so.</p>
-</blockquote>
+<div id="reshaping-data-from-long-to-wide-format" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Reshaping data from
+long to wide format</h1>
+<div id="wide-and-long-format-definition" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Wide and long format:
+definition</h2>
+<p>There is no strict definition for wide and long data. Rather, the two
+should be understood as <em>relative</em> descriptions of data, meaning
+that it is more straightforward to speak of a data set that is
+long<em>er</em> relative to another one, rather than <em>a long</em>
+data set per se.</p>
+<p>Here is an example for a rather long data set:</p>
+<pre><code>## # A tibble: 12 × 4
+##    country  year variable    value
+##    &lt;chr&gt;   &lt;int&gt; &lt;chr&gt;       &lt;dbl&gt;
+##  1 Germany  2017 unemp        3.75
+##  2 Germany  2017 gdp      53071.  
+##  3 Germany  2017 gini        29.4 
+##  4 Germany  2018 unemp        3.38
+##  5 Germany  2018 gdp      53487.  
+##  6 Germany  2018 gini        29.6 
+##  7 Greece   2017 unemp       21.5 
+##  8 Greece   2017 gdp      28605.  
+##  9 Greece   2017 gini        32.2 
+## 10 Greece   2018 unemp       19.3 
+## 11 Greece   2018 gdp      29141.  
+## 12 Greece   2018 gini        31.7</code></pre>
+<p>Here, we have one column identifying the variable, the value of which
+is stored in a separate column. This means that the data is relatively
+‘long’ in the sense of having many rows. At the same time, it is
+relatively ‘narrow’ in the sense of not having too many columns since
+the variable identifier is kept in a single column.</p>
+<p>Contrast this with an example for a rather wide data set, where each
+variable has its own column:</p>
+<pre><code>##    country year unemp      gdp gini
+## 1: Germany 2017  3.75 53071.46 29.4
+## 2: Germany 2018  3.38 53486.84 29.6
+## 3:  Greece 2017 21.49 28604.86 32.2
+## 4:  Greece 2018 19.29 29141.17 31.7</code></pre>
+<p>Here, we have more columns since the three variables, the
+unemployment rate and GDP, have their own columns. In effect, the data
+set has much more columns, but tends to be shorter in the sense of
+having fewer rows.</p>
+<p>While the long format is often easier to read and preferable when
+communicating data to humans, making data tidy often involves the task
+of making data ‘longer’.</p>
 </div>
-<div id="taking-stock" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Taking stock</h1>
-<p>Lets recap what we have learned so far about issuing commands, names
-and assignments:</p>
+<div id="transforming-long-data-into-wide-data" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Transforming long
+data into wide data</h2>
+<p>To make data wider we use the function
+<code>tidyr::pivor_wider()</code>.</p>
+<p>Assume that we start with our long data set introduced above and that
+this data set is bound to the name <code>data_raw_long</code>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">glimpse</span>(data_raw_long)</span></code></pre></div>
+<pre><code>## Rows: 12
+## Columns: 4
+## $ country  &lt;chr&gt; &quot;Germany&quot;, &quot;Germany&quot;, &quot;Germany&quot;, &quot;Germany&quot;, &quot;Germany&quot;, &quot;Germa…
+## $ year     &lt;int&gt; 2017, 2017, 2017, 2018, 2018, 2018, 2017, 2017, 2017, 2018, 2…
+## $ variable &lt;chr&gt; &quot;unemp&quot;, &quot;gdp&quot;, &quot;gini&quot;, &quot;unemp&quot;, &quot;gdp&quot;, &quot;gini&quot;, &quot;unemp&quot;, &quot;gdp…
+## $ value    &lt;dbl&gt; 3.75, 53071.46, 29.40, 3.38, 53486.84, 29.60, 21.49, 28604.86…</code></pre>
+<p>We will now use <code>tidyr::pivor_wider()</code> to make this data
+set wider. The most important arguments of this function are as
+follows:<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
 <ul>
-<li>We can issue commands to the computer in R by (a) typing R code into
-the console and press <code>Enter</code>, or (b) write the code into a
-script and then execute it</li>
-<li>Everything that <em>exists</em> in R is an <em>object</em>,
-everything that <em>happens</em> is a function call</li>
-<li>A function is an object, that takes an input, applies a certain
-routine, and returns an output</li>
-<li>We can assign an object a name by using <code>&lt;-</code>. Then we
-can call this object by typing its name. The process of giving a name to
-an object is called <em>assignment</em>, and we can have a look at all
-names currently given to objects by calling <code>ls()</code></li>
-<li>R packages are bundles of objects and functions created by others
-and made available to the R community. After installing packages, we can
-access their objects via <code>PackageName::ObjectName</code>, or by
-attaching the package via <code>library(PackageName)</code></li>
+<li><code>data</code> is the first argument and refers to the name of
+the data set to be considered</li>
+<li><code>names_from</code> denotes the column that includes the names
+of the new columns</li>
+<li><code>values_from</code> denotes the column that includes the values
+to be allocated in the newly created cells</li>
 </ul>
-<p>Finally, I want to point your attention to the function
-<code>help()</code>, which can provide you with additional information
-about the object a name points to. For instance, if you want to get more
-information about the function with the name <code>assign</code>, then
-just type the following:</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(assign)</span></code></pre></div>
+<p>In the present case, the call would look like the following:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>data_raw_wide <span class="ot">&lt;-</span> tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> data_raw_long, </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">names_from =</span> <span class="st">&quot;variable&quot;</span>, </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">values_from =</span> <span class="st">&quot;value&quot;</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>data_raw_wide</span></code></pre></div>
+<pre><code>## # A tibble: 4 × 5
+##   country  year unemp    gdp  gini
+##   &lt;chr&gt;   &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+## 1 Germany  2017  3.75 53071.  29.4
+## 2 Germany  2018  3.38 53487.  29.6
+## 3 Greece   2017 21.5  28605.  32.2
+## 4 Greece   2018 19.3  29141.  31.7</code></pre>
+</div>
+<div id="transforming-wide-data-into-long-data" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Transforming wide
+data into long data</h2>
+<p>Assume we want to take the data set <code>data_raw_wide</code> and
+re-create the original long version. To achieve this we can use
+<code>tidyr::pivot_longer()</code>. Again, lets have a look at the most
+important arguments:<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
+<ul>
+<li><code>data</code> is the first argument and refers to the name of
+the data set to be considered</li>
+<li><code>cols</code> denotes the columns that should be transformed
+into the longer format</li>
+<li><code>names_to</code> denotes the column that includes the names of
+the new columns</li>
+<li><code>values_to</code> denotes the column that includes the values
+to be allocated in the newly created cells</li>
+</ul>
+<p>The arguments <code>names_to</code> and <code>values_to</code> are
+not strictly necessary since they have useful default values, but its
+usually nicer to be explicit.</p>
+<p>When specifying the argument <code>cols</code> you have several
+possibilities. The safest variant is to use the function
+<code>dplyr::all_of()</code> and pass a character vector with the column
+names. You can save a lot of writing by using so called <a href="https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html">selection
+helpers</a>, a very useful tool we will learn about later.</p>
+<p>In our case this amounts to:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>data_raw_long <span class="ot">&lt;-</span> tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> data_raw_wide, </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">cols =</span> dplyr<span class="sc">::</span><span class="fu">all_of</span>(<span class="fu">c</span>(<span class="st">&quot;unemp&quot;</span>, <span class="st">&quot;gdp&quot;</span>, <span class="st">&quot;gini&quot;</span>)), </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">names_to =</span> <span class="st">&quot;indicator&quot;</span>, </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">values_to =</span> <span class="st">&quot;values&quot;</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>data_raw_long</span></code></pre></div>
+<pre><code>## # A tibble: 12 × 4
+##    country  year indicator   values
+##    &lt;chr&gt;   &lt;int&gt; &lt;chr&gt;        &lt;dbl&gt;
+##  1 Germany  2017 unemp         3.75
+##  2 Germany  2017 gdp       53071.  
+##  3 Germany  2017 gini         29.4 
+##  4 Germany  2018 unemp         3.38
+##  5 Germany  2018 gdp       53487.  
+##  6 Germany  2018 gini         29.6 
+##  7 Greece   2017 unemp        21.5 
+##  8 Greece   2017 gdp       28605.  
+##  9 Greece   2017 gini         32.2 
+## 10 Greece   2018 unemp        19.3 
+## 11 Greece   2018 gdp       29141.  
+## 12 Greece   2018 gini         31.7</code></pre>
+</div>
+</div>
+<div id="chaining-wrangling-tasks-using-pipes" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Chaining wrangling
+tasks using pipes</h1>
+<p>Pipes are provided via the package <code>magrittr</code>, which is
+loaded automatically if you attach packages such as <code>tidyr</code>
+or <code>dplyr</code>. Pipes are short keywords that facilitate the
+development of very readable and transparent data wrangling code.</p>
+<p>While there are many <a href="https://magrittr.tidyverse.org/reference/index.html">different
+pipes</a>, the one we will use extensively is <code>%&gt;%</code>. It is
+always used at the end of a line, and it basically ‘throws’ the result
+of this line into the next line of code. In this line, you can refer to
+the intermediate result via <code>.</code>, or it is used implicitly as
+the first argument to the function you use.</p>
+<p>In other words, <code>x %&gt;% f(y)</code> (or
+<code>x %&gt;% f(., y)</code>) is equivalent to
+<code>f(x, y)</code>.</p>
+<p>But lets look at an example! Assume we start with this data set:</p>
+<pre><code>##    country year      gdp unemp
+## 1: Germany 2017 53071.46  3.75
+## 2: Germany 2018 53486.84  3.38
+## 3:  Greece 2017 28604.86 21.49
+## 4:  Greece 2018 29141.17 19.29</code></pre>
+<p>And what we want is this:</p>
+<pre><code>## # A tibble: 4 × 4
+##   country name    `2017`   `2018`
+##   &lt;chr&gt;   &lt;chr&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+## 1 Germany gdp   53071.   53487.  
+## 2 Germany unemp     3.75     3.38
+## 3 Greece  gdp   28605.   29141.  
+## 4 Greece  unemp    21.5     19.3</code></pre>
+<p>We can do this by first making the data longer, and then wider. We
+could do this explicitly:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>pipe_data_1 <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> pipe_data_raw, </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">cols =</span> <span class="fu">all_of</span>(<span class="fu">c</span>(<span class="st">&quot;gdp&quot;</span>, <span class="st">&quot;unemp&quot;</span>)))</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>pipe_data_2 <span class="ot">&lt;-</span> <span class="fu">pivot_wider</span>(</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> pipe_data_1,</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">names_from =</span> <span class="st">&quot;year&quot;</span>, </span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">values_from =</span> <span class="st">&quot;value&quot;</span>) </span></code></pre></div>
+<p>But we can also write this code more concisely using the pipe:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>pipe_data_final <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> pipe_data_raw, </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">cols =</span> <span class="fu">all_of</span>(<span class="fu">c</span>(<span class="st">&quot;gdp&quot;</span>, <span class="st">&quot;unemp&quot;</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> .,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">names_from =</span> <span class="st">&quot;year&quot;</span>, </span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">values_from =</span> <span class="st">&quot;value&quot;</span>) </span></code></pre></div>
+<p>Or, since the pipe carries the intermediate result implicitly as the
+first argument to the function on the next line we can space the
+<code>data = .</code>:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>pipe_data_final <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> pipe_data_raw, </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">cols =</span> <span class="fu">all_of</span>(<span class="fu">c</span>(<span class="st">&quot;gdp&quot;</span>, <span class="st">&quot;unemp&quot;</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">names_from =</span> <span class="st">&quot;year&quot;</span>, </span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">values_from =</span> <span class="st">&quot;value&quot;</span>) </span></code></pre></div>
+<p>The <code>%&gt;%</code>-pipe allows you to write very readable code,
+so make sure you use it often. But for code development it might be
+nevertheless helpful to write the intermediate steps explicitly.</p>
+</div>
+<div id="creating-of-manipulating-variables" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Creating of
+manipulating variables</h1>
+<p>The function <code>dplyr::mutate()</code> is used both for
+manipulating existing columns as well as creating new columns. In the
+first case the name of the column that the result of
+<code>dplyr::mutate()</code> is written into already exists, in the
+second case we just use a new name.</p>
+<p>Consider the following data set with the unemployment rate as an
+example:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>data_unemp</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 3
+##    year Germany Greece
+##   &lt;int&gt;   &lt;dbl&gt;  &lt;dbl&gt;
+## 1  2017    3.75   21.5
+## 2  2018    3.38   19.3</code></pre>
+<p>Assume we want to express the percentage values via decimal numbers
+and, to this end, divide the values in the columns <code>Germany</code>
+and <code>Greece</code> by 100. We can use <code>dplyr::mutate()</code>
+to achieve this:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>data_unemp <span class="sc">%&gt;%</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Germany =</span> Germany<span class="sc">/</span><span class="dv">100</span>,</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Greece =</span> Greece<span class="sc">/</span><span class="dv">100</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 3
+##    year Germany Greece
+##   &lt;int&gt;   &lt;dbl&gt;  &lt;dbl&gt;
+## 1  2017  0.0375  0.215
+## 2  2018  0.0338  0.193</code></pre>
+<p>But we could use basically the same code to create a new column.
+Assume, for instance, we want a new column containing the difference
+between the unemployment rates:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>data_unemp <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Difference =</span> Greece <span class="sc">-</span> Germany</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 4
+##    year Germany Greece Difference
+##   &lt;int&gt;   &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;
+## 1  2017    3.75   21.5       17.7
+## 2  2018    3.38   19.3       15.9</code></pre>
+<p>The only difference here was that the left-hand-side name of the
+column to be manipulated did not exist before!</p>
+</div>
+<div id="filtering-rows" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Filtering rows</h1>
+<p>The function <code>dplyr::filter()</code> can be used to filter rows
+according to certain conditions. The conditions must evaluate for each
+cell entry to either <code>TRUE</code> or <code>FALSE</code>, and only
+those rows for which they evaluate to <code>TRUE</code> remain in the
+data set. Often, the conditions are specified via logical operators,
+which were already covered in the tutorial on <a href="/post/object-types-vec/">vector types</a>.</p>
+<p>As always, the first argument to <code>dplyr::filter()</code> is
+<code>data</code>, i.e. the data set on which you want to operate. Then
+follow an arbitrary number of logical conditions on the different
+columns of the data set on question.</p>
+<p>Assume we want to take the previously defined data set
+<code>data_raw_long</code></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>data_raw_long</span></code></pre></div>
+<pre><code>## # A tibble: 12 × 4
+##    country  year indicator   values
+##    &lt;chr&gt;   &lt;int&gt; &lt;chr&gt;        &lt;dbl&gt;
+##  1 Germany  2017 unemp         3.75
+##  2 Germany  2017 gdp       53071.  
+##  3 Germany  2017 gini         29.4 
+##  4 Germany  2018 unemp         3.38
+##  5 Germany  2018 gdp       53487.  
+##  6 Germany  2018 gini         29.6 
+##  7 Greece   2017 unemp        21.5 
+##  8 Greece   2017 gdp       28605.  
+##  9 Greece   2017 gini         32.2 
+## 10 Greece   2018 unemp        19.3 
+## 11 Greece   2018 gdp       29141.  
+## 12 Greece   2018 gini         31.7</code></pre>
+<p>and only want to keep data on GDP:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>data_raw_long <span class="sc">%&gt;%</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(indicator<span class="sc">==</span><span class="st">&quot;gdp&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 4 × 4
+##   country  year indicator values
+##   &lt;chr&gt;   &lt;int&gt; &lt;chr&gt;      &lt;dbl&gt;
+## 1 Germany  2017 gdp       53071.
+## 2 Germany  2018 gdp       53487.
+## 3 Greece   2017 gdp       28605.
+## 4 Greece   2018 gdp       29141.</code></pre>
+<p>You may also combine more than one condition in one call to
+<code>dplyr::filter()</code>. If you also want to filter by values and
+only keep those rows where the value is below 50.000:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>data_raw_long <span class="sc">%&gt;%</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    indicator<span class="sc">==</span><span class="st">&quot;gdp&quot;</span>,</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    values <span class="sc">&lt;</span> <span class="dv">50000</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 4
+##   country  year indicator values
+##   &lt;chr&gt;   &lt;int&gt; &lt;chr&gt;      &lt;dbl&gt;
+## 1 Greece   2017 gdp       28605.
+## 2 Greece   2018 gdp       29141.</code></pre>
+</div>
+<div id="selecting-columns" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Selecting columns</h1>
+<p>When you only want to keep certain <em>columns</em> we speak of
+selecting (rather than filtering) columns. This is done - surprise - via
+the function ´dplyr::select()`.</p>
+<p>There are different ways for selecting columns. In any case, the
+first argument is, again, <code>data</code>, i.e. the data set
+considered. In the present case, we will refer to
+<code>data_raw</code>:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>data_raw</span></code></pre></div>
+<pre><code>##    country year unemp      gdp gini
+## 1: Germany 2017  3.75 53071.46 29.4
+## 2: Germany 2018  3.38 53486.84 29.6
+## 3:  Greece 2017 21.49 28604.86 32.2
+## 4:  Greece 2018 19.29 29141.17 31.7</code></pre>
+<p>Then we can now select columns using one of the following two
+options. First, you may refer to columns via their <em>name</em>:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>data_raw <span class="sc">%&gt;%</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(country, year, unemp)</span></code></pre></div>
+<pre><code>##    country year unemp
+## 1: Germany 2017  3.75
+## 2: Germany 2018  3.38
+## 3:  Greece 2017 21.49
+## 4:  Greece 2018 19.29</code></pre>
+<p>But this is often error-prone. Thus, it is usually better to refer to
+the columns via <a href="https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html">selection
+helpers</a>, which is also the most flexible version. While we will
+learn about more selection helpers later, here we will only use
+<code>dplyr::all_of()</code>, which accepts a character vector of column
+names:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>data_raw <span class="sc">%&gt;%</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(dplyr<span class="sc">::</span><span class="fu">all_of</span>(<span class="fu">c</span>(<span class="st">&quot;country&quot;</span>, <span class="st">&quot;year&quot;</span>, <span class="st">&quot;gini&quot;</span>)))</span></code></pre></div>
+<pre><code>##    country year gini
+## 1: Germany 2017 29.4
+## 2: Germany 2018 29.6
+## 3:  Greece 2017 32.2
+## 4:  Greece 2018 31.7</code></pre>
+<blockquote>
+<p><strong>Caution:</strong> Do not forget the <code>c()</code>!
+Otherwise:</p>
+</blockquote>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>data_raw <span class="sc">%&gt;%</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(dplyr<span class="sc">::</span><span class="fu">all_of</span>(<span class="st">&quot;country&quot;</span>, <span class="st">&quot;year&quot;</span>, <span class="st">&quot;gini&quot;</span>))</span></code></pre></div>
+<pre><code>## Error in `dplyr::select()`:
+## ! unused arguments (&quot;year&quot;, &quot;gini&quot;)</code></pre>
+<blockquote>
+<p>It is also possible to define the column vector first:</p>
+</blockquote>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>cols2keep <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;country&quot;</span>, <span class="st">&quot;year&quot;</span>, <span class="st">&quot;gini&quot;</span>)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>data_raw <span class="sc">%&gt;%</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(dplyr<span class="sc">::</span><span class="fu">all_of</span>(cols2keep))</span></code></pre></div>
+<pre><code>##    country year gini
+## 1: Germany 2017 29.4
+## 2: Germany 2018 29.6
+## 3:  Greece 2017 32.2
+## 4:  Greece 2018 31.7</code></pre>
+<p>In any case, you can also specify the columns you want to
+<em>drop</em>. To this end, just add a <code>-</code> in front of the
+selection command:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>data_raw <span class="sc">%&gt;%</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>unemp, <span class="sc">-</span>gdp)</span></code></pre></div>
+<pre><code>##    country year gini
+## 1: Germany 2017 29.4
+## 2: Germany 2018 29.6
+## 3:  Greece 2017 32.2
+## 4:  Greece 2018 31.7</code></pre>
+</div>
+<div id="merging-data-sets" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> Merging data sets</h1>
+<p>Often you need to obtain data from different sources. To merge all
+your data in one single data set, you need to use one of the
+<code>*_join()</code> functions of the <code>dplyr</code>-package. These
+functions all merge two data sets, but the way they do it is different.
+Below we illustrate the most common joins (so called <a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">mutating
+joins</a>).<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
+<p>As a guiding example we use the following two data sets:</p>
+<p>First, data on income inequality from the <a href="https://fsolt.org/swiid/">SWIID data base</a>:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>swiid_join</span></code></pre></div>
+<pre><code>##    country year gini
+## 1:  Greece 2015 33.1
+## 2:  Greece 2017 32.2</code></pre>
+<p>Second, data on GDP per capita from the <a href="https://data.worldbank.org/indicator/NY.GDP.PCAP.PP.KD">World
+Bank</a>:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>gdp_join</span></code></pre></div>
+<pre><code>##    country year      gdp
+## 1: Germany 2017 53071.46
+## 2: Germany 2018 53486.84
+## 3:  Greece 2017 28604.86
+## 4:  Greece 2018 29141.17</code></pre>
+<p>We will consider the behavior of the following four functions:</p>
+<ul>
+<li><code>dplyr::left_join()</code></li>
+<li><code>dplyr::right_join()</code></li>
+<li><code>dplyr::full_join()</code></li>
+<li><code>dplyr::inner_join()</code></li>
+</ul>
+<p>All of them accept the following arguments:</p>
+<ul>
+<li><code>x</code> and <code>y</code>: the two data sets to be
+merged</li>
+<li><code>by</code>: a vector or a named vector indicating on which
+columns the data sets should be merged</li>
+</ul>
+<p>Its easier to understand their behavior if you contrast them directly
+with each other. First, <code>dplyr::left_join()</code> joins the data
+sets on those columns mentioned in <code>by</code>, but only keeps those
+rows for which <code>x</code> contains an observation:</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">left_join</span>(<span class="at">x =</span> gdp_join, <span class="at">y =</span> swiid_join, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;country&quot;</span>, <span class="st">&quot;year&quot;</span>))</span></code></pre></div>
+<pre><code>##    country year      gdp gini
+## 1: Germany 2017 53071.46   NA
+## 2: Germany 2018 53486.84   NA
+## 3:  Greece 2017 28604.86 32.2
+## 4:  Greece 2018 29141.17   NA</code></pre>
+<p>This might introduce <code>NA</code>s into the columns of
+<code>y</code>, but not of <code>x</code>. It is the other way around
+for <code>dplyr::right_join()</code>: it only keeps those rows for which
+<code>y</code> contains an observation:</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">right_join</span>(<span class="at">x =</span> gdp_join, <span class="at">y =</span> swiid_join, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;country&quot;</span>, <span class="st">&quot;year&quot;</span>))</span></code></pre></div>
+<pre><code>##    country year      gdp gini
+## 1:  Greece 2017 28604.86 32.2
+## 2:  Greece 2015       NA 33.1</code></pre>
+<p><code>dplyr::inner_join()</code> is the most restrictive option,
+keeping only those rows for which both <code>x</code> and <code>y</code>
+contain an observation (i.e. it never introduces <code>NA</code>s):</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">inner_join</span>(<span class="at">x =</span> gdp_join, <span class="at">y =</span> swiid_join, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;country&quot;</span>, <span class="st">&quot;year&quot;</span>))</span></code></pre></div>
+<pre><code>##    country year      gdp gini
+## 1:  Greece 2017 28604.86 32.2</code></pre>
+<p>Finally, <code>dplyr::full_join()</code> contains all rows that occur
+at least in <code>x</code> <em>or</em> <code>y</code>, i.e. it might
+introduce <code>NA</code>s in both the columns of <code>x</code> and
+<code>y</code>:</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">full_join</span>(<span class="at">x =</span> gdp_join, <span class="at">y =</span> swiid_join, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;country&quot;</span>, <span class="st">&quot;year&quot;</span>))</span></code></pre></div>
+<pre><code>##    country year      gdp gini
+## 1: Germany 2017 53071.46   NA
+## 2: Germany 2018 53486.84   NA
+## 3:  Greece 2017 28604.86 32.2
+## 4:  Greece 2018 29141.17   NA
+## 5:  Greece 2015       NA 33.1</code></pre>
+<p>Two final remarks: first, the types of the columns on which you merge
+the data sets must be equal, otherwise R throws an error:</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>swiid_join <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">mutate</span>(swiid_join, <span class="at">year=</span><span class="fu">as.character</span>(year))</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">left_join</span>(<span class="at">x =</span> gdp_join, <span class="at">y =</span> swiid_join, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;country&quot;</span>, <span class="st">&quot;year&quot;</span>))</span></code></pre></div>
+<pre><code>## Error in `dplyr::left_join()`:
+## ! Can&#39;t join on `x$year` x `y$year` because of incompatible types.
+## ℹ `x$year` is of type &lt;integer&gt;&gt;.
+## ℹ `y$year` is of type &lt;character&gt;&gt;.</code></pre>
+<p>Just enforce the correct data type before merging:</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>swiid_join <span class="sc">%&gt;%</span> </span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">year=</span><span class="fu">as.integer</span>(year)) <span class="sc">%&gt;%</span></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">left_join</span>(<span class="at">x =</span> gdp_join, <span class="at">y =</span> ., <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;country&quot;</span>, <span class="st">&quot;year&quot;</span>))</span></code></pre></div>
+<pre><code>##    country year      gdp gini
+## 1: Germany 2017 53071.46   NA
+## 2: Germany 2018 53486.84   NA
+## 3:  Greece 2017 28604.86 32.2
+## 4:  Greece 2018 29141.17   NA</code></pre>
+<p>Second, you can also merge on columns with different names by passing
+named vectors to <code>by</code>:</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>swiid_join <span class="ot">&lt;-</span> swiid_join <span class="sc">%&gt;%</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Year=</span><span class="fu">as.double</span>(year)) <span class="sc">%&gt;%</span></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>year)</span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>swiid_join</span></code></pre></div>
+<pre><code>##    country gini Year
+## 1:  Greece 33.1 2015
+## 2:  Greece 32.2 2017</code></pre>
+<p>Then this does not work any more:</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">left_join</span>(</span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> gdp_join, <span class="at">y =</span> swiid_join, </span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;country&quot;</span>, <span class="st">&quot;year&quot;</span>))</span></code></pre></div>
+<pre><code>## Error in `dplyr::left_join()`:
+## ! Join columns must be present in data.
+## x Problem with `year`.</code></pre>
+<p>But the named vector fixes it:</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">left_join</span>(</span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> gdp_join, <span class="at">y =</span> swiid_join, </span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;country&quot;</span>, <span class="st">&quot;year&quot;</span><span class="ot">=</span><span class="st">&quot;Year&quot;</span>))</span></code></pre></div>
+<pre><code>##    country year      gdp gini
+## 1: Germany 2017 53071.46   NA
+## 2: Germany 2018 53486.84   NA
+## 3:  Greece 2017 28604.86 32.2
+## 4:  Greece 2018 29141.17   NA</code></pre>
+</div>
+<div id="grouping-and-summarising-data" class="section level1" number="9">
+<h1><span class="header-section-number">9</span> Grouping and
+summarising data</h1>
+<p>The final challenge we consider involves the application of two
+functions (at least in most cases): <code>dplyr::group_by()</code> and
+<code>dplyr::summarize()</code>.</p>
+<p><code>dplyr::group_by()</code> is usually used within pipes and
+groups a data set according to an arbitrary number of variables, each of
+which must refer to one (and only one) column. It produces a grouped
+data set:</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>data_raw_grouped <span class="ot">&lt;-</span> data_raw <span class="sc">%&gt;%</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(country)</span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>data_raw_grouped</span></code></pre></div>
+<pre><code>## # A tibble: 4 × 5
+## # Groups:   country [2]
+##   country  year unemp    gdp  gini
+##   &lt;chr&gt;   &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+## 1 Germany  2017  3.75 53071.  29.4
+## 2 Germany  2018  3.38 53487.  29.6
+## 3 Greece   2017 21.5  28605.  32.2
+## 4 Greece   2018 19.3  29141.  31.7</code></pre>
+<p>As you can see, the data set is now grouped by the variable
+<code>country</code>. We can specify the grouping variables the same way
+we selected columns in the context of <code>dplyr::select()</code> (see
+above).</p>
+<p>Grouped data sets are usually not interesting in itself. You can
+ungroup them via <code>dplyr::ungroup()</code>:</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>data_raw_grouped <span class="sc">%&gt;%</span></span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">ungroup</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 4 × 5
+##   country  year unemp    gdp  gini
+##   &lt;chr&gt;   &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+## 1 Germany  2017  3.75 53071.  29.4
+## 2 Germany  2018  3.38 53487.  29.6
+## 3 Greece   2017 21.5  28605.  32.2
+## 4 Greece   2018 19.3  29141.  31.7</code></pre>
+<p>They are most useful if used in conjunction with
+<code>dplyr::summarise()</code>, which summarizes variables. While it
+can be used without <code>dplyr::group_by()</code>, it is most useful if
+it is applied to grouped data sets: then it computes summary statistics
+for each group.</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>data_raw <span class="sc">%&gt;%</span></span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_gdp=</span><span class="fu">mean</span>(gdp)</span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<pre><code>##    avg_gdp
+## 1 41076.08</code></pre>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>data_raw_grouped <span class="sc">%&gt;%</span></span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_gdp=</span><span class="fu">mean</span>(gdp)</span>
+<span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 2
+##   country avg_gdp
+##   &lt;chr&gt;     &lt;dbl&gt;
+## 1 Germany  53279.
+## 2 Greece   28873.</code></pre>
+<p>You can also summarized more than one column:</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>data_raw_grouped <span class="sc">%&gt;%</span></span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_gdp=</span><span class="fu">mean</span>(gdp),</span>
+<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">median_unemp=</span><span class="fu">median</span>(unemp)</span>
+<span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 3
+##   country avg_gdp median_unemp
+##   &lt;chr&gt;     &lt;dbl&gt;        &lt;dbl&gt;
+## 1 Germany  53279.         3.57
+## 2 Greece   28873.        20.4</code></pre>
+<p>Note that <code>dplyr::summarise()</code> drops all columns that it
+is not asked to compute summary statistics for, except potential
+grouping variables.</p>
+</div>
+<div id="a-final-example" class="section level1" number="10">
+<h1><span class="header-section-number">10</span> A final example</h1>
+<p>Thanks to the pipes it is easy to chain the many different wrangling
+steps into one function call. But in practice it is very important that
+you (1) inspect your raw data very clearly, (2) write down the desired
+end product, and then (3) think about the single steps required to reach
+the desired outcome. Each step should address one (and only one)
+wrangling challenge.</p>
+<p>To illustrate this, assume we start start with this raw data:</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(data_final_expl)</span></code></pre></div>
+<pre><code>## Classes &#39;data.table&#39; and &#39;data.frame&#39;:   84 obs. of  4 variables:
+##  $ country: chr  &quot;Austria&quot; &quot;Austria&quot; &quot;Austria&quot; &quot;Austria&quot; ...
+##  $ year   : int  2000 2001 2002 2003 2004 2005 2006 2007 2008 2009 ...
+##  $ unemp  : num  4.69 4.01 4.85 4.78 5.83 ...
+##  $ gdp    : num  46470 46879 47419 47633 48633 ...
+##  - attr(*, &quot;.internal.selfref&quot;)=&lt;externalptr&gt;</code></pre>
+<p>What we want to do is to compute the difference in the country
+averages of the variables for the time periods 2005-2007 and 2010-2013.
+This would look like this:<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p>
+<p>To achieve this, we need to chain a number of wrangling challenges
+introduced above:</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>data_final_expl <span class="sc">%&gt;%</span></span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">period =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">test =</span> year <span class="sc">%in%</span> <span class="dv">2005</span><span class="sc">:</span><span class="dv">2007</span>, </span>
+<span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">yes =</span> <span class="st">&quot;Early&quot;</span>, </span>
+<span id="cb73-6"><a href="#cb73-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">no =</span>  <span class="fu">ifelse</span>(</span>
+<span id="cb73-7"><a href="#cb73-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">test =</span> year <span class="sc">%in%</span> <span class="dv">2010</span><span class="sc">:</span><span class="dv">2013</span>, </span>
+<span id="cb73-8"><a href="#cb73-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">yes =</span> <span class="st">&quot;Late&quot;</span>, </span>
+<span id="cb73-9"><a href="#cb73-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">no =</span> <span class="cn">NA</span>))</span>
+<span id="cb73-10"><a href="#cb73-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb73-11"><a href="#cb73-11" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(period)) <span class="sc">%&gt;%</span></span>
+<span id="cb73-12"><a href="#cb73-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(country, period) <span class="sc">%&gt;%</span></span>
+<span id="cb73-13"><a href="#cb73-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb73-14"><a href="#cb73-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_unemp =</span> <span class="fu">mean</span>(unemp),</span>
+<span id="cb73-15"><a href="#cb73-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_gdp =</span> <span class="fu">mean</span>(gdp), </span>
+<span id="cb73-16"><a href="#cb73-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span></span>
+<span id="cb73-17"><a href="#cb73-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb73-18"><a href="#cb73-18" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(</span>
+<span id="cb73-19"><a href="#cb73-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> dplyr<span class="sc">::</span><span class="fu">all_of</span>(<span class="fu">c</span>(<span class="st">&quot;avg_unemp&quot;</span>, <span class="st">&quot;avg_gdp&quot;</span>)), </span>
+<span id="cb73-20"><a href="#cb73-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">&quot;indicator&quot;</span>, </span>
+<span id="cb73-21"><a href="#cb73-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">&quot;values&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb73-22"><a href="#cb73-22" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(</span>
+<span id="cb73-23"><a href="#cb73-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> <span class="st">&quot;period&quot;</span>, </span>
+<span id="cb73-24"><a href="#cb73-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> <span class="st">&quot;values&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb73-25"><a href="#cb73-25" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb73-26"><a href="#cb73-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">Difference =</span> Late <span class="sc">-</span> Early</span>
+<span id="cb73-27"><a href="#cb73-27" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb73-28"><a href="#cb73-28" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>Early, <span class="sc">-</span>Late) <span class="sc">%&gt;%</span></span>
+<span id="cb73-29"><a href="#cb73-29" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(</span>
+<span id="cb73-30"><a href="#cb73-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> <span class="st">&quot;indicator&quot;</span>, </span>
+<span id="cb73-31"><a href="#cb73-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> <span class="st">&quot;Difference&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 4 × 3
+##   country avg_unemp avg_gdp
+##   &lt;chr&gt;       &lt;dbl&gt;   &lt;dbl&gt;
+## 1 Austria    -0.348   1899.
+## 2 Germany    -4.18    3570.
+## 3 Greece     11.5    -6234.
+## 4 Italy       3.02   -3014.</code></pre>
+<p>If you have trouble understanding the many steps, redo the
+computations yourself and always check what happens in the single steps.
+It is not a good idea to write such a long chain in one working step,
+but rather to make sure that you always understand what happens in any
+single step, and then expand the chain one by one.</p>
 </div>
 <div class="footnotes footnotes-end-of-document">
 <hr />
 <ol>
-<li id="fn1"><p>You may try this out by typing <code>1:100</code> into
-your console and see what happens: this returns a vector of length 100,
-which certainly will contain some line breaks.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>In theory we can use <code>&lt;-</code> also the other
-way around: <code>2 + 3 -&gt; intermediate_result</code>. At first sight
-this is more intuitive and respects the sequence of events: first, the
-result of <code>2 + 3</code> gets created, i.e. a new object gets
-defined. Then, this object gets the name
-<code>intermediate_result</code>. However, the code that results from
-such practice is usually much more difficult to read, so it is common
-practice to use <code>&lt;-</code> rather than <code>-&gt;</code>.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p>PAckages not released on this platform can also be
-installed directly from repository they were published, e.g. Github. To
-this end, the package <code>remotes</code> must be installed first, then
-you can use functions such as <code>install_github()</code>. A short
-manual is provided <a href="https://github.com/r-lib/remotes">here</a>.<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn1"><p> The function allows for much more finetuning. You might
+read more about its argument in the help page of the function or the <a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">online
+documentation</a>.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p> See the <a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">online
+documentation</a> for a more complete description.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p> The other join types are <a href="https://dplyr.tidyverse.org/reference/filter-joins.html">filtering
+joins</a> and <a href="https://dplyr.tidyverse.org/reference/nest_join.html">nest
+joins</a>. You find more information in the web, and more details on the
+underlying theory in <a href="https://r4ds.had.co.nz/relational-data.html">chapter 13 of
+R4DS</a>.<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>We have not yet covered the function
+<code>ifelse()</code>. It contains a logical test as a first argument,
+and then two further arguments: one return value for the case in which
+the test returns <code>TRUE</code>, and one for which the test returns
+<code>FALSE</code>.<a href="#fnref4" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 
