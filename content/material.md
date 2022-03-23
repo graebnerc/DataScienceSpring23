@@ -13,7 +13,7 @@ title: "Course material"
 |   [4](#s4)  | March 31, 2022| First steps in R II | [Slides](slides/T4-Objects.pdf)           |
 |   [5](#s5)  | April 6, 2022 | Visualization I     | [Slides](slides/T5-Visualization.pdf)           |
 |   [6](#s6)  | April 7, 2022 | Projects and data import  | [Slides](slides/T6-ProjectSetup.pdf)           |
-|   [7](#s7)  | April 20, 2022 | Data wrangling I         | TBD           |
+|   [7](#s7)  | April 20, 2022 | Data wrangling I         | [Slides](slides/T7-DataWrangling.pdf)           |
 |   [8](#s8)  | April 28, 2022 | R Markdown | TBD         |
 
 ## Session 1: Introduction and installation {#s1}
@@ -43,6 +43,10 @@ title: "Course material"
 - [R for Data Science, Chapter 4: Workflow - basics](https://r4ds.had.co.nz/workflow-basics.html)
 - [Tutorial: Commands, objects, and assignments](/post/first-steps/)
 - [Tutorial: Functions](/post/object-types-func/)
+
+### Further readings
+
+- [R Studio IDE cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/rstudio-ide.pdf)
 
 ### Exercises
 
@@ -97,6 +101,9 @@ learnr::run_tutorial(
 ### Mandatory readings
 - [R for Data Science, Chapter 3: Data visualization](https://r4ds.had.co.nz/data-visualisation.html)
 
+### Further readings
+
+- [ggplot2 cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf)
 
 ### Exercises
 
@@ -146,9 +153,19 @@ learnr::run_tutorial(
 - [R for Data Science, Chapter 5: Data transformation](https://r4ds.had.co.nz/transform.html)
 - [R for Data Science, Chapter 12: Tidy data](https://r4ds.had.co.nz/tidy-data.html)
 
+### Further readings
+
+- [dplyr cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf)
+- [tidyr cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/tidyr.pdf)
+
 ## Session 8: R Markdown {#s8} 
 
 ### Mandatory readings
 
 - [R for Data Science, Chapter 27: R Markdown](https://r4ds.had.co.nz/r-markdown.html)
 - [The CommonMark markdown tutorial](https://commonmark.org/help/tutorial/)
+
+### Further reading
+
+- [The R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)
+- [R Markdown cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/rmarkdown.pdf)
