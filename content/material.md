@@ -37,6 +37,7 @@ title: "Course material"
 ## Session 3: First steps in R I - Basics and functions {#s3}
 
 - [Slides](slides/T3-Basics-Functions.pdf)
+- [Solution to function exercise](https://gist.github.com/graebnerc/a7d1b9e02c761b7ad7ac553d760c9c5d)
 
 ### Mandatory readings
 
