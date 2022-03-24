@@ -14,7 +14,7 @@ title: "Course material"
 |   [5](#s5)  | April 6, 2022 | Visualization I     | [Slides](slides/T5-Visualization.pdf)           |
 |   [6](#s6)  | April 7, 2022 | Projects and data import  | [Slides](slides/T6-ProjectSetup.pdf)           |
 |   [7](#s7)  | April 20, 2022 | Data wrangling I         | [Slides](slides/T7-DataWrangling.pdf)           |
-|   [8](#s8)  | April 28, 2022 | R Markdown | TBD         |
+|   [8](#s8)  | April 28, 2022 | R Markdown | [Slides](slides/T8-RMarkdown.pdf)         |
 
 ## Session 1: Introduction and installation {#s1}
 
@@ -160,6 +160,11 @@ learnr::run_tutorial(
 - [tidyr cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/tidyr.pdf)
 
 ## Session 8: R Markdown {#s8} 
+
+- [Slides](slides/T8-RMarkdown.pdf)
+- [DesasterMarkdown.pdf](files/DesasterMarkdown.pdf)
+- [NicerMarkdown.pdf](files/NicerMarkdown.pdf)
+- [Code for the markdown desaster](https://gist.github.com/graebnerc/6d268af56e00909efffc372c1a5da1c3)
 
 ### Mandatory readings
 
