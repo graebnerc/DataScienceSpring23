@@ -9,12 +9,13 @@ title: "Course material"
 |:-----------:|:--------------|:--------------------|:-------------:|
 |   [1](#s1)  | March 17, 2022| General introduction| [Slides Orga](slides/T1-1-Introduction.pdf), [Slides Install](slides/T1-2-Installation.pdf)   |
 |   [2](#s2)  | March 23, 2022| Philosophy of Data Science | [Slides Philo](slides/T2-PhiloFoundation.pdf)           |
-|   [3](#s3)  | March 24, 2022| First steps in R I  | [Slides](slides/T3-Basics-Functions.pdf)           |
-|   [4](#s4)  | March 31, 2022| First steps in R II | [Slides](slides/T4-Objects.pdf)           |
-|   [5](#s5)  | April 6, 2022 | Visualization I     | [Slides](slides/T5-Visualization.pdf)           |
-|   [6](#s6)  | April 7, 2022 | Projects and data import  | [Slides](slides/T6-ProjectSetup.pdf)           |
-|   [7](#s7)  | April 20, 2022 | Data wrangling I         | [Slides](slides/T7-DataWrangling.pdf)           |
-|   [8](#s8)  | April 28, 2022 | R Markdown | [Slides](slides/T8-RMarkdown.pdf)         |
+|   [3](#s3)  | March 24, 2022| First steps in R  | [Slides](slides/T3-Basics-Functions.pdf)           |
+|   [4](#s4)  | March 31, 2022| Basic object types | [Slides](slides/T4-Objects.pdf)           |
+|   [5](#s5)  | March 31, 2022| Advanced object types | [Slides](slides/T4b-AdvObjects.pdf)           |
+|   [6](#s6)  | April 6, 2022 | Visualization I     | [Slides](slides/T5-Visualization.pdf)           |
+|   [7](#s7)  | April 7, 2022 | Projects and data import  | [Slides](slides/T6-ProjectSetup.pdf)           |
+|   [8](#s8)  | April 20, 2022 | Data wrangling I         | [Slides](slides/T7-DataWrangling.pdf)           |
+|   [9](#s9)  | April 28, 2022 | R Markdown | [Slides](slides/T8-RMarkdown.pdf)         |
 
 ## Session 1: Introduction and installation {#s1}
 
@@ -26,7 +27,6 @@ title: "Course material"
 - [Tutorial: installing basic software](/post/installation/)
 - [Tutorial: installing the required R packages](/post/installing-packages/)
 
-
 ## Session 2: Philosophy of Data Science {#s2}
 
 - [Slides](slides/T2-PhiloFoundation.pdf)
@@ -34,6 +34,7 @@ title: "Course material"
 ### Mandatory readings
 
 - [Tutorial: doing exercises](/post/using-exercises/)
+
 ## Session 3: First steps in R I - Basics and functions {#s3}
 
 - [Slides](slides/T3-Basics-Functions.pdf)
@@ -62,15 +63,14 @@ learnr::run_tutorial(
   shiny_args=list("launch.browser"=TRUE))
 ```
 
-## Session 4: First steps in R II - Objects {#s4}
+## Session 4: Basic object types {#s4}
 
 - [Slides](slides/T4-Objects.pdf)
+- [Solutions to intermediate exercises](https://gist.github.com/graebnerc/49af8ef6e17b5f66cf34443ef1d26dec)
 
 ### Mandatory readings
 
 - [Tutorial: Vectors](/post/object-types-vec/)
-- [Tutorial: Factors and data frames](/post/object-types-adv/)
-- [R for Data Science, Chapter 10: Tibbles](https://r4ds.had.co.nz/tibbles.html)
 
 ### Exercises
 
@@ -85,7 +85,19 @@ learnr::run_tutorial(
   shiny_args=list("launch.browser"=TRUE))
 ```
 
-And the following code for the exercises on factors and data frames:
+## Session 5: Advanced object types {#s5}
+
+### Mandatory readings
+
+- [Slides](slides/T5-AdvObjects.pdf)
+- [Tutorial: Factors and data frames](/post/object-types-adv/)
+- [R for Data Science, Chapter 10: Tibbles](https://r4ds.had.co.nz/tibbles.html)
+
+### Exercises
+
+After installing (and updating) the `DataScienceExercises`-package 
+(as described [here](/post/using-exercises/)), run the following command 
+from within your R session for the exercises on atomic vectors and lists:
 
 ```
 learnr::run_tutorial(
@@ -94,9 +106,9 @@ learnr::run_tutorial(
   shiny_args=list("launch.browser"=TRUE))
 ```
 
-## Session 5: Visualization I {#s5}
+## Session 6: Visualization I {#s6}
 
-- [Slides](slides/T5-Visualization.pdf)
+- [Slides](slides/T6-Visualization.pdf)
 - [Lecture notes](/notes/t5-visualization-lecture-notes/)
 
 ### Mandatory readings
@@ -119,9 +131,9 @@ learnr::run_tutorial(
   shiny_args=list("launch.browser"=TRUE))
 ```
 
-## Session 6: Project organization and data import {#s6}
+## Session 7: Project organization and data import {#s7}
 
-- [Slides](slides/T6-ProjectSetup.pdf)
+- [Slides](slides/T7-ProjectSetup.pdf)
 - [Example data](files/fread_expls.zip)
 
 ### Mandatory readings
@@ -142,9 +154,9 @@ learnr::run_tutorial(
   shiny_args=list("launch.browser"=TRUE))
 ```
 
-## Session 7: Data wrangling I {#s7}
+## Session 8: Data wrangling I {#s8}
 
-- [Slides](slides/T7-DataWrangling.pdf)
+- [Slides](slides/T8-DataWrangling.pdf)
 - [Exercise data](files/wrangling_exercises_data.zip)
 - [Lecture notes](/notes/data-wrangling-lecture-notes/)
 - [Data for lecture notes](files/wrangling-notes-data.zip)
@@ -159,9 +171,9 @@ learnr::run_tutorial(
 - [dplyr cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf)
 - [tidyr cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/tidyr.pdf)
 
-## Session 8: R Markdown {#s8} 
+## Session 9: R Markdown {#s9} 
 
-- [Slides](slides/T8-RMarkdown.pdf)
+- [Slides](slides/T9-RMarkdown.pdf)
 - [DesasterMarkdown.pdf](files/DesasterMarkdown.pdf)
 - [NicerMarkdown.pdf](files/NicerMarkdown.pdf)
 - [Code for the markdown desaster](https://gist.github.com/graebnerc/6d268af56e00909efffc372c1a5da1c3)
