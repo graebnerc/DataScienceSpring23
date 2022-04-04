@@ -171,6 +171,19 @@ learnr::run_tutorial(
 - [dplyr cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf)
 - [tidyr cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/tidyr.pdf)
 
+### Exercises
+
+After installing (and updating) the `DataScienceExercises`-package 
+(as described [here](/post/using-exercises/)), run the following command 
+from within your R session:
+
+```
+learnr::run_tutorial(
+  name = "Wrangling1", 
+  package = "DataScienceExercises", 
+  shiny_args=list("launch.browser"=TRUE))
+```
+
 ## Session 9: R Markdown {#s9} 
 
 - [Slides](slides/T9-RMarkdown.pdf)
