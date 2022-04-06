@@ -60,35 +60,41 @@
 <tr>
 <td style="text-align:center"><a href="#s3">3</a></td>
 <td style="text-align:left">March 24, 2022</td>
-<td style="text-align:left">First steps in R I</td>
+<td style="text-align:left">First steps in R</td>
 <td style="text-align:center"><a href="slides/T3-Basics-Functions.pdf">Slides</a></td>
 </tr>
 <tr>
 <td style="text-align:center"><a href="#s4">4</a></td>
 <td style="text-align:left">March 31, 2022</td>
-<td style="text-align:left">First steps in R II</td>
+<td style="text-align:left">Basic object types</td>
 <td style="text-align:center"><a href="slides/T4-Objects.pdf">Slides</a></td>
 </tr>
 <tr>
 <td style="text-align:center"><a href="#s5">5</a></td>
+<td style="text-align:left">March 31, 2022</td>
+<td style="text-align:left">Advanced object types</td>
+<td style="text-align:center"><a href="slides/T4b-AdvObjects.pdf">Slides</a></td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="#s6">6</a></td>
 <td style="text-align:left">April 6, 2022</td>
 <td style="text-align:left">Visualization I</td>
 <td style="text-align:center"><a href="slides/T5-Visualization.pdf">Slides</a></td>
 </tr>
 <tr>
-<td style="text-align:center"><a href="#s6">6</a></td>
+<td style="text-align:center"><a href="#s7">7</a></td>
 <td style="text-align:left">April 7, 2022</td>
 <td style="text-align:left">Projects and data import</td>
 <td style="text-align:center"><a href="slides/T6-ProjectSetup.pdf">Slides</a></td>
 </tr>
 <tr>
-<td style="text-align:center"><a href="#s7">7</a></td>
+<td style="text-align:center"><a href="#s8">8</a></td>
 <td style="text-align:left">April 20, 2022</td>
 <td style="text-align:left">Data wrangling I</td>
 <td style="text-align:center"><a href="slides/T7-DataWrangling.pdf">Slides</a></td>
 </tr>
 <tr>
-<td style="text-align:center"><a href="#s8">8</a></td>
+<td style="text-align:center"><a href="#s9">9</a></td>
 <td style="text-align:left">April 28, 2022</td>
 <td style="text-align:left">R Markdown</td>
 <td style="text-align:center"><a href="slides/T8-RMarkdown.pdf">Slides</a></td>
@@ -137,15 +143,14 @@ from within your R session:</p>
   package = &quot;DataScienceExercises&quot;, 
   shiny_args=list(&quot;launch.browser&quot;=TRUE))
 </code></pre>
-<h2 id="s4">Session 4: First steps in R II - Objects</h2>
+<h2 id="s4">Session 4: Basic object types</h2>
 <ul>
 <li><a href="slides/T4-Objects.pdf">Slides</a></li>
+<li><a href="https://gist.github.com/graebnerc/49af8ef6e17b5f66cf34443ef1d26dec">Solutions to intermediate exercises</a></li>
 </ul>
 <h3 id="mandatory-readings-3">Mandatory readings</h3>
 <ul>
 <li><a href="/post/object-types-vec/">Tutorial: Vectors</a></li>
-<li><a href="/post/object-types-adv/">Tutorial: Factors and data frames</a></li>
-<li><a href="https://r4ds.had.co.nz/tibbles.html">R for Data Science, Chapter 10: Tibbles</a></li>
 </ul>
 <h3 id="exercises-1">Exercises</h3>
 <p>After installing (and updating) the <code>DataScienceExercises</code>-package
@@ -156,18 +161,31 @@ from within your R session for the exercises on atomic vectors and lists:</p>
   package = &quot;DataScienceExercises&quot;, 
   shiny_args=list(&quot;launch.browser&quot;=TRUE))
 </code></pre>
-<p>And the following code for the exercises on factors and data frames:</p>
+<h2 id="s5">Session 5: Advanced object types</h2>
+<ul>
+<li><a href="slides/T5-AdvObjects.pdf">Slides</a></li>
+<li><a href="https://gist.github.com/graebnerc/bf8b1b60084377744881b392f0c9534e">Session notes</a></li>
+</ul>
+<h3 id="mandatory-readings-4">Mandatory readings</h3>
+<ul>
+<li><a href="/post/object-types-adv/">Tutorial: Factors and data frames</a></li>
+<li><a href="https://r4ds.had.co.nz/tibbles.html">R for Data Science, Chapter 10: Tibbles</a></li>
+</ul>
+<h3 id="exercises-2">Exercises</h3>
+<p>After installing (and updating) the <code>DataScienceExercises</code>-package
+(as described <a href="/post/using-exercises/">here</a>), run the following command
+from within your R session for the exercises on atomic vectors and lists:</p>
 <pre><code>learnr::run_tutorial(
   name = &quot;ObjectTypes2&quot;, 
   package = &quot;DataScienceExercises&quot;, 
   shiny_args=list(&quot;launch.browser&quot;=TRUE))
 </code></pre>
-<h2 id="s5">Session 5: Visualization I</h2>
+<h2 id="s6">Session 6: Visualization I</h2>
 <ul>
-<li><a href="slides/T5-Visualization.pdf">Slides</a></li>
+<li><a href="slides/T6-Visualization.pdf">Slides</a></li>
 <li><a href="/notes/t5-visualization-lecture-notes/">Lecture notes</a></li>
 </ul>
-<h3 id="mandatory-readings-4">Mandatory readings</h3>
+<h3 id="mandatory-readings-5">Mandatory readings</h3>
 <ul>
 <li><a href="https://r4ds.had.co.nz/data-visualisation.html">R for Data Science, Chapter 3: Data visualization</a></li>
 </ul>
@@ -175,7 +193,7 @@ from within your R session for the exercises on atomic vectors and lists:</p>
 <ul>
 <li><a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf">ggplot2 cheat sheet</a></li>
 </ul>
-<h3 id="exercises-2">Exercises</h3>
+<h3 id="exercises-3">Exercises</h3>
 <p>After installing (and updating) the <code>DataScienceExercises</code>-package
 (as described <a href="/post/using-exercises/">here</a>), run the following command
 from within your R session:</p>
@@ -184,17 +202,17 @@ from within your R session:</p>
   package = &quot;DataScienceExercises&quot;, 
   shiny_args=list(&quot;launch.browser&quot;=TRUE))
 </code></pre>
-<h2 id="s6">Session 6: Project organization and data import</h2>
+<h2 id="s7">Session 7: Project organization and data import</h2>
 <ul>
-<li><a href="slides/T6-ProjectSetup.pdf">Slides</a></li>
+<li><a href="slides/T7-ProjectSetup.pdf">Slides</a></li>
 <li><a href="files/fread_expls.zip">Example data</a></li>
 </ul>
-<h3 id="mandatory-readings-5">Mandatory readings</h3>
+<h3 id="mandatory-readings-6">Mandatory readings</h3>
 <ul>
 <li><a href="/post/setting-up-an-r-project/">Tutorial: How to organize your R project</a></li>
 <li><a href="/post/importing-exporting-data/">Tutorial: Read and write data</a></li>
 </ul>
-<h3 id="exercises-3">Exercises</h3>
+<h3 id="exercises-4">Exercises</h3>
 <p>After installing (and updating) the <code>DataScienceExercises</code>-package
 (as described <a href="/post/using-exercises/">here</a>), run the following command
 from within your R session:</p>
@@ -203,14 +221,14 @@ from within your R session:</p>
   package = &quot;DataScienceExercises&quot;, 
   shiny_args=list(&quot;launch.browser&quot;=TRUE))
 </code></pre>
-<h2 id="s7">Session 7: Data wrangling I</h2>
+<h2 id="s8">Session 8: Data wrangling I</h2>
 <ul>
-<li><a href="slides/T7-DataWrangling.pdf">Slides</a></li>
+<li><a href="slides/T8-DataWrangling.pdf">Slides</a></li>
 <li><a href="files/wrangling_exercises_data.zip">Exercise data</a></li>
 <li><a href="/notes/data-wrangling-lecture-notes/">Lecture notes</a></li>
 <li><a href="files/wrangling-notes-data.zip">Data for lecture notes</a></li>
 </ul>
-<h3 id="mandatory-readings-6">Mandatory readings</h3>
+<h3 id="mandatory-readings-7">Mandatory readings</h3>
 <ul>
 <li><a href="https://r4ds.had.co.nz/transform.html">R for Data Science, Chapter 5: Data transformation</a></li>
 <li><a href="https://r4ds.had.co.nz/tidy-data.html">R for Data Science, Chapter 12: Tidy data</a></li>
@@ -220,14 +238,23 @@ from within your R session:</p>
 <li><a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf">dplyr cheat sheet</a></li>
 <li><a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/tidyr.pdf">tidyr cheat sheet</a></li>
 </ul>
-<h2 id="s8">Session 8: R Markdown</h2>
+<h3 id="exercises-5">Exercises</h3>
+<p>After installing (and updating) the <code>DataScienceExercises</code>-package
+(as described <a href="/post/using-exercises/">here</a>), run the following command
+from within your R session:</p>
+<pre><code>learnr::run_tutorial(
+  name = &quot;Wrangling1&quot;, 
+  package = &quot;DataScienceExercises&quot;, 
+  shiny_args=list(&quot;launch.browser&quot;=TRUE))
+</code></pre>
+<h2 id="s9">Session 9: R Markdown</h2>
 <ul>
-<li><a href="slides/T8-RMarkdown.pdf">Slides</a></li>
+<li><a href="slides/T9-RMarkdown.pdf">Slides</a></li>
 <li><a href="files/DesasterMarkdown.pdf">DesasterMarkdown.pdf</a></li>
 <li><a href="files/NicerMarkdown.pdf">NicerMarkdown.pdf</a></li>
 <li><a href="https://gist.github.com/graebnerc/6d268af56e00909efffc372c1a5da1c3">Code for the markdown desaster</a></li>
 </ul>
-<h3 id="mandatory-readings-7">Mandatory readings</h3>
+<h3 id="mandatory-readings-8">Mandatory readings</h3>
 <ul>
 <li><a href="https://r4ds.had.co.nz/r-markdown.html">R for Data Science, Chapter 27: R Markdown</a></li>
 <li><a href="https://commonmark.org/help/tutorial/">The CommonMark markdown tutorial</a></li>
@@ -237,6 +264,17 @@ from within your R session:</p>
 <li><a href="https://bookdown.org/yihui/rmarkdown-cookbook/">The R Markdown Cookbook</a></li>
 <li><a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/rmarkdown.pdf">R Markdown cheat sheet</a></li>
 </ul>
+<h3 id="exercises-6">Exercises</h3>
+<p>After installing (and updating) the <code>DataScienceExercises</code>-package
+(as described <a href="/post/using-exercises/">here</a>), run the following command
+from within your R session:</p>
+<pre><code>learnr::run_tutorial(
+  name = &quot;Wrangling1&quot;, 
+  package = &quot;DataScienceExercises&quot;, 
+  shiny_args=list(&quot;launch.browser&quot;=TRUE))
+</code></pre>
+<p>The practical exercise for this topic can be found
+<a href="/post/2022-04-06-rmarkdown-exercises/">here</a>.</p>
 
 </main>
 

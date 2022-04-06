@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>communication on Data Science (SpSe22)</title>
+    <link>https://dataanalytics-euf-spring21.netlify.app/tags/communication/</link>
+    <description>Recent content in communication on Data Science (SpSe22)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 06 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://dataanalytics-euf-spring21.netlify.app/tags/communication/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>R-Markdown exercises</title>
+      <link>https://dataanalytics-euf-spring21.netlify.app/post/rmarkdown-exercises/</link>
+      <pubDate>Wed, 06 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dataanalytics-euf-spring21.netlify.app/post/rmarkdown-exercises/</guid>
+      <description>Create a new R-Markdown file where you set the title, date, and the author explicitly. Write a sample text that comprises&amp;hellip;
+ &amp;hellip;at least one level 1 heading &amp;hellip;at least two level 2 headings &amp;hellip;a setup chunk that specifies that R code remains hidden by default &amp;hellip;one R chunk where both the output and the code is printed in the final document &amp;hellip;one R chunk that produces a simply ggplot object and where the code producing the plot is hidden  Then do the following:</description>
+    </item>
+    
+  </channel>
+</rss>
