@@ -87,9 +87,11 @@ learnr::run_tutorial(
 
 ## Session 5: Advanced object types {#s5}
 
+- [Slides](slides/T5-AdvObjects.pdf)
+- [Session notes](https://gist.github.com/graebnerc/bf8b1b60084377744881b392f0c9534e)
+
 ### Mandatory readings
 
-- [Slides](slides/T5-AdvObjects.pdf)
 - [Tutorial: Factors and data frames](/post/object-types-adv/)
 - [R for Data Science, Chapter 10: Tibbles](https://r4ds.had.co.nz/tibbles.html)
 
@@ -200,3 +202,19 @@ learnr::run_tutorial(
 
 - [The R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)
 - [R Markdown cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/rmarkdown.pdf)
+
+### Exercises
+
+After installing (and updating) the `DataScienceExercises`-package 
+(as described [here](/post/using-exercises/)), run the following command 
+from within your R session:
+
+```
+learnr::run_tutorial(
+  name = "Wrangling1", 
+  package = "DataScienceExercises", 
+  shiny_args=list("launch.browser"=TRUE))
+```
+
+The practical exercise for this topic can be found 
+[here](/post/2022-04-06-rmarkdown-exercises/).
