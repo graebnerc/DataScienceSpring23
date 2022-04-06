@@ -6,7 +6,27 @@
     <description>Recent content in Home on Data Science (SpSe22)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 16 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://dataanalytics-euf-spring21.netlify.app/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 06 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://dataanalytics-euf-spring21.netlify.app/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>R-Markdown exercises</title>
+      <link>https://dataanalytics-euf-spring21.netlify.app/post/rmarkdown-exercises/</link>
+      <pubDate>Wed, 06 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dataanalytics-euf-spring21.netlify.app/post/rmarkdown-exercises/</guid>
+      <description>Create a new R-Markdown file where you set the title, date, and the author explicitly. Write a sample text that comprises&amp;hellip;
+ &amp;hellip;at least one level 1 heading &amp;hellip;at least two level 2 headings &amp;hellip;a setup chunk that specifies that R code remains hidden by default &amp;hellip;one R chunk where both the output and the code is printed in the final document &amp;hellip;one R chunk that produces a simply ggplot object and where the code producing the plot is hidden  Then do the following:</description>
+    </item>
+    
+    <item>
+      <title>Visualization: Lecture notes</title>
+      <link>https://dataanalytics-euf-spring21.netlify.app/notes/t5-visualization-lecture-notes/</link>
+      <pubDate>Wed, 06 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://dataanalytics-euf-spring21.netlify.app/notes/t5-visualization-lecture-notes/</guid>
+      <description>Download notes as PDF
+Read notes as HTML</description>
+    </item>
+    
     <item>
       <title>Importing and exporting data using data.table</title>
       <link>https://dataanalytics-euf-spring21.netlify.app/post/importing-exporting-data/</link>
@@ -112,7 +132,7 @@ Read this post as HTML</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://dataanalytics-euf-spring21.netlify.app/material/</guid>
-      <description>The complete course material    Session Date Topic Slides     1 March 17, 2022 General introduction Slides Orga, Slides Install   2 March 23, 2022 Philosophy of Data Science Slides Philo   3 March 24, 2022 First steps in R I Slides   4 March 31, 2022 First steps in R II Slides   5 April 6, 2022 Visualization I Slides   6 April 7, 2022 Projects and data import Slides   7 April 20, 2022 Data wrangling I Slides   8 April 28, 2022 R Markdown Slides    Session 1: Introduction and installation  Slides for the organizational part Slides on installing R  Mandatory readings  Tutorial: installing basic software Tutorial: installing the required R packages  Session 2: Philosophy of Data Science  Slides  Mandatory readings  Tutorial: doing exercises  Session 3: First steps in R I - Basics and functions  Slides Solution to function exercise  Mandatory readings  R for Data Science, Chapter 4: Workflow - basics Tutorial: Commands, objects, and assignments Tutorial: Functions  Further readings  R Studio IDE cheat sheet  Exercises After installing (and updating) the DataScienceExercises-package (as described here), run the following command from within your R session:</description>
+      <description>The complete course material    Session Date Topic Slides     1 March 17, 2022 General introduction Slides Orga, Slides Install   2 March 23, 2022 Philosophy of Data Science Slides Philo   3 March 24, 2022 First steps in R Slides   4 March 31, 2022 Basic object types Slides   5 March 31, 2022 Advanced object types Slides   6 April 6, 2022 Visualization I Slides   7 April 7, 2022 Projects and data import Slides   8 April 20, 2022 Data wrangling I Slides   9 April 28, 2022 R Markdown Slides    Session 1: Introduction and installation  Slides for the organizational part Slides on installing R  Mandatory readings  Tutorial: installing basic software Tutorial: installing the required R packages  Session 2: Philosophy of Data Science  Slides  Mandatory readings  Tutorial: doing exercises  Session 3: First steps in R I - Basics and functions  Slides Solution to function exercise  Mandatory readings  R for Data Science, Chapter 4: Workflow - basics Tutorial: Commands, objects, and assignments Tutorial: Functions  Further readings  R Studio IDE cheat sheet  Exercises After installing (and updating) the DataScienceExercises-package (as described here), run the following command from within your R session:</description>
     </item>
     
   </channel>
