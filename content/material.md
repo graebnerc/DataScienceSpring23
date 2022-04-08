@@ -217,4 +217,4 @@ learnr::run_tutorial(
 ```
 
 The practical exercise for this topic can be found 
-[here](/post/2022-04-06-rmarkdown-exercises/).
+[here](/post/rmarkdown-exercises/).
