@@ -16,6 +16,10 @@ title: "Course material"
 |   [7](#s7)  | April 7, 2022 | Projects and data import  | [Slides](slides/T6-ProjectSetup.pdf)           |
 |   [8](#s8)  | April 20, 2022 | Data wrangling I         | [Slides](slides/T7-DataWrangling.pdf)           |
 |   [9](#s9)  | April 28, 2022 | R Markdown | [Slides](slides/T8-RMarkdown.pdf)         |
+|   [10](#s10)  | May 5, 2022 | Intro models | [Slides](slides/T10-ModelsIntro)         |
+|   [11](#s11)  | May 12, 2022 | Simple Linear Regression | [Slides](slides/T11-SimpleLinearRegression.pdf)         |
+|   [13](#s13)  | May 19, 2022 | Multiple Linear Regression | [Slides](slides/T13-MultipleLinearRegression.pdf)         |
+
 
 ## Session 1: Introduction and installation {#s1}
 
@@ -217,4 +221,42 @@ learnr::run_tutorial(
 ```
 
 The practical exercise for this topic can be found 
-[here](/post/2022-04-06-rmarkdown-exercises/).
+[here](/post/rmarkdown-exercises/).
+
+## Session 10: Modelling data {#s10} 
+
+- [Slides](slides/T10-ModelsIntro)
+- [Guess the correlation browser game](http://guessthecorrelation.com/)
+
+### Mandatory readings
+
+- TBD
+
+## Session 11: Simple linear regression {#s11} 
+
+- [Slides](slides/T11-SimpleLinearRegression.pdf)
+
+### Mandatory readings
+
+- [Statistical Inference via Data Science, Chapter 5: Basic regression](https://moderndive.com/5-regression.html) 
+
+### Exercises
+
+TBD
+
+## Session 13: Multiple linear regression {#s13} 
+
+- [Slides](slides/T13-MultipleLinearRegression.pdf)
+
+### Mandatory readings
+
+- [Statistical Inference via Data Science, Chapter 6: Multiple regression](https://moderndive.com/5-regression.html) 
+
+### Exercises
+
+TBD
+
+
+
+
+
