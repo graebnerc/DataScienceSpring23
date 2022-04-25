@@ -18,7 +18,7 @@ title: "Course material"
 |   [9](#s9)  | April 28, 2022 | R Markdown | [Slides](slides/T8-RMarkdown.pdf)         |
 |   [10](#s10)  | May 5, 2022 | Intro models | [Slides](slides/T10-ModelsIntro)         |
 |   [11](#s11)  | May 12, 2022 | Simple Linear Regression | [Slides](slides/T11-SimpleLinearRegression.pdf)         |
-|   [13](#s13)  | May 19, 2022 | Multiple Linear Regression |         |
+|   [13](#s13)  | May 19, 2022 | Multiple Linear Regression | [Slides](slides/T13-MultipleLinearRegression.pdf)         |
 
 
 ## Session 1: Introduction and installation {#s1}
@@ -246,7 +246,7 @@ TBD
 
 ## Session 13: Multiple linear regression {#s13} 
 
-- Slides
+- [Slides](slides/T13-MultipleLinearRegression.pdf)
 
 ### Mandatory readings
 
