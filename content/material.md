@@ -11,12 +11,12 @@ title: "Course material"
 |   [2](#s2)  | March 23, 2022| Philosophy of Data Science | [Slides Philo](slides/T2-PhiloFoundation.pdf)           |
 |   [3](#s3)  | March 24, 2022| First steps in R  | [Slides](slides/T3-Basics-Functions.pdf)           |
 |   [4](#s4)  | March 31, 2022| Basic object types | [Slides](slides/T4-Objects.pdf)           |
-|   [5](#s5)  | March 31, 2022| Advanced object types | [Slides](slides/T4b-AdvObjects.pdf)           |
-|   [6](#s6)  | April 6, 2022 | Visualization I     | [Slides](slides/T5-Visualization.pdf)           |
-|   [7](#s7)  | April 7, 2022 | Projects and data import  | [Slides](slides/T6-ProjectSetup.pdf)           |
-|   [8](#s8)  | April 20, 2022 | Data wrangling I         | [Slides](slides/T7-DataWrangling.pdf)           |
-|   [9](#s9)  | April 28, 2022 | R Markdown | [Slides](slides/T8-RMarkdown.pdf)         |
-|   [10](#s10)  | May 5, 2022 | Intro models | [Slides](slides/T10-ModelsIntro)         |
+|   [5](#s5)  | April 6, 2022| Advanced object types | [Slides](slides/T5-AdvObjects.pdf)           |
+|   [6](#s6)  | April 7, 2022 | Visualization I     | [Slides](slides/T6-Visualization.pdf)           |
+|   [7](#s7)  | April 27, 2022 | Projects and data import  | [Slides](slides/T7-ProjectSetup.pdf)           |
+|   [8](#s8)  | April 28, 2022 | Data wrangling I         | [Slides](slides/T8-DataWrangling.pdf)           |
+|   [9](#s9)  | May 4, 2022 | R Markdown | [Slides](slides/T9-RMarkdown.pdf)         |
+|   [10](#s10)  | May 5, 2022 | Intro models | [Slides](slides/T10-ModelsIntro.pdf)         |
 |   [11](#s11)  | May 12, 2022 | Simple Linear Regression | [Slides](slides/T11-SimpleLinearRegression.pdf)         |
 |   [13](#s13)  | May 19, 2022 | Multiple Linear Regression | [Slides](slides/T13-MultipleLinearRegression.pdf)         |
 
@@ -225,7 +225,7 @@ The practical exercise for this topic can be found
 
 ## Session 10: Modelling data {#s10} 
 
-- [Slides](slides/T10-ModelsIntro)
+- [Slides](slides/T10-ModelsIntro.pdf)
 - [Guess the correlation browser game](http://guessthecorrelation.com/)
 
 ### Mandatory readings
