@@ -90,7 +90,6 @@ fwrite(x = data_final_expl,
 ```{r, include=FALSE}
 gini_red <- fread(file = "data/wrangling_slides_gini.csv")
 data_raw <- fread(file = "data/wrangling_slides.csv")
-data_raw <- full_join(data_raw, gini_red, by=c("country", "year"))
 data_final_expl <- fread(file = "data/wrangling_slides_final_expl.csv")
 swiid_join <- fread(file = "data/wrangling_slides_gini_grc.csv")
 ```
