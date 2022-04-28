@@ -286,6 +286,7 @@ pre code {
 <p>The data sets used in these notes are available from the course webpage:</p>
 <ul>
 <li><code>wrangling_slides.csv</code> (<code>data_raw</code>)</li>
+<li><code>wrangling_slides.csv</code> (<code>data_raw_long</code>)</li>
 <li><code>wrangling_slides_gini.csv</code> (<code>gini_red</code>)</li>
 <li><code>wrangling_slides_final_expl.csv</code> (<code>data_final_expl</code>)</li>
 <li><code>wrangling_slides_gini_grc.csv</code> (<code>swiid_join</code>)</li>
@@ -312,21 +313,19 @@ pre code {
 <h2><span class="header-section-number">3.1</span> Wide and long format: definition</h2>
 <p>There is no strict definition for wide and long data. Rather, the two should be understood as <em>relative</em> descriptions of data, meaning that it is more straightforward to speak of a data set that is long<em>er</em> relative to another one, rather than <em>a long</em> data set per se.</p>
 <p>Here is an example for a rather long data set:</p>
-<pre><code>## # A tibble: 12 × 4
-##    country  year variable    value
-##    &lt;chr&gt;   &lt;int&gt; &lt;chr&gt;       &lt;dbl&gt;
-##  1 Germany  2017 unemp        3.75
-##  2 Germany  2017 gdp      53071.  
-##  3 Germany  2017 gini        29.4 
-##  4 Germany  2018 unemp        3.38
-##  5 Germany  2018 gdp      53487.  
-##  6 Germany  2018 gini        29.6 
-##  7 Greece   2017 unemp       21.5 
-##  8 Greece   2017 gdp      28605.  
-##  9 Greece   2017 gini        32.2 
-## 10 Greece   2018 unemp       19.3 
-## 11 Greece   2018 gdp      29141.  
-## 12 Greece   2018 gini        31.7</code></pre>
+<pre><code>##     country year variable    value
+##  1: Germany 2017    unemp     3.75
+##  2: Germany 2017      gdp 53071.46
+##  3: Germany 2017     gini    29.40
+##  4: Germany 2018    unemp     3.38
+##  5: Germany 2018      gdp 53486.84
+##  6: Germany 2018     gini    29.60
+##  7:  Greece 2017    unemp    21.49
+##  8:  Greece 2017      gdp 28604.86
+##  9:  Greece 2017     gini    32.20
+## 10:  Greece 2018    unemp    19.29
+## 11:  Greece 2018      gdp 29141.17
+## 12:  Greece 2018     gini    31.70</code></pre>
 <p>Here, we have one column identifying the variable, the value of which is stored in a separate column. This means that the data is relatively ‘long’ in the sense of having many rows. At the same time, it is relatively ‘narrow’ in the sense of not having too many columns since the variable identifier is kept in a single column.</p>
 <p>Contrast this with an example for a rather wide data set, where each variable has its own column:</p>
 <pre><code>##    country year unemp      gdp gini
