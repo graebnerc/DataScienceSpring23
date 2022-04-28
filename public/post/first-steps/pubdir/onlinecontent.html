@@ -396,7 +396,7 @@ John Chambers
 #&gt; {
 #&gt;     UseMethod(&quot;lead&quot;)
 #&gt; }
-#&gt; &lt;bytecode: 0x7fdf6bcd3bf0&gt;
+#&gt; &lt;bytecode: 0x7fd084a21bf0&gt;
 #&gt; &lt;environment: namespace:plm&gt;</code></pre>
 <p>The last line informs is about the fact that the function was defined in the package <code>plm</code>. If we now want to call the function <code>lead</code> from the package <code>dplyr</code>, we must use <code>::</code>:</p>
 <div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span>lead</span></code></pre></div>
@@ -421,7 +421,7 @@ John Chambers
 #&gt;     vec_c(vec_slice(inputs$x, -seq_len(n)), vec_rep(inputs$default, 
 #&gt;         n))
 #&gt; }
-#&gt; &lt;bytecode: 0x7fdf49827b68&gt;
+#&gt; &lt;bytecode: 0x7fd0876d2368&gt;
 #&gt; &lt;environment: namespace:dplyr&gt;</code></pre>
 <p>This can be very confusing. Thus, I <em>strongly recommend</em> to <em>always</em> use <code>::</code> when it comes to masking, no matter whether it is stricly necessary or not. In this case, always use <code>plm::lead</code> and <code>dplyr::lead</code>, even it it is not required in the first case. Otherwise, your code becomes very difficult to understand and breaks completely once you change the sequence of the library calls in the beginning.</p>
 <blockquote>

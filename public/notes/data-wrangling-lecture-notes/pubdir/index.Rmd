@@ -90,7 +90,7 @@ fwrite(x = data_final_expl,
 ```{r, include=FALSE}
 gini_red <- fread(file = "data/wrangling_slides_gini.csv")
 data_raw <- fread(file = "data/wrangling_slides.csv")
-data_raw <- full_join(data_raw, gini_red, by=c("country", "year"))
+data_raw_long <- fread(file = "data/wrangling_slide_long.csv")
 data_final_expl <- fread(file = "data/wrangling_slides_final_expl.csv")
 swiid_join <- fread(file = "data/wrangling_slides_gini_grc.csv")
 ```
@@ -98,6 +98,7 @@ swiid_join <- fread(file = "data/wrangling_slides_gini_grc.csv")
 The data sets used in these notes are available from the course webpage:
 
 * `wrangling_slides.csv` (`data_raw`)
+* `wrangling_slides.csv` (`data_raw_long`)
 * `wrangling_slides_gini.csv` (`gini_red`)
 * `wrangling_slides_final_expl.csv` (`data_final_expl`)
 * `wrangling_slides_gini_grc.csv` (`swiid_join`)
@@ -126,11 +127,6 @@ another one, rather than *a long* data set per se.
 Here is an example for a rather long data set:
 
 ```{r, echo=FALSE}
-data_raw_long <- data_raw %>%
-  tidyr::pivot_longer(
-    cols = dplyr::all_of(c("unemp", "gdp", "gini")), 
-    names_to = "variable", 
-    values_to = "value")
 data_raw_long
 ```
 
