@@ -163,9 +163,9 @@ learnr::run_tutorial(
 ## Session 8: Data wrangling I {#s8}
 
 - [Slides](slides/T8-DataWrangling.pdf)
-- [Exercise data](files/wrangling_exercises_data.zip)
-- [Solution to exercise 1](https://gist.github.com/graebnerc/f635b4e3cfcbcc01b4511f26d0561251)
 - [Lecture notes](/notes/data-wrangling-lecture-notes/)
+- [Exercise data](files/wrangling_exercises_data.zip)
+- [Lecture scripts from the session and exercise solutions](https://gist.github.com/graebnerc/7a054a52cd5799f0adf66c269b040b46)
 - [Data for lecture notes](files/wrangling-notes-data.zip)
 
 ### Mandatory readings
