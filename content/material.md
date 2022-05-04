@@ -164,6 +164,7 @@ learnr::run_tutorial(
 
 - [Slides](slides/T8-DataWrangling.pdf)
 - [Exercise data](files/wrangling_exercises_data.zip)
+- [Solution to exercise 1](https://gist.github.com/graebnerc/f635b4e3cfcbcc01b4511f26d0561251)
 - [Lecture notes](/notes/data-wrangling-lecture-notes/)
 - [Data for lecture notes](files/wrangling-notes-data.zip)
 
