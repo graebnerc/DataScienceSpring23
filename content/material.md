@@ -19,7 +19,7 @@ title: "Course material"
 |   [10](#s10)  | May 5, 2022 | Intro models | [Slides](slides/T10-ModelsIntro.pdf)         |
 |   [11](#s11)  | May 12, 2022 | Simple Linear Regression | [Slides](slides/T11-SimpleLinearRegression.pdf)         |
 |   [13](#s13)  | May 19, 2022 | Multiple Linear Regression | [Slides](slides/T13-MultipleLinearRegression.pdf)         |
-
+|   [14](#s14)  | June 1, 2022 | Sampling Theory | [Slides](slides/T14-SamplingTheory.pdf)         |
 
 ## Session 1: Introduction and installation {#s1}
 
@@ -251,13 +251,25 @@ TBD
 
 ### Mandatory readings
 
-- [Statistical Inference via Data Science, Chapter 6: Multiple regression](https://moderndive.com/5-regression.html) 
+- [Statistical Inference via Data Science, Chapter 6: Multiple regression](https://moderndive.com/6-multiple-regression.html) 
 
 ### Exercises
 
 TBD
 
+## Session 14: Sampling theory {#s14} 
 
+- [Slides](slides/T14-SamplingTheory.pdf)
+- Lecture scripts from the session and exercise solutions
+
+### Mandatory readings
+
+- [Statistical Inference via Data Science, Chapter 7: Sampling](https://moderndive.com/7-sampling.html) 
+- [Tutorial: Monte Carlo Simulations in R](/post/mcs/)
+
+### Exercises
+
+TBD
 
 
 

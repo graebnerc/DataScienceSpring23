@@ -3,7 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://dataanalytics-euf-spring21.netlify.app/categories/</loc>
-    <lastmod>2022-04-20T00:00:00+00:00</lastmod>
+    <lastmod>2022-05-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dataanalytics-euf-spring21.netlify.app/</loc>
+    <lastmod>2022-05-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dataanalytics-euf-spring21.netlify.app/tags/inference/</loc>
+    <lastmod>2022-05-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dataanalytics-euf-spring21.netlify.app/post/mcs/</loc>
+    <lastmod>2022-05-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dataanalytics-euf-spring21.netlify.app/post/</loc>
+    <lastmod>2022-05-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dataanalytics-euf-spring21.netlify.app/tags/</loc>
+    <lastmod>2022-05-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dataanalytics-euf-spring21.netlify.app/categories/tutorial/</loc>
+    <lastmod>2022-05-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dataanalytics-euf-spring21.netlify.app/tags/data-wrangling/</loc>
     <lastmod>2022-04-20T00:00:00+00:00</lastmod>
@@ -11,16 +29,10 @@
     <loc>https://dataanalytics-euf-spring21.netlify.app/notes/data-wrangling-lecture-notes/</loc>
     <lastmod>2022-04-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://dataanalytics-euf-spring21.netlify.app/</loc>
-    <lastmod>2022-04-20T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://dataanalytics-euf-spring21.netlify.app/notes/</loc>
     <lastmod>2022-04-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dataanalytics-euf-spring21.netlify.app/categories/notes/</loc>
-    <lastmod>2022-04-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://dataanalytics-euf-spring21.netlify.app/tags/</loc>
     <lastmod>2022-04-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dataanalytics-euf-spring21.netlify.app/tags/communication/</loc>
@@ -30,9 +42,6 @@
     <lastmod>2022-04-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dataanalytics-euf-spring21.netlify.app/tags/markdown/</loc>
-    <lastmod>2022-04-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://dataanalytics-euf-spring21.netlify.app/post/</loc>
     <lastmod>2022-04-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dataanalytics-euf-spring21.netlify.app/post/rmarkdown-exercises/</loc>
@@ -48,9 +57,6 @@
     <lastmod>2022-03-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dataanalytics-euf-spring21.netlify.app/tags/project-management/</loc>
-    <lastmod>2022-03-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://dataanalytics-euf-spring21.netlify.app/categories/tutorial/</loc>
     <lastmod>2022-03-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dataanalytics-euf-spring21.netlify.app/tags/introduction/</loc>
