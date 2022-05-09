@@ -21,6 +21,7 @@ title: "Course material"
 |   [13](#s13)  | May 19, 2022 | Multiple Linear Regression | [Slides](slides/T13-MultipleLinearRegression.pdf)         |
 |   [14](#s14)  | June 1, 2022 | Sampling Theory | [Slides](slides/T14-SamplingTheory.pdf)         |
 |   [15](#s15)  | June 2, 2022 | Bootstrap | [Slides](slides/T15-Bootstrap.pdf)  
+|   [16](#s16)  | June 2, 2022 | Hypothesis Testing | [Slides](slides/T16-HypothesisTesting.pdf)  
 
 
 ## Session 1: Introduction and installation {#s1}
@@ -278,6 +279,19 @@ TBD
 ### Mandatory readings
 
 - [Statistical Inference via Data Science, Chapter 8: Bootstrapping and Confidence Intervals](https://moderndive.com/8-confidence-intervals.html) 
+
+### Exercises
+
+TBD
+
+## Session 16: Hypothesis testing {#s16} 
+
+- [Slides](slides/T16-HypothesisTesting.pdf)
+- Lecture scripts from the session and exercise solutions
+
+### Mandatory readings
+
+- [Statistical Inference via Data Science, Chapter 9: Hypothesis Testing](https://moderndive.com/9-hypothesis-testing.html) 
 
 ### Exercises
 
