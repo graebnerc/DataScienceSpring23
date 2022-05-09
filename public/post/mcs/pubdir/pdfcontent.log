@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.12.0 (TeX Live 2020)  (format=lualatex 2020.9.1)  7 MAY 2022 00:04
+This is LuaHBTeX, Version 1.12.0 (TeX Live 2020)  (format=lualatex 2020.9.1)  7 MAY 2022 00:03
  restricted system commands enabled.
 **pdfcontent.tex
 (./pdfcontent.tex
@@ -524,6 +524,69 @@ Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \fb@frh=\dimen153
 \FrameRule=\dimen154
 \FrameSep=\dimen155
+) (/usr/local/texlive/2020/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
+\LTleft=\skip69
+\LTright=\skip70
+\LTpre=\skip71
+\LTpost=\skip72
+\LTchunksize=\count286
+\LTcapwidth=\dimen156
+\LT@head=\box51
+\LT@firsthead=\box52
+\LT@foot=\box53
+\LT@lastfoot=\box54
+\LT@cols=\count287
+\LT@rows=\count288
+\c@LT@tables=\count289
+\c@LT@chunks=\count290
+\LT@p@ftn=\toks23
+)
+Class scrartcl Info: longtable captions redefined on input line 85.
+(/usr/local/texlive/2020/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen157
+\lightrulewidth=\dimen158
+\cmidrulewidth=\dimen159
+\belowrulesep=\dimen160
+\belowbottomsep=\dimen161
+\aboverulesep=\dimen162
+\abovetopsep=\dimen163
+\cmidrulesep=\dimen164
+\cmidrulekern=\dimen165
+\defaultaddspace=\dimen166
+\@cmidla=\count291
+\@cmidlb=\count292
+\@aboverulesep=\dimen167
+\@belowrulesep=\dimen168
+\@thisruleclass=\count293
+\@lastruleclass=\count294
+\@thisrulewidth=\dimen169
+) (/usr/local/texlive/2020/texmf-dist/tex/latex/tools/array.sty
+Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
+\col@sep=\dimen170
+\ar@mcellbox=\box55
+\extrarowheight=\dimen171
+\NC@list=\toks24
+\extratabsurround=\skip73
+\backup@length=\skip74
+\ar@cellbox=\box56
+) (/usr/local/texlive/2020/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count295
+\calc@Bcount=\count296
+\calc@Adimen=\dimen172
+\calc@Bdimen=\dimen173
+\calc@Askip=\skip75
+\calc@Bskip=\skip76
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count297
+\calc@Cskip=\skip77
+) (/usr/local/texlive/2020/texmf-dist/tex/latex/footnotehyper/footnotehyper.sty
+Package: footnotehyper 2019/11/07 v1.1a hyperref aware footnote.sty (JFB)
+\FNH@notes=\box57
+\FNH@width=\dimen174
 ) (/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
 (/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/graphics.sty
@@ -535,12 +598,12 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: luatex.def on input line 105.
 )
-\Gin@req@height=\dimen156
-\Gin@req@width=\dimen157
+\Gin@req@height=\dimen175
+\Gin@req@width=\dimen176
 ) (/usr/local/texlive/2020/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2018/08/11 v1.3c Input encoding file
-\inpenc@prehook=\toks23
-\inpenc@posthook=\toks24
+\inpenc@prehook=\toks25
+\inpenc@posthook=\toks26
 
 Package inputenc Warning: inputenc package ignored with utf8 based engines.
 
@@ -556,9 +619,9 @@ Package: units 1998/08/04 v0.9b Typesetting units
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 ) (/usr/local/texlive/2020/texmf-dist/tex/latex/units/nicefrac.sty
 Package: nicefrac 1998/08/04 v0.9b Nice fractions
-\L@UnitsRaiseDisplaystyle=\skip69
-\L@UnitsRaiseTextstyle=\skip70
-\L@UnitsRaiseScriptstyle=\skip71
+\L@UnitsRaiseDisplaystyle=\skip78
+\L@UnitsRaiseTextstyle=\skip79
+\L@UnitsRaiseScriptstyle=\skip80
 LaTeX Info: Redefining \nicefrac on input line 131.
 )) (/usr/local/texlive/2020/texmf-dist/tex/latex/breakurl/breakurl.sty
 Package: breakurl 2013/04/10 v1.40 Breakable hyperref URLs
@@ -566,10 +629,10 @@ Package: breakurl 2013/04/10 v1.40 Breakable hyperref URLs
 Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 (/usr/local/texlive/2020/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/usr/local
 /texlive/2020/texmf-dist/tex/generic/xkeyval/xkvutils.tex
-\XKV@toks=\toks25
-\XKV@tempa@toks=\toks26
+\XKV@toks=\toks27
+\XKV@tempa@toks=\toks28
 )
-\XKV@depth=\count286
+\XKV@depth=\count298
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 )) (/usr/local/texlive/2020/texmf-dist/tex/generic/iftex/ifpdf.sty
 Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
@@ -581,43 +644,24 @@ Package breakurl Warning: You are using breakurl while processing via pdflatex.
 
 ) (/usr/local/texlive/2020/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/booktabs/booktabs.sty
-Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen158
-\lightrulewidth=\dimen159
-\cmidrulewidth=\dimen160
-\belowrulesep=\dimen161
-\belowbottomsep=\dimen162
-\aboverulesep=\dimen163
-\abovetopsep=\dimen164
-\cmidrulesep=\dimen165
-\cmidrulekern=\dimen166
-\defaultaddspace=\dimen167
-\@cmidla=\count287
-\@cmidlb=\count288
-\@aboverulesep=\dimen168
-\@belowrulesep=\dimen169
-\@thisruleclass=\count289
-\@lastruleclass=\count290
-\@thisrulewidth=\dimen170
 ) (/usr/local/texlive/2020/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count291
-\lst@gtempboxa=\box51
-\lst@token=\toks27
-\lst@length=\count292
-\lst@currlwidth=\dimen171
-\lst@column=\count293
-\lst@pos=\count294
-\lst@lostspace=\dimen172
-\lst@width=\dimen173
-\lst@newlines=\count295
-\lst@lineno=\count296
-\lst@maxwidth=\dimen174
+\lst@mode=\count299
+\lst@gtempboxa=\box58
+\lst@token=\toks29
+\lst@length=\count300
+\lst@currlwidth=\dimen177
+\lst@column=\count301
+\lst@pos=\count302
+\lst@lostspace=\dimen178
+\lst@width=\dimen179
+\lst@newlines=\count303
+\lst@lineno=\count304
+\lst@maxwidth=\dimen180
 (/usr/local/texlive/2020/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
-\c@lstnumber=\count297
-\lst@skipnumbers=\count298
-\lst@framebox=\box52
+\c@lstnumber=\count305
+\lst@skipnumbers=\count306
+\lst@framebox=\box59
 ) (/usr/local/texlive/2020/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2020/03/24 1.8d listings configuration
 ))
@@ -629,18 +673,18 @@ Package: geometry 2020/01/02 v5.9 Page Geometry
 (/usr/local/texlive/2020/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count299
-\Gm@cntv=\count300
-\c@Gm@tempcnt=\count301
-\Gm@bindingoffset=\dimen175
-\Gm@wd@mp=\dimen176
-\Gm@odd@mp=\dimen177
-\Gm@even@mp=\dimen178
-\Gm@layoutwidth=\dimen179
-\Gm@layoutheight=\dimen180
-\Gm@layouthoffset=\dimen181
-\Gm@layoutvoffset=\dimen182
-\Gm@dimlist=\toks28
+\Gm@cnth=\count307
+\Gm@cntv=\count308
+\c@Gm@tempcnt=\count309
+\Gm@bindingoffset=\dimen181
+\Gm@wd@mp=\dimen182
+\Gm@odd@mp=\dimen183
+\Gm@even@mp=\dimen184
+\Gm@layoutwidth=\dimen185
+\Gm@layoutheight=\dimen186
+\Gm@layouthoffset=\dimen187
+\Gm@layoutvoffset=\dimen188
+\Gm@dimlist=\toks30
 ) (/usr/local/texlive/2020/texmf-dist/tex/latex/koma-script/scrlayer-scrpage.st
 y
 Package: scrlayer-scrpage 2020/01/24 v3.29 KOMA-Script package (end user interfa
@@ -669,7 +713,7 @@ Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 Package: luatexbase 2015/10/04 v1.3 luatexbase interface to LuaTeX 
 (/usr/local/texlive/2020/texmf-dist/tex/luatex/ctablestack/ctablestack.sty
 Package: ctablestack 2015/10/01 v1.0 Catcode table stable support
-\@catcodetablestackcnt=\count302
+\@catcodetablestackcnt=\count310
 )
 \CatcodeTableOther=\catcodetable5
 \CatcodeTableExpl=\catcodetable6
@@ -678,43 +722,43 @@ Inserting `Suppress ligatures selectively' at position 1 in `ligaturing'.) (./p
 dfcontent.aux)
 \openout1 = pdfcontent.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 159.
-LaTeX Font Info:    ... okay on input line 159.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 159.
-LaTeX Font Info:    ... okay on input line 159.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 159.
-LaTeX Font Info:    ... okay on input line 159.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 159.
-LaTeX Font Info:    ... okay on input line 159.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 159.
-LaTeX Font Info:    ... okay on input line 159.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 159.
-LaTeX Font Info:    ... okay on input line 159.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 159.
-LaTeX Font Info:    ... okay on input line 159.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 159.
-LaTeX Font Info:    ... okay on input line 159.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 159.
-LaTeX Font Info:    ... okay on input line 159.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 159.
-LaTeX Font Info:    ... okay on input line 159.
-Package scrbase Info: activating english \contentsname on input line 159.
-Package scrbase Info: activating english \listfigurename on input line 159.
-Package scrbase Info: activating english \listtablename on input line 159.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 169.
+LaTeX Font Info:    ... okay on input line 169.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 169.
+LaTeX Font Info:    ... okay on input line 169.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 169.
+LaTeX Font Info:    ... okay on input line 169.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 169.
+LaTeX Font Info:    ... okay on input line 169.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 169.
+LaTeX Font Info:    ... okay on input line 169.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 169.
+LaTeX Font Info:    ... okay on input line 169.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 169.
+LaTeX Font Info:    ... okay on input line 169.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 169.
+LaTeX Font Info:    ... okay on input line 169.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 169.
+LaTeX Font Info:    ... okay on input line 169.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 169.
+LaTeX Font Info:    ... okay on input line 169.
+Package scrbase Info: activating english \contentsname on input line 169.
+Package scrbase Info: activating english \listfigurename on input line 169.
+Package scrbase Info: activating english \listtablename on input line 169.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 159.
+(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 169.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 159.
+(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 169.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 159.
+(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 169.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 159.
+(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 169.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 159.
+(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 169.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 159.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 169.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 159.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 169.
 
 Package fontspec Info: latinmodern-math scale = 0.9989492232334825.
 
@@ -749,11 +793,11 @@ e;script=math;language=dflt;"
 (fontspec)             \__um_luatex_copy_fontdimens: 
 
 LaTeX Font Info:    Trying to load font information for T1+latinmodern-math.otf(
-0) on input line 159.
-LaTeX Font Info:    No file T1latinmodern-math.otf(0).fd. on input line 159.
+0) on input line 169.
+LaTeX Font Info:    No file T1latinmodern-math.otf(0).fd. on input line 169.
 
 LaTeX Font Warning: Font shape `T1/latinmodern-math.otf(0)/m/n' undefined
-(Font)              using `T1/cmr/m/n' instead on input line 159.
+(Font)              using `T1/cmr/m/n' instead on input line 169.
 
 luaotfload | aux : no font with id -1
 
@@ -807,61 +851,61 @@ e;script=math;language=dflt;"
 (fontspec)             \__um_luatex_copy_fontdimens: 
 
 LaTeX Font Info:    Trying to load font information for T1+latinmodern-math.otf(
-1) on input line 159.
-LaTeX Font Info:    No file T1latinmodern-math.otf(1).fd. on input line 159.
+1) on input line 169.
+LaTeX Font Info:    No file T1latinmodern-math.otf(1).fd. on input line 169.
 
 LaTeX Font Warning: Font shape `T1/latinmodern-math.otf(1)/m/n' undefined
-(Font)              using `T1/cmr/m/n' instead on input line 159.
+(Font)              using `T1/cmr/m/n' instead on input line 169.
 
 LaTeX Font Info:    Encoding `OT1' has changed to `T1' for symbol font
-(Font)              `operators' in the math version `normal' on input line 159.
+(Font)              `operators' in the math version `normal' on input line 169.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/lmr/m/n --> T1/latinmodern-math.otf(1)/m/n on input 
-line 159.
+line 169.
 LaTeX Font Info:    Encoding `OT1' has changed to `T1' for symbol font
-(Font)              `operators' in the math version `bold' on input line 159.
+(Font)              `operators' in the math version `bold' on input line 169.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/lmr/bx/n --> T1/latinmodern-math.otf(1)/b/n on input
- line 159.
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 15
+ line 169.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 16
 9.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 1
-59.
+69.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 1
-59.
+69.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 159.
+(Font)              <10.95> on input line 169.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 159.
+(Font)              <8> on input line 169.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 159.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 159.
+(Font)              <6> on input line 169.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 169.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 159.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 169.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Info: Redefining \microtypecontext on input line 159.
+LaTeX Info: Redefining \microtypecontext on input line 169.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `basictext'.
-LaTeX Info: Redefining \showhyphens on input line 159.
+LaTeX Info: Redefining \showhyphens on input line 169.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of spacing.
 Package microtype Info: No adjustment of kerning.
@@ -876,17 +920,17 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
 (/usr/local/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count303
-\scratchdimen=\dimen183
-\scratchbox=\box53
-\nofMPsegments=\count304
-\nofMParguments=\count305
-\everyMPshowfont=\toks29
-\MPscratchCnt=\count306
-\MPscratchDim=\dimen184
-\MPnumerator=\count307
-\makeMPintoPDFobject=\count308
-\everyMPtoPDFconversion=\toks30
+\scratchcounter=\count311
+\scratchdimen=\dimen189
+\scratchbox=\box60
+\nofMPsegments=\count312
+\nofMParguments=\count313
+\everyMPshowfont=\toks31
+\MPscratchCnt=\count314
+\MPscratchDim=\dimen190
+\MPnumerator=\count315
+\makeMPintoPDFobject=\count316
+\everyMPtoPDFconversion=\toks32
 ) (/usr/local/texlive/2020/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
@@ -895,8 +939,8 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 
 ))
-\AtBeginShipoutBox=\box54
-Package hyperref Info: Link coloring OFF on input line 159.
+\AtBeginShipoutBox=\box61
+Package hyperref Info: Link coloring OFF on input line 169.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 (/usr/local/texlive/2020/texmf-dist/tex/latex/refcount/refcount.sty
@@ -906,12 +950,12 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count309
+\c@section@level=\count317
 )
-LaTeX Info: Redefining \ref on input line 159.
-LaTeX Info: Redefining \pageref on input line 159.
-LaTeX Info: Redefining \nameref on input line 159.
-\c@lstlisting=\count310
+LaTeX Info: Redefining \ref on input line 169.
+LaTeX Info: Redefining \pageref on input line 169.
+LaTeX Info: Redefining \nameref on input line 169.
+\c@lstlisting=\count318
 *geometry* driver: auto-detecting
 *geometry* detected driver: luatex
 *geometry* verbose mode - [ preamble ] result:
@@ -947,72 +991,91 @@ LaTeX Info: Redefining \nameref on input line 159.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 161.
+(Font)              <14.4> on input line 171.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 161.
+(Font)              <10> on input line 171.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 161.
+(Font)              <7> on input line 171.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 ) (/usr/local/texlive/2020/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-Package tocbasic Info: character protrusion at toc deactivated on input line 164
+Package tocbasic Info: character protrusion at toc deactivated on input line 174
 .
 (./pdfcontent.toc)
 \tf@toc=\write4
 
 \openout4 = pdfcontent.toc
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 19
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 17
 8.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [1
 
 
-{/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
-<new-proj-1.pdf, id=55, 675.52374pt x 475.7775pt>
-File: new-proj-1.pdf Graphic file (type pdf)
-<use new-proj-1.pdf>
-Package luatex.def Info: new-proj-1.pdf  used on input line 351.
-(luatex.def)             Requested size: 250.95001pt x 176.74637pt.
+{/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 269.
+[2] [3] [4] [5] [6]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 358.
+(Font)              <9> on input line 643.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 358.
-<new-proj-2.pdf, id=57, 675.52374pt x 475.7775pt>
-File: new-proj-2.pdf Graphic file (type pdf)
-<use new-proj-2.pdf>
-Package luatex.def Info: new-proj-2.pdf  used on input line 361.
-(luatex.def)             Requested size: 250.95001pt x 176.74637pt.
-[4<./new-proj-1.pdf>]
-<new-proj-3.pdf, id=73, 805.0075pt x 195.73125pt>
-File: new-proj-3.pdf Graphic file (type pdf)
-<use new-proj-3.pdf>
-Package luatex.def Info: new-proj-3.pdf  used on input line 386.
-(luatex.def)             Requested size: 250.95006pt x 61.01653pt.
-[5<./new-proj-2.pdf><./new-proj-3.pdf>] [6] [7]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 613.
-[8]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 613.
+(Font)              <5> on input line 643.
+LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 6
+48.
+(/usr/local/texlive/2020/texmf-dist/tex/latex/lm/ts1lmtt.fd
+File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+) [7]
+<pdfcontent_files/figure-latex/unnamed-chunk-17-1.pdf, id=100, 463.7325pt x 313.
+17pt>
+File: pdfcontent_files/figure-latex/unnamed-chunk-17-1.pdf Graphic file (type pd
+f)
+<use pdfcontent_files/figure-latex/unnamed-chunk-17-1.pdf>
+Package luatex.def Info: pdfcontent_files/figure-latex/unnamed-chunk-17-1.pdf  u
+sed on input line 697.
+(luatex.def)             Requested size: 418.26111pt x 282.46204pt.
+
+Overfull \hbox (10.95738pt too wide) in paragraph at lines 697--698
+[][] 
+ []
+
+[8<./pdfcontent_files/figure-latex/unnamed-chunk-17-1.pdf>] [9] [10]
+<pdfcontent_files/figure-latex/unnamed-chunk-23-1.pdf, id=128, 462.72874pt x 315
+.1775pt>
+File: pdfcontent_files/figure-latex/unnamed-chunk-23-1.pdf Graphic file (type pd
+f)
+<use pdfcontent_files/figure-latex/unnamed-chunk-23-1.pdf>
+Package luatex.def Info: pdfcontent_files/figure-latex/unnamed-chunk-23-1.pdf  u
+sed on input line 840.
+(luatex.def)             Requested size: 418.25955pt x 284.88828pt.
+
+Overfull \hbox (10.95583pt too wide) in paragraph at lines 840--841
+[][] 
+ []
+
+[11<./pdfcontent_files/figure-latex/unnamed-chunk-23-1.pdf>] [12]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1028.
+[13]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1028.
 (./pdfcontent.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 613.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 613.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1028.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1028.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 )
 
 Here is how much of LuaTeX's memory you used:
- 26395 strings out of 480992
+ 26772 strings out of 480992
  100000,1144653 words of node,token memory allocated
- 563 words of node memory still in use:
-   6 hlist, 2 vlist, 2 rule, 4 glue, 4 kern, 1 glyph, 10 attribute, 61 glue_spec
-, 10 attribute_list, 1 write, 1 user_defined nodes
-   avail lists: 1:2,2:560,3:125,4:108,5:300,6:53,7:4059,8:17,9:243,10:11,11:225
- 43071 multiletter control sequences out of 65536+600000
- 83 fonts using 9466747 bytes
- 59i,20n,116p,10132b,570s stack positions out of 5000i,500n,10000p,200000b,100000s
+ 602 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 3 glue, 4 kern, 1 glyph, 10 attribute, 69 glue_spec
+, 10 attribute_list, 1 write, 1 user_defined, 1 pdf_action nodes
+   avail lists: 1:2,2:1066,3:245,4:280,5:276,6:50,7:3152,8:16,9:303,10:12,11:222
+ 43398 multiletter control sequences out of 65536+600000
+ 88 fonts using 9838303 bytes
+ 59i,20n,116p,10132b,639s stack positions out of 5000i,500n,10000p,200000b,100000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/te
 xlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/texlive/2020/texm
 f-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2020/texmf-dist/font
@@ -1022,13 +1085,14 @@ lic/lm/lmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr12
 cal/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2
 020/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texlive/2020/texmf-dis
 t/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2020/texmf-dist/fonts/typ
-e1/public/lm/lmro10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/l
-m/lmtt10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt9.pfb
->
-Output written on pdfcontent.pdf (8 pages, 908327 bytes).
+e1/public/lm/lmri9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm
+/lmro10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtk10.pfb
+></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/loca
+l/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
+Output written on pdfcontent.pdf (13 pages, 333349 bytes).
 
-PDF statistics: 173 PDF objects out of 1000 (max. 8388607)
- 139 compressed objects within 2 object streams
- 29 named destinations out of 1000 (max. 131072)
+PDF statistics: 228 PDF objects out of 1000 (max. 8388607)
+ 192 compressed objects within 2 object streams
+ 42 named destinations out of 1000 (max. 131072)
  49 words of extra memory for PDF output out of 10000 (max. 100000000)
 

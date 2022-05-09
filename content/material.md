@@ -20,6 +20,8 @@ title: "Course material"
 |   [11](#s11)  | May 12, 2022 | Simple Linear Regression | [Slides](slides/T11-SimpleLinearRegression.pdf)         |
 |   [13](#s13)  | May 19, 2022 | Multiple Linear Regression | [Slides](slides/T13-MultipleLinearRegression.pdf)         |
 |   [14](#s14)  | June 1, 2022 | Sampling Theory | [Slides](slides/T14-SamplingTheory.pdf)         |
+|   [15](#s15)  | June 2, 2022 | Bootstrap | [Slides](slides/T15-Bootstrap.pdf)  
+
 
 ## Session 1: Introduction and installation {#s1}
 
@@ -229,10 +231,6 @@ The practical exercise for this topic can be found
 - [Slides](slides/T10-ModelsIntro.pdf)
 - [Guess the correlation browser game](http://guessthecorrelation.com/)
 
-### Mandatory readings
-
-- TBD
-
 ## Session 11: Simple linear regression {#s11} 
 
 - [Slides](slides/T11-SimpleLinearRegression.pdf)
@@ -270,6 +268,21 @@ TBD
 ### Exercises
 
 TBD
+
+## Session 15: Bootstrapping and confidence intervals {#s15} 
+
+- [Slides](slides/T15-Bootstrap.pdf)
+- [T15-SemesterSample.csv](files/T15-SemesterSample.csv)
+- Lecture scripts from the session and exercise solutions
+
+### Mandatory readings
+
+- [Statistical Inference via Data Science, Chapter 8: Bootstrapping and Confidence Intervals](https://moderndive.com/8-confidence-intervals.html) 
+
+### Exercises
+
+TBD
+
 
 
 
