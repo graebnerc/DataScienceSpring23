@@ -199,7 +199,7 @@ learnr::run_tutorial(
 - [Slides](slides/T9-RMarkdown.pdf)
 - [DesasterMarkdown.pdf](files/DesasterMarkdown.pdf)
 - [NicerMarkdown.pdf](files/NicerMarkdown.pdf)
-- [Code for the markdown desaster](https://gist.github.com/graebnerc/6d268af56e00909efffc372c1a5da1c3)
+- [Code for the markdown desaster and a possible solution](https://gist.github.com/graebnerc/6d268af56e00909efffc372c1a5da1c3)
 
 ### Mandatory readings
 
