@@ -14,15 +14,16 @@ title: "Course material"
 |   [5](#s5)  | April 6, 2022| Advanced object types | [Slides](slides/T5-AdvObjects.pdf)           |
 |   [6](#s6)  | April 7, 2022 | Visualization I     | [Slides](slides/T6-Visualization.pdf)           |
 |   [7](#s7)  | April 27, 2022 | Projects and data import  | [Slides](slides/T7-ProjectSetup.pdf)           |
-|   [8](#s8)  | April 28, 2022 | Data wrangling I         | [Slides](slides/T8-DataWrangling.pdf)           |
-|   [9](#s9)  | May 4, 2022 | R Markdown | [Slides](slides/T9-RMarkdown.pdf)         |
-|   [10](#s10)  | May 5, 2022 | Intro models | [Slides](slides/T10-ModelsIntro.pdf)         |
-|   [11](#s11)  | May 12, 2022 | Simple Linear Regression | [Slides](slides/T11-SimpleLinearRegression.pdf)         |
-|   [13](#s13)  | May 19, 2022 | Multiple Linear Regression | [Slides](slides/T13-MultipleLinearRegression.pdf)         |
-|   [14](#s14)  | June 1, 2022 | Sampling Theory | [Slides](slides/T14-SamplingTheory.pdf)         |
-|   [15](#s15)  | June 2, 2022 | Bootstrap | [Slides](slides/T15-Bootstrap.pdf)  
-|   [16](#s16)  | June 2, 2022 | Hypothesis Testing | [Slides](slides/T16-HypothesisTesting.pdf)  
-
+|   [8](#s8)  | April 28 and May 4, 2022 | Data wrangling I         | [Slides](slides/T8-DataWrangling.pdf)           |
+|   [9](#s9)  | May 5, 2022 | R Markdown | [Slides](slides/T9-RMarkdown.pdf)         |
+|   [10](#s10)  | May 12, 2022 | Intro models | [Slides](slides/T10-ModelsIntro.pdf)         |
+|   [11](#s11)  | May 19, 2022 | Simple Linear Regression | [Slides](slides/T11-SimpleLinearRegression.pdf)         |
+|   [12](#s12)  | June 1, 2022 | Multiple Linear Regression | [Slides](slides/T13-MultipleLinearRegression.pdf)         |
+|   [13](#s13)  | June 2, 2022 | Sampling Theory | [Slides](slides/T14-SamplingTheory.pdf)         |
+|   [14](#s14)  | June 9, 2022 | Bootstrap | [Slides](slides/T15-Bootstrap.pdf)  
+|   [16](#s16)  | June 16, 2022 | Hypothesis Testing | [Slides](slides/T16-HypothesisTesting.pdf)  
+|   [17](#s17)  | June 22, 2022 | Regression diagnostics | [Slides](slides/T17-RegressionDiagnostics.pdf)  
+|   [18](#s18)  | June 23, 2022 | Supervised and unsupervised machine learning | [Slides](slides/T18-MachineLearning.pdf)  
 
 ## Session 1: Introduction and installation {#s1}
 
@@ -232,6 +233,19 @@ The practical exercise for this topic can be found
 - [Slides](slides/T10-ModelsIntro.pdf)
 - [Guess the correlation browser game](http://guessthecorrelation.com/)
 
+After installing (and updating) the `DataScienceExercises`-package 
+(as described [here](/post/using-exercises/)), run the following command 
+from within your R session:
+
+### Exercises
+
+```
+learnr::run_tutorial(
+  name = "Models", 
+  package = "DataScienceExercises", 
+  shiny_args=list("launch.browser"=TRUE))
+```
+
 ## Session 11: Simple linear regression {#s11} 
 
 - [Slides](slides/T11-SimpleLinearRegression.pdf)
@@ -242,9 +256,9 @@ The practical exercise for this topic can be found
 
 ### Exercises
 
-TBD
+TBA
 
-## Session 13: Multiple linear regression {#s13} 
+## Session 12: Multiple linear regression {#s12} 
 
 - [Slides](slides/T13-MultipleLinearRegression.pdf)
 
@@ -256,7 +270,7 @@ TBD
 
 TBD
 
-## Session 14: Sampling theory {#s14} 
+## Session 13: Sampling theory {#s13} 
 
 - [Slides](slides/T14-SamplingTheory.pdf)
 - Lecture scripts from the session and exercise solutions
@@ -270,7 +284,7 @@ TBD
 
 TBD
 
-## Session 15: Bootstrapping and confidence intervals {#s15} 
+## Session 14: Bootstrapping and confidence intervals {#s14} 
 
 - [Slides](slides/T15-Bootstrap.pdf)
 - [T15-SemesterSample.csv](files/T15-SemesterSample.csv)
