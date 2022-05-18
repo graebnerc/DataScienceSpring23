@@ -89,51 +89,63 @@
 </tr>
 <tr>
 <td style="text-align:center"><a href="#s8">8</a></td>
-<td style="text-align:left">April 28, 2022</td>
+<td style="text-align:left">April 28 and May 4, 2022</td>
 <td style="text-align:left">Data wrangling I</td>
 <td style="text-align:center"><a href="slides/T8-DataWrangling.pdf">Slides</a></td>
 </tr>
 <tr>
 <td style="text-align:center"><a href="#s9">9</a></td>
-<td style="text-align:left">May 4, 2022</td>
+<td style="text-align:left">May 5, 2022</td>
 <td style="text-align:left">R Markdown</td>
 <td style="text-align:center"><a href="slides/T9-RMarkdown.pdf">Slides</a></td>
 </tr>
 <tr>
 <td style="text-align:center"><a href="#s10">10</a></td>
-<td style="text-align:left">May 5, 2022</td>
+<td style="text-align:left">May 12, 2022</td>
 <td style="text-align:left">Intro models</td>
 <td style="text-align:center"><a href="slides/T10-ModelsIntro.pdf">Slides</a></td>
 </tr>
 <tr>
 <td style="text-align:center"><a href="#s11">11</a></td>
-<td style="text-align:left">May 12, 2022</td>
+<td style="text-align:left">May 19, 2022</td>
 <td style="text-align:left">Simple Linear Regression</td>
 <td style="text-align:center"><a href="slides/T11-SimpleLinearRegression.pdf">Slides</a></td>
 </tr>
 <tr>
-<td style="text-align:center"><a href="#s13">13</a></td>
-<td style="text-align:left">May 19, 2022</td>
+<td style="text-align:center"><a href="#s12">12</a></td>
+<td style="text-align:left">June 1, 2022</td>
 <td style="text-align:left">Multiple Linear Regression</td>
 <td style="text-align:center"><a href="slides/T13-MultipleLinearRegression.pdf">Slides</a></td>
 </tr>
 <tr>
-<td style="text-align:center"><a href="#s14">14</a></td>
-<td style="text-align:left">June 1, 2022</td>
+<td style="text-align:center"><a href="#s13">13</a></td>
+<td style="text-align:left">June 2, 2022</td>
 <td style="text-align:left">Sampling Theory</td>
 <td style="text-align:center"><a href="slides/T14-SamplingTheory.pdf">Slides</a></td>
 </tr>
 <tr>
-<td style="text-align:center"><a href="#s15">15</a></td>
-<td style="text-align:left">June 2, 2022</td>
+<td style="text-align:center"><a href="#s14">14</a></td>
+<td style="text-align:left">June 9, 2022</td>
 <td style="text-align:left">Bootstrap</td>
 <td style="text-align:center"><a href="slides/T15-Bootstrap.pdf">Slides</a></td>
 </tr>
 <tr>
 <td style="text-align:center"><a href="#s16">16</a></td>
-<td style="text-align:left">June 2, 2022</td>
+<td style="text-align:left">June 16, 2022</td>
 <td style="text-align:left">Hypothesis Testing</td>
 <td style="text-align:center"><a href="slides/T16-HypothesisTesting.pdf">Slides</a></td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="#s17">17</a></td>
+<td style="text-align:left">June 22, 2022</td>
+<td style="text-align:left">Regression diagnostics</td>
+<td style="text-align:center"><a href="slides/T17-RegressionDiagnostics.pdf">Slides</a></td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="#s18">18</a></td>
+<td style="text-align:left">June 23, 2022</td>
+<td style="text-align:left">Supervised and unsupervised machine learning</td>
+<td style="text-align:center"><a href="slides/T18-MachineLearning.pdf">Slides</a></td>
 </tr>
 </tbody>
 </table>
@@ -317,6 +329,15 @@ from within your R session:</p>
 <li><a href="slides/T10-ModelsIntro.pdf">Slides</a></li>
 <li><a href="http://guessthecorrelation.com/">Guess the correlation browser game</a></li>
 </ul>
+<p>After installing (and updating) the <code>DataScienceExercises</code>-package
+(as described <a href="/post/using-exercises/">here</a>), run the following command
+from within your R session:</p>
+<h3 id="exercises-7">Exercises</h3>
+<pre><code>learnr::run_tutorial(
+  name = &quot;Models&quot;, 
+  package = &quot;DataScienceExercises&quot;, 
+  shiny_args=list(&quot;launch.browser&quot;=TRUE))
+</code></pre>
 <h2 id="s11">Session 11: Simple linear regression</h2>
 <ul>
 <li><a href="slides/T11-SimpleLinearRegression.pdf">Slides</a></li>
@@ -325,9 +346,9 @@ from within your R session:</p>
 <ul>
 <li><a href="https://moderndive.com/5-regression.html">Statistical Inference via Data Science, Chapter 5: Basic regression</a></li>
 </ul>
-<h3 id="exercises-7">Exercises</h3>
-<p>TBD</p>
-<h2 id="s13">Session 13: Multiple linear regression</h2>
+<h3 id="exercises-8">Exercises</h3>
+<p>TBA</p>
+<h2 id="s12">Session 12: Multiple linear regression</h2>
 <ul>
 <li><a href="slides/T13-MultipleLinearRegression.pdf">Slides</a></li>
 </ul>
@@ -335,9 +356,9 @@ from within your R session:</p>
 <ul>
 <li><a href="https://moderndive.com/6-multiple-regression.html">Statistical Inference via Data Science, Chapter 6: Multiple regression</a></li>
 </ul>
-<h3 id="exercises-8">Exercises</h3>
+<h3 id="exercises-9">Exercises</h3>
 <p>TBD</p>
-<h2 id="s14">Session 14: Sampling theory</h2>
+<h2 id="s13">Session 13: Sampling theory</h2>
 <ul>
 <li><a href="slides/T14-SamplingTheory.pdf">Slides</a></li>
 <li>Lecture scripts from the session and exercise solutions</li>
@@ -347,9 +368,9 @@ from within your R session:</p>
 <li><a href="https://moderndive.com/7-sampling.html">Statistical Inference via Data Science, Chapter 7: Sampling</a></li>
 <li><a href="/post/mcs/">Tutorial: Monte Carlo Simulations in R</a></li>
 </ul>
-<h3 id="exercises-9">Exercises</h3>
+<h3 id="exercises-10">Exercises</h3>
 <p>TBD</p>
-<h2 id="s15">Session 15: Bootstrapping and confidence intervals</h2>
+<h2 id="s14">Session 14: Bootstrapping and confidence intervals</h2>
 <ul>
 <li><a href="slides/T15-Bootstrap.pdf">Slides</a></li>
 <li><a href="files/T15-SemesterSample.csv">T15-SemesterSample.csv</a></li>
@@ -359,7 +380,7 @@ from within your R session:</p>
 <ul>
 <li><a href="https://moderndive.com/8-confidence-intervals.html">Statistical Inference via Data Science, Chapter 8: Bootstrapping and Confidence Intervals</a></li>
 </ul>
-<h3 id="exercises-10">Exercises</h3>
+<h3 id="exercises-11">Exercises</h3>
 <p>TBD</p>
 <h2 id="s16">Session 16: Hypothesis testing</h2>
 <ul>
@@ -370,7 +391,7 @@ from within your R session:</p>
 <ul>
 <li><a href="https://moderndive.com/9-hypothesis-testing.html">Statistical Inference via Data Science, Chapter 9: Hypothesis Testing</a></li>
 </ul>
-<h3 id="exercises-11">Exercises</h3>
+<h3 id="exercises-12">Exercises</h3>
 <p>TBD</p>
 
 </main>
