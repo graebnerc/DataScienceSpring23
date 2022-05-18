@@ -219,7 +219,7 @@ from within your R session:
 
 ```
 learnr::run_tutorial(
-  name = "Wrangling1", 
+  name = "RMarkdown", 
   package = "DataScienceExercises", 
   shiny_args=list("launch.browser"=TRUE))
 ```
