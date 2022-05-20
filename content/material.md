@@ -239,9 +239,13 @@ from within your R session:
 
 ### Exercises
 
+After installing (and updating) the `DataScienceExercises`-package 
+(as described [here](/post/using-exercises/)), run the following command 
+from within your R session:
+
 ```
 learnr::run_tutorial(
-  name = "Models", 
+  name = "LinearRegression1", 
   package = "DataScienceExercises", 
   shiny_args=list("launch.browser"=TRUE))
 ```
@@ -256,7 +260,12 @@ learnr::run_tutorial(
 
 ### Exercises
 
-TBA
+```
+learnr::run_tutorial(
+  name = "ProjectOrga", 
+  package = "DataScienceExercises", 
+  shiny_args=list("launch.browser"=TRUE))
+```
 
 ## Session 12: Multiple linear regression {#s12} 
 
