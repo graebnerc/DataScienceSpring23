@@ -253,6 +253,7 @@ learnr::run_tutorial(
 ## Session 11: Simple linear regression {#s11} 
 
 - [Slides](slides/T11-SimpleLinearRegression.pdf)
+- [Lecture scripts from the session and exercise solutions](https://gist.github.com/graebnerc/d61da231fbc479434476fab221157536)
 
 ### Mandatory readings
 
