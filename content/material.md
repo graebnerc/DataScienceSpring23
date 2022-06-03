@@ -278,7 +278,12 @@ learnr::run_tutorial(
 
 ### Exercises
 
-TBD
+```
+learnr::run_tutorial(
+  name = "LinearRegression2", 
+  package = "DataScienceExercises", 
+  shiny_args=list("launch.browser"=TRUE))
+```
 
 ## Session 13: Sampling theory {#s13} 
 
