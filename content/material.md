@@ -245,7 +245,7 @@ from within your R session:
 
 ```
 learnr::run_tutorial(
-  name = "LinearRegression1", 
+  name = "Models", 
   package = "DataScienceExercises", 
   shiny_args=list("launch.browser"=TRUE))
 ```
@@ -263,7 +263,7 @@ learnr::run_tutorial(
 
 ```
 learnr::run_tutorial(
-  name = "ProjectOrga", 
+  name = "LinearRegression1", 
   package = "DataScienceExercises", 
   shiny_args=list("launch.browser"=TRUE))
 ```
