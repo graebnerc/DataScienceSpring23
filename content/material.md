@@ -271,6 +271,7 @@ learnr::run_tutorial(
 ## Session 12: Multiple linear regression {#s12} 
 
 - [Slides](slides/T13-MultipleLinearRegression.pdf)
+- [Lecture notes and solutions to exercises](https://gist.github.com/graebnerc/4a9e5bb95459d8ada31f43141976efe8)
 
 ### Mandatory readings
 
@@ -288,7 +289,7 @@ learnr::run_tutorial(
 ## Session 13: Sampling theory {#s13} 
 
 - [Slides](slides/T14-SamplingTheory.pdf)
-- Lecture scripts from the session and exercise solutions
+- [Lecture scripts from the session and exercise solutions](https://gist.github.com/graebnerc/822ddd3e0d316aae9dda7b5afbe11685)
 
 ### Mandatory readings
 
