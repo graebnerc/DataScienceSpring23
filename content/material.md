@@ -14,16 +14,14 @@ title: "Course material"
 |   [5](#s5)  | April 6, 2022| Advanced object types | [Slides](slides/T5-AdvObjects.pdf)           |
 |   [6](#s6)  | April 7, 2022 | Visualization I     | [Slides](slides/T6-Visualization.pdf)           |
 |   [7](#s7)  | April 27, 2022 | Projects and data import  | [Slides](slides/T7-ProjectSetup.pdf)           |
-|   [8](#s8)  | April 28 and May 4, 2022 | Data wrangling I         | [Slides](slides/T8-DataWrangling.pdf)           |
-|   [9](#s9)  | May 5, 2022 | R Markdown | [Slides](slides/T9-RMarkdown.pdf)         |
-|   [10](#s10)  | May 12, 2022 | Intro models | [Slides](slides/T10-ModelsIntro.pdf)         |
-|   [11](#s11)  | May 19, 2022 | Simple Linear Regression | [Slides](slides/T11-SimpleLinearRegression.pdf)         |
-|   [12](#s12)  | June 1, 2022 | Multiple Linear Regression | [Slides](slides/T13-MultipleLinearRegression.pdf)         |
-|   [13](#s13)  | June 2, 2022 | Sampling Theory | [Slides](slides/T14-SamplingTheory.pdf)         |
-|   [14](#s14)  | June 9, 2022 | Bootstrap | [Slides](slides/T15-Bootstrap.pdf)  
-|   [16](#s16)  | June 16, 2022 | Hypothesis Testing | [Slides](slides/T16-HypothesisTesting.pdf)  
-|   [17](#s17)  | June 22, 2022 | Regression diagnostics | [Slides](slides/T17-RegressionDiagnostics.pdf)  
-|   [18](#s18)  | June 23, 2022 | Supervised and unsupervised machine learning | [Slides](slides/T18-MachineLearning.pdf)  
+|   [8](#s8s9)  | April 28 and May 4, 2022 | Data wrangling I         | [Slides](slides/T8-DataWrangling.pdf)           |
+|   [10](#s10)  | May 5, 2022 | R Markdown | [Slides](slides/T9-RMarkdown.pdf)         |
+|   [11](#s11)  | May 12, 2022 | Intro models | [Slides](slides/T10-ModelsIntro.pdf)         |
+|   [12](#s12s13)  | May 18 and May 19, 2022 | Simple Linear Regression | [Slides](slides/T11-SimpleLinearRegression.pdf)         |
+|   [14](#s14s15)  | June 1 and June 2, 2022 | Multiple Linear Regression | [Slides](slides/T13-MultipleLinearRegression.pdf)         |
+|   [16](#s16s17)  | June 9 and 16, 2022 | Sampling Theory | [Slides](slides/T14-SamplingTheory.pdf)         |
+|   [18](#s18)  | June 22, 2022 | Bootstrap and confidence intervals | [Slides](slides/T15-Bootstrap.pdf)  
+|   [19](#s19)  | June 23, 2022 | Hypothesis testing | [Slides](slides/T16-HypothesisTesting.pdf)  |
 
 ## Session 1: Introduction and installation {#s1}
 
@@ -82,10 +80,6 @@ learnr::run_tutorial(
 
 ### Exercises
 
-After installing (and updating) the `DataScienceExercises`-package 
-(as described [here](/post/using-exercises/)), run the following command 
-from within your R session for the exercises on atomic vectors and lists:
-
 ```
 learnr::run_tutorial(
   name = "ObjectTypes1", 
@@ -105,10 +99,6 @@ learnr::run_tutorial(
 
 ### Exercises
 
-After installing (and updating) the `DataScienceExercises`-package 
-(as described [here](/post/using-exercises/)), run the following command 
-from within your R session for the exercises on atomic vectors and lists:
-
 ```
 learnr::run_tutorial(
   name = "ObjectTypes2", 
@@ -116,7 +106,7 @@ learnr::run_tutorial(
   shiny_args=list("launch.browser"=TRUE))
 ```
 
-## Session 6: Visualization I {#s6}
+## Session 6: Visualization {#s6}
 
 - [Slides](slides/T6-Visualization.pdf)
 - [Lecture notes](/notes/t5-visualization-lecture-notes/)
@@ -129,10 +119,6 @@ learnr::run_tutorial(
 - [ggplot2 cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf)
 
 ### Exercises
-
-After installing (and updating) the `DataScienceExercises`-package 
-(as described [here](/post/using-exercises/)), run the following command 
-from within your R session:
 
 ```
 learnr::run_tutorial(
@@ -153,10 +139,6 @@ learnr::run_tutorial(
 
 ### Exercises
 
-After installing (and updating) the `DataScienceExercises`-package 
-(as described [here](/post/using-exercises/)), run the following command 
-from within your R session:
-
 ```
 learnr::run_tutorial(
   name = "ProjectOrga", 
@@ -164,7 +146,7 @@ learnr::run_tutorial(
   shiny_args=list("launch.browser"=TRUE))
 ```
 
-## Session 8: Data wrangling I {#s8}
+## Sessions 8 & 9: Data wrangling {#s8s9}
 
 - [Slides](slides/T8-DataWrangling.pdf)
 - [Lecture notes](/notes/data-wrangling-lecture-notes/)
@@ -184,10 +166,6 @@ learnr::run_tutorial(
 
 ### Exercises
 
-After installing (and updating) the `DataScienceExercises`-package 
-(as described [here](/post/using-exercises/)), run the following command 
-from within your R session:
-
 ```
 learnr::run_tutorial(
   name = "Wrangling1", 
@@ -195,7 +173,7 @@ learnr::run_tutorial(
   shiny_args=list("launch.browser"=TRUE))
 ```
 
-## Session 9: R Markdown {#s9} 
+## Session 10: R Markdown {#s10} 
 
 - [Slides](slides/T9-RMarkdown.pdf)
 - [DesasterMarkdown.pdf](files/DesasterMarkdown.pdf)
@@ -214,10 +192,6 @@ learnr::run_tutorial(
 
 ### Exercises
 
-After installing (and updating) the `DataScienceExercises`-package 
-(as described [here](/post/using-exercises/)), run the following command 
-from within your R session:
-
 ```
 learnr::run_tutorial(
   name = "RMarkdown", 
@@ -228,7 +202,7 @@ learnr::run_tutorial(
 The practical exercise for this topic can be found 
 [here](/post/rmarkdown-exercises/).
 
-## Session 10: Modelling data {#s10} 
+## Session 11: Modelling data {#s11} 
 
 - [Slides](slides/T10-ModelsIntro.pdf)
 - [Guess the correlation browser game](http://guessthecorrelation.com/)
@@ -250,7 +224,7 @@ learnr::run_tutorial(
   shiny_args=list("launch.browser"=TRUE))
 ```
 
-## Session 11: Simple linear regression {#s11} 
+## Sessions 12 & 13: Simple linear regression {#s12s13} 
 
 - [Slides](slides/T11-SimpleLinearRegression.pdf)
 - [Lecture scripts from the session and exercise solutions](https://gist.github.com/graebnerc/d61da231fbc479434476fab221157536)
@@ -268,7 +242,7 @@ learnr::run_tutorial(
   shiny_args=list("launch.browser"=TRUE))
 ```
 
-## Session 12: Multiple linear regression {#s12} 
+## Sessions 14 & 15: Multiple linear regression {#s14s15} 
 
 - [Slides](slides/T13-MultipleLinearRegression.pdf)
 - [Lecture notes and solutions to exercises](https://gist.github.com/graebnerc/4a9e5bb95459d8ada31f43141976efe8)
@@ -286,7 +260,7 @@ learnr::run_tutorial(
   shiny_args=list("launch.browser"=TRUE))
 ```
 
-## Session 13: Sampling theory {#s13} 
+## Sessions 16 & 17: Sampling theory {#s16s17} 
 
 - [Slides](slides/T14-SamplingTheory.pdf)
 - [Lecture scripts from the session and exercise solutions](https://gist.github.com/graebnerc/822ddd3e0d316aae9dda7b5afbe11685)
@@ -298,9 +272,14 @@ learnr::run_tutorial(
 
 ### Exercises
 
-TBD
+```
+learnr::run_tutorial(
+  name = "Sampling", 
+  package = "DataScienceExercises", 
+  shiny_args=list("launch.browser"=TRUE))
+```
 
-## Session 14: Bootstrapping and confidence intervals {#s14} 
+## Session 18: Bootstrapping and confidence intervals {#s18} 
 
 - [Slides](slides/T15-Bootstrap.pdf)
 - [T15-SemesterSample.csv](files/T15-SemesterSample.csv)
@@ -314,7 +293,7 @@ TBD
 
 TBD
 
-## Session 16: Hypothesis testing {#s16} 
+## Session 19: Hypothesis testing {#s19} 
 
 - [Slides](slides/T16-HypothesisTesting.pdf)
 - Lecture scripts from the session and exercise solutions
