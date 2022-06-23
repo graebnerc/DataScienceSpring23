@@ -19,9 +19,9 @@ title: "Course material"
 |   [11](#s11)  | May 12, 2022 | Intro models | [Slides](slides/T10-ModelsIntro.pdf)         |
 |   [12](#s12s13)  | May 18 and May 19, 2022 | Simple Linear Regression | [Slides](slides/T11-SimpleLinearRegression.pdf)         |
 |   [14](#s14s15)  | June 1 and June 2, 2022 | Multiple Linear Regression | [Slides](slides/T13-MultipleLinearRegression.pdf)         |
-|   [16](#s16s17)  | June 9 and 16, 2022 | Sampling Theory | [Slides](slides/T14-SamplingTheory.pdf)         |
-|   [18](#s18)  | June 22, 2022 | Bootstrap and confidence intervals | [Slides](slides/T15-Bootstrap.pdf)  
-|   [19](#s19)  | June 23, 2022 | Hypothesis testing | [Slides](slides/T16-HypothesisTesting.pdf)  |
+|   [16](#s16s17)  | June 9, 16 and 23, 2022 | Sampling Theory | [Slides](slides/T14-SamplingTheory.pdf)         |
+|   [A1](#A1)  | Omitted | Bootstrap and confidence intervals | [Slides](slides/T15-Bootstrap.pdf)  
+|   [A2](#A2)  | Omitted | Hypothesis testing | [Slides](slides/T16-HypothesisTesting.pdf)  |
 
 ## Session 1: Introduction and installation {#s1}
 
@@ -279,33 +279,19 @@ learnr::run_tutorial(
   shiny_args=list("launch.browser"=TRUE))
 ```
 
-## Session 18: Bootstrapping and confidence intervals {#s18} 
+## Session A1: Bootstrapping and confidence intervals (omitted) {#A1} 
 
 - [Slides](slides/T15-Bootstrap.pdf)
 - [T15-SemesterSample.csv](files/T15-SemesterSample.csv)
-- Lecture scripts from the session and exercise solutions
 
 ### Mandatory readings
 
 - [Statistical Inference via Data Science, Chapter 8: Bootstrapping and Confidence Intervals](https://moderndive.com/8-confidence-intervals.html) 
 
-### Exercises
-
-TBD
-
-## Session 19: Hypothesis testing {#s19} 
+## Session A2: Hypothesis testing (omitted) {#A2} 
 
 - [Slides](slides/T16-HypothesisTesting.pdf)
-- Lecture scripts from the session and exercise solutions
 
 ### Mandatory readings
 
 - [Statistical Inference via Data Science, Chapter 9: Hypothesis Testing](https://moderndive.com/9-hypothesis-testing.html) 
-
-### Exercises
-
-TBD
-
-
-
-
