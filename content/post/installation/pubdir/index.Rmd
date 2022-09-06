@@ -106,7 +106,8 @@ found on the web for the different Linux distributions.
 
 After you have completed the steps outlined below you are almost done: all
 what remains is to install the R packages we require over the course of the
-seminar. To this end, please consult the [respective Tutorial]().
+seminar. To this end, please consult the 
+[respective Tutorial](/post/installing-packages/).
 
 ## Install R 
 
@@ -150,7 +151,7 @@ you to install the software.
 
 In case R is already installed on your computer you should make sure that your
 version is more of less up to date. For our seminar you should use at least R
-version `R 4.0.4`. The version you are currently using is shown as soon as you
+version `R 4.1.2`. The version you are currently using is shown as soon as you
 start `R`. 
 
 Please note: if you installed R anew in the previous step, you do *not* need 
@@ -229,6 +230,9 @@ installation instructions provided.
 If you are on Mac and you are using Homebrew you may use 
 [this formula](https://formulae.brew.sh/cask/rstudio).
 
+If you want to update R-Studio, you just install it again. Please note that the
+**minimal version** for this seminar should be RStudio `2022.07.1+554`.
+
 ## Git
 
 Installing Git is straightforward, but the right approach depends on your OS.
@@ -282,5 +286,5 @@ Netlify to my Github account.
 
 Once you finished with installing all the relevant software described in this 
 post I recommend you continue directly with the second (and last) 
-[installation tutorial]() that assists you in installing the R packages required
-over the course of the semester.
+[installation tutorial](/post/installing-packages/) that assists you in 
+installing the R packages required over the course of the semester.
