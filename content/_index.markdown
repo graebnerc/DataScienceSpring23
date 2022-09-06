@@ -6,16 +6,14 @@ title: Home
 
 # Data science using R
 
-## An introduction to data science using R (spring semester 2022)
+## An introduction to data science using R (fall semester 2022/23)
 
 This is the website for the course 'An introduction to data science using R'
-taught at the Europa-Unviversity Flensburg in the spring semester 2022.
+taught at the Europa-University Flensburg in the fall semester 2022/23.
 
 All pages not under the root directory of the website are listed below. 
-This includes both posted tutorials and lecture notes. Note that the dates
-do not yet correspond to the session dates, but to the dates the content
-was posted.
-You can also visit the list of page of a single section,
+This includes both posted tutorials and lecture notes. 
+You can also visit the list of pages of a single section,
 e.g., [tutorials](/post/), or [lecture notes](/notes/).
 
-**Most recent posts:**
+**Content overview:**
