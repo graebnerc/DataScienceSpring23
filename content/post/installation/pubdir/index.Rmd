@@ -1,7 +1,7 @@
 ---
 title: 'Installation of the necessary software'
 author: 'Claudius Gräbner-Radkowitsch'
-date: '2022-03-01'
+date: '2022-09-06'
 slug: installation
 documentclass: scrartcl
 categories:

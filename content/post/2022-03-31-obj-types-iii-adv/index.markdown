@@ -1,10 +1,10 @@
 ---
 title: "Fundamental object types in R III:Factors, matrices, and data frames"
 author: Claudius Gräbner-Radkowitsch
-date: '2022-03-02'
+date: '2022-09-06'
 slug: object-types-adv
 categories: ["tutorial"]
-tags: []
+tags:  ["data types"]
 output: 
   html_document:
     theme: readable
