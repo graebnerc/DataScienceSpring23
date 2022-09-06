@@ -2,6 +2,8 @@
 title: "Course material"
 ---
 
+[Course outline](files/CourseDescription-DataScienceR-Fall22.pdf)
+
 # Slides and exercises
 
 
@@ -18,7 +20,7 @@ title: "Course material"
 |   [9](#s9)  | Nov 2, 2022| Quarto/R Markdown | Slides | `RMarkdown` |
 |   [10](#s10)  | Nov 3, 2022| Recap & practice | Slides |
 |   [11](#s11), 12  | Nov 16-17, 2022| Simple linear Regression I and II | [Slides](slides/T11T12-SimpleLinearRegression.pdf) | `LinearRegression1` | 
-|   [13](#s11), 14  | Nov 24 & 30, 2022| Multiple linear Regression I and II | [Slides](slides/T13T14-MultipleLinearRegression.pdf) | `LinearRegression2` | 
+|   [13](#s13), 14  | Nov 24 & 30, 2022| Multiple linear Regression I and II | [Slides](slides/T13T14-MultipleLinearRegression.pdf) | `LinearRegression2` | 
 |   [15](#s15)  | Dec 1, 2022| Regression diagnostics and sampling | Slides |
 |   [16](#s16)  | Dec 8, 2022| Recap and practice | Slides |
 
@@ -95,9 +97,9 @@ For more information on how to install and use the exercises, see the respective
 TBA
 
 
-## Session 6: Visualization {#6}
+## Session 6: Visualization {#s6}
 
-- [Lecture notes](/notes/t5-visualization-lecture-notes/)
+- [Lecture notes](/notes/visualization-lecture-notes/)
 
 ### Mandatory readings
 - [R for Data Science, Chapter 3: Data visualization](https://r4ds.had.co.nz/data-visualisation.html)
@@ -179,10 +181,10 @@ TBA
 - [Statistical Inference via Data Science, Chapter 5: Basic regression](https://moderndive.com/5-regression.html) 
 
 
-## Sessions 13 & 14: Multiple linear regression {#s14s15} 
-
-- [Slides](slides/T13-MultipleLinearRegression.pdf)
+## Sessions 13 & 14: Multiple linear regression {#s13} 
+<!--
 - [Lecture notes and solutions to exercises](https://gist.github.com/graebnerc/4a9e5bb95459d8ada31f43141976efe8)
+-->
 
 ### Mandatory readings
 
