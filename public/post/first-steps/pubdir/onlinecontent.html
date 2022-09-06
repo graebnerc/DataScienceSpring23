@@ -11,6 +11,7 @@
 
 <meta name="author" content="Claudius Gräbner-Radkowitsch" />
 
+<meta name="date" content="2022-09-06" />
 
 <title>First steps in R</title>
 
@@ -441,7 +442,7 @@ pre code {
 
 <h1 class="title toc-ignore">First steps in R</h1>
 <h4 class="author">Claudius Gräbner-Radkowitsch</h4>
-<h4 class="date">2/12/2022</h4>
+<h4 class="date">2022-09-06</h4>
 
 </div>
 
@@ -752,7 +753,7 @@ earlier package. You see this by calling the objects by name:</p>
 #&gt; {
 #&gt;     UseMethod(&quot;lead&quot;)
 #&gt; }
-#&gt; &lt;bytecode: 0x7fbd8cacf3f0&gt;
+#&gt; &lt;bytecode: 0x7f780898a3b8&gt;
 #&gt; &lt;environment: namespace:plm&gt;</code></pre>
 <p>The last line informs is about the fact that the function was defined
 in the package <code>plm</code>. If we now want to call the function
@@ -780,7 +781,7 @@ in the package <code>plm</code>. If we now want to call the function
 #&gt;     vec_c(vec_slice(inputs$x, -seq_len(n)), vec_rep(inputs$default, 
 #&gt;         n))
 #&gt; }
-#&gt; &lt;bytecode: 0x7fbd8cffc2c0&gt;
+#&gt; &lt;bytecode: 0x7f780913fb30&gt;
 #&gt; &lt;environment: namespace:dplyr&gt;</code></pre>
 <p>This can be very confusing. Thus, I <em>strongly recommend</em> to
 <em>always</em> use <code>::</code> when it comes to masking, no matter

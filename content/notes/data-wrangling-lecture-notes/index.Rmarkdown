@@ -1,7 +1,7 @@
 ---
 title: 'Data wrangling: Lecture notes'
 author: Claudius Gräbner-Radkowitsch
-date: '2022-04-20'
+date: '2022-09-06'
 slug: data-wrangling-lecture-notes
 categories:
   - notes
