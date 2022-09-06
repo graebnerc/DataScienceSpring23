@@ -1,7 +1,7 @@
 ---
 title: Monte Carlo Simulations in R
 author: Claudius Gräbner-Radkowitsch
-date: '2022-05-06'
+date: '2022-09-06'
 slug: mcs
 categories:
   - tutorial
