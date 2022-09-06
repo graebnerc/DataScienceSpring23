@@ -2,7 +2,7 @@
 title: 'Visualization: Lecture notes'
 author: Claudius Gräbner-Radkowitsch
 date: '2022-04-06'
-slug: T5-visualization-lecture-notes
+slug: visualization-lecture-notes
 categories:
   - notes
 tags:
