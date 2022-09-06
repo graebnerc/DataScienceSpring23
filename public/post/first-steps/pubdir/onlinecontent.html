@@ -447,14 +447,12 @@ pre code {
 
 <div id="TOC">
 <ul>
-<li><a href="#issue-commands-to-your-computer"><span class="toc-section-number">1</span> Issue commands to your
+<li><a href="#issue-commands-to-your-computer" id="toc-issue-commands-to-your-computer"><span class="toc-section-number">1</span> Issue commands to your
 computer</a></li>
-<li><a href="#objects-functions-and-assignments"><span class="toc-section-number">2</span> Objects, functions, and
+<li><a href="#objects-functions-and-assignments" id="toc-objects-functions-and-assignments"><span class="toc-section-number">2</span> Objects, functions, and
 assignments</a></li>
-<li><a href="#r-packages"><span class="toc-section-number">3</span> R
-packages</a></li>
-<li><a href="#taking-stock"><span class="toc-section-number">4</span>
-Taking stock</a></li>
+<li><a href="#r-packages" id="toc-r-packages"><span class="toc-section-number">3</span> R packages</a></li>
+<li><a href="#taking-stock" id="toc-taking-stock"><span class="toc-section-number">4</span> Taking stock</a></li>
 </ul>
 </div>
 
@@ -754,7 +752,7 @@ earlier package. You see this by calling the objects by name:</p>
 #&gt; {
 #&gt;     UseMethod(&quot;lead&quot;)
 #&gt; }
-#&gt; &lt;bytecode: 0x7fef5a872470&gt;
+#&gt; &lt;bytecode: 0x7fbd8cacf3f0&gt;
 #&gt; &lt;environment: namespace:plm&gt;</code></pre>
 <p>The last line informs is about the fact that the function was defined
 in the package <code>plm</code>. If we now want to call the function
@@ -782,7 +780,7 @@ in the package <code>plm</code>. If we now want to call the function
 #&gt;     vec_c(vec_slice(inputs$x, -seq_len(n)), vec_rep(inputs$default, 
 #&gt;         n))
 #&gt; }
-#&gt; &lt;bytecode: 0x7fef5b37dc88&gt;
+#&gt; &lt;bytecode: 0x7fbd8cffc2c0&gt;
 #&gt; &lt;environment: namespace:dplyr&gt;</code></pre>
 <p>This can be very confusing. Thus, I <em>strongly recommend</em> to
 <em>always</em> use <code>::</code> when it comes to masking, no matter

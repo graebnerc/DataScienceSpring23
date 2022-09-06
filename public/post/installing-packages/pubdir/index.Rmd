@@ -1,7 +1,7 @@
 ---
 title: "Installing R packages"
 author: "Claudius Gräbner-Radkowitsch"
-date: '2022-03-01'
+date: '2022-09-06'
 documentclass: scrartcl
 output: 
   html_document:

@@ -1,0 +1,50 @@
+\usepackage[utf8]{inputenc}
+
+\usepackage[T1]{fontenc}        % Tries to use Postscript Type 1 Fonts for better rendering
+\usepackage{lmodern} 			% Provides the Latin Modern Font which offers more glyphs than the default Computer Modern
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+% Allows to set units
+\usepackage[ugly]{units}        % Allows you to type units with correct spacing and font style. Usage: $\unit[100]{m}$ or $\unitfrac[100]{m}{s}$
+
+% Additional packages
+\usepackage{url}                % Lets you typeset urls. Usage: \url{http://...}
+\usepackage{breakurl}           % Enables linebreaks for urls
+\usepackage{xspace}             % Use \xpsace in macros to automatically insert space based on context. Usage: \newcommand{\es}{ESPResSo\xspace}
+\usepackage{xcolor}             % Obviously colors. Usage: \color{red} Red text
+\usepackage{booktabs}           % Nice rules for tables. Usage \begin{tabular}\toprule ... \midrule ... \bottomrule
+
+% Source code listings
+\usepackage{listings}           % Source Code Listings. Usage: \begin{lstlisting}...\end{lstlisting}
+\lstloadlanguages{python}       % Default highlighting set to "python"
+
+% Define colors
+\definecolor{eufblue}{RGB}{0,57,91}
+\definecolor{eufgrey}{RGB}{111,111,111}
+\definecolor{euflightblue}{RGB}{105,170,205}
+
+\setkomafont{disposition}{\color{eufblue}\bfseries}
+
+% Hyperlinks
+\usepackage{hyperref}
+\hypersetup{
+pdfauthor={Claudius Graebner-Radkowitsch}
+colorlinks=true,
+linkcolor=euflightblue,
+urlcolor=euflightblue
+}
+
+% Page design
+\usepackage[includehead,includefoot,top=2cm, bottom=1.5cm]{geometry}
+\usepackage[headsepline, footsepline]{scrlayer-scrpage}% sets page style scrheadings automatically % automark
+\pagestyle{scrheadings}
+\clearpairofpagestyles
+
+\ihead{Lecture notes: Visualization I}
+%\chead{Kopfzeile Mitte}
+\ohead{\pagemark} %
+%\ifoot{}
+\cfoot{\href{https://datascience-euf-fall22.netlify.app/}{\normalfont\color{eufblue}{Data science in R - Fall Semester 2022}}} % Fußzeile Mitte
+%\ofoot{Europa-University Flensburg} 
