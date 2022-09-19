@@ -2,89 +2,89 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Data Science (FaSe22)</title>
-    <link>https://dataanalytics-euf-fall22.netlify.app/tags/</link>
+    <link>https://datascience-euf-fall22.netlify.app/tags/</link>
     <description>Recent content in Tags on Data Science (FaSe22)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 06 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://dataanalytics-euf-fall22.netlify.app/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 06 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://datascience-euf-fall22.netlify.app/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>communication</title>
-      <link>https://dataanalytics-euf-fall22.netlify.app/tags/communication/</link>
+      <link>https://datascience-euf-fall22.netlify.app/tags/communication/</link>
       <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://dataanalytics-euf-fall22.netlify.app/tags/communication/</guid>
+      <guid>https://datascience-euf-fall22.netlify.app/tags/communication/</guid>
       <description></description>
     </item>
     
     <item>
       <title>data types</title>
-      <link>https://dataanalytics-euf-fall22.netlify.app/tags/data-types/</link>
+      <link>https://datascience-euf-fall22.netlify.app/tags/data-types/</link>
       <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://dataanalytics-euf-fall22.netlify.app/tags/data-types/</guid>
+      <guid>https://datascience-euf-fall22.netlify.app/tags/data-types/</guid>
       <description></description>
     </item>
     
     <item>
       <title>data wrangling</title>
-      <link>https://dataanalytics-euf-fall22.netlify.app/tags/data-wrangling/</link>
+      <link>https://datascience-euf-fall22.netlify.app/tags/data-wrangling/</link>
       <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://dataanalytics-euf-fall22.netlify.app/tags/data-wrangling/</guid>
+      <guid>https://datascience-euf-fall22.netlify.app/tags/data-wrangling/</guid>
       <description></description>
     </item>
     
     <item>
       <title>inference</title>
-      <link>https://dataanalytics-euf-fall22.netlify.app/tags/inference/</link>
+      <link>https://datascience-euf-fall22.netlify.app/tags/inference/</link>
       <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://dataanalytics-euf-fall22.netlify.app/tags/inference/</guid>
+      <guid>https://datascience-euf-fall22.netlify.app/tags/inference/</guid>
       <description></description>
     </item>
     
     <item>
       <title>installation</title>
-      <link>https://dataanalytics-euf-fall22.netlify.app/tags/installation/</link>
+      <link>https://datascience-euf-fall22.netlify.app/tags/installation/</link>
       <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://dataanalytics-euf-fall22.netlify.app/tags/installation/</guid>
+      <guid>https://datascience-euf-fall22.netlify.app/tags/installation/</guid>
       <description></description>
     </item>
     
     <item>
       <title>introduction</title>
-      <link>https://dataanalytics-euf-fall22.netlify.app/tags/introduction/</link>
+      <link>https://datascience-euf-fall22.netlify.app/tags/introduction/</link>
       <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://dataanalytics-euf-fall22.netlify.app/tags/introduction/</guid>
+      <guid>https://datascience-euf-fall22.netlify.app/tags/introduction/</guid>
       <description></description>
     </item>
     
     <item>
       <title>markdown</title>
-      <link>https://dataanalytics-euf-fall22.netlify.app/tags/markdown/</link>
+      <link>https://datascience-euf-fall22.netlify.app/tags/markdown/</link>
       <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://dataanalytics-euf-fall22.netlify.app/tags/markdown/</guid>
+      <guid>https://datascience-euf-fall22.netlify.app/tags/markdown/</guid>
       <description></description>
     </item>
     
     <item>
       <title>project management</title>
-      <link>https://dataanalytics-euf-fall22.netlify.app/tags/project-management/</link>
+      <link>https://datascience-euf-fall22.netlify.app/tags/project-management/</link>
       <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://dataanalytics-euf-fall22.netlify.app/tags/project-management/</guid>
+      <guid>https://datascience-euf-fall22.netlify.app/tags/project-management/</guid>
       <description></description>
     </item>
     
     <item>
       <title>visualization</title>
-      <link>https://dataanalytics-euf-fall22.netlify.app/tags/visualization/</link>
+      <link>https://datascience-euf-fall22.netlify.app/tags/visualization/</link>
       <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://dataanalytics-euf-fall22.netlify.app/tags/visualization/</guid>
+      <guid>https://datascience-euf-fall22.netlify.app/tags/visualization/</guid>
       <description></description>
     </item>
     

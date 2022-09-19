@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>exercises on Data Science (FaSe22)</title>
-    <link>https://dataanalytics-euf-fall22.netlify.app/categories/exercises/</link>
+    <link>https://datascience-euf-fall22.netlify.app/categories/exercises/</link>
     <description>Recent content in exercises on Data Science (FaSe22)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 06 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://dataanalytics-euf-fall22.netlify.app/categories/exercises/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 06 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://datascience-euf-fall22.netlify.app/categories/exercises/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>1.3 - Using exercises</title>
-      <link>https://dataanalytics-euf-fall22.netlify.app/post/using-exercises/</link>
+      <link>https://datascience-euf-fall22.netlify.app/post/using-exercises/</link>
       <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://dataanalytics-euf-fall22.netlify.app/post/using-exercises/</guid>
+      <guid>https://datascience-euf-fall22.netlify.app/post/using-exercises/</guid>
       <description>Download this post as PDF
 Read this post as HTML</description>
     </item>
     
     <item>
       <title>9 - R-Markdown exercises</title>
-      <link>https://dataanalytics-euf-fall22.netlify.app/post/rmarkdown-exercises/</link>
+      <link>https://datascience-euf-fall22.netlify.app/post/rmarkdown-exercises/</link>
       <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://dataanalytics-euf-fall22.netlify.app/post/rmarkdown-exercises/</guid>
+      <guid>https://datascience-euf-fall22.netlify.app/post/rmarkdown-exercises/</guid>
       <description>Create a new R-Markdown file where you set the title, date, and the author explicitly. Write a sample text that comprises&amp;hellip;
  &amp;hellip;at least one level 1 heading &amp;hellip;at least two level 2 headings &amp;hellip;a setup chunk that specifies that R code remains hidden by default &amp;hellip;one R chunk where both the output and the code is printed in the final document &amp;hellip;one R chunk that produces a simply ggplot object and where the code producing the plot is hidden  Then do the following:</description>
     </item>

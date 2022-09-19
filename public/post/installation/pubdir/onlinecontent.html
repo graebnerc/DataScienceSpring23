@@ -385,33 +385,35 @@ services:</p>
 <li>Github</li>
 <li>Netlify</li>
 </ul>
-<p>There is a separate tutorial on how to install the packages (a.k.a. R
-extenstions) that we are going to use over the semester. You go continue
-with this tutorial directly after you have complete this one.</p>
 <p>You will need to install the software and register for these services
-on your own. While we will use one session in the second week for joint
-troubleshooting, it is absolutely necessary that you do your best to
-install the software on your own before that date. To this end, this
-document is meant to provide you with all the information needed. If you
-have questions, <em>please use the Moodle forum</em>. It is very
-unlikely that you are the only person having a particular problem. Maybe
-others can already help you out, and if not all should benefit from the
-solution we find for your problem together.</p>
+on your own. While we will use one session for joint troubleshooting, it
+is absolutely necessary that you do your best to install the software on
+your own before that date. To this end, this document is meant to
+provide you with all the information needed. If you have questions,
+<em>please use the Moodle forum</em>. It is very unlikely that you are
+the only person having a particular problem. Maybe others can already
+help you out, and if not, all should benefit from the solution we find
+for your problem together.</p>
+<p>Please also note that there is a separate tutorial on how to install
+the packages (a.k.a. R extensions) that we are going to use over the
+semester. Its best to continue with this tutorial on <a href="/post/installing-packages/">installing the required R packages</a>
+directly after you have complete this one.</p>
 </div>
 <div id="an-overview-over-the-apps-and-services-we-will-be-using---and-why" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> An overview over the
 apps and services we will be using - and why</h1>
 <p><a href="https://www.r-project.org/">R</a> is the programming
 language we are using. Installing <code>R</code> basically gives your
-computer the ability to understand commands you will give to it using
-the language R. <a href="https://rstudio.github.io/">R-Studio</a> is an
-application that facilitates the development of R-Studio. It is a so
-called <em>Integrated Development Environment</em> (IDE). You may think
-of it as a fancy editor, which not only allows you to write programs in
-R using a more elaborated text editor, but simultaneously lets you
-preview the graphs you are designing or the reports you are writing.
-Because R-Studio facilitates the use of R, it is important to install R
-first, and then install R-Studio.</p>
+computer the ability to understand commands you will issue to it using
+the language <code>R</code>. <a href="https://rstudio.github.io/">R-Studio</a> is an application that
+facilitates the development of <code>R</code> code. It is a so called
+<em>Integrated Development Environment</em> (IDE). You may think of it
+as a fancy editor, which not only allows you to write programs in
+<code>R</code> using a more elaborated text editor, but simultaneously
+lets you preview the graphs you are designing, or the reports you are
+writing. Because R-Studio facilitates the use of <code>R</code>, it is
+important to install R <em>first</em>, and then install R-Studio
+<em>second</em>.</p>
 <p><a href="https://git-scm.com/">Git</a> is a so called <em>version
 control system</em> (VCS). It allows you to keep track of different
 versions of your scripts without saving them under different names. In
@@ -426,23 +428,24 @@ optional tutorials, though), it is important to install it since many
 user-written features of R are distributed in a way that relies on
 Git.</p>
 <p><a href="https://github.com/">Github</a> can be thought of as a
-server for Git. R is an open source programming language with a very
-active community. Many people are constantly developing new features for
-R. For instance, if a new prediction algorithm get developed, some
-people will soon write a so called <a href="https://r-pkgs.org/">R-package</a> that implements this algorithm
-in R. Then you as an R user can download this package and use the new
-algorithm. This way, R is unlikely to ever become outdated. Sine most
-developers use Git when developing the packages, they often distribute
-the programs in a way that aligns well with the use of Git. And the most
-prominent way is Github. Thus, you can see the source code for almost
-all R packages you will be using on Github. Github is free, and all you
-need is to register!</p>
+server for Git. <code>R</code> is an open source programming language
+with a very active community. Many people are constantly developing new
+features for <code>R</code>. For instance, if a new prediction algorithm
+get developed, some people will soon write a so called <a href="https://r-pkgs.org/">R-package</a> that implements this algorithm
+in <code>R</code>. Then you as an R user can download this package and
+use the new algorithm. This way, <code>R</code> is unlikely to ever
+become outdated. Since most developers use Git when developing the
+packages, they often distribute the programs in a way that aligns well
+with the use of Git. And the most prominent way is Git<em>hub</em>.
+Thus, you can view the source code for almost all <code>R</code>
+packages you will be using via Github. Github is free, and all you need
+is to register!</p>
 <p>The final service we will be using is <a href="https://www.netlify.com/">Netlify</a>. It is an easy way to
 publish reports and host small websites. We will use it such that you
 can create reproducible reports and present them in a visually appealing
-way. Given the ease of use it is a great tool if you want to polish your
-results up visually and send them to friends or colleagues who might not
-even use R themselves.</p>
+way. Given the ease of use, it is a great tool if you want to polish
+your results up visually and send them to friends or colleagues who
+might not even use R themselves.</p>
 </div>
 <div id="installation-guidelines" class="section level1" number="3">
 <h1><span class="header-section-number">3</span> Installation
@@ -450,16 +453,25 @@ guidelines</h1>
 <p>The information in this tutorial is provided for Mac OS, Windows, and
 Linux. Given the variety of different Linux distributions the comments
 on the latter are rather short. There are, however, plenty explanations
-to be found on the web for the different Linux distributions.</p>
+to be found on the web for many different Linux distributions.</p>
 <p>After you have completed the steps outlined below you are almost
 done: all what remains is to install the R packages we require over the
 course of the seminar. To this end, please consult the <a href="/post/installing-packages/">respective Tutorial</a>.</p>
 <div id="install-r" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Install R</h2>
 <p>The installation of <code>R</code> is very similar across operating
-systems (OS). The easiest way is to visit the <a href="https://www.r-project.org/">R Homepage</a> and too download the
+systems (OS). The easiest way is to visit the <a href="https://www.r-project.org/">R Homepage</a> and to download the
 most recent version for your OS. In case you are using Mac OS and want
 to use Homebrew, its best to use <a href="https://github.com/sethrfore/homebrew-r-srf">this formula</a>.</p>
+<p><strong>Important for Mac user:</strong> There are different versions
+of <code>R</code> for Intel chips, and Apple chips (M1, M2, etc.). It is
+very important that you install the correct version. If you are not sure
+whether your Mac contains a chip from Intel or Apple, click on the Apple
+symbol in the upper left of the screen, then click on
+<code>About this Mac</code> and you can see which processor your Mac is
+using in the new window. If you have an Apple chip, always install R for
+the so called <code>arm64</code> architecture. Intel chip users must use
+the <code>x86_64</code> architecture instead.</p>
 <div id="only-windows-install-rtools" class="section level3" number="3.1.1">
 <h3><span class="header-section-number">3.1.1</span> Only Windows:
 Install RTools</h3>
@@ -479,7 +491,7 @@ Line Developer Tools</h3>
 <p>The Command Line Developer Tools could be thought of as the Mac
 pendant to RTools. These allow you to build R packages from source
 (meaning, basically, you can use packages that are in early stages of
-distribution or packages that are not released on the official R
+distribution, or packages that are not released on the official R
 servers).</p>
 <p>The easiest way to install them is to open the App
 <code>Terminal</code>, and then to type</p>
@@ -579,7 +591,7 @@ instructions.</p>
 <div id="linux" class="section level3" number="3.4.3">
 <h3><span class="header-section-number">3.4.3</span> Linux</h3>
 <p>On <strong>Linux</strong> use you package manager. In most cases the
-name of the relevant package is <code>git-all</code>, so on Ubunto, for
+name of the relevant package is <code>git-all</code>, so on Ubuntu, for
 instance, you would install Git via
 <code>sudo apt install git-all</code>.</p>
 </div>
@@ -608,8 +620,11 @@ linked Netlify to my Github account.</p>
 <p>Once you finished with installing all the relevant software described
 in this post I recommend you continue directly with the second (and
 last) <a href="/post/installing-packages/">installation tutorial</a>
-that assists you in installing the R packages required over the course
-of the semester.</p>
+that assists you in installing the <code>R</code> packages required over
+the course of the semester.</p>
+<p>And, by the way, if this installation process seems frustrating to
+you: don’t worry, its the only time during the semester you need to
+install anything;)</p>
 </div>
 <div class="footnotes footnotes-end-of-document">
 <hr />

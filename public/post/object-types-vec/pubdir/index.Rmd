@@ -48,11 +48,11 @@ for more advanced types of vectors, such as `factor`, `matrix`, and `data.frame`
 
 # Vectors
 
-Vectors are the most important object type in R - almost all data that we will
-work with in R are vectors of some sort. Within the class of vectors, the most
+Vectors are the most important object type in `R` - almost all data that we will
+work with in `R` are vectors of some sort. Within the class of vectors, the most
 important distinction is that between **atomic vectors** and **lists**, which
 are sometimes also called *generic vectors*.^[The only object type that is
-of relevance to use aside these two is `NULL`. We will learn about it during
+of relevance to us aside these two is `NULL`. We will learn about it during
 the end of this post.]
 Both atomic vectors and lists consist of one or more other objects. What 
 distinguishes the two is that while
@@ -66,27 +66,27 @@ that the type of atomic vector is the type of the object it encompasses.
 Four major types of atomic vectors in this sense exist:
 
 * `logical` (logical values): there are only two relevant logical values: 
-`TRUE` und `FALSE`^[While you can abbrevate the two with `T` and `F`, respectively,
-I recommend against using these sometimes ambiguous abbrevations.]
+`TRUE` und `FALSE`^[While you can abbreviate the two with `T` and `F`, respectively,
+I recommend against using these sometimes ambiguous abbreviations.]
 * `integer` (whole numbers): this type should be self-explanatory. Less 
-intuitive is the rule that in order to define an integer in R you need to type
+intuitive is the rule that in order to define an integer in `R` you need to type
 the number followed by the letter `L` such that `R` interprets the number 
 as an integer.^[This syntax has historical reasons: when the type `integer`
-was introduced in R, the developers were guided by the type `long integer` of
+was introduced in `R`, the developers were guided by the type `long integer` of
 the programming language `C`. In `C` the suffix for such an integer was 'l' or
-'L'. The R developers just transferred this practice into R, only they 
+'L'. The R developers just transferred this practice into `R`, only they 
 did not use 'i' to avoid a possible confusion between 'l' and 'i', which look
-very similar in many fonts (the suffix 'i' in R is used for the imaginary
+very similar in many fonts (the suffix 'i' in `R` is used for the imaginary
 component of complex numbers).] Examples are `1L`, `-400L` or `10L`.  
 * `double` (decimal numbers): these should be self-explanatory as well. 
 Examples are `1.5`, `0.0`, or `-500.32`.
 * Whole and decimal numbers are often summarized in the category `numeric`.
 However, the use of `numeric` is almost always confusing, and many functions 
-show unintuitive behavior when this category is used. I recommend you to never
-use it.
+show counter-intuitive behavior when this category is used. I recommend you to 
+never use it.
 * `character` (words): these can contain all kinds of tokens and are characterized
-by the fact that they always start and end with `"`. Examples would be
-`"Hello"`, `"500"` oder `"1_2_Three"`.
+by the fact that they always start and end with `"` (or `'`). Examples would be
+`"Hello"`, `"500"` or `"1_2_Three"`.
 
 As indicated above, an atomic vector only comprises elements of the same type.
 In this context, we should mention, however, the at first sight 'strange' 
@@ -95,18 +95,18 @@ kinds of missing values, such as `NA_integer_` or `NA_character_`, but they are
 irrelevant in practice: any `NA` value in an atomic vector automatically 
 'mimics' the type of the atomic vector.]
 whenever an element of a vector is missing, e.g. when the vector is used to 
-store observations of subjects, and for some subjects the observation is 
+store observations of subjects that have participated in an experiment, and 
+for some subjects the observation is 
 missing, we will use `NA`.^[`NULL` on the other hand, is used to represent an 
 absent vector, not an absent element of a vector. We will come back to `NULL` 
-during the end of
-the post.]
+during the end of the post.]
 
 ### Testing and coercing types 
 
 In the following we will study the different types of atomic vectors and their
 typical behavior in more detail. But before doing so we should introduce the 
 function `typeof()`: it helps us to identify the type of an object in the first 
-place.. To see how lets call the function with the object (or the name of the
+place. To see how, lets call the function with the object (or the name of the
 object) we are interested about:
 
 ```{r}
@@ -157,7 +157,7 @@ Such a transformation is, however, not always possible:
 as.double("Hello")
 ```
 
-Since R does not know how to turn the word 'Hello' into a decimal number, 
+Since `R` does not know how to turn the word 'Hello' into a decimal number, 
 it transforms it into a 'missing value' - `NA`.
 
 For the basic types discussed above there is a logical hierarchy of feasible
@@ -170,7 +170,7 @@ vice versa.
 > Data types are extremely important for a programming language because 
 otherwise it would remain unclear how mathematical operations could be 
 applied to different objects such as numbers or words.
-You will transform objects yourself especially if you want to use a certain 
+You will transform objects yourself especially when you want to use a certain 
 operation that is only defined for a certain type of object, and the object
 you are dealing with has been stored as a different type.
 This can happen, for example, when you read in data or translate words into 
@@ -202,7 +202,7 @@ y <- FALSE
 as.integer(y)
 ```
 
-Since it is not always clear when R issues a warning for transformations
+Since it is not always clear when `R` issues a warning for transformations
 that are incompatible with the hierarchy just introduced and when it does not, 
 you should always be cautious!
 
@@ -226,7 +226,7 @@ print(z)
 Such implicit changes of the object properties do not necessary come with a 
 warning message, so one should always be careful when transforming objects!
 
-In many cases, function do the necessary transformations of their arguments
+In many cases, functions do the necessary transformations of their arguments
 automatically. In most cases this is very practical:
 
 ```{r}
@@ -237,12 +237,13 @@ typeof(z)
 ```
 
 But it can be dangerous in some cases as well.
+
 When adding up logical values they are transformed to numbers:
 
 ```{r}
 x <- TRUE
 y <- FALSE
-z <- x + y # TRUE wird zu 1, FALSE zu 0
+z <- x + y # TRUE counts as 1, FALSE as 0
 print(z) 
 ```
 
@@ -270,7 +271,7 @@ NULL      | `is.null`      | `as.null`      |
 
 A final remark on **scalars**:
 with scalar we usually refer to 'single numbers', such as `2`.
-There is no such concept in R: `2` is a vector with one elements 
+There is no such concept in R: `2` is a vector with one element 
 (or: of length 1).
 Thus, we do not distinguish the type of a vector with or more than one
 elements.
@@ -287,13 +288,13 @@ x
 We can also use this function to concatenate vectors:
 
 ```{r}
-x <- 1:3 # Shortcut für: x <- c(1, 2, 3)
+x <- 1:3 # Shortcut for: x <- c(1, 2, 3)
 y <- 4:6
 z <- c(x, y)
 z
 ```
 
-Since atomic vectos can only contain objects of the same type, one might expect
+Since atomic vectors can only contain objects of the same type, one might expect
 the following code, which tries to concatenate objects of different types, to
 produce an error:
 
@@ -302,9 +303,10 @@ x <- c(1, "Hallo")
 ```
 
 But this is not what happens! R transforms the objects according to the 
-hierarchy discussed above:  `logical` &rarr; `integer` &rarr; `double` &rarr; `character`. 
-Due to the absence of errors or warning messagse, such operations are often
-an important source for mistakes.
+hierarchy discussed above:  
+`logical` &rarr; `integer` &rarr; `double` &rarr; `character`. 
+Due to the absence of errors or warning messages, such operations are a
+regular source for mistakes.
 
 **Note:** The length of a vector corresponds to its numbers of elements. We
 can 'measure' its length using the function `length()`:
@@ -337,7 +339,8 @@ numbers in this type is, however, the risk of a loss of precision. If you
 want to avoid this you could try to save an integer as a 64 bit integer.
 This possibility has been added to R later to save large numbers as integers
 (something that happens faster than you think).
-To do so we must use the package^[We will learn about packages in later session.]
+To do so we must use the package^[If you are not sure what a package is, 
+recap the last chapter of the post on [first steps in R](/post/first-steps/).]
 `bit64`:
 
 ```{r, warning=TRUE}
@@ -345,7 +348,7 @@ z <- bit64::as.integer64(2147483648)
 bit64::is.integer64(z)
 ```
 
-> Because this is a data type that has been added to R later, several functions
+> Because this is a data type that has been added to `R` later, several functions
 do not work with 64-bit integers if the package `bit64` is not installed. 
 Moreover, several standard functions return very irritating outputs:
 
@@ -354,7 +357,7 @@ typeof(z)
 ```
 
 > For this reason, and because `bit64` is not part of the standard installation
-of R you should avoid storing large numbers as `integer64` whenever possible.
+of `R`, you should avoid storing large numbers as `integer64` whenever possible.
 Very large numbers should be stored as `double` or, when precision is a serious
 issue, you should scale them down and then save them as `integer`.
 
@@ -364,9 +367,7 @@ The logical values `TRUE` and `FALSE` are often the result of logical
 operations, such as 'Is 2 larger than 1?'.
 Such logical operations occur very frequently and its a good idea to familiarize
 yourself with the logical operators. You can find an overview in the following
-table.
-
-Table: (\#tab:logicaloperators) Zentrale logische Abfragen in R.
+table:
 
 | Operator | Function in R | Example  |
 |:--------:|:-------------:|:---------|
@@ -492,7 +493,7 @@ Recycling is useful, but sometimes it can be harmful, namely when you think
 that you are using two vectors of the same length, but this is actually not
 the case. In such a case recycling leads to the fact that 
 no error message is printed and the fact that the two vectors are not of the
-same length remains concealed. An example of this is the following code, in which
+same length remains unnoticed An example of this is the following code, in which
 the intention is clearly to connect all weekdays to numbers and one weekday was
 simply forgotten:
 
@@ -505,7 +506,7 @@ paste(days, day_names)
 ### Missing values and NULL
 
 As indicated above, missing values are encoded as `NA`. This is particularly 
-useful in statistical context, where are particular element of a vector cannot
+useful in statistical contexts, where are particular element of a vector cannot
 simply be removed if it is unavailable.
 
 > **Example:** The vector `x` contains a logical value that indicates whether a
@@ -542,7 +543,7 @@ print(
 ```
 
 Whenever an operation yields a value that cannot be defined, the result is
-no `NA` but `NaN` (*not a number*):
+not `NA` but `NaN` (*not a number*):
 
 ```{r}
 0 / 0
@@ -654,7 +655,7 @@ print(y)
 ```
 
 If we want to specify the desired length of the resulting vector and let 
-R choose the necessary space between the elements, we better use `length.out`:
+`R` choose the necessary space between the elements, we may use `length.out`:
 
 ```{r}
 z <- seq(2, 8, length.out = 4)
@@ -663,7 +664,7 @@ print(z)
 
 And if we want to create a vector with the length as another vector,
 the argument `along.with` comes in handy. This is often used for creating
-index vectors.^ [An index vector `x` to any vector
+index vectors.^[An index vector `x` to any vector
 `y` with `N` elements contains the integers from 1 to `N`. The *n*th value
 of x thus corresponds to the index of the *n*th value of `y`.]
 In such a case we do not have to specify the index numbers
@@ -681,8 +682,8 @@ x <- rep(NA, 5)
 print(x)
 ```
 
-**Operations**
 
+**Operations**
 
 There are a number of operations that we use very frequently together with vectors.
 Often we are interested in the **length** of a vector. 
@@ -693,7 +694,7 @@ x <- c(1,2,3,4)
 length(x)
 ```
 
-If we are looking for the **largest** and **smalles** value of a vector we can
+If we are looking for the **largest** and **smallest** value of a vector we can
 use `min()` and `max()`:
 
 ```{r}
@@ -718,8 +719,8 @@ min(y, na.rm = TRUE)
 ```
 
 
-The **mean** or the **variance/standard deviation** of the elemtns can be 
-computed with `mean()`, `var()`, bzw. `sd()`, all of which have also the
+The **mean** or the **variance/standard deviation** of the elements can be 
+computed with `mean()`, `var()`, and `sd()`, all of which have also the
 optional argument`na.rm`:
 
 ```{r}
@@ -742,6 +743,7 @@ sum(x)
 ```{r}
 prod(y, na.rm = T)
 ```
+
 
 ## Lists
 
@@ -787,7 +789,7 @@ names(l_2)
 
 There are two very important differences in the handling of vectors and lists:
 
-1. Vectorization does not work for list
+1. Vectorization does not work for lists
 2. Indexing works differently
 
 The first issue can be illustrated easily:
@@ -818,7 +820,7 @@ the context of atomic vectors:
 l_1[[2]]
 ```
 
-Then to extract an elemtn of this vector we can chain the brackets:
+To extract an element of this vector we can chain the brackets:
 
 ```{r}
 l_1[[2]][3]
@@ -837,5 +839,5 @@ Lists are fundamental to many more complex structures that we will encounter
 later. They are more flexible than atomic vectors, but this flexibility also
 makes them more difficult to use and less efficient for tasks where this 
 flexibility is not needed. As a rule of thumb, whenever you can represent 
-something as an atomic vector, you should do so. For using lists, you should 
-always have a good reason.
+something as an atomic vector, you should do so. You should always have a good
+reason for using lists!

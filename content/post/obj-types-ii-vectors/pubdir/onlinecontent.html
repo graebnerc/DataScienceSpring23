@@ -478,11 +478,11 @@ for more advanced types of vectors, such as <code>factor</code>,
 </div>
 <div id="vectors" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> Vectors</h1>
-<p>Vectors are the most important object type in R - almost all data
-that we will work with in R are vectors of some sort. Within the class
-of vectors, the most important distinction is that between
-<strong>atomic vectors</strong> and <strong>lists</strong>, which are
-sometimes also called <em>generic vectors</em>.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> Both atomic vectors
+<p>Vectors are the most important object type in <code>R</code> - almost
+all data that we will work with in <code>R</code> are vectors of some
+sort. Within the class of vectors, the most important distinction is
+that between <strong>atomic vectors</strong> and <strong>lists</strong>,
+which are sometimes also called <em>generic vectors</em>.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> Both atomic vectors
 and lists consist of one or more other objects. What distinguishes the
 two is that while <em>atomic vectors are composed only of objects of the
 same type</em>, lists can comprise objects of different types.</p>
@@ -496,38 +496,39 @@ encompasses. Four major types of atomic vectors in this sense exist:</p>
 logical values: <code>TRUE</code> und <code>FALSE</code><a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></li>
 <li><code>integer</code> (whole numbers): this type should be
 self-explanatory. Less intuitive is the rule that in order to define an
-integer in R you need to type the number followed by the letter
-<code>L</code> such that <code>R</code> interprets the number as an
-integer.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>
-Examples are <code>1L</code>, <code>-400L</code> or
-<code>10L</code>.<br />
+integer in <code>R</code> you need to type the number followed by the
+letter <code>L</code> such that <code>R</code> interprets the number as
+an integer.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> Examples are <code>1L</code>,
+<code>-400L</code> or <code>10L</code>.<br />
 </li>
 <li><code>double</code> (decimal numbers): these should be
 self-explanatory as well. Examples are <code>1.5</code>,
 <code>0.0</code>, or <code>-500.32</code>.</li>
 <li>Whole and decimal numbers are often summarized in the category
 <code>numeric</code>. However, the use of <code>numeric</code> is almost
-always confusing, and many functions show unintuitive behavior when this
-category is used. I recommend you to never use it.</li>
+always confusing, and many functions show counter-intuitive behavior
+when this category is used. I recommend you to never use it.</li>
 <li><code>character</code> (words): these can contain all kinds of
 tokens and are characterized by the fact that they always start and end
-with <code>&quot;</code>. Examples would be <code>&quot;Hello&quot;</code>,
-<code>&quot;500&quot;</code> oder <code>&quot;1_2_Three&quot;</code>.</li>
+with <code>&quot;</code> (or <code>&#39;</code>). Examples would be
+<code>&quot;Hello&quot;</code>, <code>&quot;500&quot;</code> or
+<code>&quot;1_2_Three&quot;</code>.</li>
 </ul>
 <p>As indicated above, an atomic vector only comprises elements of the
 same type. In this context, we should mention, however, the at first
 sight ‘strange’ data type <code>NA</code>, which denotes a missing
 value:<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>
 whenever an element of a vector is missing, e.g. when the vector is used
-to store observations of subjects, and for some subjects the observation
-is missing, we will use <code>NA</code>.<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a></p>
+to store observations of subjects that have participated in an
+experiment, and for some subjects the observation is missing, we will
+use <code>NA</code>.<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a></p>
 <div id="testing-and-coercing-types" class="section level3" number="2.1.1">
 <h3><span class="header-section-number">2.1.1</span> Testing and
 coercing types</h3>
 <p>In the following we will study the different types of atomic vectors
 and their typical behavior in more detail. But before doing so we should
 introduce the function <code>typeof()</code>: it helps us to identify
-the type of an object in the first place.. To see how lets call the
+the type of an object in the first place. To see how, lets call the
 function with the object (or the name of the object) we are interested
 about:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(2L)</span></code></pre></div>
@@ -565,8 +566,9 @@ call this process ‘coercion’ an the general syntax is
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.double</span>(<span class="st">&quot;Hello&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning: NAs introduced by coercion</code></pre>
 <pre><code>## [1] NA</code></pre>
-<p>Since R does not know how to turn the word ‘Hello’ into a decimal
-number, it transforms it into a ‘missing value’ - <code>NA</code>.</p>
+<p>Since <code>R</code> does not know how to turn the word ‘Hello’ into
+a decimal number, it transforms it into a ‘missing value’ -
+<code>NA</code>.</p>
 <p>For the basic types discussed above there is a logical hierarchy of
 feasible transformations: <code>logical</code> → <code>integer</code> →
 <code>double</code> → <code>character</code>, meaning that you can
@@ -576,13 +578,14 @@ always transform a decimal number into a word, but not vice versa.</p>
 anyway?</strong> Data types are extremely important for a programming
 language because otherwise it would remain unclear how mathematical
 operations could be applied to different objects such as numbers or
-words. You will transform objects yourself especially if you want to use
-a certain operation that is only defined for a certain type of object,
-and the object you are dealing with has been stored as a different type.
-This can happen, for example, when you read in data or translate words
-into numerical values yourself. If unexpected errors occur in your code
-with cryptic error messages, it is always a good idea to check the types
-of the objects used and transform them if necessary.</p>
+words. You will transform objects yourself especially when you want to
+use a certain operation that is only defined for a certain type of
+object, and the object you are dealing with has been stored as a
+different type. This can happen, for example, when you read in data or
+translate words into numerical values yourself. If unexpected errors
+occur in your code with cryptic error messages, it is always a good idea
+to check the types of the objects used and transform them if
+necessary.</p>
 </blockquote>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">2</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">as.character</span>(x)</span>
@@ -604,7 +607,7 @@ will come in handy later on:</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.integer</span>(y)</span></code></pre></div>
 <pre><code>## [1] 0</code></pre>
-<p>Since it is not always clear when R issues a warning for
+<p>Since it is not always clear when <code>R</code> issues a warning for
 transformations that are incompatible with the hierarchy just introduced
 and when it does not, you should always be cautious!</p>
 <p>Moreover, transformations might change the properties of the
@@ -621,18 +624,18 @@ unexpected rounding behavior:</p>
 <p>Such implicit changes of the object properties do not necessary come
 with a warning message, so one should always be careful when
 transforming objects!</p>
-<p>In many cases, function do the necessary transformations of their
+<p>In many cases, functions do the necessary transformations of their
 arguments automatically. In most cases this is very practical:</p>
 <div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> 1L <span class="co"># Integer</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fl">2.0</span> <span class="co"># Double</span></span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> x <span class="sc">+</span> y</span>
 <span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(z)</span></code></pre></div>
 <pre><code>## [1] &quot;double&quot;</code></pre>
-<p>But it can be dangerous in some cases as well. When adding up logical
-values they are transformed to numbers:</p>
+<p>But it can be dangerous in some cases as well.</p>
+<p>When adding up logical values they are transformed to numbers:</p>
 <div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> x <span class="sc">+</span> y <span class="co"># TRUE wird zu 1, FALSE zu 0</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> x <span class="sc">+</span> y <span class="co"># TRUE counts as 1, FALSE as 0</span></span>
 <span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(z) </span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 <p>This is useful if you want to know, for instance, how many elements
@@ -692,29 +695,29 @@ test functions:</p>
 </table>
 <p>A final remark on <strong>scalars</strong>: with scalar we usually
 refer to ‘single numbers’, such as <code>2</code>. There is no such
-concept in R: <code>2</code> is a vector with one elements (or: of
-length 1). Thus, we do not distinguish the type of a vector with or more
-than one elements.</p>
+concept in R: <code>2</code> is a vector with one element (or: of length
+1). Thus, we do not distinguish the type of a vector with or more than
+one elements.</p>
 <p><strong>Note:</strong> As you might have guessed already, we use the
 function <code>c()</code> to create longer vectors:</p>
 <div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
 <p>We can also use this function to concatenate vectors:</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span> <span class="co"># Shortcut für: x &lt;- c(1, 2, 3)</span></span>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span> <span class="co"># Shortcut for: x &lt;- c(1, 2, 3)</span></span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">6</span></span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">c</span>(x, y)</span>
 <span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>z</span></code></pre></div>
 <pre><code>## [1] 1 2 3 4 5 6</code></pre>
-<p>Since atomic vectos can only contain objects of the same type, one
+<p>Since atomic vectors can only contain objects of the same type, one
 might expect the following code, which tries to concatenate objects of
 different types, to produce an error:</p>
 <div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="st">&quot;Hallo&quot;</span>)</span></code></pre></div>
 <p>But this is not what happens! R transforms the objects according to
-the hierarchy discussed above: <code>logical</code> →
-<code>integer</code> → <code>double</code> → <code>character</code>. Due
-to the absence of errors or warning messagse, such operations are often
-an important source for mistakes.</p>
+the hierarchy discussed above:<br />
+<code>logical</code> → <code>integer</code> → <code>double</code> →
+<code>character</code>. Due to the absence of errors or warning
+messages, such operations are a regular source for mistakes.</p>
 <p><strong>Note:</strong> The length of a vector corresponds to its
 numbers of elements. We can ‘measure’ its length using the function
 <code>length()</code>:</p>
@@ -750,8 +753,8 @@ happens faster than you think). To do so we must use the package<a href="#fn7" c
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>bit64<span class="sc">::</span><span class="fu">is.integer64</span>(z)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <blockquote>
-<p>Because this is a data type that has been added to R later, several
-functions do not work with 64-bit integers if the package
+<p>Because this is a data type that has been added to <code>R</code>
+later, several functions do not work with 64-bit integers if the package
 <code>bit64</code> is not installed. Moreover, several standard
 functions return very irritating outputs:</p>
 </blockquote>
@@ -759,10 +762,11 @@ functions return very irritating outputs:</p>
 <pre><code>## [1] &quot;double&quot;</code></pre>
 <blockquote>
 <p>For this reason, and because <code>bit64</code> is not part of the
-standard installation of R you should avoid storing large numbers as
-<code>integer64</code> whenever possible. Very large numbers should be
-stored as <code>double</code> or, when precision is a serious issue, you
-should scale them down and then save them as <code>integer</code>.</p>
+standard installation of <code>R</code>, you should avoid storing large
+numbers as <code>integer64</code> whenever possible. Very large numbers
+should be stored as <code>double</code> or, when precision is a serious
+issue, you should scale them down and then save them as
+<code>integer</code>.</p>
 </blockquote>
 </div>
 <div id="logical-operations" class="section level3" number="2.1.2">
@@ -772,10 +776,8 @@ operations</h3>
 the result of logical operations, such as ‘Is 2 larger than 1?’. Such
 logical operations occur very frequently and its a good idea to
 familiarize yourself with the logical operators. You can find an
-overview in the following table.</p>
+overview in the following table:</p>
 <table>
-<caption>(#tab:logicaloperators) Zentrale logische Abfragen in
-R.</caption>
 <thead>
 <tr class="header">
 <th align="center">Operator</th>
@@ -930,9 +932,9 @@ but sometimes it can be harmful, namely when you think that you are
 using two vectors of the same length, but this is actually not the case.
 In such a case recycling leads to the fact that no error message is
 printed and the fact that the two vectors are not of the same length
-remains concealed. An example of this is the following code, in which
-the intention is clearly to connect all weekdays to numbers and one
-weekday was simply forgotten:</p>
+remains unnoticed An example of this is the following code, in which the
+intention is clearly to connect all weekdays to numbers and one weekday
+was simply forgotten:</p>
 </blockquote>
 <div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>days <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;Tag &quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>, <span class="st">&quot;:&quot;</span>, <span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
 <span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a>day_names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Monday&quot;</span>, <span class="st">&quot;Tuesday&quot;</span>, <span class="st">&quot;Wednesday&quot;</span>, <span class="st">&quot;Thursday&quot;</span>, <span class="st">&quot;Friday&quot;</span>, <span class="st">&quot;Saturday&quot;</span>)</span>
@@ -944,8 +946,9 @@ weekday was simply forgotten:</p>
 <h3><span class="header-section-number">2.1.5</span> Missing values and
 NULL</h3>
 <p>As indicated above, missing values are encoded as <code>NA</code>.
-This is particularly useful in statistical context, where are particular
-element of a vector cannot simply be removed if it is unavailable.</p>
+This is particularly useful in statistical contexts, where are
+particular element of a vector cannot simply be removed if it is
+unavailable.</p>
 <blockquote>
 <p><strong>Example:</strong> The vector <code>x</code> contains a
 logical value that indicates whether a person has correctly answered the
@@ -977,7 +980,7 @@ should always use the function <code>is.na</code>, never
 <span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <pre><code>## [1]  TRUE FALSE  TRUE FALSE</code></pre>
 <p>Whenever an operation yields a value that cannot be defined, the
-result is no <code>NA</code> but <code>NaN</code> (<em>not a
+result is not <code>NA</code> but <code>NaN</code> (<em>not a
 number</em>):</p>
 <div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span> <span class="sc">/</span> <span class="dv">0</span></span></code></pre></div>
 <pre><code>## [1] NaN</code></pre>
@@ -1057,18 +1060,15 @@ control the space between the numbers:</p>
 <pre><code>##  [1]  1.0  1.5  2.0  2.5  3.0  3.5  4.0  4.5  5.0  5.5  6.0  6.5  7.0  7.5  8.0
 ## [16]  8.5  9.0  9.5 10.0</code></pre>
 <p>If we want to specify the desired length of the resulting vector and
-let R choose the necessary space between the elements, we better use
-<code>length.out</code>:</p>
+let <code>R</code> choose the necessary space between the elements, we
+may use <code>length.out</code>:</p>
 <div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">2</span>, <span class="dv">8</span>, <span class="at">length.out =</span> <span class="dv">4</span>)</span>
 <span id="cb121-2"><a href="#cb121-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(z)</span></code></pre></div>
 <pre><code>## [1] 2 4 6 8</code></pre>
 <p>And if we want to create a vector with the length as another vector,
 the argument <code>along.with</code> comes in handy. This is often used
-for creating index vectors.^ [An index vector <code>x</code> to any
-vector <code>y</code> with <code>N</code> elements contains the integers
-from 1 to <code>N</code>. The <em>n</em>th value of x thus corresponds
-to the index of the <em>n</em>th value of <code>y</code>.] In such a
-case we do not have to specify the index numbers directly:</p>
+for creating index vectors.<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> In such a case we do not have to specify
+the index numbers directly:</p>
 <div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a>z_index <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">along.with =</span> z)</span>
 <span id="cb123-2"><a href="#cb123-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(z_index)</span></code></pre></div>
 <pre><code>## [1] 1 2 3 4</code></pre>
@@ -1085,8 +1085,8 @@ a vector. For this we can use the function <code>length()</code>:</p>
 <span id="cb127-2"><a href="#cb127-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(x)</span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
 <p>If we are looking for the <strong>largest</strong> and
-<strong>smalles</strong> value of a vector we can use <code>min()</code>
-and <code>max()</code>:</p>
+<strong>smallest</strong> value of a vector we can use
+<code>min()</code> and <code>max()</code>:</p>
 <div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(x)</span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 <div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(x)</span></code></pre></div>
@@ -1102,8 +1102,8 @@ applied:</p>
 <div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(y, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 <p>The <strong>mean</strong> or the <strong>variance/standard
-deviation</strong> of the elemtns can be computed with
-<code>mean()</code>, <code>var()</code>, bzw. <code>sd()</code>, all of
+deviation</strong> of the elements can be computed with
+<code>mean()</code>, <code>var()</code>, and <code>sd()</code>, all of
 which have also the optional argument<code>na.rm</code>:</p>
 <div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code></pre></div>
 <pre><code>## [1] 2.5</code></pre>
@@ -1148,7 +1148,7 @@ elements:</p>
 ##  $ : chr &quot;a&quot;
 ##  $ : num [1:3] 1 2 3
 ##  $ : logi FALSE</code></pre>
-<p>We can name the elements of lists:<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a></p>
+<p>We can name the elements of lists:<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a></p>
 <div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="#cb153-1" aria-hidden="true" tabindex="-1"></a>l_2 <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
 <span id="cb153-2"><a href="#cb153-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;first_element&quot;</span> <span class="ot">=</span> <span class="st">&quot;a&quot;</span>,</span>
 <span id="cb153-3"><a href="#cb153-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;second_element&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</span>
@@ -1161,7 +1161,7 @@ elements:</p>
 <p>There are two very important differences in the handling of vectors
 and lists:</p>
 <ol style="list-style-type: decimal">
-<li>Vectorization does not work for list</li>
+<li>Vectorization does not work for lists</li>
 <li>Indexing works differently</li>
 </ol>
 <p>The first issue can be illustrated easily:</p>
@@ -1183,8 +1183,7 @@ former always returns a list:</p>
 of <code>[</code> in the context of atomic vectors:</p>
 <div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="#cb162-1" aria-hidden="true" tabindex="-1"></a>l_1[[<span class="dv">2</span>]]</span></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
-<p>Then to extract an elemtn of this vector we can chain the
-brackets:</p>
+<p>To extract an element of this vector we can chain the brackets:</p>
 <div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="#cb164-1" aria-hidden="true" tabindex="-1"></a>l_1[[<span class="dv">2</span>]][<span class="dv">3</span>]</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
 <p>We can also extract elements by their name:</p>
@@ -1196,8 +1195,8 @@ brackets:</p>
 encounter later. They are more flexible than atomic vectors, but this
 flexibility also makes them more difficult to use and less efficient for
 tasks where this flexibility is not needed. As a rule of thumb, whenever
-you can represent something as an atomic vector, you should do so. For
-using lists, you should always have a good reason.</p>
+you can represent something as an atomic vector, you should do so. You
+should always have a good reason for using lists!</p>
 </div>
 </div>
 <div class="footnotes footnotes-end-of-document">
@@ -1206,20 +1205,21 @@ using lists, you should always have a good reason.</p>
 <li id="fn1"><p>In fact, we will learn below that <code>2</code> is not
 really a number, but a vector or length 1. Only in a next step,
 <code>2</code> counts as a ‘number’, or, more precisely as a ‘double’.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>The only object type that is of relevance to use aside
+<li id="fn2"><p>The only object type that is of relevance to us aside
 these two is <code>NULL</code>. We will learn about it during the end of
 this post.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p>While you can abbrevate the two with <code>T</code> and
+<li id="fn3"><p>While you can abbreviate the two with <code>T</code> and
 <code>F</code>, respectively, I recommend against using these sometimes
-ambiguous abbrevations.<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
+ambiguous abbreviations.<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
 <li id="fn4"><p>This syntax has historical reasons: when the type
-<code>integer</code> was introduced in R, the developers were guided by
-the type <code>long integer</code> of the programming language
-<code>C</code>. In <code>C</code> the suffix for such an integer was ‘l’
-or ‘L’. The R developers just transferred this practice into R, only
-they did not use ‘i’ to avoid a possible confusion between ‘l’ and ‘i’,
-which look very similar in many fonts (the suffix ‘i’ in R is used for
-the imaginary component of complex numbers).<a href="#fnref4" class="footnote-back">↩︎</a></p></li>
+<code>integer</code> was introduced in <code>R</code>, the developers
+were guided by the type <code>long integer</code> of the programming
+language <code>C</code>. In <code>C</code> the suffix for such an
+integer was ‘l’ or ‘L’. The R developers just transferred this practice
+into <code>R</code>, only they did not use ‘i’ to avoid a possible
+confusion between ‘l’ and ‘i’, which look very similar in many fonts
+(the suffix ‘i’ in <code>R</code> is used for the imaginary component of
+complex numbers).<a href="#fnref4" class="footnote-back">↩︎</a></p></li>
 <li id="fn5"><p>In principle there are different kinds of missing
 values, such as <code>NA_integer_</code> or <code>NA_character_</code>,
 but they are irrelevant in practice: any <code>NA</code> value in an
@@ -1227,13 +1227,19 @@ atomic vector automatically ‘mimics’ the type of the atomic vector.<a href="
 <li id="fn6"><p><code>NULL</code> on the other hand, is used to
 represent an absent vector, not an absent element of a vector. We will
 come back to <code>NULL</code> during the end of the post.<a href="#fnref6" class="footnote-back">↩︎</a></p></li>
-<li id="fn7"><p>We will learn about packages in later session.<a href="#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>If you are not sure what a package is, recap the last
+chapter of the post on <a href="/post/first-steps/">first steps in
+R</a>.<a href="#fnref7" class="footnote-back">↩︎</a></p></li>
 <li id="fn8"><p>We learn more about this later in the course when
 delving into the topic of <em>iteration</em>.<a href="#fnref8" class="footnote-back">↩︎</a></p></li>
 <li id="fn9"><p>For many common tasks there is already a predefined
 function in R. The easiest way to find them is by googling<a href="#fnref9" class="footnote-back">↩︎</a></p></li>
-<li id="fn10"><p>We can actually also do this with vectors, but it is
-more common in the context of lists.<a href="#fnref10" class="footnote-back">↩︎</a></p></li>
+<li id="fn10"><p>An index vector <code>x</code> to any vector
+<code>y</code> with <code>N</code> elements contains the integers from 1
+to <code>N</code>. The <em>n</em>th value of x thus corresponds to the
+index of the <em>n</em>th value of <code>y</code>.<a href="#fnref10" class="footnote-back">↩︎</a></p></li>
+<li id="fn11"><p>We can actually also do this with vectors, but it is
+more common in the context of lists.<a href="#fnref11" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 

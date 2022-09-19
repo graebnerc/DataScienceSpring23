@@ -460,7 +460,7 @@ assignments</a></li>
 <p>In this post we will learn about the basic <em>syntax</em> of R. The
 syntax basically refers to the grammatical rules you must adhere to when
 communicating with your computer in the language <code>R</code>: if you
-you do not follow the right syntax, i.e. you ‘speak’ gramatically
+do not follow the right syntax, i.e. you ‘speak’ grammatically
 incorrect, your computer will not understand you and communicate this to
 you by throwing up an error message.</p>
 <p>To learn about these important basics, the post follows the following
@@ -475,32 +475,36 @@ structure:</p>
 computer</h1>
 <p>There are two ways we can communicate with our computer in R Studio:
 either issuing commands directly via the <em>console</em>, or by
-executing a script.</p>
-<p>Lets start by using the console and use R as a simple calculator
-first: we first want to add the numbers <code>2</code>and
+executing a script.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+<p>Lets start by using the console and use <code>R</code> as a simple
+calculator first: we first want to add the numbers <code>2</code>and
 <code>5</code>. To this end, simply type <code>2 + 5</code> into the
 console and press <code>Enter</code>. Since the expression
-<code>2 + 5</code> is syntactically correct R code, the computer
-‘understands’ what we want from it and returns the result:</p>
+<code>2 + 5</code> is syntactically correct <code>R</code> code, the
+computer ‘understands’ what we want from it and returns the result:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">5</span></span></code></pre></div>
 <pre><code>#&gt; [1] 7</code></pre>
 <p>The <code>#&gt;</code> at the beginning of the line indicates that
 what is written on this line is the output of an R command (but the
 concrete sign might be different on your computer).</p>
-<p>The result of <code>2+5</code> is a number (more precisely: a
-‘scalar’). In R, scalars are always represented as a <em>vector</em> of
-length 1. The <code>[1]</code> here indicates that the first element on
-this line is the first element of the vector. If the result of our
-calculation was a very long vector that needs to span several lines, at
-the beginning of the next line R would show us the index of the first
-number displayed on this line.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
-<p>In this way we can use R as a simple calculator, because for all
-simple mathematical operations we can use certain symbols as operators.
-At this point it should be pointed out that the symbol <code>#</code> in
-R introduces a <em>comment</em>, that means everything in a line after
-<code>#</code> will be ignored by the computer and you can make notes in
-the code that only help <em>you</em> (or other humans) to understand
-what you have written.</p>
+<p>The result of <code>2 + 5</code> is a number (more precisely: a
+‘scalar’). In <code>R</code>, scalars are always represented as a
+<em>vector</em> of length 1. The <code>[1]</code> here indicates that
+the first element on this line is the first element of the vector. In
+the present case, the first element is the only element of the vector,
+since it contains only one element (which is what a scalar is in the
+first place in <code>R</code>: a vector with one element). If the result
+of our calculation was a very long vector that needs to span several
+lines, at the beginning of the next line R would show us the index of
+the first number displayed on this line.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
+<p>In this way we can use R as a simple calculator: all basic
+mathematical operations have their own symbol as operator, i.e. a signal
+token that tells the computer to implement a certain computation.</p>
+<p>At this point it should be pointed out that the symbol <code>#</code>
+in R introduces a <em>comment</em>, that means everything in a line
+after <code>#</code> will be ignored by the computer and you can make
+notes in the code that only help <em>you</em> (or other humans) to
+understand what you have written.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">5</span> <span class="co"># Addition</span></span></code></pre></div>
 <pre><code>#&gt; [1] 7</code></pre>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">/</span><span class="dv">2</span> <span class="co"># Division</span></span></code></pre></div>
@@ -509,14 +513,17 @@ what you have written.</p>
 <pre><code>#&gt; [1] 8</code></pre>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="sc">**</span><span class="dv">2</span> <span class="co"># Exponentiation</span></span></code></pre></div>
 <pre><code>#&gt; [1] 9</code></pre>
-<p>As an alternative to typing the commands into the console and then
-press <code>Enter</code> to execute them, we can write down the commands
-in a script, and then execute this script. While the interaction via the
-console is useful to test the effects of certain commands, scripts are
-useful if we want to develop more complex operations, and save what you
-have written for later, or to make them accessible to other people: we
-can save scripts as a file on our computer, and then use them later.</p>
-<p>The operations that we have conducted so far and not particularly
+<p>Comments are usually not very useful whenever you use the console to
+execute <code>R</code> code, but they come in handy when you are writing
+<em>scripts</em>: an alternative to typing the commands into the console
+and then press <code>Enter</code> to execute them, is to write down the
+commands in a script, and then to execute this script.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
+<p>While the interaction via the console is useful to test the effects
+of certain commands, scripts are useful whenever we want to develop more
+complex operations, and save what you have written for later, or to make
+them accessible to other people: we can save scripts as a file on our
+computer, and then use them any time in the future.</p>
+<p>The operations that we have conducted so far are not particularly
 exciting, to be honest. Before we proceed with more complex operations,
 however, we need to understand the ideas of <code>objects</code>,
 <code>functions</code>, and <code>assignments</code>.</p>
@@ -538,28 +545,29 @@ in the computation <code>2 + 3</code>, the number <code>2</code> is as
 much an object as the number <code>3</code> and the addition-function,
 which we call via the operator <code>+</code>.</p>
 <p>The statement ‘Everything that happens is a function call.’ means
-that whenever we tell our computer to do something via R, we are
-effectively calling a <em>function</em>.</p>
+that whenever we tell our computer to do something via <code>R</code>,
+we are effectively calling a <em>function</em>.</p>
 <p><strong>Functions</strong> are algorithms that apply certain routines
 to an <em>input</em> and produce an <em>output</em>. The addition
 function we called in the calculation <code>2 + 3</code> took as input
 the two numbers <code>2</code> and <code>3</code>, applied to them the
 addition routine and produced the number <code>5</code> as output. The
-output <code>5</code> is an object in R just like the inputs
-<code>2</code> and <code>3</code>, as well as the addition function.</p>
-<p>A ‘problem’ is that in the present case R prints the output of the
-calculation but we have no access to it afterwards:</p>
+output <code>5</code> is an object in <code>R</code> just like the
+inputs <code>2</code> and <code>3</code>, as well as the addition
+function.</p>
+<p>A ‘problem’ is that in the present case <code>R</code> prints the
+output of the calculation but we have no access to it afterwards:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span></span></code></pre></div>
 <pre><code>#&gt; [1] 5</code></pre>
 <p>It is stored, for some time, on the physical memory of our computer,
-but we basically have no way to find it. To address this problem we can
-issue an <em>assignment</em>: whenever we want to keep using the output
-of an operation, we may give the output a <em>name</em>. This name works
-effectively as a kind of pointer, which points to the place on the
-computer memory where the output is saved. This way, we can access, and
-reuse it whenever we call the name. The process of giving a name to an
-object is called <em>assignment</em>, and it is effectuated via the
-function <code>assign</code>:</p>
+but we basically have no idea where way to find it. To address this
+problem we can issue an <em>assignment</em>: whenever we want to keep
+using the output of an operation, we may give the output a
+<em>name</em>. This name works effectively as a kind of pointer, which
+points to the place on the computer memory where the output is saved.
+This way, we can access, and reuse it whenever we call the name. The
+process of giving a name to an object is called <em>assignment</em>, and
+it is effectuated via the function <code>assign</code>:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">assign</span>(<span class="st">&quot;intermediate_result&quot;</span>, <span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span>)</span></code></pre></div>
 <p>We explain the process of calling a function in more detail below.
 Here we focus on the process of assignment instead. What the function
@@ -571,16 +579,16 @@ the console and press <code>Enter</code>:</p>
 <pre><code>#&gt; [1] 5</code></pre>
 <p>Since making assignments happens so frequently in practice, there is
 a shortcut to the use of the function <code>assign</code>, namely the
-operator <code>&lt;-</code>. Thus, the following two commands to
+operator <code>&lt;-</code>. Thus, the following two commands do
 effectively the same thing:</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">assign</span>(<span class="st">&quot;intermediate_result&quot;</span>, <span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span>)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>intermediate_result <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span></span></code></pre></div>
 <p>From now on, we will only use the <code>&lt;-</code> operator, which
 also represents quite nicely the idea of assignments as pointers to
-certain objects.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
+certain objects.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p>
 <blockquote>
 <p><strong>Digression: why <code>&lt;-</code>?</strong> The use of the
-string <code>&lt;-</code> as an assignment operator is at first sight
+string <code>&lt;-</code> as an assignment operator is, at first sight,
 unintuitive, uncomfortable, and rather unique in the world of
 programming languages. Much more common is the use of <code>=</code>.
 Where does this particularity of R come from? Besides practical reasons
@@ -588,15 +596,15 @@ Where does this particularity of R come from? Besides practical reasons
 explicit the unidirectionality of an assignment – the main reason is
 historical: <code>R</code> originated from the programming language
 <code>S</code>. This in turn has taken over the <code>&lt;-</code> from
-the language <code>APL</code>. And APL, in turn, was developed on a
-keyboard layout, where <code>&lt;-</code> had its own key. Moreoever,
-since the operator <code>==</code> was not commonly used at that time,
-<code>=</code> was already assigned as test for equality (which, today,
-is basically always done by using <code>==</code>). And so one has
-decided to use <code>&lt;-</code> as an assignment operator and while
-since 2001 you can also make assignments in R using <code>=</code>,
-<code>&lt;-</code> remains strictly recommended for the sake of
-readability as well as some technicalities.</p>
+the language <code>APL</code>. And <code>APL</code>, in turn, was
+developed on a keyboard layout, where <code>&lt;-</code> had its own
+key. Moreoever, the operator <code>==</code> was not commonly used at
+that time and <code>=</code> was already used to test for equality
+(which, today, is basically always done by using <code>==</code>). And
+so one has decided to use <code>&lt;-</code> as an assignment operator
+and while since 2001 you can also make assignments in R using
+<code>=</code>, <code>&lt;-</code> remains strictly recommended for the
+sake of readability as well as some technicalities.</p>
 </blockquote>
 <p>You are not allowed to give names to objects as you wish. All
 syntactically correct names in R…</p>
@@ -606,7 +614,7 @@ syntactically correct names in R…</p>
 <li>do not start with <code>.</code> or a number</li>
 </ul>
 <p>Moreover, there are some reserved words that you must not (and
-cannot) use as names, e.g. <code>function</code>, <code>TRUE</code>, of
+cannot) use as names, e.g. <code>function</code>, <code>TRUE</code>, or
 <code>if</code>. You can have a look at the complete list of forbidden
 words by calling <code>?Reserved</code>.</p>
 <p>There is, however, nothing to remember since whenever you try to give
@@ -624,7 +632,7 @@ good name, <code>vector_2</code> not so much</li>
 <li>R is <em>case sensitive</em>, meaning that <code>mean_value</code>
 is a different name than <code>Mean_Value</code></li>
 <li>Even if this is possible you should never use names that are already
-used for function provided by R. For instance, an assignment such as
+used for functions provided by R. For instance, an assignment such as
 <code>assign &lt;- 2</code> is possible, but it effectively prevents you
 from using the function <code>assign</code> without further
 complications.</li>
@@ -662,40 +670,42 @@ return results after making an assignment:</p>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>#&gt; Error in eval(expr, envir, enclos): object &#39;x&#39; not found</code></pre>
 <p>You can remove all assignment by clicking on the broom in the upper
-right environment panel in R-Studio or by calling the following
-command:</p>
+right environment panel in <code>R</code>-Studio or by calling the
+following command:</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>())</span></code></pre></div>
 </div>
 <div id="r-packages" class="section level1" number="3">
 <h1><span class="header-section-number">3</span> R packages</h1>
-<p>Packages are a combination of R code, data, documentation and tests.
-They are the best way to create reproducible code and make it available
-to others.The fact that many people solve problems by developing
-routines, then generalizing them and making them freely available to the
-whole R community is one of the main reasons for success and wide
-applicability of R.</p>
+<p>Packages are a combination of <code>R</code> code, data,
+documentation and tests. They are the best way to create reproducible
+code and make it available to others.The fact that many people solve
+problems by developing routines, then generalizing them and making them
+freely available to the whole <code>R</code> community is one of the
+main reasons for the success and wide applicability of
+<code>R</code>.</p>
 <p>While packages are often made available to the public, e.g. via
 GitHub or CRAN, it is equally useful to write packages for private use,
 e.g. to write functions implementing certain routines that you use
 frequently across different projects, document them, and make them
-available too use in different projects.^ [<a href="https://r-pkgs.org/">Wickham and Bryan (2022)</a> provide an
-excellent introduction to the development of R packages].</p>
-<p>When one starts R on our computer we have access to a certain number
-of functions, predefined variables and data sets. The totality of these
-objects is usually called <code>base R</code>, because we can use all
-the functionalities easily immediately after installing R on our
+available to use in different projects.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>.</p>
+<p>When one starts <code>R</code> on our computer we have access to a
+certain number of functions, predefined variables, and data sets. The
+totality of these objects is usually called <code>base R</code>, because
+we can use all the functionalities immediately after installing R on our
 computer.</p>
-<p>The function <code>assign</code>, for example, is part of
+<p>The function <code>assign</code>, for instance, is part of
 <code>base R</code>: we start R and can use it without further ado.
 Other functions, such as <code>Gini()</code> are not part of
 <code>base R</code>: they were written by someone else, and before using
 them we need to install the package that contains the function
-definition on our computer.</p>
-<p>To use a package in R, it must first be installed. For packages that
-are available on the central R package platform CRAN, this is done with
-the function <code>install.packages()</code>.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> For example, if we
-want to install the package <code>ineq</code> this is done with the
-following command:</p>
+definition on our computer. The function <code>Gini()</code>, for
+instance, belongs to the package <code>ineq</code>.</p>
+<p>To use a package in <code>R</code>, it must first be installed. For
+packages that are available on the central <code>R</code> package
+platform CRAN, this is done with the function
+<code>install.packages()</code>.<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> For example, if we want to install the
+package <code>ineq</code> (which contains the function
+<code>Gini()</code>) this is done with the following command:</p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ineq&quot;</span>)</span></code></pre></div>
 <p>The package collects a number of functions that allow us to compute
 common inequality indicators, such as the Gini index.</p>
@@ -710,9 +720,9 @@ the operator <code>::</code>:</p>
 <code>::</code> and then the name of the object that we want to use. In
 this example we want to use the function <code>Gini()</code>, which
 computes the Gini index.</p>
-<p>If we ommited the <code>::</code>, R would not look into the package
-<code>ineq</code> and, therefore, was not able to find the function,
-returning an error:</p>
+<p>If we ommited the <code>::</code>, <code>R</code> did not look into
+the package <code>ineq</code> and, therefore, would not able to find the
+function, returning an error:</p>
 <div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">Gini</span>(x)</span></code></pre></div>
 <pre><code>#&gt; Error in Gini(x): could not find function &quot;Gini&quot;</code></pre>
 <p>Using <code>::</code> is the most transparent and safest way to
@@ -726,8 +736,8 @@ package by calling the function <code>library()</code>:</p>
 <p>This process is called <em>attaching a package</em>. For the sake of
 clarity, you should always add a call of <code>library()</code> for all
 packages used within a script <em>at the very top of the script</em>.
-This way you can see immediately which packages have to be installed for
-the script to work.</p>
+This way you can see immediately which packages must be installed such
+that the script works.</p>
 <p>In principle, only the packages that are actually used should be read
 into each script with <code>library()</code>. Otherwise you will
 unnecessarily load a lot of objects and lose track of where a certain
@@ -736,10 +746,10 @@ others to use the script because many packages have to be installed
 unnecessarily.</p>
 <p>Since packages are produced decentrally by a wide variety of people,
 there is a danger that objects in different packages get the same name.
-Since in R a name can only belong to one object, names may be
-overwritten or ‘masked’ when loading many packages. While R informs you
-about this happening when you attach a package, it is easily forgotten
-and can result in very cryptic error messages.</p>
+Since in <code>R</code> a name can only point to one object, names may
+be overwritten or ‘masked’ when loading many packages. While R informs
+you about this happening when you attach a package, it is easily
+forgotten and can result in very cryptic error messages.</p>
 <p>We will illustrate this briefly using the two packages
 <code>dplyr</code> and <code>plm</code>:</p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
@@ -753,7 +763,7 @@ earlier package. You see this by calling the objects by name:</p>
 #&gt; {
 #&gt;     UseMethod(&quot;lead&quot;)
 #&gt; }
-#&gt; &lt;bytecode: 0x7f7d511c9840&gt;
+#&gt; &lt;bytecode: 0x7f8ad0f30580&gt;
 #&gt; &lt;environment: namespace:plm&gt;</code></pre>
 <p>The last line informs is about the fact that the function was defined
 in the package <code>plm</code>. If we now want to call the function
@@ -781,12 +791,12 @@ in the package <code>plm</code>. If we now want to call the function
 #&gt;     vec_c(vec_slice(inputs$x, -seq_len(n)), vec_rep(inputs$default, 
 #&gt;         n))
 #&gt; }
-#&gt; &lt;bytecode: 0x7f7d51408a10&gt;
+#&gt; &lt;bytecode: 0x7f8ac0330470&gt;
 #&gt; &lt;environment: namespace:dplyr&gt;</code></pre>
 <p>This can be very confusing. Thus, I <em>strongly recommend</em> to
 <em>always</em> use <code>::</code> when it comes to masking, no matter
 whether it is stricly necessary or not. In this case, always use
-<code>plm::lead</code> and <code>dplyr::lead</code>, even it it is not
+<code>plm::lead</code> and <code>dplyr::lead</code>, even if it was not
 required in the first case. Otherwise, your code becomes very difficult
 to understand and breaks completely once you change the sequence of the
 library calls in the beginning.</p>
@@ -831,8 +841,8 @@ and assignments:</p>
 the console and press <code>Enter</code>, or (b) write the code into a
 script and then execute it</li>
 <li>Everything that <em>exists</em> in R is an <em>object</em>,
-everything that <em>happens</em> is a function call</li>
-<li>A function is an object, that takes an input, applies a certain
+everything that <em>happens</em> is a <em>function</em> call</li>
+<li>A function is an object that takes an input, applies a certain
 routine, and returns an output</li>
 <li>We can assign an object a name by using <code>&lt;-</code>. Then we
 can call this object by typing its name. The process of giving a name to
@@ -853,22 +863,31 @@ just type the following:</p>
 <div class="footnotes footnotes-end-of-document">
 <hr />
 <ol>
-<li id="fn1"><p>You may try this out by typing <code>1:100</code> into
+<li id="fn1"><p>If you do not know what the console is, you should have
+a look at the lecture slides from the <a href="/material/">Material
+section</a> again.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>You may try this out by typing <code>1:100</code> into
 your console and see what happens: this returns a vector of length 100,
-which certainly will contain some line breaks.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>In theory we can use <code>&lt;-</code> also the other
+which certainly will contain some line breaks.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>Again, the use of scripts has been explained in the
+lecture, so have a look at the slides (or the R-Studio cheat sheet) in
+the <a href="/material/">Material section</a>.<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>In theory we can use <code>&lt;-</code> also the other
 way around: <code>2 + 3 -&gt; intermediate_result</code>. At first sight
 this is more intuitive and respects the sequence of events: first, the
 result of <code>2 + 3</code> gets created, i.e. a new object gets
 defined. Then, this object gets the name
 <code>intermediate_result</code>. However, the code that results from
 such practice is usually much more difficult to read, so it is common
-practice to use <code>&lt;-</code> rather than <code>-&gt;</code>.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p>PAckages not released on this platform can also be
-installed directly from repository they were published, e.g. Github. To
-this end, the package <code>remotes</code> must be installed first, then
-you can use functions such as <code>install_github()</code>. A short
-manual is provided <a href="https://github.com/r-lib/remotes">here</a>.<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
+practice to use <code>&lt;-</code> rather than <code>-&gt;</code>.<a href="#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p><a href="https://r-pkgs.org/">Wickham and Bryan
+(2022)</a> provide an excellent introduction to the development of R
+packages<a href="#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>Packages not released on this platform can also be
+installed directly from the repository they were published, e.g. Github.
+To this end, the package <code>remotes</code> must be installed first,
+then you can use functions such as <code>install_github()</code>. A
+short manual is provided <a href="https://github.com/r-lib/remotes">here</a>.<a href="#fnref6" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 
