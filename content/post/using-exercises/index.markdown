@@ -1,5 +1,5 @@
 ---
-title: Using exercises
+title: "1.3 - Using exercises"
 author: Claudius Gräbner-Radkowitsch
 date: '2022-09-06'
 slug: using-exercises

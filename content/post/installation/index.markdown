@@ -1,5 +1,5 @@
 ---
-title: 'Installation of the necessary software'
+title: '1.1 - Installation of the necessary software'
 author: 'Claudius Gräbner-Radkowitsch'
 date: '2022-09-06'
 slug: installation

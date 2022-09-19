@@ -1,14 +1,8 @@
 ---
 title: Using exercises
 author: Claudius Gräbner-Radkowitsch
-date: '2022-03-01'
-slug: using-exercises
-categories:
-  - setup
-  - tutorial
-  - exercises
-tags:
-  - introduction
+date: '2022-09-06'
+documentclass: scrartcl
 output: 
   html_document:
     theme: readable
@@ -16,19 +10,26 @@ output:
     toc: true
     toc_depth: 2
     number_sections: true
+  pdf_document:
+    highlight: tango
+    toc: true
+    toc_depth: 2
+    number_sections: true
+    includes:
+      in_header: "preamble.tex"
 ---
 
 
 
 When learning a programming language, applying the new concepts regularly
 is absolutely essential. Without regular practice it is hard to impossible
-to remember everything you need to actually enjoy working with R.
+to remember everything you need to actually enjoy working with `R`.
 
 Therefore, I prepared a small set of exercises for each session that I 
 recommend you to do after the session. This will help you to remember what 
 you have learned and to find out what you did not understand well. I then urge
 you to post your problems on Moodle, to ask your colleagues and to help each
-other out. This also will be a great boost to your learning progress: 
+other out. This will be a great boost to your learning progress: 
 explaining something to others is not only great in a normative sense, it also
 helps you to get a deeper understanding of the concepts yourself.
 
@@ -82,8 +83,9 @@ remotes::install_github(
 This should update your package version to the most recent release.
 
 If you want to start an exercise you first need to figure out the name of the
-exercise sheet. This is provided in the Material section of the course 
-webpage. Then you call execute the following code via the console in R Studio,
+exercise sheet. This is provided in the [Material section](/material/) 
+of the course webpage. 
+Then you call execute the following code via the console in R Studio,
 replacing 'EX_NAME' with the name of the exercise sheet:
 
 

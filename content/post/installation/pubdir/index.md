@@ -1,22 +1,22 @@
 ---
 title: 'Installation of the necessary software'
 author: 'Claudius Gräbner-Radkowitsch'
-date: '2022-03-01'
+date: '2022-09-06'
 slug: installation
+documentclass: scrartcl
 categories:
   - tutorial
   - setup
 tags:
   - installation
 output: 
-  bookdown::pdf_document2::
+  pdf_document:
     highlight: tango
     toc: true
     toc_depth: 2
     number_sections: true
     includes:
       in_header: "preamble.tex"
-      before_body: "prefix.tex"
   html_document:
     theme: readable
     highlight: tango
@@ -34,35 +34,36 @@ During this course we will use the following software and services:
 * Github
 * Netlify
 
-There is a separate tutorial on how to install the packages 
-(a.k.a. R extenstions) that we are 
-going to use over the semester. You go continue with this tutorial 
-directly after you have complete this one.
-
 You will need to install the software and register for these services on
-your own. While we will use one session in the second week for joint 
+your own. While we will use one session for joint 
 troubleshooting, it is absolutely necessary that you do your best to install 
 the software on your own before that date. 
 To this end, this document is meant to provide you with all the information
 needed. If you have questions, *please use the Moodle forum*. It is very 
 unlikely that you are the only person having a particular problem. Maybe
-others can already help you out, and if not all should benefit from the 
+others can already help you out, and if not, all should benefit from the 
 solution we find for your problem together. 
+
+Please also note that there is a separate tutorial on how to install the 
+packages (a.k.a. R extensions) that we are 
+going to use over the semester. Its best to continue with this tutorial 
+on [installing the required R packages](/post/installing-packages/)
+directly after you have complete this one.
 
 # An overview over the apps and services we will be using - and why
 
 [R](https://www.r-project.org/)
 is the programming language we are using. Installing `R` basically gives
-your computer the ability to understand commands you will give to it using the
-language R.
+your computer the ability to understand commands you will issue to it using the
+language `R`.
 [R-Studio](https://rstudio.github.io/)
-is an application that facilitates the development of R-Studio.
+is an application that facilitates the development of `R` code.
 It is a so called *Integrated Development Environment* (IDE). You may think of
-it as a fancy editor, which not only allows you to write programs in R using
+it as a fancy editor, which not only allows you to write programs in `R` using
 a more elaborated text editor, but simultaneously lets you preview the 
-graphs you are designing or the reports you are writing. Because R-Studio 
-facilitates the use of R, it is important to install R first, and then install
-R-Studio.
+graphs you are designing, or the reports you are writing. Because R-Studio 
+facilitates the use of `R`, it is important to install R *first*, and then 
+install R-Studio *second*.
 
 [Git](https://git-scm.com/)
 is a so called *version control system* (VCS). It allows you to keep track
@@ -77,23 +78,24 @@ though), it is important to install it since many user-written features of R
 are distributed in a way that relies on Git. 
 
 [Github](https://github.com/)
-can be thought of as a server for Git. R is an open source programming
+can be thought of as a server for Git. `R` is an open source programming
 language with a very active community. Many people are constantly developing new
-features for R. For instance, if a new prediction algorithm get developed, 
+features for `R`. For instance, if a new prediction algorithm get developed, 
 some people will soon write a so called [R-package](https://r-pkgs.org/) 
 that implements this 
-algorithm in R. Then you as an R user can download this package and use the new
-algorithm. This way, R is unlikely to ever become outdated. Sine most developers use
+algorithm in `R`. Then you as an R user can download this package and use the new
+algorithm. This way, `R` is unlikely to ever become outdated. 
+Since most developers use
 Git when developing the packages, they often distribute the programs in a way
-that aligns well with the use of Git. And the most prominent way is Github.
-Thus, you can see the source code for almost all R packages you will be using
-on Github. Github is free, and all you need is to register!
+that aligns well with the use of Git. And the most prominent way is Git*hub*.
+Thus, you can view the source code for almost all `R` packages you will be using
+via Github. Github is free, and all you need is to register!
 
 The final service we will be using is [Netlify](https://www.netlify.com/). 
 It is an easy way to publish
 reports and host small websites. We will use it such that you can create 
 reproducible reports and present them in a visually appealing way. Given the
-ease of use it is a great tool if you want to polish your results up visually
+ease of use, it is a great tool if you want to polish your results up visually
 and send them to friends or colleagues who might not even use R themselves.
 
 
@@ -102,27 +104,38 @@ and send them to friends or colleagues who might not even use R themselves.
 The information in this tutorial is provided for Mac OS, Windows, and Linux.
 Given the variety of different Linux distributions the comments on
 the latter are rather short. There are, however, plenty explanations to be 
-found on the web for the different Linux distributions.
+found on the web for many different Linux distributions.
 
 After you have completed the steps outlined below you are almost done: all
 what remains is to install the R packages we require over the course of the
-seminar. To this end, please consult the [respective Tutorial]().
+seminar. To this end, please consult the 
+[respective Tutorial](/post/installing-packages/).
 
 ## Install R 
 
 The installation of `R` is very similar across operating systems (OS). 
 The easiest
-way is to visit the [R Homepage](https://www.r-project.org/) and too download
+way is to visit the [R Homepage](https://www.r-project.org/) and to download
 the most recent version for your OS.
 In case you are using Mac OS and want to use Homebrew, its best to use 
 [this formula](https://github.com/sethrfore/homebrew-r-srf).
+
+**Important for Mac user:** There are different versions of `R` for Intel
+chips, and Apple chips (M1, M2, etc.). It is very important that you install 
+the correct version. If you are not sure whether your Mac contains a chip from
+Intel or Apple, click on the Apple symbol in the upper left of the screen,
+then click on `About this Mac` and you can see which processor your Mac is 
+using in the new window. If you have an Apple chip, always install R for 
+the so called `arm64` architecture. Intel chip users must use the `x86_64` 
+architecture instead.
 
 ### Only Windows: Install RTools
 
 If you are using Windows, it is necessary to install
 `RTools`, which is required if you want to use packages written
 by others that are not officially released. 
-To do so, simply visit the following website, download the installer, and install the software:
+To do so, simply visit the following website, download the installer, 
+and install the software:
 
 When asked during the installation process, do *not*
 select the box for `Add rtools to system PATH`, but *do*
@@ -133,7 +146,7 @@ select the box for `Save version information to registry`.
 The Command Line Developer Tools could be thought of as the Mac pendant to
 RTools. These allow you
 to build R packages from source (meaning, basically, you can use
-packages that are in early stages of distribution or packages that are not 
+packages that are in early stages of distribution, or packages that are not 
 released on the official R servers).
 
 The easiest way to install them is to open the App `Terminal`,
@@ -150,8 +163,12 @@ you to install the software.
 
 In case R is already installed on your computer you should make sure that your
 version is more of less up to date. For our seminar you should use at least R
-version `R 4.0.4`. The version you are currently using is shown as soon as you
-start `R`. 
+version `R 4.1.2`. The version you are currently using is shown as soon as you
+start `R`.
+
+Please note: if you installed R anew in the previous step, you do *not* need 
+to update it. The information on updating R is mainly relevant for people 
+who have installed R already some time ago.
 
 ### MacOS users
 
@@ -225,6 +242,9 @@ installation instructions provided.
 If you are on Mac and you are using Homebrew you may use 
 [this formula](https://formulae.brew.sh/cask/rstudio).
 
+If you want to update R-Studio, you just install it again. Please note that the
+**minimal version** for this seminar should be RStudio `2022.07.1+554`.
+
 ## Git
 
 Installing Git is straightforward, but the right approach depends on your OS.
@@ -255,7 +275,7 @@ with all the relevant instructions.
 ### Linux
 
 On **Linux** use you package manager. In most cases the name of the relevant
-package is `git-all`, so on Ubunto, for instance, you would install Git 
+package is `git-all`, so on Ubuntu, for instance, you would install Git 
 via `sudo apt install git-all`.
 
 # Register for the necessary services
@@ -278,5 +298,9 @@ Netlify to my Github account.
 
 Once you finished with installing all the relevant software described in this 
 post I recommend you continue directly with the second (and last) 
-[installation tutorial]() that assists you in installing the R packages required
-over the course of the semester.
+[installation tutorial](/post/installing-packages/) that assists you in 
+installing the `R` packages required over the course of the semester.
+
+
+And, by the way, if this installation process seems frustrating to you: don't 
+worry, its the only time during the semester you need to install anything;)

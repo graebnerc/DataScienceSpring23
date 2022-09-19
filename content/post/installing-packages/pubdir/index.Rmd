@@ -28,9 +28,10 @@ knitr::opts_chunk$set(out.width='90%')
 
 After installing [R and R-Studio](/post/installation/), you 
 still need to install a number of so called [R packages](https://r-pkgs.org/).
-We will learn more about what packages are and how to use them, but I strongly
-recommend you to install now already all the packages you will need over the
-following semester. This way you make sure that everything is working now, 
+We will learn more about what packages are and how to use them later.
+Nevertheless, I strongly
+recommend you to install already all the packages you will need over the
+following semester already now. This way you make sure that everything is working now, 
 and you save yourself from trouble during the semester. Moreover, installing 
 these packages is necessary to do the exercises provided after each session.
 
@@ -40,8 +41,9 @@ as follows:
 1. Download the script 
 [install_packages_script.R](install_packages_script.R) and save it in a 
 directory of your choice
-2. Open the file `install_packages_script.R` in R-Studio.
-3. Adjust the first to the OS you are using.
+2. Open the file `install_packages_script.R` in R-Studio. To this end, 
+right-click on the file and select `Open with`, and then choose R-Studio.
+3. Adjust the first line of the script to the OS you are using.
 For instance, when you are using a Mac the file
 should look like this:
 ```{r echo=FALSE}
@@ -80,7 +82,7 @@ Note: maybe you will see the following message during the installation process
 knitr::include_graphics("binary-available.png", auto_pdf = TRUE)
 ```
 
-I recommend to type `no` and press enter. If, for any reason, the installation
+I recommend to type `No` and press enter. If, for any reason, the installation
 process is not successful you might run the installation commands again and 
 try responding with `Yes`, this might sometimes fix the problem.
 
@@ -122,7 +124,7 @@ To create PDF-documents you have to install a
 [Latex distribution](https://www.latex-project.org/).
 I recommend you to install the distribution
 [tinytex](https://yihui.org/tinytex/),
-irrespectively of whether you already have a different distribution or not.
+no matter whether you already have a different distribution or not.
 
 In the previous step you already installed the *package* `tinytex`.
 This is *not* the distribution. To install the latter, you need to execute the
