@@ -59,7 +59,7 @@ For more information on how to install and use the exercises, see the respective
 ### Mandatory readings
 
 - [R for Data Science, Chapter 4: Workflow - basics](https://r4ds.had.co.nz/workflow-basics.html)
-- [Tutorial: Commands, objects, and assignments](/post/first-steps/)
+- [Tutorial: First steps in R](/post/first-steps/)
 - [Tutorial: Functions](/post/object-types-func/)
 
 ### Further readings

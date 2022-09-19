@@ -1,5 +1,5 @@
 ---
-title: 'Visualization: Lecture notes'
+title: '6 - Visualization: Lecture notes'
 author: Claudius Gräbner-Radkowitsch
 date: '2022-09-06'
 slug: visualization-lecture-notes

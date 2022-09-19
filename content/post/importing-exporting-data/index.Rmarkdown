@@ -1,5 +1,5 @@
 ---
-title: Importing and exporting data using data.table
+title: "7.2 - Importing and exporting data using data.table"
 author: Claudius Gräbner-Radkowitsch
 date: '2022-09-06'
 slug: importing-exporting-data

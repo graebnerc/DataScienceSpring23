@@ -1,5 +1,5 @@
 ---
-title: Setting up an R project
+title: "7.1 - Setting up an R project"
 author: Claudius Gräbner-Radkowitsch
 date: '2022-09-06'
 slug: setting-up-an-r-project

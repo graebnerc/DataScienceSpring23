@@ -1,5 +1,5 @@
 ---
-title: "First steps in R"
+title: "2.1 - First steps in R"
 author: Claudius Gräbner-Radkowitsch
 date: '2022-09-06'
 slug: first-steps

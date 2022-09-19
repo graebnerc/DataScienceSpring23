@@ -1,5 +1,5 @@
 ---
-title: "Fundamental object types in R I: Functions"
+title: "2.2 - Fundamental object types in R I: Functions"
 author: Claudius Gräbner-Radkowitsch
 date: '2022-09-06'
 slug: object-types-func
