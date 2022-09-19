@@ -1,4 +1,4 @@
-baseurl: "https://dataanalytics-euf-fall22.netlify.app/"
+baseurl: "https://datascience-euf-fall22.netlify.app/"
 languageCode: "en-us"
 title: "Data Science (FaSe22)"
 theme: "hugo-xmin"
