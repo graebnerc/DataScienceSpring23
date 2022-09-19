@@ -21,17 +21,17 @@ output:
 
 # Overview
 
-We already learned that everything in R that exists is an *object*.
+We already learned that everything in `R` that exists is an *object*.
 You most likely already noted that there are different types of objects:
 `2`, for instance, was a number, but `assign` was a function.^[In fact, 
 we will learn below that `2` is not really a number, but a vector
 or length 1. Only in a next step, `2` counts as a 'number', or, more precisely
 as a 'double'.]
 As you might have guessed, there are many more types of objects. 
-To understand the fundamental object types in R is a very essential prerequisite
+To understand the fundamental object types in `R` is an essential prerequisite
 to master more complicated programming challenges than those we have encountered
 so far. Thus, this post is among those that will introduce you to the most 
-important object types that you will encounter in R. 
+important object types that you will encounter in `R`. 
 
 These data types are summarized in the following figure:
 
@@ -45,7 +45,7 @@ the upcoming posts.
 # Functions
 
 Functions are algorithms that apply a certain routine on an *input*, thereby
-producing (almost always) an *output.*
+producing (almost always) an *output*.
 The function `log()`, for instance, takes as input a number and returns as output
 another number, namely the logarithm of the input:
 
@@ -55,13 +55,13 @@ log(2)
 
 **Calling a function**
 
-There are, in principle, four different ways to call a function in R.
+There are, in principle, four different ways to call a function in `R`.
 Only two of them, however, are practically relevant for our purposes.
 
 The by far most important variant is the so called *prefix form*. 
 Here you first write down the name of the function.
 Then you open brackets, write down all the *arguments* of the function, which
-you separate by commas, then then you close the brackets.
+you separate by commas, and then you close the brackets.
 In the following example, the name of the function is `assign`, and its 
 arguments are `"test"` and `2`:
 
@@ -74,7 +74,7 @@ Here, the name of the function is written *between* the arguments of the
 function. This form is less common than the *prefix form*, but frequently used
 for mathematical operations, such as `+`, `-` or `/`.
 
-Strictly speaking, it is only a shortcut, since very function call using the 
+Strictly speaking, it is only a shortcut, since every function call using the 
 infix form can also be written as a function call in the prefix form:
 
 ```{r}
@@ -99,7 +99,7 @@ numbers (its 'input') and returns the sum of these numbers:
 sum(1,2,3,4)
 ```
 
-Moreover, `sum()` also acceps an *optional argument*, which is called
+Moreover, `sum()` also accepts an *optional argument*, which is called
 `na.rm`. This optional argument can take the value 
 `TRUE` or `FALSE`. The letters `na` stand for "not available", and refer to
 missing values. If we do not set the optional argument explicitly, it takes its
@@ -132,10 +132,10 @@ optional arguments, can always be obtained via the function `help()`.
 
 **Define your own functions**
 
-Defining functions our own is incredibly useful. We can do this by using the 
+Defining functions on our own is incredibly useful. We can do this by using the 
 keyword `function`. To illustrate how to define our own functions, we will now
 define a function that we will call `pythagoras` and that takes as arguments the
-length of the two catheti or a right triangle, and calculate the length 
+length of the two catheti of a right triangle. It then calculates the length 
 of the hypotenuse using
 the [Pythagorean theorem](https://en.wikipedia.org/wiki/Pythagorean_theorem).
 
@@ -160,7 +160,7 @@ enclosed by curly brackets.
 In the example above we first compute the sum of the squares of the two 
 catheti, and save this intermediate result as `hypo_squared`.
 This is the part of the Pythagorean theorem that you might know as
-$c^2=a^2 + b^2$.
+$c^2 = a^2 + b^2$.
 Since we are interested in the 'normal' length of the hypotenuse,
 we then use the function `sqrt()` to get the square root of `hypo_squared`.
 This is also the value that we wish our function would return to us. To make 
@@ -184,7 +184,7 @@ which can be useful for transparency reasons when you call more complex function
 pythagoras(cathetus_1=2, cathetus_2=4) # Also works the other way around
 ```
 
-> **Note**: you can see the source code of a function (mostly) by typing the 
+> **Note**: you can see the source code of a function (frequently) by typing the 
 name of the function withough the brackets:
 
 ```{r}
@@ -194,7 +194,7 @@ pythagoras
 Note that all object names used within the function body are lost after the 
 function has been called. The deeper reason is that functions have their own
 [environment](https://adv-r.hadley.nz/environments.html).
-Because of this behavior, R produces an error in the following example, in which
+Because of this behavior, `R` produces an error in the following example, in which
 `hypo_squared` exists *only* within the function body.
 
 
@@ -212,7 +212,7 @@ Note that this behavior is intentional: otherwise, there would quickly be a lot
 of associations that are hard to keep track of. It is, however, of utmost 
 importance to always remember this behavior, otherwise, very confusing errors
 might emerge, as in the following example in which you might have expected 
-`hypo_squared` to take the value of the length of the hypothenuse squared 
+`hypo_squared` to take the value of the length of the hypotenuse squared 
 within your right triangle:
 
 ```{r}
@@ -227,11 +227,11 @@ want to use your function after a while has past, you will be extremely grateful
 to your previous You for explaining to you how the function works and what 
 arguments it takes. Or, in other words, nothing is more frustrating than getting
 back to your code after a few weeks and being forced to invest many
-hours to encypher the code you have written previously.^[Or, as the well-known
-R developer Hadley Wickham puts it: "You are always coorpering with at least
-one other persion: future-you."] 
+hours to encypher what you have written previously.^[Or, as the well-known
+`R` developer Hadley Wickham puts it: "You are always coorpering with at least
+one other person: future-you."] 
 
-While you might document functions using simple comments at the end of each line
+While you can document functions using simple comments at the end of each line
 I strongly recommend to get used to follow 
 [these conventions](https://r-pkgs.org/man.html#man-functions)
 right from the start. 
@@ -256,12 +256,12 @@ pythagoras <- function(cathetus_1, cathetus_2){
 The documentation of a function must come immediately before the function 
 definition and each line of the documentation starts with `#'`. 
 In the first line you provide a title, which must not be longer 
-than 80 characetrs. 
+than 80 characters. 
 
 Then, after inserting a blank line you describe what the function does in a
 bit more detail. Then, you describe each argument by using the decorator 
 `@param` at the beginning of the lines. 
-Finally, after another blank line, you describe the output of the function
+Finally, you describe the output of the function
 after starting the line with the decorator `@return`.
 
 Thus, any documentation of a function should at least include the arguments and
@@ -286,8 +286,10 @@ problem, it is better to summarize your thoughts in one place - the function.
 
 3. **Functions facilitate debugging** Imagine you encounter a mistake in your
 implementation of a routine in your code. If this routine is used ten times in
-your code and you did not use functions, you must correct your mistake ten times.
-If you used a function, you had to correct the mistake only once. Needless to
+your code and you did not use functions, you would need to correct your mistake 
+ten times.
+If you had used a function, you would have to correct the mistake only once. 
+Needless to
 say that functions reduce the likelihood for a mistake by providing you with the
 incentive to document the code, and because they avoid incidental mistakes
 that will always happen if you write the same code many times in different
