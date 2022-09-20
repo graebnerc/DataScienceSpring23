@@ -9,20 +9,20 @@
     <lastBuildDate>Tue, 06 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://datascience-euf-fall22.netlify.app/tags/installation/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>1.1 - Installation of the necessary software</title>
-      <link>https://datascience-euf-fall22.netlify.app/post/installation/</link>
+      <link>https://datascience-euf-fall22.netlify.app/tutorial/installation/</link>
       <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://datascience-euf-fall22.netlify.app/post/installation/</guid>
+      <guid>https://datascience-euf-fall22.netlify.app/tutorial/installation/</guid>
       <description>Download this post as PDF
 Read this post as HTML</description>
     </item>
     
     <item>
       <title>1.2 - Installing R packages</title>
-      <link>https://datascience-euf-fall22.netlify.app/post/installing-packages/</link>
+      <link>https://datascience-euf-fall22.netlify.app/tutorial/installing-packages/</link>
       <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://datascience-euf-fall22.netlify.app/post/installing-packages/</guid>
+      <guid>https://datascience-euf-fall22.netlify.app/tutorial/installing-packages/</guid>
       <description>Download this post as PDF
 Read this post as HTML</description>
     </item>

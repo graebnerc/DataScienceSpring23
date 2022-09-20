@@ -9,30 +9,30 @@
     <lastBuildDate>Tue, 06 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://datascience-euf-fall22.netlify.app/tags/data-types/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>2.2 - Fundamental object types in R I: Functions</title>
-      <link>https://datascience-euf-fall22.netlify.app/post/object-types-func/</link>
+      <link>https://datascience-euf-fall22.netlify.app/tutorial/object-types-func/</link>
       <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://datascience-euf-fall22.netlify.app/post/object-types-func/</guid>
+      <guid>https://datascience-euf-fall22.netlify.app/tutorial/object-types-func/</guid>
       <description>Download this post as PDF
 Read this post as HTML</description>
     </item>
     
     <item>
       <title>3 - Fundamental object types in R II: Vectors</title>
-      <link>https://datascience-euf-fall22.netlify.app/post/object-types-vec/</link>
+      <link>https://datascience-euf-fall22.netlify.app/tutorial/object-types-vec/</link>
       <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://datascience-euf-fall22.netlify.app/post/object-types-vec/</guid>
+      <guid>https://datascience-euf-fall22.netlify.app/tutorial/object-types-vec/</guid>
       <description>Download this post as PDF
 Read this post as HTML</description>
     </item>
     
     <item>
       <title>4 - Fundamental object types in R III:Factors, matrices, and data frames</title>
-      <link>https://datascience-euf-fall22.netlify.app/post/object-types-adv/</link>
+      <link>https://datascience-euf-fall22.netlify.app/tutorial/object-types-adv/</link>
       <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://datascience-euf-fall22.netlify.app/post/object-types-adv/</guid>
+      <guid>https://datascience-euf-fall22.netlify.app/tutorial/object-types-adv/</guid>
       <description>Download this post as PDF
 Read this post as HTML</description>
     </item>

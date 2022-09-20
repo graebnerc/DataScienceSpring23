@@ -9,20 +9,20 @@
     <lastBuildDate>Tue, 06 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://datascience-euf-fall22.netlify.app/tags/project-management/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>7.1 - Setting up an R project</title>
-      <link>https://datascience-euf-fall22.netlify.app/post/setting-up-an-r-project/</link>
+      <link>https://datascience-euf-fall22.netlify.app/tutorial/setting-up-an-r-project/</link>
       <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://datascience-euf-fall22.netlify.app/post/setting-up-an-r-project/</guid>
+      <guid>https://datascience-euf-fall22.netlify.app/tutorial/setting-up-an-r-project/</guid>
       <description>Download this post as PDF
 Read this post as HTML</description>
     </item>
     
     <item>
       <title>7.2 - Importing and exporting data using data.table</title>
-      <link>https://datascience-euf-fall22.netlify.app/post/importing-exporting-data/</link>
+      <link>https://datascience-euf-fall22.netlify.app/tutorial/importing-exporting-data/</link>
       <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://datascience-euf-fall22.netlify.app/post/importing-exporting-data/</guid>
+      <guid>https://datascience-euf-fall22.netlify.app/tutorial/importing-exporting-data/</guid>
       <description>Download this post as PDF
 Read this post as HTML</description>
     </item>
