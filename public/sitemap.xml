@@ -2,40 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://datascience-euf-fall22.netlify.app/post/installation/</loc>
+    <loc>https://datascience-euf-fall22.netlify.app/tutorial/installation/</loc>
     <lastmod>2022-09-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://datascience-euf-fall22.netlify.app/post/installing-packages/</loc>
+    <loc>https://datascience-euf-fall22.netlify.app/tutorial/installing-packages/</loc>
     <lastmod>2022-09-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://datascience-euf-fall22.netlify.app/post/using-exercises/</loc>
+    <loc>https://datascience-euf-fall22.netlify.app/tutorial/using-exercises/</loc>
     <lastmod>2022-09-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://datascience-euf-fall22.netlify.app/post/first-steps/</loc>
+    <loc>https://datascience-euf-fall22.netlify.app/tutorial/first-steps/</loc>
     <lastmod>2022-09-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://datascience-euf-fall22.netlify.app/post/object-types-func/</loc>
+    <loc>https://datascience-euf-fall22.netlify.app/tutorial/object-types-func/</loc>
     <lastmod>2022-09-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://datascience-euf-fall22.netlify.app/post/object-types-vec/</loc>
+    <loc>https://datascience-euf-fall22.netlify.app/tutorial/object-types-vec/</loc>
     <lastmod>2022-09-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://datascience-euf-fall22.netlify.app/post/object-types-adv/</loc>
+    <loc>https://datascience-euf-fall22.netlify.app/tutorial/object-types-adv/</loc>
     <lastmod>2022-09-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://datascience-euf-fall22.netlify.app/notes/visualization-lecture-notes/</loc>
     <lastmod>2022-09-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://datascience-euf-fall22.netlify.app/post/setting-up-an-r-project/</loc>
+    <loc>https://datascience-euf-fall22.netlify.app/tutorial/setting-up-an-r-project/</loc>
     <lastmod>2022-09-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://datascience-euf-fall22.netlify.app/post/importing-exporting-data/</loc>
+    <loc>https://datascience-euf-fall22.netlify.app/tutorial/importing-exporting-data/</loc>
     <lastmod>2022-09-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://datascience-euf-fall22.netlify.app/notes/data-wrangling-lecture-notes/</loc>
     <lastmod>2022-09-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://datascience-euf-fall22.netlify.app/post/rmarkdown-exercises/</loc>
+    <loc>https://datascience-euf-fall22.netlify.app/tutorial/rmarkdown-exercises/</loc>
     <lastmod>2022-09-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://datascience-euf-fall22.netlify.app/categories/</loc>
@@ -68,16 +68,13 @@
     <loc>https://datascience-euf-fall22.netlify.app/tags/markdown/</loc>
     <lastmod>2022-09-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://datascience-euf-fall22.netlify.app/post/mcs/</loc>
+    <loc>https://datascience-euf-fall22.netlify.app/tutorial/mcs/</loc>
     <lastmod>2022-09-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://datascience-euf-fall22.netlify.app/notes/</loc>
     <lastmod>2022-09-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://datascience-euf-fall22.netlify.app/categories/notes/</loc>
-    <lastmod>2022-09-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://datascience-euf-fall22.netlify.app/post/</loc>
     <lastmod>2022-09-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://datascience-euf-fall22.netlify.app/tags/project-management/</loc>
@@ -90,6 +87,9 @@
     <lastmod>2022-09-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://datascience-euf-fall22.netlify.app/categories/tutorial/</loc>
+    <lastmod>2022-09-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://datascience-euf-fall22.netlify.app/tutorial/</loc>
     <lastmod>2022-09-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://datascience-euf-fall22.netlify.app/tags/visualization/</loc>
