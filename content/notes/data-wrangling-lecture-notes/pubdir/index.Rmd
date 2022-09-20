@@ -346,7 +346,7 @@ certain conditions. The conditions must evaluate for each cell entry to
 either `TRUE` or `FALSE`, and only those rows for which they evaluate to `TRUE`
 remain in the data set. Often, the conditions are specified via 
 logical operators, which were already covered in the tutorial on 
-[vector types](/post/object-types-vec/).
+[vector types](/tutorial/object-types-vec/).
 
 As always, the first argument to `dplyr::filter()` is `data`, i.e. the data
 set on which you want to operate. Then follow an arbitrary number of logical

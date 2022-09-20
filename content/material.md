@@ -37,7 +37,7 @@ learnr::run_tutorial(
 Note that a recent version of the `DataScienceExercises`-package 
 must be installed.
 For more information on how to install and use the exercises, see the respective
-[tutorial on exercises](/post/using-exercises/).
+[tutorial on exercises](/tutorial/using-exercises/).
 
 # Readings, tutorials, and further material
 
@@ -45,9 +45,9 @@ For more information on how to install and use the exercises, see the respective
 
 ### Mandatory readings
 
-- [Tutorial: installing basic software](/post/installation/)
-- [Tutorial: installing the required R packages](/post/installing-packages/)
-- [Tutorial: doing exercises](/post/using-exercises/)
+- [Tutorial: installing basic software](/tutorial/installation/)
+- [Tutorial: installing the required R packages](/tutorial/installing-packages/)
+- [Tutorial: doing exercises](/tutorial/using-exercises/)
 
 
 ## Session 2: Basics of R and R-Studio {#s2}
@@ -59,8 +59,8 @@ For more information on how to install and use the exercises, see the respective
 ### Mandatory readings
 
 - [R for Data Science, Chapter 4: Workflow - basics](https://r4ds.had.co.nz/workflow-basics.html)
-- [Tutorial: First steps in R](/post/first-steps/)
-- [Tutorial: Functions](/post/object-types-func/)
+- [Tutorial: First steps in R](/tutorial/first-steps/)
+- [Tutorial: Functions](/tutorial/object-types-func/)
 
 ### Further readings
 
@@ -76,7 +76,7 @@ For more information on how to install and use the exercises, see the respective
 
 ### Mandatory readings
 
-- [Tutorial: Vectors](/post/object-types-vec/)
+- [Tutorial: Vectors](/tutorial/object-types-vec/)
 
 
 ## Session 4: Advanced object types {#s4}
@@ -88,7 +88,7 @@ For more information on how to install and use the exercises, see the respective
 
 ### Mandatory readings
 
-- [Tutorial: Factors and data frames](/post/object-types-adv/)
+- [Tutorial: Factors and data frames](/tutorial/object-types-adv/)
 - [R for Data Science, Chapter 10: Tibbles](https://r4ds.had.co.nz/tibbles.html)
 
 
@@ -115,8 +115,8 @@ TBA
 
 ### Mandatory readings
 
-- [Tutorial: How to organize your R project](/post/setting-up-an-r-project/)
-- [Tutorial: Read and write data](/post/importing-exporting-data/)
+- [Tutorial: How to organize your R project](/tutorial/setting-up-an-r-project/)
+- [Tutorial: Read and write data](/tutorial/importing-exporting-data/)
 
 
 ## Sessions 8: Data wrangling {#s8}
@@ -158,7 +158,7 @@ TBA
 TBA
 
 The practical exercise for this topic can be found 
-[here](/post/rmarkdown-exercises/).
+[here](/tutorial/rmarkdown-exercises/).
 
 
 ## Session 10: Recap and practice {#s10}
@@ -202,7 +202,7 @@ TBA
 ### Mandatory readings
 
 - [Statistical Inference via Data Science, Chapter 7: Sampling](https://moderndive.com/7-sampling.html) 
-- [Tutorial: Monte Carlo Simulations in R](/post/mcs/)
+- [Tutorial: Monte Carlo Simulations in R](/tutorial/mcs/)
 
 ### Exercises
 

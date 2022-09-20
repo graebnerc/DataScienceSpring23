@@ -11,6 +11,7 @@ permalinks:
   note: "/note/:year/:month/:day/:slug/"
   post: "/post/:slug/"
   notes: "/notes/:slug/"
+  tutorial: "/tutorial/:slug/"
 
 menu:
   main:
