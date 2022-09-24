@@ -134,8 +134,9 @@ architecture instead.
 If you are using Windows, it is necessary to install
 `RTools`, which is required if you want to use packages written
 by others that are not officially released. 
-To do so, simply visit the following website, download the installer, 
-and install the software:
+To do so, simply visit 
+[the following website](https://cran.r-project.org/bin/windows/Rtools/), 
+download the installer, and install the software:
 
 When asked during the installation process, do *not*
 select the box for `Add rtools to system PATH`, but *do*
