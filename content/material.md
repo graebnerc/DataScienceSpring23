@@ -67,7 +67,7 @@ For more information on how to install and use the exercises, see the respective
 
 ## Session 3: Basic object types {#s3}
 
-- Lecture videos available via Moodle
+- [Lecture videos](https://youtube.com/playlist?list=PLZDawQMrG1RLqzcegYiLnK4vQnSbqjf1K)
 - [Lecture notes and solutions to intermediate exercises](https://gist.github.com/graebnerc/8569172d758ea2a4c5f9305dc3ce9966)
 
 ### Mandatory readings
