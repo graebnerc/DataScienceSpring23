@@ -13,7 +13,7 @@ title: "Course material"
 |   [2](#s2)  | Sep 22, 2022| Basics of R and R-Studio | [Slides](slides/T2-Basics-Functions.pdf) | `Basics` |
 |   [3](#s3)  | Sep 29, 2022| Basic objects | [Slides](slides/T3-Objects.pdf) | `ObjectTypes1` |
 |   [4](#s4)  | Oct 5, 2022| Advanced objects | [Slides](slides/T4-AdvObjects.pdf) | `ObjectTypes2` |
-|   [5](#s5)  | Oct 6, 2022| Recap & practice| Slides| 
+|   [5](#s5)  | Oct 6, 2022| Recap & practice| [Slides](slides/T5-Exercises.pdf)| 
 |   [6](#s6)  | Oct 12, 2022| Visualization | [Slides](slides/T6-Visualization.pdf)| `Visualization1` |
 |   [7](#s7)  | Oct 13, 2022| Project management and data import | [Slides](slides/T7-ProjectSetup.pdf) | `ProjectOrga` | 
 |   [8](#s8)  | Oct 26, 2022| Data wrangling | [Slides](slides/T8-DataWrangling.pdf) | `Wrangling1` | 
@@ -77,7 +77,7 @@ For more information on how to install and use the exercises, see the respective
 
 ## Session 4: Advanced object types {#s4}
 
-- [Session notes](https://gist.github.com/graebnerc/bf8b1b60084377744881b392f0c9534e)
+- [Session notes](https://gist.github.com/graebnerc/53a88869a8d178efea90fff92ab272f5)
 <!--
 - [Session notes](https://gist.github.com/graebnerc/bf8b1b60084377744881b392f0c9534e)
 -->
@@ -90,7 +90,8 @@ For more information on how to install and use the exercises, see the respective
 
 ## Session 5: Recap and practice {#s5}
 
-TBA
+- [Exercises](slides/T5-Exercises.pdf)
+- [Solutions](https://gist.github.com/graebnerc/0420edabdf04b78886fe8962a2c8bbe7)
 
 
 ## Session 6: Visualization {#s6}
