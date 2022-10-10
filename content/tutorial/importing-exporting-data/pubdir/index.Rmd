@@ -55,9 +55,9 @@ While writing (or 'exporting') data is usually straightforward, reading
 that there are many different ways of how exactly data is stored within a 
 `csv`-file. But don't worry: first, the package
 [data.table](https://github.com/Rdatatable/data.table) provides for the 
-amazing function `data.table::freat()` that allows you to account for basically
+amazing function `data.table::fread()` that allows you to account for basically
 every specifity of the `csv`-files you will encounter. Second, with only a 
-handful of arguments passed to `data.table::freat()` you can already cover the
+handful of arguments passed to `data.table::fread()` you can already cover the
 vast majority of practically relevant cases.
 
 The main focus of this tutorial, thus, is to introduce you to the most important 
