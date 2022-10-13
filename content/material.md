@@ -96,9 +96,11 @@ For more information on how to install and use the exercises, see the respective
 
 ## Session 6: Visualization {#s6}
 
+- [Lecture script](https://gist.github.com/graebnerc/c1ae93c68313eef1a5a6986855fba78b)
 - [Lecture notes](/notes/visualization-lecture-notes/)
 
 ### Mandatory readings
+
 - [R for Data Science, Chapter 3: Data visualization](https://r4ds.had.co.nz/data-visualisation.html)
 
 ### Further readings
