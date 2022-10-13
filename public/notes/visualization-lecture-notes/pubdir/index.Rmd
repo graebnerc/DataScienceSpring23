@@ -332,7 +332,7 @@ gdp_plot
 ```
 
 
-Hm, but it would indeed be a bit nices to keep the axis lines of the `x`- and
+Hm, but it would indeed be a bit nicer to keep the axis lines of the `x`- and
 `y`-axis. Lets do this by specifying them explicitly via 
 `ggplot2::element_line()`, which again allows for endless specification details:
 
