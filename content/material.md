@@ -111,6 +111,7 @@ For more information on how to install and use the exercises, see the respective
 ## Session 7: Project management and data import {#s7}
 
 - [Example data](files/fread_expls.zip)
+- [Session notes and solutions to exercises](https://gist.github.com/graebnerc/642cacdb29f1cf98057921ae5f4a8cd5)
 
 ### Mandatory readings
 
