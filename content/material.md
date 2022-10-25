@@ -122,11 +122,9 @@ For more information on how to install and use the exercises, see the respective
 ## Sessions 8: Data wrangling {#s8}
 
 - [Lecture notes](/notes/data-wrangling-lecture-notes/)
-- [Data for lecture notes](files/wrangling-notes-data.zip)
-- [Exercise data](files/wrangling_exercises_data.zip)
-<!--
-- [Lecture scripts from the session and exercise solutions](https://gist.github.com/graebnerc/7a054a52cd5799f0adf66c269b040b46)
--->
+- [Data for lecture notes](files/T8-lecture-notes-data.zip)
+- [Exercise data](files/T8-ExerciseData.zip)
+- [Lecture script from the session and exercise solutions]()
 
 ### Mandatory readings
 
