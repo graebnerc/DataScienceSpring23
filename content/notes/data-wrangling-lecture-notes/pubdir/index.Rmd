@@ -294,7 +294,7 @@ The `%>%`-pipe allows you to write very readable code, so make sure you use it
 often. But for code development it might be nevertheless helpful to write the
 intermediate steps explicitly.
 
-# Creating of manipulating variables
+# Creating or manipulating variables
 
 The function `dplyr::mutate()` is used both for manipulating existing 
 columns as well as creating new columns. In the first case the name of the 
