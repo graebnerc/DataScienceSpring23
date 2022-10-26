@@ -56,6 +56,7 @@ required_packages_cran <- c(
   "remotes",
   "rmarkdown",
   "rmutil",
+  "quarto",
   "R.utils",
   "sandwich",
   "scales",

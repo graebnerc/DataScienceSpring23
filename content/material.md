@@ -16,13 +16,13 @@ title: "Course material"
 |   [5](#s5)  | Oct 6, 2022| Recap & practice| [Slides](slides/T5-Exercises.pdf)| 
 |   [6](#s6)  | Oct 12, 2022| Visualization | [Slides](slides/T6-Visualization.pdf)| `Visualization1` |
 |   [7](#s7)  | Oct 13, 2022| Project management and data import | [Slides](slides/T7-ProjectSetup.pdf) | `ProjectOrga` | 
-|   [8](#s8)  | Oct 26, 2022| Data wrangling | [Slides](slides/T8-DataWrangling.pdf) | `Wrangling1` | 
-|   [9](#s9)  | Nov 2, 2022| Quarto/R Markdown | Slides | `RMarkdown` |
-|   [10](#s10)  | Nov 3, 2022| Recap & practice | Slides |
-|   [11](#s11), 12  | Nov 16-17, 2022| Simple linear Regression I and II | [Slides](slides/T11T12-SimpleLinearRegression.pdf) | `LinearRegression1` | 
-|   [13](#s13), 14  | Nov 24 & 30, 2022| Multiple linear Regression I and II | [Slides](slides/T13T14-MultipleLinearRegression.pdf) | `LinearRegression2` | 
-|   [15](#s15)  | Dec 1, 2022| Regression diagnostics and sampling | Slides |
-|   [16](#s16)  | Dec 8, 2022| Recap and practice | Slides |
+|   [8 & 9](#s8)  | Oct 26, 2022| Data wrangling | [Slides](slides/T8-DataWrangling.pdf) | `Wrangling1` | 
+|   [10](#s10)  | Nov 2, 2022| Quarto/R Markdown | [Slides](slides/T10-Quarto.pdf) | `RMarkdown` |
+|   [11](#s11)  | Nov 3, 2022| Recap & practice | Slides |
+|   [12 & 13](#s12), 12  | Nov 16-17, 2022| Simple linear Regression I and II | [Slides](slides/T11T12-SimpleLinearRegression.pdf) | `LinearRegression1` | 
+|   [14 & 15](#s14), 14  | Nov 24 & 30, 2022| Multiple linear Regression I and II | [Slides](slides/T13T14-MultipleLinearRegression.pdf) | `LinearRegression2` | 
+|   [16](#s16)  | Dec 1, 2022| Regression diagnostics and sampling | Slides |
+|   [17](#s17)  | Dec 8, 2022| Recap and practice | Slides |
 
 To start the respective exercises execute the following code, substituting
 `ExCode` with the code given in the column 'Exercise code' in the table above:
@@ -119,12 +119,12 @@ For more information on how to install and use the exercises, see the respective
 - [Tutorial: Read and write data](/tutorial/importing-exporting-data/)
 
 
-## Sessions 8: Data wrangling {#s8}
+## Sessions 8 and 9: Data wrangling {#s8}
 
 - [Lecture notes](/notes/data-wrangling-lecture-notes/)
 - [Data for lecture notes](files/T8-lecture-notes-data.zip)
 - [Exercise data](files/T8-ExerciseData.zip)
-- [Lecture script from the session and exercise solutions]()
+- [Lecture script from the session and exercise solutions](https://gist.github.com/graebnerc/8b1eeed370bd3b20be8bf8ff5c1a110f)
 
 ### Mandatory readings
 
@@ -137,39 +137,39 @@ For more information on how to install and use the exercises, see the respective
 - [tidyr cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/tidyr.pdf)
 
 
-## Session 9: Quarto/R Markdown {#s9} 
+## Session 10: Quarto/R Markdown {#s10} 
 
-TBA
+- [DesasterMarkdown.pdf](files/DesasterMarkdown.pdf)
+<!--
+All ready, just comment out
+- [NicerMarkdown.pdf](files/NicerMarkdown.pdf)
+- [Code for the markdown desaster and a possible solution](https://gist.github.com/graebnerc/44b82add84b1d5cb89d28574ae89ed02)
+-->
 
 ### Mandatory readings
 
-- [R for Data Science, Chapter 27: R Markdown](https://r4ds.had.co.nz/r-markdown.html)
 - [The CommonMark markdown tutorial](https://commonmark.org/help/tutorial/)
-
-TBA
+- [Quarto tutorial I: the basics](https://quarto.org/docs/get-started/hello/rstudio.html)
+- [Quarto tutorial II: computations](https://quarto.org/docs/get-started/computations/rstudio.html)
+- [Quarto tutorial III: authoring quarto documents](https://quarto.org/docs/get-started/authoring/rstudio.html)
 
 ### Further reading
 
+- [Blog introducing Quarto](https://www.apreshill.com/blog/2022-04-we-dont-talk-about-quarto/)
+- [Quarto and R Markdown](https://yihui.org/en/2022/04/quarto-r-markdown/)
+- [The comprehensive Quarto documentation](https://quarto.org/docs/guide/)
+- [Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html)
 - [The R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)
-- [R Markdown cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/rmarkdown.pdf)
-
-TBA
 
 The practical exercise for this topic can be found 
 [here](/tutorial/rmarkdown-exercises/).
 
 
-## Session 10: Recap and practice {#s10}
+## Session 11: Recap and practice {#s11}
 
 TBA
 
-<!--
-- [DesasterMarkdown.pdf](files/DesasterMarkdown.pdf)
-- [NicerMarkdown.pdf](files/NicerMarkdown.pdf)
-- [Code for the markdown desaster and a possible solution](https://gist.github.com/graebnerc/6d268af56e00909efffc372c1a5da1c3)
--->
-
-## Sessions 11 & 12: Simple linear regression {#s11} 
+## Sessions 12 & 13: Simple linear regression {#s13} 
 
 - [Guess the correlation browser game](http://guessthecorrelation.com/)
 - [Lecture scripts from the session and exercise solutions](https://gist.github.com/graebnerc/d61da231fbc479434476fab221157536)
@@ -179,7 +179,7 @@ TBA
 - [Statistical Inference via Data Science, Chapter 5: Basic regression](https://moderndive.com/5-regression.html) 
 
 
-## Sessions 13 & 14: Multiple linear regression {#s13} 
+## Sessions 14 & 15: Multiple linear regression {#s14} 
 <!--
 - [Lecture notes and solutions to exercises](https://gist.github.com/graebnerc/4a9e5bb95459d8ada31f43141976efe8)
 -->
@@ -189,7 +189,7 @@ TBA
 - [Statistical Inference via Data Science, Chapter 6: Multiple regression](https://moderndive.com/6-multiple-regression.html) 
 
 
-## Sessions 15: Regression diagnostics and sampling {#s15} 
+## Sessions 16: Regression diagnostics and sampling {#s16} 
 
 TBA
 
@@ -212,7 +212,7 @@ learnr::run_tutorial(
 ```
 -->
 
-## Session 16: Recap and practice {#s16}
+## Session 17: Recap and practice {#s17}
 
 TBA
 
