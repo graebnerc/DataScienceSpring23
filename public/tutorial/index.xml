@@ -6,7 +6,17 @@
     <description>Recent content in Tutorials on Data Science (FaSe22)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 06 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://datascience-euf-fall22.netlify.app/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 26 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://datascience-euf-fall22.netlify.app/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>10 - Quarto exercises</title>
+      <link>https://datascience-euf-fall22.netlify.app/tutorial/quarto-exercises/</link>
+      <pubDate>Wed, 26 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://datascience-euf-fall22.netlify.app/tutorial/quarto-exercises/</guid>
+      <description>Create a new Quarto document where you set the title, date, and the author explicitly. Write a sample text that comprises&amp;hellip;
+ &amp;hellip;at least one level 1 heading &amp;hellip;at least two level 2 headings &amp;hellip;a YAML part that specifies that R code remains hidden by default &amp;hellip;one R chunk where both the output and the code is printed in the final document &amp;hellip;one R chunk that produces a simply ggplot object and where the code producing the plot is hidden  Then do the following:</description>
+    </item>
+    
     <item>
       <title>1.1 - Installation of the necessary software</title>
       <link>https://datascience-euf-fall22.netlify.app/tutorial/installation/</link>
@@ -95,16 +105,6 @@ Read this post as HTML</description>
       <guid>https://datascience-euf-fall22.netlify.app/tutorial/importing-exporting-data/</guid>
       <description>Download this post as PDF
 Read this post as HTML</description>
-    </item>
-    
-    <item>
-      <title>9 - R-Markdown exercises</title>
-      <link>https://datascience-euf-fall22.netlify.app/tutorial/rmarkdown-exercises/</link>
-      <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://datascience-euf-fall22.netlify.app/tutorial/rmarkdown-exercises/</guid>
-      <description>Create a new R-Markdown file where you set the title, date, and the author explicitly. Write a sample text that comprises&amp;hellip;
- &amp;hellip;at least one level 1 heading &amp;hellip;at least two level 2 headings &amp;hellip;a setup chunk that specifies that R code remains hidden by default &amp;hellip;one R chunk where both the output and the code is printed in the final document &amp;hellip;one R chunk that produces a simply ggplot object and where the code producing the plot is hidden  Then do the following:</description>
     </item>
     
     <item>

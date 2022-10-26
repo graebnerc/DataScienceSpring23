@@ -6,13 +6,31 @@
     <description>Recent content in Tags on Data Science (FaSe22)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 06 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://datascience-euf-fall22.netlify.app/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 26 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://datascience-euf-fall22.netlify.app/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>communication</title>
       <link>https://datascience-euf-fall22.netlify.app/tags/communication/</link>
-      <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 26 Oct 2022 00:00:00 +0000</pubDate>
       
       <guid>https://datascience-euf-fall22.netlify.app/tags/communication/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>markdown</title>
+      <link>https://datascience-euf-fall22.netlify.app/tags/markdown/</link>
+      <pubDate>Wed, 26 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://datascience-euf-fall22.netlify.app/tags/markdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>quarto</title>
+      <link>https://datascience-euf-fall22.netlify.app/tags/quarto/</link>
+      <pubDate>Wed, 26 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://datascience-euf-fall22.netlify.app/tags/quarto/</guid>
       <description></description>
     </item>
     
@@ -58,15 +76,6 @@
       <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
       
       <guid>https://datascience-euf-fall22.netlify.app/tags/introduction/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>markdown</title>
-      <link>https://datascience-euf-fall22.netlify.app/tags/markdown/</link>
-      <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://datascience-euf-fall22.netlify.app/tags/markdown/</guid>
       <description></description>
     </item>
     

@@ -6,7 +6,17 @@
     <description>Recent content in Home on Data Science (FaSe22)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 06 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://datascience-euf-fall22.netlify.app/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 26 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://datascience-euf-fall22.netlify.app/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>10 - Quarto exercises</title>
+      <link>https://datascience-euf-fall22.netlify.app/tutorial/quarto-exercises/</link>
+      <pubDate>Wed, 26 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://datascience-euf-fall22.netlify.app/tutorial/quarto-exercises/</guid>
+      <description>Create a new Quarto document where you set the title, date, and the author explicitly. Write a sample text that comprises&amp;hellip;
+ &amp;hellip;at least one level 1 heading &amp;hellip;at least two level 2 headings &amp;hellip;a YAML part that specifies that R code remains hidden by default &amp;hellip;one R chunk where both the output and the code is printed in the final document &amp;hellip;one R chunk that produces a simply ggplot object and where the code producing the plot is hidden  Then do the following:</description>
+    </item>
+    
     <item>
       <title>1.1 - Installation of the necessary software</title>
       <link>https://datascience-euf-fall22.netlify.app/tutorial/installation/</link>
@@ -118,16 +128,6 @@ Read notes as HTML</description>
     </item>
     
     <item>
-      <title>9 - R-Markdown exercises</title>
-      <link>https://datascience-euf-fall22.netlify.app/tutorial/rmarkdown-exercises/</link>
-      <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://datascience-euf-fall22.netlify.app/tutorial/rmarkdown-exercises/</guid>
-      <description>Create a new R-Markdown file where you set the title, date, and the author explicitly. Write a sample text that comprises&amp;hellip;
- &amp;hellip;at least one level 1 heading &amp;hellip;at least two level 2 headings &amp;hellip;a setup chunk that specifies that R code remains hidden by default &amp;hellip;one R chunk where both the output and the code is printed in the final document &amp;hellip;one R chunk that produces a simply ggplot object and where the code producing the plot is hidden  Then do the following:</description>
-    </item>
-    
-    <item>
       <title>Monte Carlo Simulations in R</title>
       <link>https://datascience-euf-fall22.netlify.app/tutorial/mcs/</link>
       <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
@@ -154,7 +154,7 @@ All pages not under the root directory of the website are listed below. This inc
       
       <guid>https://datascience-euf-fall22.netlify.app/material/</guid>
       <description>Course outline
-Slides and exercises    Session Date Topic Slides Exercise code     1 Sep 21, 2022 General introduction Slides    2 Sep 22, 2022 Basics of R and R-Studio Slides Basics   3 Sep 29, 2022 Basic objects Slides ObjectTypes1   4 Oct 5, 2022 Advanced objects Slides ObjectTypes2   5 Oct 6, 2022 Recap &amp;amp; practice Slides    6 Oct 12, 2022 Visualization Slides Visualization1   7 Oct 13, 2022 Project management and data import Slides ProjectOrga   8 Oct 26, 2022 Data wrangling Slides Wrangling1   9 Nov 2, 2022 Quarto/R Markdown Slides RMarkdown   10 Nov 3, 2022 Recap &amp;amp; practice Slides    11, 12 Nov 16-17, 2022 Simple linear Regression I and II Slides LinearRegression1   13, 14 Nov 24 &amp;amp; 30, 2022 Multiple linear Regression I and II Slides LinearRegression2   15 Dec 1, 2022 Regression diagnostics and sampling Slides    16 Dec 8, 2022 Recap and practice Slides     To start the respective exercises execute the following code, substituting ExCode with the code given in the column &amp;lsquo;Exercise code&amp;rsquo; in the table above:</description>
+Slides and exercises    Session Date Topic Slides Exercise code     1 Sep 21, 2022 General introduction Slides    2 Sep 22, 2022 Basics of R and R-Studio Slides Basics   3 Sep 29, 2022 Basic objects Slides ObjectTypes1   4 Oct 5, 2022 Advanced objects Slides ObjectTypes2   5 Oct 6, 2022 Recap &amp;amp; practice Slides    6 Oct 12, 2022 Visualization Slides Visualization1   7 Oct 13, 2022 Project management and data import Slides ProjectOrga   8 &amp;amp; 9 Oct 26, 2022 Data wrangling Slides Wrangling1   10 Nov 2, 2022 Quarto/R Markdown Slides RMarkdown   11 Nov 3, 2022 Recap &amp;amp; practice Slides    12 &amp;amp; 13, 12 Nov 16-17, 2022 Simple linear Regression I and II Slides LinearRegression1   14 &amp;amp; 15, 14 Nov 24 &amp;amp; 30, 2022 Multiple linear Regression I and II Slides LinearRegression2   16 Dec 1, 2022 Regression diagnostics and sampling Slides    17 Dec 8, 2022 Recap and practice Slides     To start the respective exercises execute the following code, substituting ExCode with the code given in the column &amp;lsquo;Exercise code&amp;rsquo; in the table above:</description>
     </item>
     
   </channel>
