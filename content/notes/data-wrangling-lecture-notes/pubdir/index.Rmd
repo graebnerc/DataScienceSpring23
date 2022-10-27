@@ -236,7 +236,7 @@ In other words, `x %>% f(y)` (or `x %>% f(., y)`) is equivalent to `f(x, y)`.
 
 But lets look at an example! Assume we start with this data set:
 
-```{r, echo=FALSE}
+```{r, echo=TRUE}
 pipe_data_raw <- data_raw %>%
   select(country, year, gdp, unemp)
 pipe_data_raw

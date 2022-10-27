@@ -17,7 +17,7 @@ title: "Course material"
 |   [6](#s6)  | Oct 12, 2022| Visualization | [Slides](slides/T6-Visualization.pdf)| `Visualization1` |
 |   [7](#s7)  | Oct 13, 2022| Project management and data import | [Slides](slides/T7-ProjectSetup.pdf) | `ProjectOrga` | 
 |   [8 & 9](#s8)  | Oct 26, 2022| Data wrangling | [Slides](slides/T8-DataWrangling.pdf) | `Wrangling1` | 
-|   [10](#s10)  | Nov 2, 2022| Quarto/R Markdown | [Slides](slides/T10-Quarto.pdf) | `RMarkdown` |
+|   [10](#s10)  | Nov 2, 2022| Quarto/R Markdown | [Slides](slides/T10-Quarto.pdf) | `Quarto` |
 |   [11](#s11)  | Nov 3, 2022| Recap & practice | Slides |
 |   [12 & 13](#s12), 12  | Nov 16-17, 2022| Simple linear Regression I and II | [Slides](slides/T11T12-SimpleLinearRegression.pdf) | `LinearRegression1` | 
 |   [14 & 15](#s14), 14  | Nov 24 & 30, 2022| Multiple linear Regression I and II | [Slides](slides/T13T14-MultipleLinearRegression.pdf) | `LinearRegression2` | 

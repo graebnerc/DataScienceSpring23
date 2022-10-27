@@ -1,7 +1,7 @@
 ---
 title: 'Data wrangling: Lecture notes'
 author: Claudius Gräbner-Radkowitsch
-date: '2022-04-20'
+date: '2022-09-06'
 slug: data-wrangling-lecture-notes
 documentclass: scrartcl
 output: 
@@ -39,6 +39,7 @@ library(here)
 The data sets used in these notes are available from the course webpage:
 
 * `wrangling_slides.csv` (`data_raw`)
+* `wrangling_slides.csv` (`data_raw_long`)
 * `wrangling_slides_gini.csv` (`gini_red`)
 * `wrangling_slides_final_expl.csv` (`data_final_expl`)
 * `wrangling_slides_gini_grc.csv` (`swiid_join`)
@@ -68,21 +69,19 @@ Here is an example for a rather long data set:
 
 
 ```
-## # A tibble: 12 × 4
-##    country  year variable    value
-##    <chr>   <int> <chr>       <dbl>
-##  1 Germany  2017 unemp        3.75
-##  2 Germany  2017 gdp      53071.  
-##  3 Germany  2017 gini        29.4 
-##  4 Germany  2018 unemp        3.38
-##  5 Germany  2018 gdp      53487.  
-##  6 Germany  2018 gini        29.6 
-##  7 Greece   2017 unemp       21.5 
-##  8 Greece   2017 gdp      28605.  
-##  9 Greece   2017 gini        32.2 
-## 10 Greece   2018 unemp       19.3 
-## 11 Greece   2018 gdp      29141.  
-## 12 Greece   2018 gini        31.7
+##     country year variable    value
+##  1: Germany 2017    unemp     3.75
+##  2: Germany 2017      gdp 53071.46
+##  3: Germany 2017     gini    29.40
+##  4: Germany 2018    unemp     3.38
+##  5: Germany 2018      gdp 53486.84
+##  6: Germany 2018     gini    29.60
+##  7:  Greece 2017    unemp    21.49
+##  8:  Greece 2017      gdp 28604.86
+##  9:  Greece 2017     gini    32.20
+## 10:  Greece 2018    unemp    19.29
+## 11:  Greece 2018      gdp 29141.17
+## 12:  Greece 2018     gini    31.70
 ```
 
 Here, we have one column identifying the variable, the value of which is 
@@ -237,6 +236,12 @@ In other words, `x %>% f(y)` (or `x %>% f(., y)`) is equivalent to `f(x, y)`.
 But lets look at an example! Assume we start with this data set:
 
 
+```r
+pipe_data_raw <- data_raw %>%
+  select(country, year, gdp, unemp)
+pipe_data_raw
+```
+
 ```
 ##    country year      gdp unemp
 ## 1: Germany 2017 53071.46  3.75
@@ -305,7 +310,7 @@ The `%>%`-pipe allows you to write very readable code, so make sure you use it
 often. But for code development it might be nevertheless helpful to write the
 intermediate steps explicitly.
 
-# Creating of manipulating variables
+# Creating or manipulating variables
 
 The function `dplyr::mutate()` is used both for manipulating existing 
 columns as well as creating new columns. In the first case the name of the 
@@ -380,7 +385,7 @@ certain conditions. The conditions must evaluate for each cell entry to
 either `TRUE` or `FALSE`, and only those rows for which they evaluate to `TRUE`
 remain in the data set. Often, the conditions are specified via 
 logical operators, which were already covered in the tutorial on 
-[vector types](/post/object-types-vec/).
+[vector types](/tutorial/object-types-vec/).
 
 As always, the first argument to `dplyr::filter()` is `data`, i.e. the data
 set on which you want to operate. Then follow an arbitrary number of logical
@@ -743,7 +748,7 @@ dplyr::left_join(
 ```
 ## Error in `dplyr::left_join()`:
 ## ! Join columns must be present in data.
-## x Problem with `year`.
+## ✖ Problem with `year`.
 ```
 
 But the named vector fixes it:
