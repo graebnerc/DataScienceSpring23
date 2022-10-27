@@ -162,7 +162,7 @@ All ready, just comment out
 - [The R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)
 
 The practical exercise for this topic can be found 
-[here](/tutorial/rmarkdown-exercises/).
+[here](/tutorial/quarto-exercises/).
 
 
 ## Session 11: Recap and practice {#s11}
@@ -172,8 +172,10 @@ TBA
 ## Sessions 12 & 13: Simple linear regression {#s13} 
 
 - [Guess the correlation browser game](http://guessthecorrelation.com/)
+<!--
+Still the old ones!
 - [Lecture scripts from the session and exercise solutions](https://gist.github.com/graebnerc/d61da231fbc479434476fab221157536)
-
+-->
 ### Mandatory readings
 
 - [Statistical Inference via Data Science, Chapter 5: Basic regression](https://moderndive.com/5-regression.html) 
