@@ -140,11 +140,8 @@ For more information on how to install and use the exercises, see the respective
 ## Session 10: Quarto/R Markdown {#s10} 
 
 - [DesasterMarkdown.pdf](files/DesasterMarkdown.pdf)
-<!--
-All ready, just comment out
 - [NicerMarkdown.pdf](files/NicerMarkdown.pdf)
 - [Code for the markdown desaster and a possible solution](https://gist.github.com/graebnerc/44b82add84b1d5cb89d28574ae89ed02)
--->
 
 ### Mandatory readings
 
