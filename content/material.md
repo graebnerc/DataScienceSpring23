@@ -169,10 +169,7 @@ The practical exercise for this topic can be found
 ## Session 12: Recap of data wrangling {#s12}
 
 - [Example data](files/T12-ExampleData.zip)
-<!--
-Ready, just uncomment!
 - [Solutions to the exercises](https://gist.github.com/graebnerc/9291201a7d4a3ba7496e75b096453cf4)
--->
 
 ## Sessions 13 & 14: Simple linear regression {#s13} 
 
