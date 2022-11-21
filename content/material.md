@@ -18,11 +18,15 @@ title: "Course material"
 |   [7](#s7)  | Oct 13, 2022| Project management and data import | [Slides](slides/T7-ProjectSetup.pdf) | `ProjectOrga` | 
 |   [8 & 9](#s8)  | Oct 26 & Nov 3, 2022| Data wrangling | [Slides](slides/T8-DataWrangling.pdf) | `Wrangling1` | 
 |   [10](#s10)  | Nov 10, 2022 | Quarto/R Markdown | [Slides](slides/T10-Quarto.pdf) | `Quarto` |
-|   [11](#s11)  | Nov 16, 2022| Recap & practice | Slides |
-|   [12 & 13](#s12), 12  | Nov 23 & 24, 2022| Simple linear Regression I and II | [Slides](slides/T11T12-SimpleLinearRegression.pdf) | `LinearRegression1` | 
-|   [14 & 15](#s14), 14  | Nov 30 & Dec 1, 2022| Multiple linear Regression I and II | [Slides](slides/T13T14-MultipleLinearRegression.pdf) | `LinearRegression2` | 
-|   [16](#s16)  | Dec 7, 2022| Regression diagnostics and sampling | Slides |
+|   [11](#s11)  | Nov 16, 2022| Recap & practice | NA |
+|   [12](#s12)  | Nov 23, 2022| Recap of data wrangling | [Slides](slides/T12-RecapWrangling.pdf) |
+|   [13 & 14](#s13), 12  | Nov 24 & 30, 2022| Simple linear Regression I and II | [Slides](slides/T11T12-SimpleLinearRegression.pdf) | `LinearRegression1` | 
+|   [15 & 16](#s15), 14  | Dec 1 & Dec 7, 2022| Multiple linear Regression I and II | [Slides](slides/T13T14-MultipleLinearRegression.pdf) | `LinearRegression2` | 
 |   [17](#s17)  | Dec 8, 2022| Recap and practice | Slides |
+
+<!--
+|   [17](#s17)  | Dec 7, 2022| Regression diagnostics and sampling | Slides |
+-->
 
 To start the respective exercises execute the following code, substituting
 `ExCode` with the code given in the column 'Exercise code' in the table above:
@@ -162,11 +166,15 @@ The practical exercise for this topic can be found
 [here](/tutorial/quarto-exercises/).
 
 
-## Session 11: Recap and practice {#s11}
+## Session 12: Recap of data wrangling {#s12}
 
-TBA
+- [Example data](files/T12-ExampleData.zip)
+<!--
+Ready, just uncomment!
+- [Solutions to the exercises](https://gist.github.com/graebnerc/9291201a7d4a3ba7496e75b096453cf4)
+-->
 
-## Sessions 12 & 13: Simple linear regression {#s13} 
+## Sessions 13 & 14: Simple linear regression {#s13} 
 
 - [Guess the correlation browser game](http://guessthecorrelation.com/)
 <!--
@@ -178,7 +186,7 @@ Still the old ones!
 - [Statistical Inference via Data Science, Chapter 5: Basic regression](https://moderndive.com/5-regression.html) 
 
 
-## Sessions 14 & 15: Multiple linear regression {#s14} 
+## Sessions 15 & 16: Multiple linear regression {#s15} 
 <!--
 - [Lecture notes and solutions to exercises](https://gist.github.com/graebnerc/4a9e5bb95459d8ada31f43141976efe8)
 -->
@@ -187,12 +195,10 @@ Still the old ones!
 
 - [Statistical Inference via Data Science, Chapter 6: Multiple regression](https://moderndive.com/6-multiple-regression.html) 
 
-
-## Sessions 16: Regression diagnostics and sampling {#s16} 
+<!--
+## Sessions 17: Regression diagnostics and sampling {#s16} 
 
 TBA
-
-<!--
 - [Slides](slides/T14-SamplingTheory.pdf)
 - [Lecture scripts from the session and exercise solutions](https://gist.github.com/graebnerc/822ddd3e0d316aae9dda7b5afbe11685)
 
