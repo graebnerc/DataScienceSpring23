@@ -20,8 +20,8 @@ title: "Course material"
 |   [10](#s10)  | Nov 10, 2022 | Quarto/R Markdown | [Slides](slides/T10-Quarto.pdf) | `Quarto` |
 |   [11](#s11)  | Nov 16, 2022| Recap & practice | NA |
 |   [12](#s12)  | Nov 23, 2022| Recap of data wrangling | [Slides](slides/T12-RecapWrangling.pdf) |
-|   [13 & 14](#s13), 12  | Nov 24 & 30, 2022| Simple linear Regression I and II | [Slides](slides/T11T12-SimpleLinearRegression.pdf) | `LinearRegression1` | 
-|   [15 & 16](#s15), 14  | Dec 1 & Dec 7, 2022| Multiple linear Regression I and II | [Slides](slides/T13T14-MultipleLinearRegression.pdf) | `LinearRegression2` | 
+|   [13 & 14](#s13)  | Nov 24 & 30, 2022| Simple linear Regression I and II | [Slides](slides/T13T14-SimpleLinearRegression.pdf) | `LinearRegression1` | 
+|   [15 & 16](#s15)  | Dec 1 & Dec 7, 2022| Multiple linear Regression I and II | [Slides](slides/T15T16-MultipleLinearRegression.pdf) | `LinearRegression2` | 
 |   [17](#s17)  | Dec 8, 2022| Recap and practice | Slides |
 
 <!--
