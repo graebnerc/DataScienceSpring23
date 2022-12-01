@@ -173,11 +173,9 @@ The practical exercise for this topic can be found
 
 ## Sessions 13 & 14: Simple linear regression {#s13} 
 
+- [Exercise solutions](https://gist.github.com/graebnerc/207117d4a87025a3c64d27d8358c275b)
 - [Guess the correlation browser game](http://guessthecorrelation.com/)
-<!--
-Still the old ones!
-- [Lecture scripts from the session and exercise solutions](https://gist.github.com/graebnerc/d61da231fbc479434476fab221157536)
--->
+
 ### Mandatory readings
 
 - [Statistical Inference via Data Science, Chapter 5: Basic regression](https://moderndive.com/5-regression.html) 
