@@ -29,3 +29,7 @@ Read in the data set [ice_data.csv](ice_data.csv).
 What kind of relationships could you reasonably study in a linear regression
 framework (without further data transformation).
 
+## Solutions
+
+The solutions to both exercises can be found
+[here](https://gist.github.com/graebnerc/e63dd4d15f314bc565eac8e617c9bef6).
