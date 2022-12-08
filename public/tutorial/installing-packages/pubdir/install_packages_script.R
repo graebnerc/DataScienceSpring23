@@ -57,6 +57,7 @@ required_packages_cran <- c(
   "rmarkdown",
   "rmutil",
   "quarto",
+  "commonmark",
   "R.utils",
   "sandwich",
   "scales",

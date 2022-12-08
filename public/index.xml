@@ -154,7 +154,19 @@ All pages not under the root directory of the website are listed below. This inc
       
       <guid>https://datascience-euf-fall22.netlify.app/material/</guid>
       <description>Course outline
-Slides and exercises    Session Date Topic Slides Exercise code     1 Sep 21, 2022 General introduction Slides    2 Sep 22, 2022 Basics of R and R-Studio Slides Basics   3 Sep 29, 2022 Basic objects Slides ObjectTypes1   4 Oct 5, 2022 Advanced objects Slides ObjectTypes2   5 Oct 6, 2022 Recap &amp;amp; practice Slides    6 Oct 12, 2022 Visualization Slides Visualization1   7 Oct 13, 2022 Project management and data import Slides ProjectOrga   8 &amp;amp; 9 Oct 26, 2022 Data wrangling Slides Wrangling1   10 Nov 2, 2022 Quarto/R Markdown Slides Quarto   11 Nov 3, 2022 Recap &amp;amp; practice Slides    12 &amp;amp; 13, 12 Nov 16-17, 2022 Simple linear Regression I and II Slides LinearRegression1   14 &amp;amp; 15, 14 Nov 24 &amp;amp; 30, 2022 Multiple linear Regression I and II Slides LinearRegression2   16 Dec 1, 2022 Regression diagnostics and sampling Slides    17 Dec 8, 2022 Recap and practice Slides     To start the respective exercises execute the following code, substituting ExCode with the code given in the column &amp;lsquo;Exercise code&amp;rsquo; in the table above:</description>
+Slides and exercises    Session Date Topic Slides Exercise code     1 Sep 21, 2022 General introduction Slides    2 Sep 22, 2022 Basics of R and R-Studio Slides Basics   3 Sep 29, 2022 Basic objects Slides ObjectTypes1   4 Oct 5, 2022 Advanced objects Slides ObjectTypes2   5 Oct 6, 2022 Recap &amp;amp; practice Slides    6 Oct 12, 2022 Visualization Slides Visualization1   7 Oct 13, 2022 Project management and data import Slides ProjectOrga   8 &amp;amp; 9 Oct 26 &amp;amp; Nov 3, 2022 Data wrangling Slides Wrangling1   10 Nov 10, 2022 Quarto/R Markdown Slides Quarto   11 Nov 16, 2022 Recap &amp;amp; practice NA    12 Nov 23, 2022 Recap of data wrangling Slides    13 &amp;amp; 14 Nov 24 &amp;amp; 30, 2022 Simple linear Regression I and II Slides LinearRegression1   15 &amp;amp; 16 Dec 1 &amp;amp; Dec 7, 2022 Multiple linear Regression I and II Slides LinearRegression2   17 Dec 8, 2022 Recap and practice Slides     To start the respective exercises execute the following code, substituting ExCode with the code given in the column &amp;lsquo;Exercise code&amp;rsquo; in the table above:</description>
+    </item>
+    
+    <item>
+      <title>Exercises on multiple linear regression</title>
+      <link>https://datascience-euf-fall22.netlify.app/tutorial/multiple-regression/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://datascience-euf-fall22.netlify.app/tutorial/multiple-regression/</guid>
+      <description>Exercises on multiple linear regression Studying coffee data Read in the data set coffee_data.csv.
+It contains the following variables:
+ CoffeePrice: The world market price for coffee from Brazil in EUR per kilo CoffeeDemand: The demand for coffee from Brazil in tons CoffeeSeller: The kind of coffee company: Standard or FairTrade  In the following, treat CoffeeDemand as the dependent variable, and CoffeePrice and CoffeeSeller as the independent variables.
+Estimate a parallel slopes model, and an interaction model.</description>
     </item>
     
   </channel>

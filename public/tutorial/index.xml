@@ -117,5 +117,17 @@ Read this post as HTML</description>
 Read this post as HTML</description>
     </item>
     
+    <item>
+      <title>Exercises on multiple linear regression</title>
+      <link>https://datascience-euf-fall22.netlify.app/tutorial/multiple-regression/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://datascience-euf-fall22.netlify.app/tutorial/multiple-regression/</guid>
+      <description>Exercises on multiple linear regression Studying coffee data Read in the data set coffee_data.csv.
+It contains the following variables:
+ CoffeePrice: The world market price for coffee from Brazil in EUR per kilo CoffeeDemand: The demand for coffee from Brazil in tons CoffeeSeller: The kind of coffee company: Standard or FairTrade  In the following, treat CoffeeDemand as the dependent variable, and CoffeePrice and CoffeeSeller as the independent variables.
+Estimate a parallel slopes model, and an interaction model.</description>
+    </item>
+    
   </channel>
 </rss>

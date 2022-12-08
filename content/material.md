@@ -182,9 +182,8 @@ The practical exercise for this topic can be found
 
 
 ## Sessions 15 & 16: Multiple linear regression {#s15} 
-<!--
-- [Lecture notes and solutions to exercises](https://gist.github.com/graebnerc/4a9e5bb95459d8ada31f43141976efe8)
--->
+
+- [Exercises](/tutorial/multiple-regression/)
 
 ### Mandatory readings
 
