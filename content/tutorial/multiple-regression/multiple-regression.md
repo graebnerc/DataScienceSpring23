@@ -31,5 +31,7 @@ framework (without further data transformation).
 
 ## Solutions
 
-The solutions to both exercises can be found
+The solutions to both exercises can be found here, but only after the exam.
+<!--
 [here](https://gist.github.com/graebnerc/e63dd4d15f314bc565eac8e617c9bef6).
+-->
