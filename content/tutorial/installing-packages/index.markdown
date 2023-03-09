@@ -1,7 +1,7 @@
 ---
 title: "1.2 - Installing R packages"
 author: Claudius Gräbner-Radkowitsch
-date: '2022-09-06'
+date: '2023-03-09'
 slug: installing-packages
 categories:
   - setup

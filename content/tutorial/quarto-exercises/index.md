@@ -1,7 +1,7 @@
 ---
 title: "10 - Quarto exercises"
 author: "Claudius Gräbner-Radkowitsch"
-date: '2022-10-26'
+date: '2023-03-09'
 slug: quarto-exercises
 categories: exercises
 tags:

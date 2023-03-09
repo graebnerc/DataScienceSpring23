@@ -2,15 +2,17 @@
 title: "Course material"
 ---
 
-[Course outline](files/CourseDescription-DataScienceR-Fall22.pdf)
+[Course outline](files/CourseDescription-DataScienceR-Spring23.pdf)
 
 # Slides and exercises
 
 
 | **Session** | **Date**      | **Topic**           | **Slides**| **Exercise code**|
 |:-----------:|:--------------|:--------------------|:-------------:|:------------:|
-|   [1](#s1)  | Sep 21, 2022| General introduction| [Slides](slides/T1-Introduction.pdf) |
-|   [2](#s2)  | Sep 22, 2022| Basics of R and R-Studio | [Slides](slides/T2-Basics-Functions.pdf) | `Basics` |
+|   [1](#s1)  | Mar 15, 2023  | General introduction| [Slides](slides/T1-Introduction.pdf) |
+|   [2](#s2)  | Mar 16, 2023| Basics of R and R-Studio | [Slides](slides/T2-Basics-Functions.pdf) | `Basics` |
+
+<!--
 |   [3](#s3)  | Sep 29, 2022| Basic objects | [Slides](slides/T3-Objects.pdf) | `ObjectTypes1` |
 |   [4](#s4)  | Oct 5, 2022| Advanced objects | [Slides](slides/T4-AdvObjects.pdf) | `ObjectTypes2` |
 |   [5](#s5)  | Oct 6, 2022| Recap & practice| [Slides](slides/T5-Exercises.pdf)| 
@@ -23,9 +25,6 @@ title: "Course material"
 |   [13 & 14](#s13)  | Nov 24 & 30, 2022| Simple linear Regression I and II | [Slides](slides/T13T14-SimpleLinearRegression.pdf) | `LinearRegression1` | 
 |   [15 & 16](#s15)  | Dec 1 & Dec 7, 2022| Multiple linear Regression I and II | [Slides](slides/T15T16-MultipleLinearRegression.pdf) | `LinearRegression2` | 
 |   [17](#s17)  | Dec 8, 2022| Recap and practice | Slides |
-
-<!--
-|   [17](#s17)  | Dec 7, 2022| Regression diagnostics and sampling | Slides |
 -->
 
 To start the respective exercises execute the following code, substituting
@@ -68,7 +67,7 @@ For more information on how to install and use the exercises, see the respective
 
 - [R Studio IDE cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/rstudio-ide.pdf)
 
-
+<!--
 ## Session 3: Basic object types {#s3}
 
 - [Lecture videos](https://youtube.com/playlist?list=PLZDawQMrG1RLqzcegYiLnK4vQnSbqjf1K)
@@ -84,7 +83,6 @@ For more information on how to install and use the exercises, see the respective
 - [Session notes](https://gist.github.com/graebnerc/53a88869a8d178efea90fff92ab272f5)
 <!--
 - [Session notes](https://gist.github.com/graebnerc/bf8b1b60084377744881b392f0c9534e)
--->
 
 ### Mandatory readings
 
@@ -188,6 +186,7 @@ The practical exercise for this topic can be found
 ### Mandatory readings
 
 - [Statistical Inference via Data Science, Chapter 6: Multiple regression](https://moderndive.com/6-multiple-regression.html) 
+-->
 
 <!--
 ## Sessions 17: Regression diagnostics and sampling {#s16} 
@@ -209,9 +208,10 @@ learnr::run_tutorial(
   package = "DataScienceExercises", 
   shiny_args=list("launch.browser"=TRUE))
 ```
--->
+
 
 ## Session 17: Recap and practice {#s17}
 
 TBA
 
+-->

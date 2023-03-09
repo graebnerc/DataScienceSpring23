@@ -11,7 +11,7 @@
 
 <meta name="author" content="Claudius Gräbner-Radkowitsch" />
 
-<meta name="date" content="2022-09-06" />
+<meta name="date" content="2023-03-09" />
 
 <title>Installation of the necessary software</title>
 
@@ -282,23 +282,17 @@ overflow-y: auto;
 border: 1px solid #ddd;
 border-radius: 4px;
 }
-.tabset-dropdown > .nav-tabs > li.active:before {
-content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+content: "\e259";
 font-family: 'Glyphicons Halflings';
 display: inline-block;
 padding: 10px;
 border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-content: "";
-border: none;
-}
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-content: "";
+content: "\e258";
 font-family: 'Glyphicons Halflings';
-display: inline-block;
-padding: 10px;
-border-right: 1px solid #ddd;
+border: none;
 }
 .tabset-dropdown > .nav-tabs > li.active {
 display: block;
@@ -341,7 +335,7 @@ display: none;
 
 <h1 class="title toc-ignore">Installation of the necessary software</h1>
 <h4 class="author">Claudius Gräbner-Radkowitsch</h4>
-<h4 class="date">2022-09-06</h4>
+<h4 class="date">2023-03-09</h4>
 
 </div>
 
@@ -498,7 +492,7 @@ allow you to install the software.</p>
 <h2><span class="header-section-number">3.2</span> Update R</h2>
 <p>In case R is already installed on your computer you should make sure
 that your version is more of less up to date. For our seminar you should
-use at least R version <code>R 4.1.2</code>. The version you are
+use at least R version <code>R 4.2.2</code>. The version you are
 currently using is shown as soon as you start <code>R</code>.</p>
 <p>Please note: if you installed R anew in the previous step, you do
 <em>not</em> need to update it. The information on updating R is mainly
@@ -553,13 +547,16 @@ package manager.</p>
 <h2><span class="header-section-number">3.3</span> R-Studio</h2>
 <p>Installing R-Studio is easy. The only thing you should keep in mind
 that you should <strong>install R first</strong>, and <strong>R-Studio
-second</strong>. So, after installing <code>R</code> got to the <a href="https://www.rstudio.com/products/rstudio/download/">R-Studio
-download page</a> and download the <em>RStudio Desktop</em> version for
-your OS according to the installation instructions provided.</p>
+second</strong>. So, after installing <code>R</code> got to the <a href="https://posit.co/download/rstudio-desktop/">R-Studio download
+page</a> and download the <em>RStudio Desktop</em> version for your OS
+according to the installation instructions provided.</p>
 <p>If you are on Mac and you are using Homebrew you may use <a href="https://formulae.brew.sh/cask/rstudio">this formula</a>.</p>
 <p>If you want to update R-Studio, you just install it again. Please
 note that the <strong>minimal version</strong> for this seminar should
-be RStudio <code>2022.07.1+554</code>.</p>
+be RStudio <code>2022.12.0+353</code>, which is from December 2022. You
+can check your version by clicking on <code>RStudio</code> in the upper
+left part of your screen when R-Studio is open. Then click on
+<code>About RStudio</code>.</p>
 </div>
 <div id="git" class="section level2" number="3.4">
 <h2><span class="header-section-number">3.4</span> Git</h2>

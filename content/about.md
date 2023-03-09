@@ -3,8 +3,8 @@ author: Claudius Gräbner-Radkowitsch
 title: Applied data science using R
 ---
 
-This is the website for the course 'An introduction to data science using R'
-taught at the Europa-University Flensburg in the fall semester 2022/23.
+This is the website for the course 'Data Science using R'
+taught at the Europa-University Flensburg in the spring semester 2023.
 
 All pages not under the root directory of the website are listed below. 
 This includes both posted tutorials and lecture notes. 

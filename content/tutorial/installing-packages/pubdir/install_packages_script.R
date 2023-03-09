@@ -3,9 +3,24 @@ your_platform <- "windows" # Choose one of the following: mac, linux or windows
 if (your_platform=="mac"){
   install_type <- "mac.binary"
   options(install.packages.check.source = "no")
+  cat(paste(
+    "Make sure you have the commend line tools installed! This end, first", 
+    "open the App Terminal and issue the following command: "), 
+    "xcode-select -p",
+    paste("If it indicates Xcode has not been installed execute this:"),
+    "xcode-select --install",
+    "And then again re-check whether the installation was successful.",
+    sep = "\n")
 } else if (your_platform=="windows"){
   install_type <- "win.binary"
   options(install.packages.check.source = "no")
+  rtools_installed <- pkgbuild::has_rtools()
+  if (!rtools_installed){
+    stop(paste(
+      "You should install Rtools before starting to install the packages. ",
+      "Information on how to do so can be found here: \n",
+      "https://ohdsi.github.io/Hades/rSetup.html#Installing_RTools", sep = "\n"))
+  }
 } else if (your_platform=="linux"){
   install_type <- "source"
   options(install.packages.check.source = "yes")
@@ -69,11 +84,7 @@ required_packages_cran <- c(
   "WDI"
 )
 
-for (i in 1:length(required_packages_cran)){
-  package_name <- required_packages_cran[i]
-  print(package_name)
-  install.packages(package_name, type = install_type)
-}
+install.packages(required_packages_cran, type = install_type)
 
 required_packages_github <- c(
   "rstudio/learnr",
@@ -88,7 +99,7 @@ remotes::install_github(
 
 required_packages <- c(
   required_packages_cran, 
-  gsub(".*/","",required_packages_github)
+  gsub(".*/","", required_packages_github)
   )
 
 package_status_list <- list()

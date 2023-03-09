@@ -1,128 +1,128 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tutorials on Data Science (FaSe22)</title>
-    <link>https://datascience-euf-fall22.netlify.app/tutorial/</link>
-    <description>Recent content in Tutorials on Data Science (FaSe22)</description>
+    <title>Tutorials on Data Science (SpSe23)</title>
+    <link>https://datascience-euf-spring23.netlify.app/tutorial/</link>
+    <description>Recent content in Tutorials on Data Science (SpSe23)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 26 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://datascience-euf-fall22.netlify.app/tutorial/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>10 - Quarto exercises</title>
-      <link>https://datascience-euf-fall22.netlify.app/tutorial/quarto-exercises/</link>
-      <pubDate>Wed, 26 Oct 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://datascience-euf-fall22.netlify.app/tutorial/quarto-exercises/</guid>
-      <description>Create a new Quarto document where you set the title, date, and the author explicitly. Write a sample text that comprises&amp;hellip;
- &amp;hellip;at least one level 1 heading &amp;hellip;at least two level 2 headings &amp;hellip;a YAML part that specifies that R code remains hidden by default &amp;hellip;one R chunk where both the output and the code is printed in the final document &amp;hellip;one R chunk that produces a simply ggplot object and where the code producing the plot is hidden  Then do the following:</description>
-    </item>
-    
+    <lastBuildDate>Thu, 09 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://datascience-euf-spring23.netlify.app/tutorial/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>1.1 - Installation of the necessary software</title>
-      <link>https://datascience-euf-fall22.netlify.app/tutorial/installation/</link>
-      <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
+      <link>https://datascience-euf-spring23.netlify.app/tutorial/installation/</link>
+      <pubDate>Thu, 09 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://datascience-euf-fall22.netlify.app/tutorial/installation/</guid>
+      <guid>https://datascience-euf-spring23.netlify.app/tutorial/installation/</guid>
       <description>Download this post as PDF
 Read this post as HTML</description>
     </item>
     
     <item>
       <title>1.2 - Installing R packages</title>
-      <link>https://datascience-euf-fall22.netlify.app/tutorial/installing-packages/</link>
-      <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
+      <link>https://datascience-euf-spring23.netlify.app/tutorial/installing-packages/</link>
+      <pubDate>Thu, 09 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://datascience-euf-fall22.netlify.app/tutorial/installing-packages/</guid>
+      <guid>https://datascience-euf-spring23.netlify.app/tutorial/installing-packages/</guid>
       <description>Download this post as PDF
 Read this post as HTML</description>
     </item>
     
     <item>
       <title>1.3 - Using exercises</title>
-      <link>https://datascience-euf-fall22.netlify.app/tutorial/using-exercises/</link>
-      <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
+      <link>https://datascience-euf-spring23.netlify.app/tutorial/using-exercises/</link>
+      <pubDate>Thu, 09 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://datascience-euf-fall22.netlify.app/tutorial/using-exercises/</guid>
+      <guid>https://datascience-euf-spring23.netlify.app/tutorial/using-exercises/</guid>
       <description>Download this post as PDF
 Read this post as HTML</description>
     </item>
     
     <item>
-      <title>2.1 - First steps in R</title>
-      <link>https://datascience-euf-fall22.netlify.app/tutorial/first-steps/</link>
-      <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
+      <title>10 - Quarto exercises</title>
+      <link>https://datascience-euf-spring23.netlify.app/tutorial/quarto-exercises/</link>
+      <pubDate>Thu, 09 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://datascience-euf-fall22.netlify.app/tutorial/first-steps/</guid>
+      <guid>https://datascience-euf-spring23.netlify.app/tutorial/quarto-exercises/</guid>
+      <description>Create a new Quarto document where you set the title, date, and the author explicitly. Write a sample text that comprises&amp;hellip;
+ &amp;hellip;at least one level 1 heading &amp;hellip;at least two level 2 headings &amp;hellip;a YAML part that specifies that R code remains hidden by default &amp;hellip;one R chunk where both the output and the code is printed in the final document &amp;hellip;one R chunk that produces a simply ggplot object and where the code producing the plot is hidden  Then do the following:</description>
+    </item>
+    
+    <item>
+      <title>2.1 - First steps in R</title>
+      <link>https://datascience-euf-spring23.netlify.app/tutorial/first-steps/</link>
+      <pubDate>Thu, 09 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://datascience-euf-spring23.netlify.app/tutorial/first-steps/</guid>
       <description>Download this post as PDF
 Read this post as HTML</description>
     </item>
     
     <item>
       <title>2.2 - Fundamental object types in R I: Functions</title>
-      <link>https://datascience-euf-fall22.netlify.app/tutorial/object-types-func/</link>
-      <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
+      <link>https://datascience-euf-spring23.netlify.app/tutorial/object-types-func/</link>
+      <pubDate>Thu, 09 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://datascience-euf-fall22.netlify.app/tutorial/object-types-func/</guid>
+      <guid>https://datascience-euf-spring23.netlify.app/tutorial/object-types-func/</guid>
       <description>Download this post as PDF
 Read this post as HTML</description>
     </item>
     
     <item>
       <title>3 - Fundamental object types in R II: Vectors</title>
-      <link>https://datascience-euf-fall22.netlify.app/tutorial/object-types-vec/</link>
-      <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
+      <link>https://datascience-euf-spring23.netlify.app/tutorial/object-types-vec/</link>
+      <pubDate>Thu, 09 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://datascience-euf-fall22.netlify.app/tutorial/object-types-vec/</guid>
+      <guid>https://datascience-euf-spring23.netlify.app/tutorial/object-types-vec/</guid>
       <description>Download this post as PDF
 Read this post as HTML</description>
     </item>
     
     <item>
       <title>4 - Fundamental object types in R III:Factors, matrices, and data frames</title>
-      <link>https://datascience-euf-fall22.netlify.app/tutorial/object-types-adv/</link>
-      <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
+      <link>https://datascience-euf-spring23.netlify.app/tutorial/object-types-adv/</link>
+      <pubDate>Thu, 09 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://datascience-euf-fall22.netlify.app/tutorial/object-types-adv/</guid>
+      <guid>https://datascience-euf-spring23.netlify.app/tutorial/object-types-adv/</guid>
       <description>Download this post as PDF
 Read this post as HTML</description>
     </item>
     
     <item>
       <title>7.1 - Setting up an R project</title>
-      <link>https://datascience-euf-fall22.netlify.app/tutorial/setting-up-an-r-project/</link>
-      <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
+      <link>https://datascience-euf-spring23.netlify.app/tutorial/setting-up-an-r-project/</link>
+      <pubDate>Thu, 09 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://datascience-euf-fall22.netlify.app/tutorial/setting-up-an-r-project/</guid>
+      <guid>https://datascience-euf-spring23.netlify.app/tutorial/setting-up-an-r-project/</guid>
       <description>Download this post as PDF
 Read this post as HTML</description>
     </item>
     
     <item>
       <title>7.2 - Importing and exporting data using data.table</title>
-      <link>https://datascience-euf-fall22.netlify.app/tutorial/importing-exporting-data/</link>
-      <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
+      <link>https://datascience-euf-spring23.netlify.app/tutorial/importing-exporting-data/</link>
+      <pubDate>Thu, 09 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://datascience-euf-fall22.netlify.app/tutorial/importing-exporting-data/</guid>
+      <guid>https://datascience-euf-spring23.netlify.app/tutorial/importing-exporting-data/</guid>
       <description>Download this post as PDF
 Read this post as HTML</description>
     </item>
     
     <item>
       <title>Monte Carlo Simulations in R</title>
-      <link>https://datascience-euf-fall22.netlify.app/tutorial/mcs/</link>
-      <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
+      <link>https://datascience-euf-spring23.netlify.app/tutorial/mcs/</link>
+      <pubDate>Thu, 09 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://datascience-euf-fall22.netlify.app/tutorial/mcs/</guid>
+      <guid>https://datascience-euf-spring23.netlify.app/tutorial/mcs/</guid>
       <description>Download this post as PDF
 Read this post as HTML</description>
     </item>
     
     <item>
       <title>Exercises on multiple linear regression</title>
-      <link>https://datascience-euf-fall22.netlify.app/tutorial/multiple-regression/</link>
+      <link>https://datascience-euf-spring23.netlify.app/tutorial/multiple-regression/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://datascience-euf-fall22.netlify.app/tutorial/multiple-regression/</guid>
+      <guid>https://datascience-euf-spring23.netlify.app/tutorial/multiple-regression/</guid>
       <description>Exercises on multiple linear regression Studying coffee data Read in the data set coffee_data.csv.
 It contains the following variables:
  CoffeePrice: The world market price for coffee from Brazil in EUR per kilo CoffeeDemand: The demand for coffee from Brazil in tons CoffeeSeller: The kind of coffee company: Standard or FairTrade  In the following, treat CoffeeDemand as the dependent variable, and CoffeePrice and CoffeeSeller as the independent variables.

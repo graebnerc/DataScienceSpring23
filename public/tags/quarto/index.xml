@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>quarto on Data Science (FaSe22)</title>
-    <link>https://datascience-euf-fall22.netlify.app/tags/quarto/</link>
-    <description>Recent content in quarto on Data Science (FaSe22)</description>
+    <title>quarto on Data Science (SpSe23)</title>
+    <link>https://datascience-euf-spring23.netlify.app/tags/quarto/</link>
+    <description>Recent content in quarto on Data Science (SpSe23)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 26 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://datascience-euf-fall22.netlify.app/tags/quarto/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://datascience-euf-spring23.netlify.app/tags/quarto/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>10 - Quarto exercises</title>
-      <link>https://datascience-euf-fall22.netlify.app/tutorial/quarto-exercises/</link>
-      <pubDate>Wed, 26 Oct 2022 00:00:00 +0000</pubDate>
+      <link>https://datascience-euf-spring23.netlify.app/tutorial/quarto-exercises/</link>
+      <pubDate>Thu, 09 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://datascience-euf-fall22.netlify.app/tutorial/quarto-exercises/</guid>
+      <guid>https://datascience-euf-spring23.netlify.app/tutorial/quarto-exercises/</guid>
       <description>Create a new Quarto document where you set the title, date, and the author explicitly. Write a sample text that comprises&amp;hellip;
  &amp;hellip;at least one level 1 heading &amp;hellip;at least two level 2 headings &amp;hellip;a YAML part that specifies that R code remains hidden by default &amp;hellip;one R chunk where both the output and the code is printed in the final document &amp;hellip;one R chunk that produces a simply ggplot object and where the code producing the plot is hidden  Then do the following:</description>
     </item>

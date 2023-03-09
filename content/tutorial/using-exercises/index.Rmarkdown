@@ -1,7 +1,7 @@
 ---
 title: "1.3 - Using exercises"
 author: Claudius Gräbner-Radkowitsch
-date: '2022-09-06'
+date: '2023-03-09'
 slug: using-exercises
 categories:
   - setup

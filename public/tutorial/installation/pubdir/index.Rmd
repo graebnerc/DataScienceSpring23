@@ -1,7 +1,7 @@
 ---
 title: 'Installation of the necessary software'
 author: 'Claudius Gräbner-Radkowitsch'
-date: '2022-09-06'
+date: '2023-03-09'
 slug: installation
 documentclass: scrartcl
 categories:
@@ -164,7 +164,7 @@ you to install the software.
 
 In case R is already installed on your computer you should make sure that your
 version is more of less up to date. For our seminar you should use at least R
-version `R 4.1.2`. The version you are currently using is shown as soon as you
+version `R 4.2.2`. The version you are currently using is shown as soon as you
 start `R`.
 
 Please note: if you installed R anew in the previous step, you do *not* need 
@@ -236,7 +236,7 @@ manager.
 Installing R-Studio is easy. The only thing you should keep in mind that
 you should **install R first**, and **R-Studio second**.
 So, after installing `R` got to the 
-[R-Studio download page](https://www.rstudio.com/products/rstudio/download/)
+[R-Studio download page](https://posit.co/download/rstudio-desktop/)
 and download the *RStudio Desktop* version for your OS according to the 
 installation instructions provided.
 
@@ -244,7 +244,10 @@ If you are on Mac and you are using Homebrew you may use
 [this formula](https://formulae.brew.sh/cask/rstudio).
 
 If you want to update R-Studio, you just install it again. Please note that the
-**minimal version** for this seminar should be RStudio `2022.07.1+554`.
+**minimal version** for this seminar should be RStudio `2022.12.0+353`, which 
+is from December 2022. You can check your version by clicking on 
+`RStudio` in the upper left part of your screen when R-Studio is open. 
+Then click on `About RStudio`.
 
 ## Git
 

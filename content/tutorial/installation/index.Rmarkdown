@@ -1,7 +1,7 @@
 ---
 title: '1.1 - Installation of the necessary software'
 author: 'Claudius Gräbner-Radkowitsch'
-date: '2022-09-06'
+date: '2023-03-09'
 slug: installation
 categories:
   - tutorial

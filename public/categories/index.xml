@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Data Science (FaSe22)</title>
-    <link>https://datascience-euf-fall22.netlify.app/categories/</link>
-    <description>Recent content in Categories on Data Science (FaSe22)</description>
+    <title>Categories on Data Science (SpSe23)</title>
+    <link>https://datascience-euf-spring23.netlify.app/categories/</link>
+    <description>Recent content in Categories on Data Science (SpSe23)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 26 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://datascience-euf-fall22.netlify.app/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://datascience-euf-spring23.netlify.app/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>exercises</title>
-      <link>https://datascience-euf-fall22.netlify.app/categories/exercises/</link>
-      <pubDate>Wed, 26 Oct 2022 00:00:00 +0000</pubDate>
+      <link>https://datascience-euf-spring23.netlify.app/categories/exercises/</link>
+      <pubDate>Thu, 09 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://datascience-euf-fall22.netlify.app/categories/exercises/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>notes</title>
-      <link>https://datascience-euf-fall22.netlify.app/categories/notes/</link>
-      <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://datascience-euf-fall22.netlify.app/categories/notes/</guid>
+      <guid>https://datascience-euf-spring23.netlify.app/categories/exercises/</guid>
       <description></description>
     </item>
     
     <item>
       <title>setup</title>
-      <link>https://datascience-euf-fall22.netlify.app/categories/setup/</link>
-      <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
+      <link>https://datascience-euf-spring23.netlify.app/categories/setup/</link>
+      <pubDate>Thu, 09 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://datascience-euf-fall22.netlify.app/categories/setup/</guid>
+      <guid>https://datascience-euf-spring23.netlify.app/categories/setup/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tutorial</title>
-      <link>https://datascience-euf-fall22.netlify.app/categories/tutorial/</link>
+      <link>https://datascience-euf-spring23.netlify.app/categories/tutorial/</link>
+      <pubDate>Thu, 09 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://datascience-euf-spring23.netlify.app/categories/tutorial/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>notes</title>
+      <link>https://datascience-euf-spring23.netlify.app/categories/notes/</link>
       <pubDate>Tue, 06 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://datascience-euf-fall22.netlify.app/categories/tutorial/</guid>
+      <guid>https://datascience-euf-spring23.netlify.app/categories/notes/</guid>
       <description></description>
     </item>
     

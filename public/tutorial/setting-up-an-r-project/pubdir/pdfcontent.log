@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.12.0 (TeX Live 2020)  (format=lualatex 2020.9.1)  8 DEC 2022 12:58
+This is LuaHBTeX, Version 1.12.0 (TeX Live 2020)  (format=lualatex 2020.9.1)  9 MAR 2023 15:56
  restricted system commands enabled.
 **pdfcontent.tex
 (./pdfcontent.tex
@@ -1010,9 +1010,9 @@ Here is how much of LuaTeX's memory you used:
  563 words of node memory still in use:
    6 hlist, 2 vlist, 2 rule, 4 glue, 4 kern, 1 glyph, 10 attribute, 61 glue_spec
 , 10 attribute_list, 1 write, 1 user_defined nodes
-   avail lists: 1:2,2:560,3:125,4:108,5:301,6:53,7:4057,8:17,9:243,10:11,11:225
+   avail lists: 1:2,2:560,3:125,4:108,5:300,6:53,7:4063,8:17,9:243,10:11,11:226
  43070 multiletter control sequences out of 65536+600000
- 83 fonts using 9466711 bytes
+ 83 fonts using 9466699 bytes
  59i,20n,116p,10132b,570s stack positions out of 5000i,500n,10000p,200000b,100000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/te
 xlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/texlive/2020/texm
@@ -1026,7 +1026,7 @@ t/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2020/texmf-dist/fonts/typ
 e1/public/lm/lmro10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/l
 m/lmtt10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt9.pfb
 >
-Output written on pdfcontent.pdf (8 pages, 908222 bytes).
+Output written on pdfcontent.pdf (8 pages, 908384 bytes).
 
 PDF statistics: 173 PDF objects out of 1000 (max. 8388607)
  139 compressed objects within 2 object streams

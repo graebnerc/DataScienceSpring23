@@ -11,7 +11,7 @@
 
 <meta name="author" content="Claudius Gräbner-Radkowitsch" />
 
-<meta name="date" content="2022-09-06" />
+<meta name="date" content="2023-03-09" />
 
 <title>First steps in R</title>
 
@@ -312,13 +312,20 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; }
   for (var i = 0; i < sheets.length; i++) {
     if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
     try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
+    var j = 0;
+    while (j < rules.length) {
       var rule = rules[j];
       // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
       var style = rule.style.cssText;
       // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
       // replace div.sourceCode by a pre.sourceCode rule
       sheets[i].deleteRule(j);
       sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
@@ -375,23 +382,17 @@ overflow-y: auto;
 border: 1px solid #ddd;
 border-radius: 4px;
 }
-.tabset-dropdown > .nav-tabs > li.active:before {
-content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+content: "\e259";
 font-family: 'Glyphicons Halflings';
 display: inline-block;
 padding: 10px;
 border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-content: "";
-border: none;
-}
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-content: "";
+content: "\e258";
 font-family: 'Glyphicons Halflings';
-display: inline-block;
-padding: 10px;
-border-right: 1px solid #ddd;
+border: none;
 }
 .tabset-dropdown > .nav-tabs > li.active {
 display: block;
@@ -434,7 +435,7 @@ display: none;
 
 <h1 class="title toc-ignore">First steps in R</h1>
 <h4 class="author">Claudius Gräbner-Radkowitsch</h4>
-<h4 class="date">2022-09-06</h4>
+<h4 class="date">2023-03-09</h4>
 
 </div>
 
@@ -755,35 +756,23 @@ earlier package. You see this by calling the objects by name:</p>
 #&gt; {
 #&gt;     UseMethod(&quot;lead&quot;)
 #&gt; }
-#&gt; &lt;bytecode: 0x7fa4d430d830&gt;
+#&gt; &lt;bytecode: 0x7fc4840d1680&gt;
 #&gt; &lt;environment: namespace:plm&gt;</code></pre>
 <p>The last line informs is about the fact that the function was defined
 in the package <code>plm</code>. If we now want to call the function
 <code>lead</code> from the package <code>dplyr</code>, we must use
 <code>::</code>:</p>
 <div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span>lead</span></code></pre></div>
-<pre><code>#&gt; function (x, n = 1L, default = NA, order_by = NULL, ...) 
+<pre><code>#&gt; function (x, n = 1L, default = NULL, order_by = NULL, ...) 
 #&gt; {
-#&gt;     if (!is.null(order_by)) {
-#&gt;         return(with_order(order_by, lead, x, n = n, default = default))
+#&gt;     check_dots_empty0(...)
+#&gt;     check_number_whole(n)
+#&gt;     if (n &lt; 0L) {
+#&gt;         abort(&quot;`n` must be positive.&quot;)
 #&gt;     }
-#&gt;     if (length(n) != 1 || !is.numeric(n) || n &lt; 0) {
-#&gt;         msg &lt;- glue(&quot;`n` must be a positive integer, not {friendly_type_of(n)} of length {length(n)}.&quot;)
-#&gt;         abort(msg)
-#&gt;     }
-#&gt;     if (n == 0) 
-#&gt;         return(x)
-#&gt;     if (vec_size(default) != 1L) {
-#&gt;         msg &lt;- glue(&quot;`default` must be size 1, not size {vec_size(default)}&quot;)
-#&gt;         abort(msg)
-#&gt;     }
-#&gt;     xlen &lt;- vec_size(x)
-#&gt;     n &lt;- pmin(n, xlen)
-#&gt;     inputs &lt;- fix_call(vec_cast_common(default = default, x = x))
-#&gt;     vec_c(vec_slice(inputs$x, -seq_len(n)), vec_rep(inputs$default, 
-#&gt;         n))
+#&gt;     shift(x, n = -n, default = default, order_by = order_by)
 #&gt; }
-#&gt; &lt;bytecode: 0x7fa4f580eea8&gt;
+#&gt; &lt;bytecode: 0x7fc4b316b060&gt;
 #&gt; &lt;environment: namespace:dplyr&gt;</code></pre>
 <p>This can be very confusing. Thus, I <em>strongly recommend</em> to
 <em>always</em> use <code>::</code> when it comes to masking, no matter
