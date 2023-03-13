@@ -54,8 +54,9 @@ For more information on how to install and use the exercises, see the respective
 
 
 ## Session 2: Basics of R and R-Studio {#s2}
-
+<!--
 [Lecture notes and exercise solutions](https://gist.github.com/graebnerc/8569172d758ea2a4c5f9305dc3ce9966)
+--->
 
 ### Mandatory readings
 
