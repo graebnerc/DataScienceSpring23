@@ -126,24 +126,25 @@ I recommend you to install the distribution
 [tinytex](https://yihui.org/tinytex/),
 no matter whether you already have a different distribution or not.
 
-In the previous step you already installed the *package* `tinytex`.
-This is *not* the distribution. To install the latter, you need to execute the
-following commands while having a stable internet connection:
+I recommend installing tinytex via Quarto. You should have 
+installed Quarto during
+[this tutorial](/tutorial/installation/), but in case you 
+did not, just follow the instructions on 
+[this webpage](https://quarto.org/docs/get-started/).
 
-```{r, eval=FALSE}
-tinytex::install_tinytex()
+Then follow the instructions from [this tutorial](https://quarto.org/docs/output-formats/pdf-engine.html).
+What you essentially need to do is to open your terminal and issue
+the following command:
+
 ```
-
-Please note that this make take a while and that about 65MB will be downloaded.
+quarto install tinytex
+```
 
 To make sure everything runs smoothly you should download the document 
-[test_pdf.Rmd](test_pdf.Rmd).
+[test_pdf.qmd](test_pdf.qmd).
 To test whether everything works, please open `test.Rmd` in R-Studio and then
-click on the button `Knit to PDF`:
-
-```{r echo=FALSE}
-knitr::include_graphics("knittopdf.png", auto_pdf = TRUE)
-```
+click on the button `Render` 
+(which is a couple of buttons left of `Run`).
 
 If this works you are all set. If there are any errors showing up, please
 post a screenshot and a problem description to the Moodle forum.
@@ -169,7 +170,7 @@ R-Studio:
 tinytex::install_tinytex(force = TRUE)
 ```
 
-Then close R-Studio and restart your computer. If `test.Rmd` still cannot be
+Then close R-Studio and restart your computer. If `test_pdf.qmd` still cannot be
 compiled after this, please open your Mac Terminal (via the app `Terminal`)
 and enter the following commands:
 
@@ -179,5 +180,5 @@ sudo chown -R `whoami`:admin /usr/local/bin
 ~/Library/TinyTeX/bin/x86_64-darwin/tlmgr path add
 ```
 Then install `tinytex` again as described above, restart your computer, and
-try to compile `test.Rmd` again.
+try to compile `test_pdf.qmd` again.
 

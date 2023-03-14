@@ -282,6 +282,15 @@ On **Linux** use you package manager. In most cases the name of the relevant
 package is `git-all`, so on Ubuntu, for instance, you would install Git 
 via `sudo apt install git-all`.
 
+## Install Quarto
+
+Quarto allows you to write text and R code within one document.
+This is very useful in many instances, and allows you to create a wide
+variety of nicely looking and practically appealing outputs, including
+apps, websites, statistical reports, and much more. To install Quarto
+just follow the instructions from 
+[this webpage](https://quarto.org/docs/get-started/).
+
 # Register for the necessary services
 
 ## Github

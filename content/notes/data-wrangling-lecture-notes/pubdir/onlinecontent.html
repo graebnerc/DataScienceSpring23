@@ -946,7 +946,8 @@ the data sets must be equal, otherwise R throws an error:</p>
 <div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>swiid_join <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">mutate</span>(swiid_join, <span class="at">year=</span><span class="fu">as.character</span>(year))</span>
 <span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">left_join</span>(<span class="at">x =</span> gdp_join, <span class="at">y =</span> swiid_join, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;country&quot;</span>, <span class="st">&quot;year&quot;</span>))</span></code></pre></div>
 <pre><code>## Error in `dplyr::left_join()`:
-## ! Can&#39;t join `x$year` with `y$year` due to incompatible types.
+## ! Can&#39;t join `x$year` with `y$year` due to
+##   incompatible types.
 ## ℹ `x$year` is a &lt;integer&gt;.
 ## ℹ `y$year` is a &lt;character&gt;.</code></pre>
 <p>Just enforce the correct data type before merging:</p>

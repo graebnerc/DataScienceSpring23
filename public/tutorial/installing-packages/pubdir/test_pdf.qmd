@@ -1,17 +1,18 @@
 ---
-title: "Test markdown file"
-output: pdf_document
+title: "A test document"
+format: pdf
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# File used to test your R Markdown installation
+# File used to test your Quarto installation
 
 Please compile this document into PDF to test whether you have installed
-R Markdown correctly. 
+Quarto and LaTeX correctly. 
 
 If no PDF file is created, please make a screenshot of the error message and
-post it into Moodle. If a file `test.log` has been created, please also post
+post it into the forum. 
+If a file `test.log` has been created, please also post
 this file alongside the screenshot.

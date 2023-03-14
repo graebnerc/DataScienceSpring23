@@ -1,7 +1,7 @@
 ---
 title: 'Installation of the necessary software'
 author: 'Claudius Gräbner-Radkowitsch'
-date: '2022-09-06'
+date: '2023-03-09'
 slug: installation
 documentclass: scrartcl
 categories:
@@ -47,7 +47,7 @@ solution we find for your problem together.
 Please also note that there is a separate tutorial on how to install the 
 packages (a.k.a. R extensions) that we are 
 going to use over the semester. Its best to continue with this tutorial 
-on [installing the required R packages](/post/installing-packages/)
+on [installing the required R packages](/tutorial/installing-packages/)
 directly after you have complete this one.
 
 # An overview over the apps and services we will be using - and why
@@ -109,7 +109,7 @@ found on the web for many different Linux distributions.
 After you have completed the steps outlined below you are almost done: all
 what remains is to install the R packages we require over the course of the
 seminar. To this end, please consult the 
-[respective Tutorial](/post/installing-packages/).
+[respective Tutorial](/tutorial/installing-packages/).
 
 ## Install R 
 
@@ -134,8 +134,9 @@ architecture instead.
 If you are using Windows, it is necessary to install
 `RTools`, which is required if you want to use packages written
 by others that are not officially released. 
-To do so, simply visit the following website, download the installer, 
-and install the software:
+To do so, simply visit 
+[the following website](https://cran.r-project.org/bin/windows/Rtools/), 
+download the installer, and install the software:
 
 When asked during the installation process, do *not*
 select the box for `Add rtools to system PATH`, but *do*
@@ -163,7 +164,7 @@ you to install the software.
 
 In case R is already installed on your computer you should make sure that your
 version is more of less up to date. For our seminar you should use at least R
-version `R 4.1.2`. The version you are currently using is shown as soon as you
+version `R 4.2.2`. The version you are currently using is shown as soon as you
 start `R`.
 
 Please note: if you installed R anew in the previous step, you do *not* need 
@@ -235,7 +236,7 @@ manager.
 Installing R-Studio is easy. The only thing you should keep in mind that
 you should **install R first**, and **R-Studio second**.
 So, after installing `R` got to the 
-[R-Studio download page](https://www.rstudio.com/products/rstudio/download/)
+[R-Studio download page](https://posit.co/download/rstudio-desktop/)
 and download the *RStudio Desktop* version for your OS according to the 
 installation instructions provided.
 
@@ -243,7 +244,10 @@ If you are on Mac and you are using Homebrew you may use
 [this formula](https://formulae.brew.sh/cask/rstudio).
 
 If you want to update R-Studio, you just install it again. Please note that the
-**minimal version** for this seminar should be RStudio `2022.07.1+554`.
+**minimal version** for this seminar should be RStudio `2022.12.0+353`, which 
+is from December 2022. You can check your version by clicking on 
+`RStudio` in the upper left part of your screen when R-Studio is open. 
+Then click on `About RStudio`.
 
 ## Git
 
@@ -278,6 +282,15 @@ On **Linux** use you package manager. In most cases the name of the relevant
 package is `git-all`, so on Ubuntu, for instance, you would install Git 
 via `sudo apt install git-all`.
 
+## Install Quarto
+
+Quarto allows you to write text and R code within one document.
+This is very useful in many instances, and allows you to create a wide
+variety of nicely looking and practically appealing outputs, including
+apps, websites, statistical reports, and much more. To install Quarto
+just follow the instructions from 
+[this webpage](https://quarto.org/docs/get-started/).
+
 # Register for the necessary services
 
 ## Github
@@ -298,7 +311,7 @@ Netlify to my Github account.
 
 Once you finished with installing all the relevant software described in this 
 post I recommend you continue directly with the second (and last) 
-[installation tutorial](/post/installing-packages/) that assists you in 
+[installation tutorial](/tutorial/installing-packages/) that assists you in 
 installing the `R` packages required over the course of the semester.
 
 
