@@ -14,7 +14,7 @@ if (your_platform=="mac"){
 } else if (your_platform=="windows"){
   install_type <- "win.binary"
   options(install.packages.check.source = "no")
-  rtools_installed <- pkgbuild::has_rtools()
+  install.packages("pkgbuild", type = install_type); rtools_installed <- pkgbuild::has_rtools()
   if (!rtools_installed){
     stop(paste(
       "You should install Rtools before starting to install the packages. ",
