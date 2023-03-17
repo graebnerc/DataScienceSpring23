@@ -46,6 +46,8 @@ For more information on how to install and use the exercises, see the respective
 
 ## Session 1: Introduction and installation {#s1}
 
+- Lecture videos available via Moodle
+
 ### Mandatory readings
 
 - [Tutorial: installing basic software](/tutorial/installation/)
@@ -54,9 +56,9 @@ For more information on how to install and use the exercises, see the respective
 
 
 ## Session 2: Basics of R and R-Studio {#s2}
-<!--
-[Lecture notes and exercise solutions](https://gist.github.com/graebnerc/8569172d758ea2a4c5f9305dc3ce9966)
---->
+
+- [Lecture notes and exercise solutions](https://gist.github.com/graebnerc/2682bb2d872eb613bdea70f6f9f974b9)
+- Lecture videos available via Moodle
 
 ### Mandatory readings
 
