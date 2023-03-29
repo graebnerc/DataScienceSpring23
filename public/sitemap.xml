@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://datascience-euf-spring23.netlify.app/tutorial/obj-types-exercises/</loc>
+    <lastmod>2023-03-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://datascience-euf-spring23.netlify.app/categories/</loc>
+    <lastmod>2023-03-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://datascience-euf-spring23.netlify.app/tags/data-types/</loc>
+    <lastmod>2023-03-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://datascience-euf-spring23.netlify.app/categories/exercises/</loc>
+    <lastmod>2023-03-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://datascience-euf-spring23.netlify.app/</loc>
+    <lastmod>2023-03-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://datascience-euf-spring23.netlify.app/tags/</loc>
+    <lastmod>2023-03-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://datascience-euf-spring23.netlify.app/tutorial/</loc>
+    <lastmod>2023-03-29T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://datascience-euf-spring23.netlify.app/tutorial/installation/</loc>
     <lastmod>2023-03-09T00:00:00+00:00</lastmod>
   </url><url>
@@ -32,22 +53,10 @@
     <loc>https://datascience-euf-spring23.netlify.app/tutorial/importing-exporting-data/</loc>
     <lastmod>2023-03-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://datascience-euf-spring23.netlify.app/categories/</loc>
-    <lastmod>2023-03-09T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://datascience-euf-spring23.netlify.app/tags/communication/</loc>
     <lastmod>2023-03-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://datascience-euf-spring23.netlify.app/tags/data-types/</loc>
-    <lastmod>2023-03-09T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://datascience-euf-spring23.netlify.app/tags/data-wrangling/</loc>
-    <lastmod>2023-03-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://datascience-euf-spring23.netlify.app/categories/exercises/</loc>
-    <lastmod>2023-03-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://datascience-euf-spring23.netlify.app/</loc>
     <lastmod>2023-03-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://datascience-euf-spring23.netlify.app/tags/inference/</loc>
@@ -74,13 +83,7 @@
     <loc>https://datascience-euf-spring23.netlify.app/categories/setup/</loc>
     <lastmod>2023-03-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://datascience-euf-spring23.netlify.app/tags/</loc>
-    <lastmod>2023-03-09T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://datascience-euf-spring23.netlify.app/categories/tutorial/</loc>
-    <lastmod>2023-03-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://datascience-euf-spring23.netlify.app/tutorial/</loc>
     <lastmod>2023-03-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://datascience-euf-spring23.netlify.app/notes/visualization-lecture-notes/</loc>

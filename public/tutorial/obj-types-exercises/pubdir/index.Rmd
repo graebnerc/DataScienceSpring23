@@ -1,0 +1,48 @@
+---
+title: "Basic object types: exercises"
+author: Claudius Gräbner-Radkowitsch
+date: '2023-03-29'
+documentclass: scrartcl
+output: 
+  html_document:
+    theme: readable
+    highlight: tango
+    toc: true
+    toc_depth: 2
+    number_sections: true
+  pdf_document:
+    highlight: tango
+    latex_engine: "lualatex"
+    toc: true
+    toc_depth: 2
+    number_sections: true
+    includes:
+      in_header: "preamble.tex"
+---
+
+# Task 1
+Create a vector containing the numbers `2`, `5`, `2.4` and `11.` 
+
+1. What is the type of this vector?
+2. Replace the second element with `5.9`.
+3. Add the elements `3` and `1` to the beginning, and the elements `"8.0"` and 
+`"9.2"` to the end of the vector.
+4. Transform this vector into the type integer. What happens?
+
+# Task 2
+1. What type is the following vector: `"2"`, `"Hello"`, `4.0`, and `TRUE` 
+2. What hierarchy is underlying this?
+
+# Task 3
+1. Create a vector with the numbers from `-8` to `9` (step size: `0.5`)
+2. Compute the square root of each element of the first vector using vectorisation. 
+Anything that draws your attention?
+
+# Task 4
+Create a list that has three named elements: `"A"`, `"B"`, and `"C"`
+
+* The element `"A"` should contain the square root of the numbers form -2 to 8 (step size: `1`)
+* The element `"B"` should contain the log of numbers between 2 and 4 (step size: `0.5`)
+* The element `"C"` should contain letters from `a1` to `g7` (hint: use the pre-defined vector `letters` and the function `paste()`)
+
+Link to the solutions

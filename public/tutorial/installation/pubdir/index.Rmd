@@ -215,7 +215,7 @@ now it would then be better to update R by just re-installing it.]
 
 ```
 install.packages("installr")
-ibrary(installr)
+library(installr)
 updateR(TRUE)
 ```
 

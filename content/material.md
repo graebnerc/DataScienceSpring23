@@ -11,10 +11,9 @@ title: "Course material"
 |:-----------:|:--------------|:--------------------|:-------------:|:------------:|
 |   [1](#s1)  | Mar 15, 2023  | General introduction| [Slides](slides/T1-Introduction.pdf) |
 |   [2](#s2)  | Mar 16, 2023| Basics of R and R-Studio | [Slides](slides/T2-Basics-Functions.pdf) | `Basics` |
-
-<!--
 |   [3](#s3)  | Sep 29, 2022| Basic objects | [Slides](slides/T3-Objects.pdf) | `ObjectTypes1` |
 |   [4](#s4)  | Oct 5, 2022| Advanced objects | [Slides](slides/T4-AdvObjects.pdf) | `ObjectTypes2` |
+<!--
 |   [5](#s5)  | Oct 6, 2022| Recap & practice| [Slides](slides/T5-Exercises.pdf)| 
 |   [6](#s6)  | Oct 12, 2022| Visualization | [Slides](slides/T6-Visualization.pdf)| `Visualization1` |
 |   [7](#s7)  | Oct 13, 2022| Project management and data import | [Slides](slides/T7-ProjectSetup.pdf) | `ProjectOrga` | 
@@ -70,17 +69,17 @@ For more information on how to install and use the exercises, see the respective
 
 - [R Studio IDE cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/rstudio-ide.pdf)
 
-<!--
+
 ## Session 3: Basic object types {#s3}
 
-- [Lecture videos](https://youtube.com/playlist?list=PLZDawQMrG1RLqzcegYiLnK4vQnSbqjf1K)
-- [Lecture notes and solutions to intermediate exercises](https://gist.github.com/graebnerc/8569172d758ea2a4c5f9305dc3ce9966)
+- Lecture videos available via Moodle
+- [Exercises for class](/tutorial/obj-types-exercises/)
 
 ### Mandatory readings
 
 - [Tutorial: Vectors](/tutorial/object-types-vec/)
 
-
+<!--
 ## Session 4: Advanced object types {#s4}
 
 - [Session notes](https://gist.github.com/graebnerc/53a88869a8d178efea90fff92ab272f5)
