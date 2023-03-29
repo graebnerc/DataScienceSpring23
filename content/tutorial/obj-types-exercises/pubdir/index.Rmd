@@ -45,4 +45,4 @@ Create a list that has three named elements: `"A"`, `"B"`, and `"C"`
 * The element `"B"` should contain the log of numbers between 2 and 4 (step size: `0.5`)
 * The element `"C"` should contain letters from `a1` to `g7` (hint: use the pre-defined vector `letters` and the function `paste()`)
 
-Link to the solutions
+[Link to the solutions](https://gist.github.com/graebnerc/bda112996a91b9fddee366eb5e713d91)

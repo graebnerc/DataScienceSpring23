@@ -74,6 +74,7 @@ For more information on how to install and use the exercises, see the respective
 
 - Lecture videos available via Moodle
 - [Exercises for class](/tutorial/obj-types-exercises/)
+- [Solutions to the exercises](https://gist.github.com/graebnerc/bda112996a91b9fddee366eb5e713d91)
 
 ### Mandatory readings
 
@@ -81,7 +82,7 @@ For more information on how to install and use the exercises, see the respective
 
 ## Session 4: Advanced object types {#s4}
 
-- [Session notes]()
+- [Session notes](https://gist.github.com/graebnerc/1a2d538cc5a0f250448cd58bbc59b054)
 
 ### Mandatory readings
 
