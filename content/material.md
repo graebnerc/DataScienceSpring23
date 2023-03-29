@@ -79,19 +79,16 @@ For more information on how to install and use the exercises, see the respective
 
 - [Tutorial: Vectors](/tutorial/object-types-vec/)
 
-<!--
 ## Session 4: Advanced object types {#s4}
 
-- [Session notes](https://gist.github.com/graebnerc/53a88869a8d178efea90fff92ab272f5)
-<!--
-- [Session notes](https://gist.github.com/graebnerc/bf8b1b60084377744881b392f0c9534e)
+- [Session notes]()
 
 ### Mandatory readings
 
 - [Tutorial: Factors and data frames](/tutorial/object-types-adv/)
 - [R for Data Science, Chapter 10: Tibbles](https://r4ds.had.co.nz/tibbles.html)
 
-
+<!--
 ## Session 5: Recap and practice {#s5}
 
 - [Exercises](slides/T5-Exercises.pdf)
