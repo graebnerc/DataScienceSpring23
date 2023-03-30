@@ -11,8 +11,8 @@ title: "Course material"
 |:-----------:|:--------------|:--------------------|:-------------:|:------------:|
 |   [1](#s1)  | Mar 15, 2023  | General introduction| [Slides](slides/T1-Introduction.pdf) |
 |   [2](#s2)  | Mar 16, 2023| Basics of R and R-Studio | [Slides](slides/T2-Basics-Functions.pdf) | `Basics` |
-|   [3](#s3)  | Sep 29, 2022| Basic objects | [Slides](slides/T3-Objects.pdf) | `ObjectTypes1` |
-|   [4](#s4)  | Oct 5, 2022| Advanced objects | [Slides](slides/T4-AdvObjects.pdf) | `ObjectTypes2` |
+|   [3](#s3)  | Mar 23, 2022| Basic objects | [Slides](slides/T3-Objects.pdf) | `ObjectTypes1` |
+|   [4](#s4)  | Mar 30, 2022| Advanced objects | [Slides](slides/T4-AdvObjects.pdf) | `ObjectTypes2` |
 <!--
 |   [5](#s5)  | Oct 6, 2022| Recap & practice| [Slides](slides/T5-Exercises.pdf)| 
 |   [6](#s6)  | Oct 12, 2022| Visualization | [Slides](slides/T6-Visualization.pdf)| `Visualization1` |
@@ -82,7 +82,7 @@ For more information on how to install and use the exercises, see the respective
 
 ## Session 4: Advanced object types {#s4}
 
-- [Session notes](https://gist.github.com/graebnerc/1a2d538cc5a0f250448cd58bbc59b054)
+- [Session notes](https://gist.github.com/graebnerc/f5d8203ec2c4973763b494628918ebe0)
 
 ### Mandatory readings
 
