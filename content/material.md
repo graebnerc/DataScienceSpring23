@@ -11,11 +11,11 @@ title: "Course material"
 |:-----------:|:--------------|:--------------------|:-------------:|:------------:|
 |   [1](#s1)  | Mar 15, 2023  | General introduction| [Slides](slides/T1-Introduction.pdf) |
 |   [2](#s2)  | Mar 16, 2023| Basics of R and R-Studio | [Slides](slides/T2-Basics-Functions.pdf) | `Basics` |
-|   [3](#s3)  | Mar 23, 2022| Basic objects | [Slides](slides/T3-Objects.pdf) | `ObjectTypes1` |
-|   [4](#s4)  | Mar 30, 2022| Advanced objects | [Slides](slides/T4-AdvObjects.pdf) | `ObjectTypes2` |
+|   [3](#s3)  | Mar 23, 2023| Basic objects | [Slides](slides/T3-Objects.pdf) | `ObjectTypes1` |
+|   [4](#s4)  | Mar 29, 2023| Advanced objects | [Slides](slides/T4-AdvObjects.pdf) | `ObjectTypes2` |
+|   5         | Mar 30, 2023| Recap & practice|  | 
+|   [6](#s6)  | Apr 06, 2023| Visualization | [Slides](slides/T6-Visualization.pdf)| `Visualization1` |
 <!--
-|   [5](#s5)  | Oct 6, 2022| Recap & practice| [Slides](slides/T5-Exercises.pdf)| 
-|   [6](#s6)  | Oct 12, 2022| Visualization | [Slides](slides/T6-Visualization.pdf)| `Visualization1` |
 |   [7](#s7)  | Oct 13, 2022| Project management and data import | [Slides](slides/T7-ProjectSetup.pdf) | `ProjectOrga` | 
 |   [8 & 9](#s8)  | Oct 26 & Nov 3, 2022| Data wrangling | [Slides](slides/T8-DataWrangling.pdf) | `Wrangling1` | 
 |   [10](#s10)  | Nov 10, 2022 | Quarto/R Markdown | [Slides](slides/T10-Quarto.pdf) | `Quarto` |
@@ -94,13 +94,13 @@ For more information on how to install and use the exercises, see the respective
 
 - [Exercises](slides/T5-Exercises.pdf)
 - [Solutions](https://gist.github.com/graebnerc/0420edabdf04b78886fe8962a2c8bbe7)
-
+-->
 
 ## Session 6: Visualization {#s6}
-
+<!--
 - [Lecture script](https://gist.github.com/graebnerc/c1ae93c68313eef1a5a6986855fba78b)
 - [Lecture notes](/notes/visualization-lecture-notes/)
-
+-->
 ### Mandatory readings
 
 - [R for Data Science, Chapter 3: Data visualization](https://r4ds.had.co.nz/data-visualisation.html)
@@ -109,7 +109,7 @@ For more information on how to install and use the exercises, see the respective
 
 - [ggplot2 cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf)
 
-
+<!--
 ## Session 7: Project management and data import {#s7}
 
 - [Example data](files/fread_expls.zip)
