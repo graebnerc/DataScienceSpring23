@@ -107,18 +107,18 @@ For more information on how to install and use the exercises, see the respective
 
 - [ggplot2 cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf)
 
-<!--
+
 ## Session 7: Project management and data import {#s7}
 
 - [Example data](files/fread_expls.zip)
-- [Session notes and solutions to exercises](https://gist.github.com/graebnerc/642cacdb29f1cf98057921ae5f4a8cd5)
+- Session notes and solutions to exercises
 
 ### Mandatory readings
 
 - [Tutorial: How to organize your R project](/tutorial/setting-up-an-r-project/)
 - [Tutorial: Read and write data](/tutorial/importing-exporting-data/)
 
-
+<!--
 ## Sessions 8 and 9: Data wrangling {#s8}
 
 - [Lecture notes](/notes/data-wrangling-lecture-notes/)
