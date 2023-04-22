@@ -16,8 +16,8 @@ title: "Course material"
 |   5         | Mar 30, 2023| Recap & practice|  | 
 |   [6](#s6)  | Apr 06, 2023| Visualization | [Slides](slides/T6-Visualization.pdf)| `Visualization1` |
 |   [7](#s7)  | Oct 13, 2022| Project management and data import | [Slides](slides/T7-ProjectSetup.pdf) | `ProjectOrga` | 
-<!--
 |   [8 & 9](#s8)  | Oct 26 & Nov 3, 2022| Data wrangling | [Slides](slides/T8-DataWrangling.pdf) | `Wrangling1` | 
+<!--
 |   [10](#s10)  | Nov 10, 2022 | Quarto/R Markdown | [Slides](slides/T10-Quarto.pdf) | `Quarto` |
 |   [11](#s11)  | Nov 16, 2022| Recap & practice | NA |
 |   [12](#s12)  | Nov 23, 2022| Recap of data wrangling | [Slides](slides/T12-RecapWrangling.pdf) |
@@ -118,13 +118,13 @@ For more information on how to install and use the exercises, see the respective
 - [Tutorial: How to organize your R project](/tutorial/setting-up-an-r-project/)
 - [Tutorial: Read and write data](/tutorial/importing-exporting-data/)
 
-<!--
 ## Sessions 8 and 9: Data wrangling {#s8}
 
+- Videos are available via Moodle
 - [Lecture notes](/notes/data-wrangling-lecture-notes/)
-- [Data for lecture notes](files/T8-lecture-notes-data.zip)
-- [Exercise data](files/T8-ExerciseData.zip)
-- [Lecture script from the session and exercise solutions](https://gist.github.com/graebnerc/8b1eeed370bd3b20be8bf8ff5c1a110f)
+- [Data for lecture notes](files/wrangling_data.zip)
+- [Exercise data](files/Wrangling-ExerciseData.zip)
+- [Code for the videos and recap exercise solutions](https://gist.github.com/graebnerc/0bb370c67d51de50b8e1b591c2ac96c3)
 
 ### Mandatory readings
 
@@ -136,7 +136,7 @@ For more information on how to install and use the exercises, see the respective
 - [dplyr cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf)
 - [tidyr cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/tidyr.pdf)
 
-
+<!--
 ## Session 10: Quarto/R Markdown {#s10} 
 
 - [DesasterMarkdown.pdf](files/DesasterMarkdown.pdf)

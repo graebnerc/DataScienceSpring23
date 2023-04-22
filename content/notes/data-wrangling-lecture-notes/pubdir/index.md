@@ -1,16 +1,10 @@
 ---
 title: 'Data wrangling: Lecture notes'
 author: Claudius Gräbner-Radkowitsch
-date: '2022-09-06'
+date: '2023-04-19'
 slug: data-wrangling-lecture-notes
 documentclass: scrartcl
 output: 
-  html_document:
-    theme: readable
-    highlight: tango
-    toc: true
-    toc_depth: 2
-    number_sections: true
   pdf_document:
     highlight: tango
     toc: true
@@ -18,6 +12,12 @@ output:
     number_sections: true
     includes:
       in_header: "preamble.tex"
+  html_document:
+    theme: readable
+    highlight: tango
+    toc: true
+    toc_depth: 2
+    number_sections: true
 ---
 
 # Packages and data used
@@ -31,20 +31,99 @@ library(here)
 ```
 
 
+```r
+data_raw <- WDI::WDI(
+  country = c("DE", "AT", "GR", "IT"), 
+  start = 1990, 
+  indicator = c("unemp"="SL.UEM.TOTL.ZS", 
+                "gdp"="NY.GDP.PCAP.PP.KD",
+                "share_indus"="NV.IND.TOTL.ZS",
+                "co2"="EN.ATM.CO2E.PC")
+  ) %>%
+  select(-iso2c) %>%
+  filter(
+    country %in% c("Germany", "Greece"),
+    year %in% c(2017, 2018)
+  ) %>%
+  select(
+    all_of(c("country", "year", "unemp", "gdp"))
+  )
+
+fwrite(
+  x = data_raw, 
+  file = "data/wrangling_data_raw.csv")
+```
+
+
+```r
+data_raw <- fread(file = "data/wrangling_data_raw.csv")
+
+data_raw_long <- tidyr::pivot_longer(
+  data = data_raw, 
+  cols = dplyr::all_of(c("unemp", "gdp")), 
+  names_to = "variable", 
+  values_to = "value")
+
+fwrite(
+  x = data_raw_long, 
+  file = "data/wrangling_data_raw_long.csv")
+```
 
 
 
+```r
+gdp_join <- data_raw %>%
+  select(-unemp)
+
+fwrite(
+  x = gdp_join, 
+  file = "data/wrangling_gdp_join.csv")
+```
 
 
-The data sets used in these notes are available from the course webpage:
 
-* `wrangling_slides.csv` (`data_raw`)
-* `wrangling_slides.csv` (`data_raw_long`)
-* `wrangling_slides_gini.csv` (`gini_red`)
-* `wrangling_slides_final_expl.csv` (`data_final_expl`)
-* `wrangling_slides_gini_grc.csv` (`swiid_join`)
+```r
+gini_join <- fread(file = "data/swiid9_2_summary.csv") %>%
+  filter(
+    country %in% c("Greece"),
+    year %in% c(2015, 2017)
+  ) %>%
+  select(
+    all_of(c("country", "year", "gini_disp"))
+  ) %>%
+  rename(gini=gini_disp)
 
-The brackets show the names of the data sets used below
+fwrite(
+  x = gini_join, 
+  file = "data/wrangling_gini_join.csv")
+```
+
+
+```r
+data_final_expl <- WDI::WDI(
+  country = c("DE", "AT", "GR", "IT"), 
+  start = 2000, 
+  indicator = c("unemp"="SL.UEM.TOTL.ZS", 
+                "gdp"="NY.GDP.PCAP.PP.KD")
+  ) %>%
+  select(-iso2c)
+
+fwrite(
+  x = data_final_expl, 
+  file = "data/wrangling_data_final_expl.csv")
+```
+
+
+
+The data sets used in these notes are available from the [material page](/material/):
+
+* `wrangling_data_raw.csv` (`data_raw`)
+* `wrangling_data_raw_long.csv` (`data_raw_long`)
+* `wrangling_data_final_expl.csv` (`data_final_expl`)
+* `wrangling_gini_join.csv` (`gini_join`)
+* `wrangling_gdp_join.csv` (`gdp_join`)
+
+The brackets show the names of the data sets used below.
 
 # General remarks
 
@@ -53,10 +132,22 @@ The brackets show the names of the data sets used below
 * Before starting to wrangle, make a note to yourself of how the final data set should look like; 
   * Then think about the different steps you need to take to reach this goal;
   * Each step should only address one single wrangling challenge
-* It is often useful to save the wrangling code in one script in which you import raw data in the beginning and save tidy data in the end
-* Then you keep data wrangling, visualization, and modlling in separate files
+* It is often useful to save the wrangling code in one script in which you 
+import raw data in the beginning and save tidy data in the end; this allows you 
+to keep data wrangling, visualization, and modelling in separate files
 
-# Reshaping data from long to wide format
+# Reshaping data with the tidyr package
+
+At the end of each data wrangling activity, you should have created 
+[tidy data](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html). 
+The R package that contains functions meant to assist you in 
+this process is called [tidyr](https://tidyr.tidyverse.org/).
+While it contains functions for various purposes, the by far most common
+(and, to be honest, to most demanding) task is to reshape data from long to 
+wide format and vice versa. This will be the focus of this section. 
+Tutorials on the other `tidyr`-functions can be found on the official package
+documentation, but these functions are more specific and not as important
+in daily practice as those for reshaping data.
 
 ## Wide and long format: definition
 
@@ -69,19 +160,15 @@ Here is an example for a rather long data set:
 
 
 ```
-##     country year variable    value
-##  1: Germany 2017    unemp     3.75
-##  2: Germany 2017      gdp 53071.46
-##  3: Germany 2017     gini    29.40
-##  4: Germany 2018    unemp     3.38
-##  5: Germany 2018      gdp 53486.84
-##  6: Germany 2018     gini    29.60
-##  7:  Greece 2017    unemp    21.49
-##  8:  Greece 2017      gdp 28604.86
-##  9:  Greece 2017     gini    32.20
-## 10:  Greece 2018    unemp    19.29
-## 11:  Greece 2018      gdp 29141.17
-## 12:  Greece 2018     gini    31.70
+##    country year variable    value
+## 1: Germany 2017    unemp     3.75
+## 2: Germany 2017      gdp 53071.46
+## 3: Germany 2018    unemp     3.38
+## 4: Germany 2018      gdp 53431.39
+## 5:  Greece 2017    unemp    21.49
+## 6:  Greece 2017      gdp 28604.86
+## 7:  Greece 2018    unemp    19.29
+## 8:  Greece 2018      gdp 29141.17
 ```
 
 Here, we have one column identifying the variable, the value of which is 
@@ -96,17 +183,18 @@ has its own column:
 
 
 ```
-##    country year unemp      gdp gini
-## 1: Germany 2017  3.75 53071.46 29.4
-## 2: Germany 2018  3.38 53486.84 29.6
-## 3:  Greece 2017 21.49 28604.86 32.2
-## 4:  Greece 2018 19.29 29141.17 31.7
+##    country year unemp      gdp
+## 1: Germany 2017  3.75 53071.46
+## 2: Germany 2018  3.38 53431.39
+## 3:  Greece 2017 21.49 28604.86
+## 4:  Greece 2018 19.29 29141.17
 ```
 
-Here, we have more columns since the three variables, the unemployment rate and
-GDP, have their own columns.
-In effect, the data set has much more columns, but tends to be shorter in
-the sense of having fewer rows.
+While the number of columns remains the same, the data set has relatively more
+columns as compared to the rows. At the same time, it tends to be shorter in
+the sense of having fewer rows.^[If we had a data set with three instead of
+two variables, the wide data set would have the same number of rows, but 
+more columns, i.e. it would be wider in an absolute sense as well.]
 
 While the long format is often easier to read and preferable when communicating
 data to humans, making data tidy often involves the task of making data 
@@ -125,12 +213,12 @@ dplyr::glimpse(data_raw_long)
 ```
 
 ```
-## Rows: 12
+## Rows: 8
 ## Columns: 4
-## $ country  <chr> "Germany", "Germany", "Germany", "Germany", "Germany", "Germa…
-## $ year     <int> 2017, 2017, 2017, 2018, 2018, 2018, 2017, 2017, 2017, 2018, 2…
-## $ variable <chr> "unemp", "gdp", "gini", "unemp", "gdp", "gini", "unemp", "gdp…
-## $ value    <dbl> 3.75, 53071.46, 29.40, 3.38, 53486.84, 29.60, 21.49, 28604.86…
+## $ country  <chr> "Germany", "Germany", "Germany", "Germany", "Greece", "Greece…
+## $ year     <int> 2017, 2017, 2018, 2018, 2017, 2017, 2018, 2018
+## $ variable <chr> "unemp", "gdp", "unemp", "gdp", "unemp", "gdp", "unemp", "gdp"
+## $ value    <dbl> 3.75, 53071.46, 3.38, 53431.39, 21.49, 28604.86, 19.29, 29141…
 ```
 
 We will now use `tidyr::pivor_wider()` to make this data set wider. The most
@@ -155,13 +243,13 @@ data_raw_wide
 ```
 
 ```
-## # A tibble: 4 × 5
-##   country  year unemp    gdp  gini
-##   <chr>   <int> <dbl>  <dbl> <dbl>
-## 1 Germany  2017  3.75 53071.  29.4
-## 2 Germany  2018  3.38 53487.  29.6
-## 3 Greece   2017 21.5  28605.  32.2
-## 4 Greece   2018 19.3  29141.  31.7
+## # A tibble: 4 × 4
+##   country  year unemp    gdp
+##   <chr>   <int> <dbl>  <dbl>
+## 1 Germany  2017  3.75 53071.
+## 2 Germany  2018  3.38 53431.
+## 3 Greece   2017 21.5  28605.
+## 4 Greece   2018 19.3  29141.
 ```
 
 ## Transforming wide data into long data
@@ -181,8 +269,8 @@ The arguments `names_to` and `values_to` are not strictly necessary since they
 have useful default values, but its usually nicer to be explicit.
 
 When specifying the argument `cols` you have several possibilities. The 
-safest variant is to use the function `dplyr::all_of()` and pass a character 
-vector with the column names. You can save a lot of writing by using so called
+simplest variant is to pass a character vector with the column names. 
+But note that you can save a lot of writing by using so called
 [selection helpers](https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html), 
 a very useful tool we will learn about later.
 
@@ -192,28 +280,24 @@ In our case this amounts to:
 ```r
 data_raw_long <- tidyr::pivot_longer(
   data = data_raw_wide, 
-  cols = dplyr::all_of(c("unemp", "gdp", "gini")), 
+  cols = c("unemp", "gdp"), 
   names_to = "indicator", 
   values_to = "values")
 data_raw_long
 ```
 
 ```
-## # A tibble: 12 × 4
-##    country  year indicator   values
-##    <chr>   <int> <chr>        <dbl>
-##  1 Germany  2017 unemp         3.75
-##  2 Germany  2017 gdp       53071.  
-##  3 Germany  2017 gini         29.4 
-##  4 Germany  2018 unemp         3.38
-##  5 Germany  2018 gdp       53487.  
-##  6 Germany  2018 gini         29.6 
-##  7 Greece   2017 unemp        21.5 
-##  8 Greece   2017 gdp       28605.  
-##  9 Greece   2017 gini         32.2 
-## 10 Greece   2018 unemp        19.3 
-## 11 Greece   2018 gdp       29141.  
-## 12 Greece   2018 gini         31.7
+## # A tibble: 8 × 4
+##   country  year indicator   values
+##   <chr>   <int> <chr>        <dbl>
+## 1 Germany  2017 unemp         3.75
+## 2 Germany  2017 gdp       53071.  
+## 3 Germany  2018 unemp         3.38
+## 4 Germany  2018 gdp       53431.  
+## 5 Greece   2017 unemp        21.5 
+## 6 Greece   2017 gdp       28605.  
+## 7 Greece   2018 unemp        19.3 
+## 8 Greece   2018 gdp       29141.
 ```
 
 
@@ -233,7 +317,7 @@ to the function you use.
 
 In other words, `x %>% f(y)` (or `x %>% f(., y)`) is equivalent to `f(x, y)`.
 
-But lets look at an example! Assume we start with this data set:
+But lets look at an example! Assume we start with the following data set:
 
 
 ```r
@@ -245,7 +329,7 @@ pipe_data_raw
 ```
 ##    country year      gdp unemp
 ## 1: Germany 2017 53071.46  3.75
-## 2: Germany 2018 53486.84  3.38
+## 2: Germany 2018 53431.39  3.38
 ## 3:  Greece 2017 28604.86 21.49
 ## 4:  Greece 2018 29141.17 19.29
 ```
@@ -257,7 +341,7 @@ And what we want is this:
 ## # A tibble: 4 × 4
 ##   country name    `2017`   `2018`
 ##   <chr>   <chr>    <dbl>    <dbl>
-## 1 Germany gdp   53071.   53487.  
+## 1 Germany gdp   53071.   53431.  
 ## 2 Germany unemp     3.75     3.38
 ## 3 Greece  gdp   28605.   29141.  
 ## 4 Greece  unemp    21.5     19.3
@@ -310,7 +394,20 @@ The `%>%`-pipe allows you to write very readable code, so make sure you use it
 often. But for code development it might be nevertheless helpful to write the
 intermediate steps explicitly.
 
-# Creating or manipulating variables
+# Manipulating data with the dplyr package
+
+The package `tidyr` is for turning messy data sets into tidy data sets. 
+Another important part of data preparation is to manipulate an existing data
+set. To do this, the package [dplyr](https://dplyr.tidyverse.org/) contains 
+many useful functions. You will regularly use functions from both the `tidyr` and
+`dplyr` package within your script for data preparation: often, you start with
+a messy data set, make it tidy using functions from `tidyr` and then use
+functions from `dplyr` to manipulate variables until your data set contains all 
+the information you want. Thus, in the following we cover the most frequently
+used `dplyr`-functions. A complete documentation of the whole package can be
+found on the official [dplyr webpage](https://dplyr.tidyverse.org/).
+
+## Creating or manipulating variables
 
 The function `dplyr::mutate()` is used both for manipulating existing 
 columns as well as creating new columns. In the first case the name of the 
@@ -378,7 +475,7 @@ data_unemp %>%
 The only difference here was that the left-hand-side name of the column to 
 be manipulated did not exist before!
 
-# Filtering rows
+## Filtering rows
 
 The function `dplyr::filter()` can be used to filter rows according to 
 certain conditions. The conditions must evaluate for each cell entry to 
@@ -399,21 +496,17 @@ data_raw_long
 ```
 
 ```
-## # A tibble: 12 × 4
-##    country  year indicator   values
-##    <chr>   <int> <chr>        <dbl>
-##  1 Germany  2017 unemp         3.75
-##  2 Germany  2017 gdp       53071.  
-##  3 Germany  2017 gini         29.4 
-##  4 Germany  2018 unemp         3.38
-##  5 Germany  2018 gdp       53487.  
-##  6 Germany  2018 gini         29.6 
-##  7 Greece   2017 unemp        21.5 
-##  8 Greece   2017 gdp       28605.  
-##  9 Greece   2017 gini         32.2 
-## 10 Greece   2018 unemp        19.3 
-## 11 Greece   2018 gdp       29141.  
-## 12 Greece   2018 gini         31.7
+## # A tibble: 8 × 4
+##   country  year indicator   values
+##   <chr>   <int> <chr>        <dbl>
+## 1 Germany  2017 unemp         3.75
+## 2 Germany  2017 gdp       53071.  
+## 3 Germany  2018 unemp         3.38
+## 4 Germany  2018 gdp       53431.  
+## 5 Greece   2017 unemp        21.5 
+## 6 Greece   2017 gdp       28605.  
+## 7 Greece   2018 unemp        19.3 
+## 8 Greece   2018 gdp       29141.
 ```
 
 and only want to keep data on GDP:
@@ -429,7 +522,7 @@ data_raw_long %>%
 ##   country  year indicator values
 ##   <chr>   <int> <chr>      <dbl>
 ## 1 Germany  2017 gdp       53071.
-## 2 Germany  2018 gdp       53487.
+## 2 Germany  2018 gdp       53431.
 ## 3 Greece   2017 gdp       28605.
 ## 4 Greece   2018 gdp       29141.
 ```
@@ -454,7 +547,7 @@ data_raw_long %>%
 ## 2 Greece   2018 gdp       29141.
 ```
 
-# Selecting columns 
+## Selecting columns 
 
 When you only want to keep certain *columns* we speak of selecting (rather than
 filtering) columns. This is done - surprise - via the function ´dplyr::select()`.
@@ -469,11 +562,11 @@ data_raw
 ```
 
 ```
-##    country year unemp      gdp gini
-## 1: Germany 2017  3.75 53071.46 29.4
-## 2: Germany 2018  3.38 53486.84 29.6
-## 3:  Greece 2017 21.49 28604.86 32.2
-## 4:  Greece 2018 19.29 29141.17 31.7
+##    country year unemp      gdp
+## 1: Germany 2017  3.75 53071.46
+## 2: Germany 2018  3.38 53431.39
+## 3:  Greece 2017 21.49 28604.86
+## 4:  Greece 2018 19.29 29141.17
 ```
 
 Then we can now select columns using one of the following two options.
@@ -496,21 +589,21 @@ data_raw %>%
 But this is often error-prone. Thus, it is usually better to refer to the columns via 
 [selection helpers](https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html),
 which is also the most flexible version. While we will learn about more selection 
-helpers later, here we will only use `dplyr::all_of()`, which accepts a character
+helpers later, here we will mainly use `dplyr::all_of()`, which accepts a character
 vector of column names:
 
 
 ```r
 data_raw %>%
-  dplyr::select(dplyr::all_of(c("country", "year", "gini")))
+  dplyr::select(dplyr::all_of(c("country", "year", "gdp")))
 ```
 
 ```
-##    country year gini
-## 1: Germany 2017 29.4
-## 2: Germany 2018 29.6
-## 3:  Greece 2017 32.2
-## 4:  Greece 2018 31.7
+##    country year      gdp
+## 1: Germany 2017 53071.46
+## 2: Germany 2018 53431.39
+## 3:  Greece 2017 28604.86
+## 4:  Greece 2018 29141.17
 ```
 
 > **Caution:** Do not forget the `c()`! Otherwise:
@@ -518,31 +611,50 @@ data_raw %>%
 
 ```r
 data_raw %>%
-  dplyr::select(dplyr::all_of("country", "year", "gini"))
+  dplyr::select(dplyr::all_of("country", "year", "gdp"))
 ```
 
 ```
 ## Error in `dplyr::select()`:
-## ! unused arguments ("year", "gini")
+## ! Problem while evaluating `dplyr::all_of("country", "year", "gdp")`.
+## Caused by error in `dplyr::all_of()`:
+## ! unused arguments ("year", "gdp")
 ```
 
 > It is also possible to define the column vector first:
 
 
 ```r
-cols2keep <- c("country", "year", "gini")
+cols2keep <- c("country", "year", "gdp")
 data_raw %>%
   dplyr::select(dplyr::all_of(cols2keep))
 ```
 
 ```
-##    country year gini
-## 1: Germany 2017 29.4
-## 2: Germany 2018 29.6
-## 3:  Greece 2017 32.2
-## 4:  Greece 2018 31.7
+##    country year      gdp
+## 1: Germany 2017 53071.46
+## 2: Germany 2018 53431.39
+## 3:  Greece 2017 28604.86
+## 4:  Greece 2018 29141.17
 ```
 
+> Selection helpers allow you to specify the columns to be selected more
+generally. For instance, `dplyr::ends_with()` allows you to select all colums
+that end with a certain pattern:
+
+
+```r
+data_raw %>%
+  dplyr::select(dplyr::ends_with("p"))
+```
+
+```
+##    unemp      gdp
+## 1:  3.75 53071.46
+## 2:  3.38 53431.39
+## 3: 21.49 28604.86
+## 4: 19.29 29141.17
+```
 
 In any case, you can also specify the columns you want to *drop*. To this end, 
 just add a `-` in front of the selection command:
@@ -554,14 +666,14 @@ data_raw %>%
 ```
 
 ```
-##    country year gini
-## 1: Germany 2017 29.4
-## 2: Germany 2018 29.6
-## 3:  Greece 2017 32.2
-## 4:  Greece 2018 31.7
+##    country year
+## 1: Germany 2017
+## 2: Germany 2018
+## 3:  Greece 2017
+## 4:  Greece 2018
 ```
 
-# Merging data sets
+## Merging data sets
 
 Often you need to obtain data from different sources. To merge all your data
 in one single data set, you need to use one of the `*_join()` functions of the
@@ -576,14 +688,12 @@ it is different. Below we illustrate the most common joins (so called
 
 As a guiding example we use the following two data sets:
 
-
-
 First, data on income inequality from the 
 [SWIID data base](https://fsolt.org/swiid/):
 
 
 ```r
-swiid_join
+gini_join
 ```
 
 ```
@@ -603,7 +713,7 @@ gdp_join
 ```
 ##    country year      gdp
 ## 1: Germany 2017 53071.46
-## 2: Germany 2018 53486.84
+## 2: Germany 2018 53431.39
 ## 3:  Greece 2017 28604.86
 ## 4:  Greece 2018 29141.17
 ```
@@ -628,13 +738,13 @@ an observation:
 
 
 ```r
-dplyr::left_join(x = gdp_join, y = swiid_join, by = c("country", "year"))
+dplyr::left_join(x = gdp_join, y = gini_join, by = c("country", "year"))
 ```
 
 ```
 ##    country year      gdp gini
 ## 1: Germany 2017 53071.46   NA
-## 2: Germany 2018 53486.84   NA
+## 2: Germany 2018 53431.39   NA
 ## 3:  Greece 2017 28604.86 32.2
 ## 4:  Greece 2018 29141.17   NA
 ```
@@ -645,7 +755,7 @@ which `y` contains an observation:
 
 
 ```r
-dplyr::right_join(x = gdp_join, y = swiid_join, by = c("country", "year"))
+dplyr::right_join(x = gdp_join, y = gini_join, by = c("country", "year"))
 ```
 
 ```
@@ -660,7 +770,7 @@ for which both `x` and `y` contain an observation (i.e. it never introduces
 
 
 ```r
-dplyr::inner_join(x = gdp_join, y = swiid_join, by = c("country", "year"))
+dplyr::inner_join(x = gdp_join, y = gini_join, by = c("country", "year"))
 ```
 
 ```
@@ -673,13 +783,13 @@ Finally, `dplyr::full_join()` contains all rows that occur at least in `x` *or*
 
 
 ```r
-dplyr::full_join(x = gdp_join, y = swiid_join, by = c("country", "year"))
+dplyr::full_join(x = gdp_join, y = gini_join, by = c("country", "year"))
 ```
 
 ```
 ##    country year      gdp gini
 ## 1: Germany 2017 53071.46   NA
-## 2: Germany 2018 53486.84   NA
+## 2: Germany 2018 53431.39   NA
 ## 3:  Greece 2017 28604.86 32.2
 ## 4:  Greece 2018 29141.17   NA
 ## 5:  Greece 2015       NA 33.1
@@ -691,22 +801,22 @@ data sets must be equal, otherwise R throws an error:
 
 
 ```r
-swiid_join <- dplyr::mutate(swiid_join, year=as.character(year))
-dplyr::left_join(x = gdp_join, y = swiid_join, by = c("country", "year"))
+gini_join <- dplyr::mutate(gini_join, year=as.character(year))
+dplyr::left_join(x = gdp_join, y = gini_join, by = c("country", "year"))
 ```
 
 ```
 ## Error in `dplyr::left_join()`:
-## ! Can't join on `x$year` x `y$year` because of incompatible types.
-## ℹ `x$year` is of type <integer>>.
-## ℹ `y$year` is of type <character>>.
+## ! Can't join `x$year` with `y$year` due to incompatible types.
+## ℹ `x$year` is a <integer>.
+## ℹ `y$year` is a <character>.
 ```
 
 Just enforce the correct data type before merging:
 
 
 ```r
-swiid_join %>% 
+gini_join %>% 
   dplyr::mutate(year=as.integer(year)) %>%
   dplyr::left_join(x = gdp_join, y = ., by = c("country", "year"))
 ```
@@ -714,7 +824,7 @@ swiid_join %>%
 ```
 ##    country year      gdp gini
 ## 1: Germany 2017 53071.46   NA
-## 2: Germany 2018 53486.84   NA
+## 2: Germany 2018 53431.39   NA
 ## 3:  Greece 2017 28604.86 32.2
 ## 4:  Greece 2018 29141.17   NA
 ```
@@ -724,10 +834,10 @@ vectors to `by`:
 
 
 ```r
-swiid_join <- swiid_join %>%
+gini_join <- gini_join %>%
   mutate(Year=as.double(year)) %>%
   select(-year)
-swiid_join
+gini_join
 ```
 
 ```
@@ -741,13 +851,13 @@ Then this does not work any more:
 
 ```r
 dplyr::left_join(
-  x = gdp_join, y = swiid_join, 
+  x = gdp_join, y = gini_join, 
   by = c("country", "year"))
 ```
 
 ```
 ## Error in `dplyr::left_join()`:
-## ! Join columns must be present in data.
+## ! Join columns in `y` must be present in the data.
 ## ✖ Problem with `year`.
 ```
 
@@ -756,19 +866,19 @@ But the named vector fixes it:
 
 ```r
 dplyr::left_join(
-  x = gdp_join, y = swiid_join, 
+  x = gdp_join, y = gini_join, 
   by = c("country", "year"="Year"))
 ```
 
 ```
 ##    country year      gdp gini
 ## 1: Germany 2017 53071.46   NA
-## 2: Germany 2018 53486.84   NA
+## 2: Germany 2018 53431.39   NA
 ## 3:  Greece 2017 28604.86 32.2
 ## 4:  Greece 2018 29141.17   NA
 ```
 
-# Grouping and summarising data
+## Grouping and summarising data
 
 The final challenge we consider involves the application of two functions
 (at least in most cases): `dplyr::group_by()` and `dplyr::summarize()`.
@@ -785,14 +895,14 @@ data_raw_grouped
 ```
 
 ```
-## # A tibble: 4 × 5
+## # A tibble: 4 × 4
 ## # Groups:   country [2]
-##   country  year unemp    gdp  gini
-##   <chr>   <int> <dbl>  <dbl> <dbl>
-## 1 Germany  2017  3.75 53071.  29.4
-## 2 Germany  2018  3.38 53487.  29.6
-## 3 Greece   2017 21.5  28605.  32.2
-## 4 Greece   2018 19.3  29141.  31.7
+##   country  year unemp    gdp
+##   <chr>   <int> <dbl>  <dbl>
+## 1 Germany  2017  3.75 53071.
+## 2 Germany  2018  3.38 53431.
+## 3 Greece   2017 21.5  28605.
+## 4 Greece   2018 19.3  29141.
 ```
 
 As you can see, the data set is now grouped by the variable `country`. We can
@@ -809,13 +919,13 @@ data_raw_grouped %>%
 ```
 
 ```
-## # A tibble: 4 × 5
-##   country  year unemp    gdp  gini
-##   <chr>   <int> <dbl>  <dbl> <dbl>
-## 1 Germany  2017  3.75 53071.  29.4
-## 2 Germany  2018  3.38 53487.  29.6
-## 3 Greece   2017 21.5  28605.  32.2
-## 4 Greece   2018 19.3  29141.  31.7
+## # A tibble: 4 × 4
+##   country  year unemp    gdp
+##   <chr>   <int> <dbl>  <dbl>
+## 1 Germany  2017  3.75 53071.
+## 2 Germany  2018  3.38 53431.
+## 3 Greece   2017 21.5  28605.
+## 4 Greece   2018 19.3  29141.
 ```
 
 They are most useful if used in conjunction with `dplyr::summarise()`, which
@@ -833,7 +943,7 @@ data_raw %>%
 
 ```
 ##    avg_gdp
-## 1 41076.08
+## 1 41062.22
 ```
 
 
@@ -848,7 +958,7 @@ data_raw_grouped %>%
 ## # A tibble: 2 × 2
 ##   country avg_gdp
 ##   <chr>     <dbl>
-## 1 Germany  53279.
+## 1 Germany  53251.
 ## 2 Greece   28873.
 ```
 
@@ -867,12 +977,14 @@ data_raw_grouped %>%
 ## # A tibble: 2 × 3
 ##   country avg_gdp median_unemp
 ##   <chr>     <dbl>        <dbl>
-## 1 Germany  53279.         3.57
+## 1 Germany  53251.         3.57
 ## 2 Greece   28873.        20.4
 ```
 
 Note that `dplyr::summarise()` drops all columns that it is not asked to 
-compute summary statistics for, except potential grouping variables.
+compute summary statistics for, except potential grouping variables. There 
+are also some advanced features of the functions, which are explained in
+the official [documentation](https://dplyr.tidyverse.org/reference/summarise.html).
 
 # A final example
 
@@ -890,8 +1002,9 @@ str(data_final_expl)
 ```
 
 ```
-## Classes 'data.table' and 'data.frame':	84 obs. of  4 variables:
+## Classes 'data.table' and 'data.frame':	88 obs. of  5 variables:
 ##  $ country: chr  "Austria" "Austria" "Austria" "Austria" ...
+##  $ iso3c  : chr  "AUT" "AUT" "AUT" "AUT" ...
 ##  $ year   : int  2000 2001 2002 2003 2004 2005 2006 2007 2008 2009 ...
 ##  $ unemp  : num  4.69 4.01 4.85 4.78 5.83 ...
 ##  $ gdp    : num  46470 46879 47419 47633 48633 ...
@@ -949,7 +1062,7 @@ data_final_expl %>%
 ## # A tibble: 4 × 3
 ##   country avg_unemp avg_gdp
 ##   <chr>       <dbl>   <dbl>
-## 1 Austria    -0.348   1899.
+## 1 Austria    -0.346   1899.
 ## 2 Germany    -4.18    3570.
 ## 3 Greece     11.5    -6234.
 ## 4 Italy       3.02   -3014.
