@@ -121,10 +121,11 @@ For more information on how to install and use the exercises, see the respective
 ## Sessions 8 and 9: Data wrangling {#s8}
 
 - Videos are available via Moodle
+- [Code for the videos and recap exercise solutions](https://gist.github.com/graebnerc/0bb370c67d51de50b8e1b591c2ac96c3)
+- [Data for video lecture and recaps](files/WranglingData.zip)
 - [Lecture notes](/notes/data-wrangling-lecture-notes/)
 - [Data for lecture notes](files/wrangling_data.zip)
 - [Exercise data](files/Wrangling-ExerciseData.zip)
-- [Code for the videos and recap exercise solutions](https://gist.github.com/graebnerc/0bb370c67d51de50b8e1b591c2ac96c3)
 
 ### Mandatory readings
 
