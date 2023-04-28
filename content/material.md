@@ -15,10 +15,11 @@ title: "Course material"
 |   [4](#s4)  | Mar 29, 2023| Advanced objects | [Slides](slides/T4-AdvObjects.pdf) | `ObjectTypes2` |
 |   5         | Mar 30, 2023| Recap & practice|  | 
 |   [6](#s6)  | Apr 06, 2023| Visualization | [Slides](slides/T6-Visualization.pdf)| `Visualization1` |
-|   [7](#s7)  | Oct 13, 2022| Project management and data import | [Slides](slides/T7-ProjectSetup.pdf) | `ProjectOrga` | 
-|   [8 & 9](#s8)  | Oct 26 & Nov 3, 2022| Data wrangling | [Slides](slides/T8-DataWrangling.pdf) | `Wrangling1` | 
+|   [7](#s7)  | Apr 20, 2022| Project management and data import | [Slides](slides/T7-ProjectSetup.pdf) | `ProjectOrga` | 
+|   [8 & 9](#s8)  | Apr 26 & Apr 27, 2023| Data wrangling | [Slides](slides/T8T9-DataWrangling.pdf) | `Wrangling1` | 
+|   [10](#s10)  | May 5, 2023| Exploratory data analysis (recap) | [Slides](slides/T10-ExplorativeDataAnalysis.pdf) |  | 
 <!--
-|   [10](#s10)  | Nov 10, 2022 | Quarto/R Markdown | [Slides](slides/T10-Quarto.pdf) | `Quarto` |
+|   [11](#s11)  | Nov 10, 2022 | Quarto/R Markdown | [Slides](slides/T10-Quarto.pdf) | `Quarto` |
 |   [11](#s11)  | Nov 16, 2022| Recap & practice | NA |
 |   [12](#s12)  | Nov 23, 2022| Recap of data wrangling | [Slides](slides/T12-RecapWrangling.pdf) |
 |   [13 & 14](#s13)  | Nov 24 & 30, 2022| Simple linear Regression I and II | [Slides](slides/T13T14-SimpleLinearRegression.pdf) | `LinearRegression1` | 
@@ -80,6 +81,7 @@ For more information on how to install and use the exercises, see the respective
 
 - [Tutorial: Vectors](/tutorial/object-types-vec/)
 
+
 ## Session 4: Advanced object types {#s4}
 
 - [Session notes](https://gist.github.com/graebnerc/f5d8203ec2c4973763b494628918ebe0)
@@ -118,6 +120,7 @@ For more information on how to install and use the exercises, see the respective
 - [Tutorial: How to organize your R project](/tutorial/setting-up-an-r-project/)
 - [Tutorial: Read and write data](/tutorial/importing-exporting-data/)
 
+
 ## Sessions 8 and 9: Data wrangling {#s8}
 
 - Videos are available via Moodle
@@ -137,8 +140,14 @@ For more information on how to install and use the exercises, see the respective
 - [dplyr cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf)
 - [tidyr cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/tidyr.pdf)
 
+
+## Session 10: Exploratory data analysis {#s10}
+
+- [Solutions to the in-class exercises](https://gist.github.com/graebnerc/5d5ec7591a45d6cbad3a58ddf06fff6b)
+- [Intermediate results: tidy data](files/S10-tidy-directory.zip)
+
 <!--
-## Session 10: Quarto/R Markdown {#s10} 
+## Session 11: Quarto/R Markdown {#s11} 
 
 - [DesasterMarkdown.pdf](files/DesasterMarkdown.pdf)
 - [NicerMarkdown.pdf](files/NicerMarkdown.pdf)
