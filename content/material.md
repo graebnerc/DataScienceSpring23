@@ -145,6 +145,7 @@ For more information on how to install and use the exercises, see the respective
 
 - [Solutions to the in-class exercises](https://gist.github.com/graebnerc/5d5ec7591a45d6cbad3a58ddf06fff6b)
 - [Intermediate results: tidy data](files/S10-tidy-directory.zip)
+- [Script used during the in-person lecture](https://gist.github.com/graebnerc/aab9dee424b1092df6774152d60cc4e6)
 
 <!--
 ## Session 11: Quarto/R Markdown {#s11} 
