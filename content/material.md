@@ -18,8 +18,8 @@ title: "Course material"
 |   [7](#s7)  | Apr 20, 2022| Project management and data import | [Slides](slides/T7-ProjectSetup.pdf) | `ProjectOrga` | 
 |   [8 & 9](#s8)  | Apr 26 & Apr 27, 2023| Data wrangling | [Slides](slides/T8T9-DataWrangling.pdf) | `Wrangling1` | 
 |   [10](#s10)  | May 5, 2023| Exploratory data analysis (recap) | [Slides](slides/T10-ExplorativeDataAnalysis.pdf) |  | 
+|   [11](#s11)  | Nov 10, 2022 | Quarto/R Markdown | [Slides](slides/T11-Quarto.pdf) | `Quarto` |
 <!--
-|   [11](#s11)  | Nov 10, 2022 | Quarto/R Markdown | [Slides](slides/T10-Quarto.pdf) | `Quarto` |
 |   [11](#s11)  | Nov 16, 2022| Recap & practice | NA |
 |   [12](#s12)  | Nov 23, 2022| Recap of data wrangling | [Slides](slides/T12-RecapWrangling.pdf) |
 |   [13 & 14](#s13)  | Nov 24 & 30, 2022| Simple linear Regression I and II | [Slides](slides/T13T14-SimpleLinearRegression.pdf) | `LinearRegression1` | 
