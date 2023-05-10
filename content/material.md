@@ -147,12 +147,15 @@ For more information on how to install and use the exercises, see the respective
 - [Intermediate results: tidy data](files/S10-tidy-directory.zip)
 - [Script used during the in-person lecture](https://gist.github.com/graebnerc/aab9dee424b1092df6774152d60cc4e6)
 
-<!--
+
 ## Session 11: Quarto/R Markdown {#s11} 
 
 - [DesasterMarkdown.pdf](files/DesasterMarkdown.pdf)
 - [NicerMarkdown.pdf](files/NicerMarkdown.pdf)
+
+<!--
 - [Code for the markdown desaster and a possible solution](https://gist.github.com/graebnerc/44b82add84b1d5cb89d28574ae89ed02)
+
 
 ### Mandatory readings
 
