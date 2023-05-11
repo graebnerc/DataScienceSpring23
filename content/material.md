@@ -18,9 +18,9 @@ title: "Course material"
 |   [7](#s7)  | Apr 20, 2022| Project management and data import | [Slides](slides/T7-ProjectSetup.pdf) | `ProjectOrga` | 
 |   [8 & 9](#s8)  | Apr 26 & Apr 27, 2023| Data wrangling | [Slides](slides/T8T9-DataWrangling.pdf) | `Wrangling1` | 
 |   [10](#s10)  | May 5, 2023| Exploratory data analysis (recap) | [Slides](slides/T10-ExplorativeDataAnalysis.pdf) |  | 
-|   [11](#s11)  | Nov 10, 2022 | Quarto/R Markdown | [Slides](slides/T11-Quarto.pdf) | `Quarto` |
+|   [11](#s11)  | May 10, 2023 | Quarto/R Markdown | [Slides](slides/T11-Quarto.pdf) | `Quarto` |
+|   [12](#s12)  | May 11, 2023| Recap & practice | NA |
 <!--
-|   [11](#s11)  | Nov 16, 2022| Recap & practice | NA |
 |   [12](#s12)  | Nov 23, 2022| Recap of data wrangling | [Slides](slides/T12-RecapWrangling.pdf) |
 |   [13 & 14](#s13)  | Nov 24 & 30, 2022| Simple linear Regression I and II | [Slides](slides/T13T14-SimpleLinearRegression.pdf) | `LinearRegression1` | 
 |   [15 & 16](#s15)  | Dec 1 & Dec 7, 2022| Multiple linear Regression I and II | [Slides](slides/T15T16-MultipleLinearRegression.pdf) | `LinearRegression2` | 
@@ -171,6 +171,10 @@ For more information on how to install and use the exercises, see the respective
 
 The practical exercise for this topic can be found 
 [here](/tutorial/quarto-exercises/).
+
+## Session 12: Recap and questions {#s12} 
+
+- [Script from the lecture](https://gist.github.com/graebnerc/e4fc9795d4b57f3de2bacd120e563af8)
 
 <!--
 
