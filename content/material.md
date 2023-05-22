@@ -46,7 +46,7 @@ For more information on how to install and use the exercises, see the respective
 
 ## Session 1: Introduction and installation {#s1}
 
-- Lecture videos available via Moodle
+- [Lecture videos](https://youtube.com/playlist?list=PLZDawQMrG1RImURlbldAF773MDRqeARNu)
 
 ### Mandatory readings
 
@@ -58,7 +58,7 @@ For more information on how to install and use the exercises, see the respective
 ## Session 2: Basics of R and R-Studio {#s2}
 
 - [Lecture notes and exercise solutions](https://gist.github.com/graebnerc/2682bb2d872eb613bdea70f6f9f974b9)
-- Lecture videos available via Moodle
+- [Lecture videos](https://youtube.com/playlist?list=PLZDawQMrG1RLPfd_e-ktZ_IIg9Kkbr16a)
 
 ### Mandatory readings
 
@@ -73,7 +73,7 @@ For more information on how to install and use the exercises, see the respective
 
 ## Session 3: Basic object types {#s3}
 
-- Lecture videos available via Moodle
+- [Lecture videos](https://youtube.com/playlist?list=PLZDawQMrG1RJ1oZwuZtiG0fOWSOgyZhYC)
 - [Exercises for class](/tutorial/obj-types-exercises/)
 - [Solutions to the exercises](https://gist.github.com/graebnerc/bda112996a91b9fddee366eb5e713d91)
 
