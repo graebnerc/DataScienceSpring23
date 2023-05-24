@@ -20,6 +20,7 @@ title: "Course material"
 |   [10](#s10)  | May 5, 2023| Exploratory data analysis (recap) | [Slides](slides/T10-ExplorativeDataAnalysis.pdf) |  | 
 |   [11](#s11)  | May 10, 2023 | Quarto/R Markdown | [Slides](slides/T11-Quarto.pdf) | `Quarto` |
 |   [12](#s12)  | May 11, 2023| Recap & practice | NA |
+|   [13](#s13)  | May 25, 2023| Introduction to data analysis | NA |
 <!--
 |   [12](#s12)  | Nov 23, 2022| Recap of data wrangling | [Slides](slides/T12-RecapWrangling.pdf) |
 |   [13 & 14](#s13)  | Nov 24 & 30, 2022| Simple linear Regression I and II | [Slides](slides/T13T14-SimpleLinearRegression.pdf) | `LinearRegression1` | 
@@ -175,6 +176,12 @@ The practical exercise for this topic can be found
 ## Session 12: Recap and questions {#s12} 
 
 - [Script from the lecture](https://gist.github.com/graebnerc/e4fc9795d4b57f3de2bacd120e563af8)
+
+## Session 13: Introduction to data analysis {#s13} 
+
+### Mandatory reading
+
+- [James et al. (2021)](https://www.statlearning.com/): Introduction and Section 2.1.
 
 <!--
 
