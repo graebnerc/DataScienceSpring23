@@ -164,7 +164,7 @@ All pages not under the root directory of the website are listed below. This inc
       
       <guid>https://datascience-euf-spring23.netlify.app/material/</guid>
       <description>Course outline
-Slides and exercises    Session Date Topic Slides Exercise code     1 Mar 15, 2023 General introduction Slides    2 Mar 16, 2023 Basics of R and R-Studio Slides Basics   3 Sep 29, 2022 Basic objects Slides ObjectTypes1   4 Oct 5, 2022 Advanced objects Slides ObjectTypes2    To start the respective exercises execute the following code, substituting ExCode with the code given in the column &amp;lsquo;Exercise code&amp;rsquo; in the table above:</description>
+Slides and exercises    Session Date Topic Slides Exercise code     1 Mar 15, 2023 General introduction Slides    2 Mar 16, 2023 Basics of R and R-Studio Slides Basics   3 Mar 23, 2023 Basic objects Slides ObjectTypes1   4 Mar 29, 2023 Advanced objects Slides ObjectTypes2   5 Mar 30, 2023 Recap &amp;amp; practice     6 Apr 06, 2023 Visualization Slides Visualization1   7 Apr 20, 2022 Project management and data import Slides ProjectOrga   8 &amp;amp; 9 Apr 26 &amp;amp; Apr 27, 2023 Data wrangling Slides Wrangling1   10 May 5, 2023 Exploratory data analysis (recap) Slides    11 May 10, 2023 Quarto/R Markdown Slides Quarto   12 May 11, 2023 Recap &amp;amp; practice NA    13 May 25, 2023 Introduction to data analysis Slides    14 Jun 01, 2023 Sampling Slides Sampling    To start the respective exercises execute the following code, substituting ExCode with the code given in the column &amp;lsquo;Exercise code&amp;rsquo; in the table above:</description>
     </item>
     
     <item>

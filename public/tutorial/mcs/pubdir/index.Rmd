@@ -1,7 +1,7 @@
 ---
 title: "Monte Carlo Simulations in R"
 author: Claudius Gräbner-Radkowitsch
-date: '2023-03-09'
+date: '2023-05-25'
 slug: mcs
 documentclass: scrartcl
 categories:
@@ -66,7 +66,7 @@ way to achieve automation: the use of functions.
 Here we talk about a general approach that complements the use of functions 
 when it comes to automation: the idea of *iteration*. 
 
-There are two alternative ways of how to implement iterations in R:
+Here we focus on two alternative ways of how to implement iterations in R:
 using `for`-loops, or a `map`-function from the package
 [purrr](https://purrr.tidyverse.org/). 
 The latter option is clearer and more concise, the former is more 
@@ -108,7 +108,7 @@ for (i in seq_along(base_list)) { # The looping sequence
 }
 ```
 
-The **first part** is actually located outside the for loop in a strict sense.
+The **first part** is actually located outside the for-loop in a strict sense.
 But for the sake of efficiency, it is very important that you prepare a
 vector into which you can save the results of your loop. The vector should be
 of the same length as your loop will have iterations, and it is a good idea to
@@ -133,7 +133,7 @@ above, this sequence is created by `seq_along(base_list)`:
 seq_along(base_list)
 ```
 
-As you can see it is an index vector, i.e. a vector that starts with 1, only
+As you can see it is an index vector, i.e. a vector that starts with `1`, only
 contains subsequent integers, and has so many elements as the object that 
 has been passed as an argument to `seq_along()`.
 
@@ -183,7 +183,7 @@ print(result) # NAs were replaced by the means
 While the loop above was very simple, the basic concept is extremely powerful:
 the action body of a loop can be of arbitrary complexity, making for loops a 
 very powerful programming tool. But caution: very complex computations take 
-time, and iterating them many times using a for loop can take a lot of time.
+time, and iterating them many times using a for-loop can take a lot of time.
 
 Here are some general tips for developing for-loops:
 
@@ -193,10 +193,10 @@ be you can extend the looping sequence.
 * When developing a loop, make sure that everything goes as planned by adding
 many `print()` statements into the action body; this is especially useful for
 your looping keyword `i` since this makes explicit what you are actually looping
-over
+over.
 * Always loop over the indices of the object of interest, never over its elements.
 If you just want to iterate a task, you can loop over the indices of a 
-simple sequence of the desired lenght. In any case, the looping sequence should
+simple sequence of the desired length. In any case, the looping sequence should
 be built by using `seq_along()` or `seq_len()`.
 
 Before proceeding with the tutorial, it might be a good idea to practice. 
@@ -241,7 +241,7 @@ the form of an atomic vector of type
 
 All five functions, however, work very similarly and take the same arguments,
 which means: once you understood one of them you understood all of them.
-All of them take two mandatory arguments: `.x` and `.f`.
+All take two mandatory arguments: `.x` and `.f`.
 The first argument, `.x`, specifies a vector, and the second, `.f`, a function 
 that gets applied to each element of the vector.
 
@@ -275,14 +275,14 @@ purrr::map_dbl(.x = input_vec, .f = mean)
 To avoid this we need to set the optional argument `na.rm` of `mean()` to `TRUE`:
 
 ```{r}
-purrr::map_dbl(.x = input_vec, .f = ~mean(.x, na.rm=TRUE))
+purrr::map_dbl(.x = input_vec, .f = ~mean(x = .x, na.rm=TRUE))
 ```
 
-As you can see we added a `~` in front of the function name and then referred 
-to the first argument of the function and over which we want to iterate as `.x`. 
+As you can see we added a `~` in front of the function name and then passed 
+to the first argument of the function the object over which we want to iterate as `.x`. 
 Then we can add additional arguments as desired.
 
-Its now a good idea to practice the use of the map-functions. Note that the
+It is now a good idea to practice the use of the map-functions. Note that the
 exercises are very similar to the ones from the section on for-loops above.
 This is because for-loops and the map-functions are geared to do the same things
 just in different ways (again, the solutions can be found 
@@ -332,7 +332,7 @@ throw the coin many times to figure our the probability for the coin to show
 
 In the first step we need to **define the random process**. In the present case
 this is the process of throwing a coin that shows 'head' with a certain 
-probability.^[In reality such an experiment only makes sense if we *do not* now
+probability.^[In reality such an experiment only makes sense if we *do not* know
 this probability, but here we are dealing with this situation only for the 
 purpose of illustration.] 
 To this end, we define a function that does exactly this:
