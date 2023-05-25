@@ -20,7 +20,8 @@ title: "Course material"
 |   [10](#s10)  | May 5, 2023| Exploratory data analysis (recap) | [Slides](slides/T10-ExplorativeDataAnalysis.pdf) |  | 
 |   [11](#s11)  | May 10, 2023 | Quarto/R Markdown | [Slides](slides/T11-Quarto.pdf) | `Quarto` |
 |   [12](#s12)  | May 11, 2023| Recap & practice | NA |
-|   [13](#s13)  | May 25, 2023| Introduction to data analysis | NA |
+|   [13](#s13)  | May 25, 2023| Introduction to data analysis | [Slides](slides/T13-DataAnalysis.pdf) |
+|   [14](#s14)  | Jun 01, 2023| Sampling | [Slides](slides/T14-Sampling.pdf) | `Sampling` |
 <!--
 |   [12](#s12)  | Nov 23, 2022| Recap of data wrangling | [Slides](slides/T12-RecapWrangling.pdf) |
 |   [13 & 14](#s13)  | Nov 24 & 30, 2022| Simple linear Regression I and II | [Slides](slides/T13T14-SimpleLinearRegression.pdf) | `LinearRegression1` | 
@@ -182,6 +183,13 @@ The practical exercise for this topic can be found
 ### Mandatory reading
 
 - [James et al. (2021)](https://www.statlearning.com/): Introduction and Section 2.1.
+
+## Session 14: Sampling {#s14} 
+
+### Mandatory reading
+
+- [Tutorial on iteration and Monte Carlo Simulations](/tutorial/mcs/)
+- [Statistical Inference via Data Science, Chapter 7: Sampling](https://moderndive.com/7-sampling.html) 
 
 <!--
 
