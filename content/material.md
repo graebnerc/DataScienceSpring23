@@ -186,6 +186,8 @@ The practical exercise for this topic can be found
 
 ## Session 14: Sampling {#s14} 
 
+- [Script from the lecture and solution to exercises](https://gist.github.com/graebnerc/ad69c3d843b8e20da23f99752082ae43)
+
 ### Mandatory reading
 
 - [Tutorial on iteration and Monte Carlo Simulations](/tutorial/mcs/)
