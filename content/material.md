@@ -22,6 +22,9 @@ title: "Course material"
 |   [12](#s12)  | May 11, 2023| Recap & practice | NA |
 |   [13](#s13)  | May 25, 2023| Introduction to data analysis | [Slides](slides/T13-DataAnalysis.pdf) |
 |   [14](#s14)  | Jun 01, 2023| Sampling | [Slides](slides/T14-Sampling.pdf) | `Sampling` |
+|   [15](#s15)  | Jun 07 & 08, 2023 | Simple linear Regression | [Slides](slides/T13T14-SimpleLinearRegression.pdf) | `LinearRegression1` | 
+|   [16](#s15)  | Jun 15, 2023 | Multiple linear Regression | Slides | `LinearRegression2` | 
+
 <!--
 |   [12](#s12)  | Nov 23, 2022| Recap of data wrangling | [Slides](slides/T12-RecapWrangling.pdf) |
 |   [13 & 14](#s13)  | Nov 24 & 30, 2022| Simple linear Regression I and II | [Slides](slides/T13T14-SimpleLinearRegression.pdf) | `LinearRegression1` | 
@@ -192,6 +195,24 @@ The practical exercise for this topic can be found
 
 - [Tutorial on iteration and Monte Carlo Simulations](/tutorial/mcs/)
 - [Statistical Inference via Data Science, Chapter 7: Sampling](https://moderndive.com/7-sampling.html) 
+
+## Sessions 15 & 16: Linear regression {#s15} 
+
+- [Exercises](/tutorial/multiple-regression/)
+
+<!---
+- [Exercise solutions](https://gist.github.com/graebnerc/207117d4a87025a3c64d27d8358c275b)
+--->
+
+- [Guess the correlation browser game](http://guessthecorrelation.com/)
+
+### Mandatory readings
+
+- [Statistical Inference via Data Science, Chapter 5: Basic regression](https://moderndive.com/5-regression.html) 
+- [Statistical Inference via Data Science, Chapter 6: Multiple regression](https://moderndive.com/6-multiple-regression.html) 
+
+### Further readings
+- [James et al. (2021)](https://www.statlearning.com/): Chapter 3
 
 <!--
 
