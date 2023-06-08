@@ -16,7 +16,7 @@ title: "Course material"
 |   5         | Mar 30, 2023| Recap & practice|  | 
 |   [6](#s6)  | Apr 06, 2023| Visualization | [Slides](slides/T6-Visualization.pdf)| `Visualization1` |
 |   [7](#s7)  | Apr 20, 2022| Project management and data import | [Slides](slides/T7-ProjectSetup.pdf) | `ProjectOrga` | 
-|   [8 & 9](#s8)  | Apr 26 & Apr 27, 2023| Data wrangling | [Slides](slides/T8T9-DataWrangling.pdf) | `Wrangling1` | 
+|   [8 & 9](#s8)  | Apr 26 & Apr 27, 2023| Data wrangling | [Slides](slides/T8T9-DataWrangling.pdf) | `Wrangling1`, `Wrangling2` | 
 |   [10](#s10)  | May 5, 2023| Exploratory data analysis (recap) | [Slides](slides/T10-ExplorativeDataAnalysis.pdf) |  | 
 |   [11](#s11)  | May 10, 2023 | Quarto/R Markdown | [Slides](slides/T11-Quarto.pdf) | `Quarto` |
 |   [12](#s12)  | May 11, 2023| Recap & practice | NA |
@@ -134,6 +134,9 @@ For more information on how to install and use the exercises, see the respective
 - [Lecture notes](/notes/data-wrangling-lecture-notes/)
 - [Data for lecture notes](files/wrangling_data.zip)
 - [Exercise data](files/Wrangling-ExerciseData.zip)
+
+*Note: The exercise `Wrangling2` is an optional extension with new data sets*
+*on which you can practice your data wrangling skills.*
 
 ### Mandatory readings
 
