@@ -22,8 +22,8 @@ title: "Course material"
 |   [12](#s12)  | May 11, 2023| Recap & practice | NA |
 |   [13](#s13)  | May 25, 2023| Introduction to data analysis | [Slides](slides/T13-DataAnalysis.pdf) |
 |   [14](#s14)  | Jun 01, 2023| Sampling | [Slides](slides/T14-Sampling.pdf) | `Sampling` |
-|   [15](#s15)  | Jun 07 & 08, 2023 | Simple linear Regression | [Slides](slides/T13T14-SimpleLinearRegression.pdf) | `LinearRegression1` | 
-|   [16](#s15)  | Jun 15, 2023 | Multiple linear Regression | Slides | `LinearRegression2` | 
+|   [15](#s15)  | Jun 07 & 08, 2023 | Simple linear Regression | [Slides](slides/T15-SimpleLinearRegression.pdf) | `LinearRegression1` | 
+|   [16](#s15)  | Jun 15, 2023 | Multiple linear Regression | [Slides](slides/T16-MultipleLinearRegression.pdf) | `LinearRegression2` | 
 
 <!--
 |   [12](#s12)  | Nov 23, 2022| Recap of data wrangling | [Slides](slides/T12-RecapWrangling.pdf) |
