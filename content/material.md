@@ -217,56 +217,7 @@ The practical exercise for this topic can be found
 ### Further readings
 - [James et al. (2021)](https://www.statlearning.com/): Chapter 3
 
-<!--
-
-## Session 12: Recap of data wrangling {#s12}
-
-- [Example data](files/T12-ExampleData.zip)
-- [Solutions to the exercises](https://gist.github.com/graebnerc/9291201a7d4a3ba7496e75b096453cf4)
-
-## Sessions 13 & 14: Simple linear regression {#s13} 
-
-- [Exercise solutions](https://gist.github.com/graebnerc/207117d4a87025a3c64d27d8358c275b)
-- [Guess the correlation browser game](http://guessthecorrelation.com/)
-
-### Mandatory readings
-
-- [Statistical Inference via Data Science, Chapter 5: Basic regression](https://moderndive.com/5-regression.html) 
-
-
-## Sessions 15 & 16: Multiple linear regression {#s15} 
-
-- [Exercises](/tutorial/multiple-regression/)
-
-### Mandatory readings
-
-- [Statistical Inference via Data Science, Chapter 6: Multiple regression](https://moderndive.com/6-multiple-regression.html) 
--->
-
-<!--
-## Sessions 17: Regression diagnostics and sampling {#s16} 
-
-TBA
-- [Slides](slides/T14-SamplingTheory.pdf)
-- [Lecture scripts from the session and exercise solutions](https://gist.github.com/graebnerc/822ddd3e0d316aae9dda7b5afbe11685)
-
-### Mandatory readings
-
-- [Statistical Inference via Data Science, Chapter 7: Sampling](https://moderndive.com/7-sampling.html) 
-- [Tutorial: Monte Carlo Simulations in R](/tutorial/mcs/)
-
-### Exercises
-
-```
-learnr::run_tutorial(
-  name = "Sampling", 
-  package = "DataScienceExercises", 
-  shiny_args=list("launch.browser"=TRUE))
-```
-
-
-## Session 17: Recap and practice {#s17}
-
-TBA
-
--->
+<!---
+## Session 18: Selected machine learning tools {#s18} 
+## Session 19: Recap and practice {#s19} 
+--->
