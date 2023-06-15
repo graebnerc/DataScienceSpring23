@@ -199,14 +199,10 @@ The practical exercise for this topic can be found
 - [Tutorial on iteration and Monte Carlo Simulations](/tutorial/mcs/)
 - [Statistical Inference via Data Science, Chapter 7: Sampling](https://moderndive.com/7-sampling.html) 
 
-## Sessions 15 & 16: Linear regression {#s15} 
+## Sessions 15 - 18: Linear regression {#s15} 
 
-- [Exercises](/tutorial/multiple-regression/)
-
-<!---
-- [Exercise solutions](https://gist.github.com/graebnerc/207117d4a87025a3c64d27d8358c275b)
---->
-
+- [Exercise solutions and figures in slides](https://gist.github.com/graebnerc/2696373159c2853ef28d1bc60d529dc8)
+- [Additional exercises](/tutorial/multiple-regression/)
 - [Guess the correlation browser game](http://guessthecorrelation.com/)
 
 ### Mandatory readings
