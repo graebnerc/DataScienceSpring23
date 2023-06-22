@@ -216,7 +216,7 @@ The practical exercise for this topic can be found
 ## Final recap session
 
 - [Tasks](files/recap/Recap.pdf)
-- [Data](files/recap/data_zip)
+- [Data](files/recap/data.zip)
 - [Possible solutions]()
 
 <!---
