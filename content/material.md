@@ -217,7 +217,8 @@ The practical exercise for this topic can be found
 
 - [Tasks](files/recap/Recap.pdf)
 - [Data](files/recap/data.zip)
-- [Possible solutions]()
+- [Possible solutions](files/recap/Recap_solution.pdf)
+- [In-class solutions](https://gist.github.com/graebnerc/1ed64ed3e30a0a80d41e6381aabc2e32)
 
 <!---
 ## Session 18: Selected machine learning tools {#s18} 
