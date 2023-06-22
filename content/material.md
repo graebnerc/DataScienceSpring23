@@ -213,6 +213,12 @@ The practical exercise for this topic can be found
 ### Further readings
 - [James et al. (2021)](https://www.statlearning.com/): Chapter 3
 
+## Final recap session
+
+- [Tasks](files/recap/Recap.pdf)
+- [Data](files/recap/data_zip)
+- [Possible solutions]()
+
 <!---
 ## Session 18: Selected machine learning tools {#s18} 
 ## Session 19: Recap and practice {#s19} 
